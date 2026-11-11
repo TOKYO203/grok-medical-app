@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "case_id": "ENDO-HYPO-001",
+  "steps": [
+    {
+      "kind": "reveal",
+      "title": "Motif",
+      "body": "Fatigue croissante depuis 8 mois, sommeil non réparateur, frilosité marquée (couverture supplémentaire la nuit), prise de 6 kg sans changement alimentaire, constipation opiniâtre. Peau sèche, cheveux qui tombent, voix un peu enrouée selon l'entourage."
+    },
+    {
+      "kind": "reveal",
+      "title": "Examen",
+      "body": "TA 132/84, FC 56/min, température 35,8 °C. Peau sèche et froide, visage un peu bouffi, taches autour des yeux. Goitre homogène de petite taille, non douloureux, sans adénopathie. Réflexes achilléens lents à la détente. Bradypsychie discrète, pas de confusion."
+    },
+    {
+      "kind": "reveal",
+      "title": "Compléments",
+      "body": "TSH 42 mUI/L (normale 0,4-4), T4 libre basse à 6 pmol/L. Hb 11,2 g/dL, VGM 88 fL. Créatinine normale. Cholestérol total 2,6 g/L avec LDL élevé. CPK modérément augmentée. Échographie thyroïdienne programmée en ville."
+    },
+    {
+      "kind": "question",
+      "prompt": "Le diagnostic est :",
+      "choices": [
+        "Hypothyroïdie périphérique franche (TSH élevée, T4 basse) sur thyroïdite auto-immune probable",
+        "Hyperthyroïdie fruste",
+        "Goitre simple compensé euthyroïdien",
+        "Syndrome de Cushing"
+      ],
+      "correct": 0,
+      "explanation": "TSH très élevée avec T4 libre basse = hypothyroïdie périphérique franche. Les signes (bradycardie, frilosité, constipation, réflexes lents, prise de poids) sont cohérents. L'hyperthyroïdie donne l'inverse (tachycardie, amaigrissement, thermophobie) ; un goitre compensé garde une TSH normale ; le Cushing ne s'accompagne pas de TSH élevée."
+    },
+    {
+      "kind": "question",
+      "prompt": "Chez cette patiente, l'examen complémentaire le plus utile est :",
+      "choices": [
+        "Dosage des anticorps anti-thyroperoxydase (anti-TPO) et échographie thyroïdienne",
+        "Scanner cérébral avec injection",
+        "Ponction du goitre systématique",
+        "Scintigraphie thyroïdienne en urgence"
+      ],
+      "correct": 0,
+      "explanation": "Les anticorps anti-TPO confirment la thyroïdite auto-immune (maladie de Hashimoto), cause la plus fréquente d'hypothyroïdie ; l'échographie précise la structure du goitre. La scintigraphie n'est pas indiquée dans l'hypothyroïdie franche auto-immune, la ponction est réservée aux nodules suspects, le scanner cérébral n'a aucun intérêt ici."
+    },
+    {
+      "kind": "question",
+      "prompt": "Le traitement de référence est :",
+      "choices": [
+        "Lévothyroxine orale à dose progressive, avec contrôle de la TSH à 6-8 semaines",
+        "Traitement par extraits thyroïdiens « naturels » non dosés",
+        "Corticoïdes au long cours",
+        "Chirurgie thyroïdienne d'emblée"
+      ],
+      "correct": 0,
+      "explanation": "La lévothyroxine est le traitement substitutif de référence, débutée à dose adaptée au poids (et à moitié dose chez le sujet âgé ou coronarien), puis titrée sur la TSH à 6-8 semaines. Les extraits non dosés exposent à des imprécisions, la chirurgie n'a pas d'indication dans une thyroïdite diffuse, et la corticothérapie est inutile."
+    },
+    {
+      "kind": "question",
+      "prompt": "Chez un patient âgé coronarien avec la même maladie, la particularité du traitement est :",
+      "choices": [
+        "Début à très faible dose et augmentation très progressive pour éviter l'angor ou le trouble du rythme",
+        "Dose pleine d'emblée pour corriger vite",
+        "Lévothyroxine IV en perfusion continue",
+        "Abstention thérapeutique définitive"
+      ],
+      "correct": 0,
+      "explanation": "La substitution thyroïtienne chez le coronarien doit être prudente : la hausse du métabolisme peut démasquer une insuffisance coronaire ou déclencher une angine ou une fibrillation atriale. On commence à 12,5-25 µg/jour avec titration lente et surveillance clinique et ECG."
+    }
+  ],
+  "diagnosis": "Hypothyroïdie périphérique franche (TSH 42 mUI/L, T4 libre basse) sur thyroïdite auto-immune probable ( Hashimoto), avec goitre homogène, anémie discrète et dyslipidémie secondaire.",
+  "management": "Substitution par lévothyroxine orale à dose progressive selon le poids, contrôle TSH à 6-8 semaines puis ajustement, dosage des anti-TPO et échographie pour confirmer la thyroïdite, prise en charge de l'anémie et réévaluation de la dyslipidémie après normalisation thyroidienne, éducation : prise à jeun à distance des repas, observance à vie, signes d'excès (palpitations, amaigrissement, insomnie) et de sous-dosage. Suivi semestriel à annuel une fois équilibrée.",
+  "pitfall": "Le piège de la fatigue banalisée : une asthénie prolongée avec prise de poids et constipation est souvent attribuée au « surmenage » ou à l'anémie. Une TSH devant ce tableau est un réflexe simple qui évite des années de substitution manquée. Autre piège : commencer la substitution à pleine dose chez un sujet âgé ou coronarien.",
+  "keyTakeaway": "TSH élevée + T4 basse = hypothyroïdie franche : substituer par lévothyroxine progressive et titrer sur la TSH à 6-8 semaines. Penser aux anticorps anti-TPO pour confirmer Hashimoto. Chez le coronarien : dose de départ très faible."
+}

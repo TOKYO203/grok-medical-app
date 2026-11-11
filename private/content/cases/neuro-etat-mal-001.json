@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "case_id": "NEURO-ETAT-MAL-001",
+  "steps": [
+    {
+      "kind": "reveal",
+      "title": "Motif",
+      "body": "Transfert par taxi-brousse : crises tonico-cloniques généralisées se succédant sans reprise de conscience depuis environ 25 minutes selon l'entourage. Morsure de langue, urine perdue. Aucun traitement donné sur place."
+    },
+    {
+      "kind": "reveal",
+      "title": "Examen",
+      "body": "Coma postcritique, Glasgow 7, myosis réactif, respiration encombrée, SpO2 88 % en air, T 38,4 °C, TA 158/92, FC 118. Morsure latérale de la langue, pouls fémoraux présents. Pas de raideur de nuque, pas de signe de trauma crânien."
+    },
+    {
+      "kind": "reveal",
+      "title": "Compléments",
+      "body": "Glycémie capillaire 1,10 g/L. Hémogramme et ionogramme en cours. Pas d'antécédent de diabète. Le patient a vomi pendant le transport."
+    },
+    {
+      "kind": "question",
+      "prompt": "La conduite immédiate correcte est :",
+      "choices": [
+        "Mettre en position latérale de sécurité, oxygéner, aspiration, glycémie capillaire, puis benzodiazépine IV (diazépam ou lorazépam) à dose adaptée sans attendre d'autres examens",
+        "Scanner cérébral avant tout traitement",
+        "Attendre la fin spontanée de la crise sous simple surveillance",
+        "Phénobarbital IM en première intention immédiate"
+      ],
+      "correct": 0,
+      "explanation": "État de mal épileptique convulsif au-delà de 5 minutes : mesures vitales d'abord (libération des voies aériennes, position latérale, oxygène) et benzodiazépine IV dès que l'abord veineux est posé. La glycémie capillaire est le seul examen qui ne doit pas attendre ; l'imagerie se discute après contrôle des crises. Attendre prolonge les lésions neuronales ; le phénobarbital IM n'est un choix de première ligne que lorsque l'abord veineux est impossible (situation de terrain où il peut sauver, mais ici la voie veineuse est réalisable)."
+    },
+    {
+      "kind": "question",
+      "prompt": "Si les crises persistent après une benzodiazépine bien conduite, le traitement de deuxième ligne est :",
+      "choices": [
+        "Nouvelle benzodiazépine seule à doses répétées",
+        "Anticonvulsivant de deuxième ligne IV selon les moyens disponibles : phénobarbital, phénytoïne ou valproate de sodium, en unité de soins intensifs si possible",
+        "Curare et sédation profonde au lit, sans anticonvulsivant",
+        "Thiopental d'emblée en première ligne"
+      ],
+      "correct": 1,
+      "explanation": "Après échec des benzodiazépines, l'état de mal devient réfractaire et impose un anticonvulsivant IV de deuxième ligne (phénobarbital, phénytoïne ou valproate selon disponibilité locale), avec monitoring respiratoire et hémodynamique. Le thiopental est réservé à l'état de mal super-réfractaire en réanimation ; les benzodiazépines répétées seules exposent à la dépression respiratoire ; un curare sans anticonvulsivant masque les convulsions sans traiter le cerveau."
+    },
+    {
+      "kind": "question",
+      "prompt": "Après le contrôle des crises, l'étape indispensable est :",
+      "choices": [
+        "Rechercher la cause : observance interrompue documentée ici, mais aussi infection, alcool, trouble métabolique ; reprise d'un traitement anticonvulsivant adapté, éducation et plan écrit de reprise de traitement",
+        "Conseiller d'arrêter définitivement le traitement car la crise est passée",
+        "Ne rien changer car l'épilepsie est incurable",
+        "Attendre un scanner normal avant toute reprise du traitement"
+      ],
+      "correct": 0,
+      "explanation": "La première cause d'état de mal chez un épileptique connu est l'arrêt du traitement : la reprise d'un anticonvulsivant, l'éducation sur l'observance et les facteurs déclenchants (alcool, manque de sommeil) préviennent la récidive, qui est mortelle dans une proportion non négligeable des cas. L'infection et les troubles métaboliques restent à écarter systématiquement (fièvre à 38,4 °C ici : pneumonie d'inhalation à suspecter)."
+    }
+  ],
+  "diagnosis": "État de mal épileptique convulsif généralisé sur interruption du traitement antiépileptique, avec trouble de conscience persistant, hypoxémie et suspicion d'inhalation.",
+  "management": "Position latérale de sécurité, oxygénothérapie, aspiration, glycémie capillaire immédiate, benzodiazépine IV, anticonvulsivant de deuxième ligne si échec, surveillance en soins intensifs (respiratoire, Glasgow, température), antibiothérapie si pneumonie d'inhalation confirmée, bilan étiologique (ionogramme, infection), reprise d'un traitement anticonvulsivant oral adapté et éducation thérapeutique avec implication de la famille, suivi neurologique rapproché et plan de secours écrit pour les crises futures.",
+  "pitfall": "Le piège du « il va se réveiller tout seul » : une crise qui dure ou qui se répète sans réveil est un état de mal, urgence vitale — chaque minute compte pour le cerveau. Autre piège : traiter la convulsion sans reprendre le traitement de fond, c'est préparer la prochaine fois.",
+  "keyTakeaway": "Convulsions au-delà de 5 minutes = état de mal : benzodiazépine IV après mesures vitales et glycémie capillaire, deuxième ligne IV si échec, puis cause à chercher — l'arrêt du traitement est le coupable numéro un. Reprise du fond + éducation = prévention de la récidive."
+}

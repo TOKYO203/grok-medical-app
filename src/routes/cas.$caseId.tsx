@@ -20,6 +20,7 @@ import { Page, Shell } from "@/components/shell";
 import { Button } from "@/components/ui/button";
 import { buttonVariants } from "@/components/ui/button-variants";
 import { CLINICAL_CASES, getBuiltinDeck, getCase, useCatalogVersion } from "@/content/catalog";
+import { caseStepCount } from "@/lib/case-step-count";
 import { PRICES_MGA, formatPrice } from "@/content/pricing";
 import { caseXp } from "@/core/quiz-engine";
 import { hasEntitlement, useOptimus } from "@/state/store";
@@ -62,8 +63,11 @@ const CONFIDENCE = [
  * décision, plancher de 2 min — de quoi choisir son cas selon son temps.
  */
 function caseDurationMinutes(clinical: ClinicalCase): number {
+  // Un dossier fermé arrive sans ses étapes : `stepCount` est le seul total
+  // disponible tant que le jeton de contenu n'a pas rendu le contenu.
+  const total = caseStepCount(clinical);
   const decisions = clinical.steps.filter((step) => step.kind === "question").length;
-  const reveals = clinical.steps.length - decisions;
+  const reveals = total - decisions;
   return Math.max(2, Math.ceil(reveals * 0.5 + decisions));
 }
 
@@ -243,13 +247,13 @@ function CasePlay() {
           </span>
           <span aria-hidden>·</span>
           <span>
-            {clinical.steps.length} étape{clinical.steps.length > 1 ? "s" : ""}
+            {caseStepCount(clinical)} étape{caseStepCount(clinical) > 1 ? "s" : ""}
           </span>
           <span aria-hidden>·</span>
           <span>{qCount} décision{qCount > 1 ? "s" : ""}</span>
         </p>
 
-        {!open ? (
+        {!open && previewLimit > 0 ? (
           <div className="mt-5 flex items-center gap-2 rounded-[var(--radius-lg)] bg-primary-soft px-4 py-3 text-sm">
             <Sparkles className="size-4 shrink-0 text-primary" />
             Aperçu gratuit · {previewLimit} éléments du dossier
@@ -272,7 +276,15 @@ function CasePlay() {
           </p>
         ) : null}
 
-        {previewFinished ? (
+        {open && clinical.steps.length === 0 ? (
+          <section className="mt-8 rounded-[var(--radius-xl)] bg-card p-5 shadow-[var(--shadow-border)]">
+            <p className="text-sm font-medium">Contenu du dossier indisponible</p>
+            <p className="mt-1 text-sm leading-relaxed text-muted">
+              Ce dossier est débloqué, mais ses {caseStepCount(clinical)} étapes n’ont pas pu être
+              chargées. Vérifie ta connexion puis recharge la page.
+            </p>
+          </section>
+        ) : previewFinished ? (
           <section className="mt-8 overflow-hidden rounded-[var(--radius-xl)] bg-card shadow-[var(--shadow-md)]">
             <div className="premium-hero p-5 text-primary-fg">
               <Lock className="size-6" />
@@ -619,10 +631,12 @@ function CasePlay() {
             ) : null}
           </div>
         ) : null}
-        <p className="mt-6 text-center font-mono text-xs tabular-nums text-subtle">
-          {Math.min(cursor + 1, clinical.steps.length)}/{clinical.steps.length}
-          {asked ? ` · ${correct}/${asked}` : ""}
-        </p>
+        {clinical.steps.length > 0 ? (
+          <p className="mt-6 text-center font-mono text-xs tabular-nums text-subtle">
+            {Math.min(cursor + 1, clinical.steps.length)}/{clinical.steps.length}
+            {asked ? ` · ${correct}/${asked}` : ""}
+          </p>
+        ) : null}
 
         <div className="mt-8">
           <OptimusAnalysisPanel

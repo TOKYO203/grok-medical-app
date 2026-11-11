@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { copyFileSync, existsSync, mkdirSync, mkdtempSync, readFileSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, mkdtempSync, readFileSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { test } from "node:test";
@@ -14,14 +14,15 @@ import { projectRoot, syncCatalogData } from "./sync-catalog-data.mjs";
  * Ce test verrouille le contrat du resynchroniseur, sur des espaces de
  * travail temporaires : la suite ne doit jamais réécrire le check-out.
  *
- * ⚠️ `decks.json` est un cas à part depuis le correctif P0 du pentest : il n'est
- * pas recopié tel quel mais SPLITÉ (index public sans les questions premium +
- * actifs dans `private/content/decks/`). Les deux contrats sont testés
- * séparément, exprès : un deck premium publié en clair est le défaut qu'on
- * cherche à rendre impossible.
+ * ⚠️ `decks.json` et `cases.json` sont des cas à part depuis les correctifs du
+ * pentest : ils ne sont pas recopiés tels quels mais SPLITÉS (index public sans
+ * le contenu fermé + actifs dans `private/content/`). Les contrats sont testés
+ * séparément, exprès : un deck premium ou un dossier fermé publié en clair est
+ * le défaut qu'on cherche à rendre impossible.
  */
-const COPIED_CATALOGS = ["cases.json", "diagnostics.json"];
-const CATALOGS = ["decks.json", ...COPIED_CATALOGS];
+const COPIED_CATALOGS = ["diagnostics.json"];
+const SPLIT_CATALOGS = ["decks.json", "cases.json"];
+const CATALOGS = [...SPLIT_CATALOGS, ...COPIED_CATALOGS];
 
 function makeWorkspace() {
   const root = mkdtempSync(join(tmpdir(), "catalog-sync-"));
@@ -67,6 +68,19 @@ test("resynchronise une copie publique périmée depuis la source", () => {
   assert.ok(
     existsSync(join(root, "private", "content", "decks")),
     "les actifs protégés doivent être écrits par le sync",
+  );
+
+  // Cas : index en TEASER + dossiers protégés.
+  const publishedCases = JSON.parse(readFileSync(join(destDir, "cases.json"), "utf8"));
+  const leakedCases = publishedCases.filter(
+    (clinical) =>
+      (clinical.access ?? "pro") !== "free" &&
+      ((clinical.steps?.length ?? 0) > 0 || clinical.diagnosis !== undefined),
+  );
+  assert.deepEqual(leakedCases.map((clinical) => clinical.id), [], "dossiers fermés publiés par le sync");
+  assert.ok(
+    existsSync(join(root, "private", "content", "cases")),
+    "les dossiers protégés doivent être écrits par le sync",
   );
 });
 

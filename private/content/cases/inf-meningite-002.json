@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "case_id": "INF-MENINGITE-002",
+  "steps": [
+    {
+      "kind": "reveal",
+      "title": "Motif",
+      "body": "Depuis 18 heures : fièvre brutale à 39,5 °C, céphalées intenses en casque, vomissements, gêne à la flexion de la nuque et photophobie. Il n'a pris que du paracétamol. Pas de traumatisme, pas d'éruption cutanée remarquée par l'entourage."
+    },
+    {
+      "kind": "reveal",
+      "title": "Examen",
+      "body": "T 39,4 °C, TA 112/70, FC 108/min, FR 24/min, SpO2 96 %, Glasgow 14 (confusion d'apparition récente). Raideur de nuque franche, signe de Kernig positif. Pas de purpura, pas de déficit focal, pas de papillœdème au fond d'œil."
+    },
+    {
+      "kind": "reveal",
+      "title": "Ponction lombaire",
+      "body": "Liquide céphalorachidien trouble, en jet. Cytologie : 2 400 éléments/mm³, 92 % de polynucléaires neutrophiles. Glycorrachie 1,1 mmol/L pour une glycémie à 5,6 mmol/L (rapport < 0,4). Protéinorachie 2,4 g/L. Gram en cours. TDM cérébrale non réalisable dans l'heure, absence de contre-indication clinique à la PL."
+    },
+    {
+      "kind": "question",
+      "prompt": "Le diagnostic le plus cohérent est :",
+      "choices": [
+        "Méningite bactérienne purulente (probablement pneumococcique)",
+        "Méningite virale bénigne",
+        "Méningite tuberculeuse",
+        "Encéphalite herpétique"
+      ],
+      "correct": 0,
+      "explanation": "Fièvre + céphalées + raideur de nuque + LAC trouble avec prédominance de polynucléaires, hypoglycorrachie et hyperprotéinorachie : méningite bactérienne purulente. La méningite virale donne un LAC clair, lymphocytaire, avec glycorrachie normale ; la méningite tuberculeuse évolue sur des semaines avec lymphocytose ; l'encéphalite herpétique domine par des troubles de conscience et des signes focaux temporaux."
+    },
+    {
+      "kind": "question",
+      "prompt": "Le traitement à administrer en premier est :",
+      "choices": [
+        "Dexaméthasone IV (0,15 mg/kg) juste avant ou avec la première dose d'antibiotique, puis ceftriaxone IV à forte dose sans délai",
+        "Antibiotique seul, la corticothérapie venant après 1 heure",
+        "Ganciclovir IV d'emblée",
+        "Antituberculeux quadrithérapie et corticoïdes"
+      ],
+      "correct": 0,
+      "explanation": "L'antibiothérapie (ceftriaxone IV, couvrant le pneumocoque à dose méningée) doit être débutée dans l'heure. La dexaméthasone IV administrée juste avant ou avec la première dose réduit les surdités et la mortalité dans les méningites purulentes de l'adulte (essai de de Gans, NEJM 2002) ; donnée trop tard, elle perd son intérêt. Les antiviraux et les antituberculeux ne correspondent pas à ce tableau."
+    },
+    {
+      "kind": "question",
+      "prompt": "Si un purpura pétéchial extensif et une hypotension à 78/46 apparaissaient dans l'heure, la priorité devient :",
+      "choices": [
+        "Choc septique probable à méningocoque : réanimation (remplissage, catécholamines), ceftriaxone IV immédiate, et si disponible antibiothérapie déjà entamée à renforcer selon protocole",
+        "Attendre le Gram avant d'adapter",
+        "Corticoïdes seuls à forte dose",
+        "Transfert différé au matin pour imagerie"
+      ],
+      "correct": 0,
+      "explanation": "Purpura fulminans avec choc : méningococcémie. La mortalité se joue dans les premières heures : remplissage, vasopresseurs, ceftriaxone IV immédiate (bactéricide rapide sur le méningocoque), oxygène et transfert en réanimation. Attendre le Gram, se limiter aux corticoïdes ou différer le transfert coûte des vies ; le résultat bactériologique ne conditionne jamais le début de l'antibiothérapie dans ce contexte."
+    },
+    {
+      "kind": "question",
+      "prompt": "La conduite autour du cas est :",
+      "choices": [
+        "Surveillance rapprochée des contacts rapprochés avec information sur les signes d'alerte, chimioprophylaxie des contacts étroits si le méningocoque est confirmé ou fortement suspecté, vaccination selon germe identifié",
+        "Aucune mesure pour l'entourage",
+        "Isolement carcéral du patient pendant 21 jours",
+        "Antibioprophylaxie de toute la ville"
+      ],
+      "correct": 0,
+      "explanation": "Pour une méningite probablement pneumococcique, aucune prophylaxie de l'entourage n'est requise : le pneumocoque ne se transmet pas comme le méningocoque. Si le tableau orientait vers le méningocoque, la chimioprophylaxie des contacts étroits (même toit, baisier, contacts de bouche) et l'information sur les signes d'alerte deviennent urgentes. L'isolement social est inutile et l'antibioprophylaxie de masse n'existe pas."
+    }
+  ],
+  "diagnosis": "Méningite bactérienne purulente de l'adulte, probablement pneumococcique (LAC à polynucléaires, hypoglycorrachie, hyperprotéinorachie), sans choc initial.",
+  "management": "Dexaméthasone IV 0,15 mg/kg avant ou avec la première dose, ceftriaxone IV à dose méningée (± ampicilline selon le protocole local et l'âge du patient) débutée dans l'heure, surveillance neurologique et hémodynamique horaire, hydratation, recherche des complications (hydrocéphalie, empyème, surdité à contrôler avant la sortie), contrôle de la source (sinus, oreille), vaccination antipneumococcique à distance, éducation de l'entourage sur les signes d'alerte et avis médical immédiat.",
+  "pitfall": "Le piège de la PL : retarder l'antibiothérapie pour obtenir l'imagerie ou la PL chez un patient sans signe d'engagement fait perdre des heures décisives ; en cas de menace d'engagement ou de choc, l'antibiotique et la dexaméthasone passent avant la PL, la culture se faisant sur les hémocultures. Autre piège : oublier l'audiométrie avant la sortie, la surdité de l'oreille moyenne étant la séquelle que la dexaméthasone permet justement d'éviter.",
+  "keyTakeaway": "Fièvre + céphalée en casque + nuque raide + LAC trouble à polynucléaires avec hypoglycorrachie = méningite purulente : dexaméthasone puis ceftriaxone IV dans l'heure, PL sans retarder l'antibiotique, surveillance de l'audition. Purpura + choc = méningocoque : réanimation immédiate."
+}

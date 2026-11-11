@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "case_id": "CARDIO-SCA-001",
+  "steps": [
+    {
+      "kind": "reveal",
+      "title": "Motif",
+      "body": "Douleur rétro-sternale constrictive depuis 40 minutes, irradiation mâchoire, nausées, sueurs."
+    },
+    {
+      "kind": "reveal",
+      "title": "Examen",
+      "body": "Patient anxieux, TA 108/68, FC 92, SpO2 96 %. Auscultation libre, pas de souffle, pas de turgescence jugulaire. Pouls symétriques."
+    },
+    {
+      "kind": "reveal",
+      "title": "ECG / bio",
+      "body": "Sus-décalage ST en V1–V4, miroir inférieur. Troponine en cours. Cliché thorax normal."
+    },
+    {
+      "kind": "question",
+      "prompt": "Le diagnostic ECG est :",
+      "choices": [
+        "SCA ST+ antérieur (STEMI)",
+        "Péricardite aiguë",
+        "SCA ST−",
+        "TV soutenue"
+      ],
+      "correct": 0,
+      "explanation": "Douleur + sus-ST convexe V1–V4 + miroir = STEMI antérieur, urgence de reperfusion. La péricardite a un sus-ST concave diffus sans miroir."
+    },
+    {
+      "kind": "question",
+      "prompt": "La stratégie de reperfusion de référence, si le délai porte-à-ballon est court :",
+      "choices": [
+        "Thrombolyse systématique",
+        "Angioplastie primaire",
+        "Héparine seule et surveillance",
+        "Test d'effort à J2"
+      ],
+      "correct": 1,
+      "explanation": "Angioplastie primaire si réalisable dans les délais ESC. Thrombolyse seulement si PCI impossible à temps."
+    },
+    {
+      "kind": "question",
+      "prompt": "Double antiagrégation : association typique avant la salle :",
+      "choices": [
+        "Aspirine + ticagrélor ou prasugrel (selon profil)",
+        "Aspirine seule",
+        "Clopidogrel + AOD",
+        "Aspirine + warfarine"
+      ],
+      "correct": 0,
+      "explanation": "Aspirine 150–300 mg + inhibiteur P2Y12 puissant, sauf si haut risque hémorragique ou indication particulière au clopidogrel."
+    }
+  ],
+  "diagnosis": "STEMI antérieur, occlusion probable de l'IVA proximale.",
+  "management": "Filière d’urgence / USIC, traitement antithrombotique adapté et angioplastie primaire sans délai inutile. Puis prévention secondaire individualisée : statine à haute intensité, contrôle des facteurs de risque, bêtabloquant et IEC/ARA2 selon les indications, réadaptation cardiaque.",
+  "pitfall": "Une douleur reproduite à la palpation n’écarte pas un SCA : l’origine pariétale est un piège classique. Et un premier ECG normal n’exclut rien — on le répète si la douleur persiste.",
+  "keyTakeaway": "Constriction + sueurs + sus-décalage ST V1–V4 avec miroir = STEMI antérieur. La question n’est plus le diagnostic mais la reperfusion : angioplastie primaire dans les délais, double antiagrégation sans attendre la troponine."
+}

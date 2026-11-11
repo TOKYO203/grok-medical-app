@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "case_id": "PNEUMO-EP-001",
+  "steps": [
+    {
+      "kind": "reveal",
+      "title": "Motif",
+      "body": "Dyspnée d'installation brutale hier matin au réveil, douleur basithoracique droite majorée à l'inspiration profonde, sans fièvre ni toux productive. Une sensation de lipothymie en se levant. Symptômes stables mais persistants depuis 24 heures."
+    },
+    {
+      "kind": "reveal",
+      "title": "Examen",
+      "body": "TA 108/66, FC 112/min régulière, FR 24/min, SpO2 89 % en air ambiant. Mollet droit légèrement augmenté de volume, sensible au palper, signe de Homans discret. Auscultation sans foyer, pas de crépitants, pas d'œdème. Pas de turgescence jugulaire franche."
+    },
+    {
+      "kind": "reveal",
+      "title": "Compléments",
+      "body": "ECG : tachycardie sinusale, aspect S1Q3T3, pas de sus-décalage. Radio thoracique sans foyer, pas d'épanchement. D-dimères très élevés. Gaz du sang : pH 7,44, PaO2 62 mmHg, PaCO2 32 mmHg. Échographie cardiaque au lit : ventricule droit dilaté et cinétique diminuée, pas de tamponnade."
+    },
+    {
+      "kind": "question",
+      "prompt": "La situation décrite est :",
+      "choices": [
+        "Embolie pulmonaire à risque intermédiaire : dyspnée + douleur + hypoxémie, cœur droit sollicité, sans choc",
+        "Pneumonie communautaire droite",
+        "Péricardite aiguë",
+        "Crise d'asthme de l'adulte"
+      ],
+      "correct": 0,
+      "explanation": "Facteurs de risque (voyage prolongé, obésité, signes de thrombose veineuse profonde du mollet), début brutal, hypoxémie avec hypocapnie, tachycardie et surcharge du cœur droit : le tableau est typique. La radio sans foyer et l'absence de fièvre écartent la pneumonie ; pas de frottement ni de sus-décalage diffus pour une péricardite ; pas de sibilants pour un asthme."
+    },
+    {
+      "kind": "question",
+      "prompt": "L'examen qui confirme le diagnostic est :",
+      "choices": [
+        "Angioscanner thoracique (ou scintigraphie si le scanner est contre-indiqué)",
+        "Radiographie thoracique seule",
+        "ECG seul",
+        "Échographie des veines des membres inférieurs seule, suffisante à elle-même"
+      ],
+      "correct": 0,
+      "explanation": "L'angioscanner est l'examen de référence pour confirmer l'embolie pulmonaire. L'écho-doppler veineux peut confirmer une thrombose mais une éventration négative n'écarte pas l'EP ; la radio et l'ECG sont utiles pour écarter les diagnostics différentiels, jamais pour confirmer."
+    },
+    {
+      "kind": "question",
+      "prompt": "La prise en charge immédiate est :",
+      "choices": [
+        "Anticoagulation curative immédiate (héparine ou AOD selon protocole) sans attendre l'imagerie, car probabilité clinique forte et pas de contre-indication",
+        "Attendre le scanner pour débuter tout traitement",
+        "Fibrinolyse systématique d'emblée",
+        "Arrêt de l'amiodarone et sortie sous aspirine"
+      ],
+      "correct": 0,
+      "explanation": "Avec une probabilité clinique forte et l'absence de contre-indication, l'anticoagulation est débutée avant la confirmation par imagerie. La fibrinolyse est réservée à l'EP à haut risque (choc, hypotension), ce qui n'est pas le cas : ce patient est hémodynamiquement stable. L'aspirine n'a aucun effet sur la thrombose veineuse."
+    },
+    {
+      "kind": "question",
+      "prompt": "À distance, pour la durée du traitement anticoagulant, la conduite la plus adaptée est :",
+      "choices": [
+        "Durée prolongée (souvent 6 mois minimum, voire plus) car facteur de risque transitoire majeur et récidive potentielle, réévaluation annuelle",
+        "Quinze jours suffisent",
+        "Arrêt dès la disparition de la dyspnée",
+        "Anticoagulation à vie d'office dans tous les cas"
+      ],
+      "correct": 0,
+      "explanation": "Après une EP provoquée par un facteur transitoire majeur (voyage long), le traitement dure au moins 3 à 6 mois, souvent 6 mois vu l'atteinte du cœur droit ; la durée est réévaluée ensuite en fonction du risque hémorragique et des récidives éventuelles. Un traitement à vie ne se discute que si l'événement est non provoqué, récidivant ou si persiste une thrombophilie majeure."
+    }
+  ],
+  "diagnosis": "Embolie pulmonaire bilatérale probable à risque intermédiaire (dyspnée brutale post-voyage, thrombose veineuse profonde du mollet droit, hypoxémie, dilatation du ventricule droit), sans instabilité hémodynamique.",
+  "management": "Anticoagulation curative immédiate (héparine ou AOD selon protocole), oxygène si hypoxémie, confirmé par angioscanner, surveillance en hospitalisation initiale avec attention au ventricule droit. Bilan de thrombophilie orienté si récidives ou terrain. Poursuite du traitement anticoagulant par voie orale 6 mois minimum avec réévaluation, éducation aux signes de récidive et de saignement, gestion des facteurs de risque (compression veineuse, perte de poids, prévention des voyages ultérieurs).",
+  "pitfall": "Le piège du D-dimères : ils sont utiles pour ÉCARTER l'embolie quand ils sont négatis chez un patient à probabilité faible ou intermédiaire, mais un taux élevé ne confirme rien (infection, inflammation, chirurgie récente, grossesse). L'autre piège : une EP sous-alerme (lipothymie isolée, douleur vague) chez un sujet à risque — l'absence de douleur franche n'écarte pas le diagnostic.",
+  "keyTakeaway": "Dyspnée brutale + facteur de risque veineux + hypoxémie avec PaCO2 basse = embolie pulmonaire jusqu'à preuve du contraire. Anticoaguler avant l'imagerie si probabilité forte et pas de contre-indication ; fibrinolyse seulement si choc. Durée du traitement : au moins 3-6 mois, réévaluée."
+}

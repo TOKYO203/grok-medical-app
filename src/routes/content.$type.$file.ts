@@ -134,6 +134,15 @@ async function buildDecksCatalog() {
   return { schemaVersion: 1, decks: await readAllProtectedAssets("decks") };
 }
 
+/**
+ * Catalogue groupé des dossiers cliniques fermés : une requête rend les étapes,
+ * le diagnostic et la prise en charge de chaque cas premium, indexés par nom de
+ * fichier (`<id-minuscule>.json`).
+ */
+async function buildCasesCatalog() {
+  return { schemaVersion: 1, cases: await readAllProtectedAssets("cases") };
+}
+
 export const Route = createFileRoute("/content/$type/$file")({
   server: {
     handlers: {
@@ -164,7 +173,8 @@ export const Route = createFileRoute("/content/$type/$file")({
         // famille (Signes) ou toutes les questions des decks premium.
         const isSignesCatalog = family === "signes" && file === "_catalog.json";
         const isDecksCatalog = family === "decks" && file === "_catalog.json";
-        const isCatalog = isSignesCatalog || isDecksCatalog;
+        const isCasesCatalog = family === "cases" && file === "_catalog.json";
+        const isCatalog = isSignesCatalog || isDecksCatalog || isCasesCatalog;
         if (!isCatalog && !/^[a-z0-9]+(?:-[a-z0-9]+)*\.json$/.test(file)) {
           return notFoundResponse();
         }
@@ -176,7 +186,11 @@ export const Route = createFileRoute("/content/$type/$file")({
         }
 
         if (isCatalog) {
-          const catalog = isDecksCatalog ? await buildDecksCatalog() : await buildSignesCatalog();
+          const catalog = isDecksCatalog
+            ? await buildDecksCatalog()
+            : isCasesCatalog
+              ? await buildCasesCatalog()
+              : await buildSignesCatalog();
           return jsonResponse(catalog, 200, {
             "Cache-Control": "private, max-age=60",
           });

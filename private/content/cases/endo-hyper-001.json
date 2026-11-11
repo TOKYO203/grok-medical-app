@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "case_id": "ENDO-HYPER-001",
+  "steps": [
+    {
+      "kind": "reveal",
+      "title": "Motif",
+      "body": "Depuis 3 mois : perte de 9 kg malgré un appétit accru, palpitations permanentes, sensation de chaleur permanente avec sueurs, diarrhée occasionnelle, tremblement fin des mains, insomnie et irritabilité. Son entourage trouve son regard « exorbité » et ses paupières gonflées."
+    },
+    {
+      "kind": "reveal",
+      "title": "Examen",
+      "body": "FC 118/min irrégulière par moments, TA 142/68 (différentielle large), température 37,4 °C. Amaigrissement net. Thyroïde augmentée de volume, souple, non doulourière, sans souffle. Exophtalmie bilatérale modérée avec œdème palpébral, lagophtalmie discret. Tremblement fin des doigts, peau chaude et humide, reflexes vifs. Pas de vitiligo, pas de myxœdème."
+    },
+    {
+      "kind": "reveal",
+      "title": "Compléments",
+      "body": "TSH < 0,01 mUI/L, T4 libre élevée à 42 pmol/L, T3 élevée. Anticorps anti-récepteur de la TSH (TRAb) fortement positifs. ECG : fibrillation atriale rapide à 115/min, pas de signe d'ischémie. Pas d'ophtalmopathie sévère (pas de diplopie, cornées protégées, acuité visuelle conservée)."
+    },
+    {
+      "kind": "question",
+      "prompt": "Le diagnostic étiologique est :",
+      "choices": [
+        "Maladie de Basedow (hyperthyroïdie auto-immune, TRAb positifs, goitre et orbitopathie)",
+        "Thyroïdite subaiguë",
+        "Hyperthyroïdie par surcharge iodée (gélules d'algues)",
+        "Nodule toxique unique"
+      ],
+      "correct": 0,
+      "explanation": "L'hyperthyroïdie franche avec TRAb positifs, gopte diffus et orbitopathie signe la maladie de Basedow. Le nodule toxique donne un nodule unique avec hyperthyroïdie focale sans orbitopathie ; la thyroïdite subaiguë est douloureuse et transitoire avec TRAb négatifs ; l'iode (dont les algues) peut déclencher une hyperthyroïdie mais n'explique ni les TRAb ni l'orbitopathie — l'arrêt des gélules reste indispensable mais le diagnostic est Basedow."
+    },
+    {
+      "kind": "question",
+      "prompt": "La complication rythmique constatée ici impose :",
+      "choices": [
+        "Anticoagulation à discuter selon le risque thrombo-embolique et contrôle rapide de la fréquence par bêtabloquant, avant traitement étiologique",
+        "Cardioversion électrique immédiate sans préparation",
+        "Digoxine seule à forte dose",
+        "Abstention : la FA s'arrêtera avec le poids"
+      ],
+      "correct": 0,
+      "explanation": "Une fibrillation atriale sur hyperthyroïdie se traite d'abord par bêtabloquant (contre-indication relative : l'asthme) pour contrôler la fréquence, avec anticoagulation discutée selon le score (souvent indiquée vu l'âge et la cardiopathie) ; le rythme se régularise souvent avec le traitement de l'hyperthyroïdie. La cardioversion avant euthyroïdie expose à la récidive ; la digoxine seule est insuffisante et moins adaptée."
+    },
+    {
+      "kind": "question",
+      "prompt": "Le traitement de fond de première intention ici est :",
+      "choices": [
+        "Antithyroïdiens de synthèse (carbimazole ou thiamazole) pour 12-18 mois, sous surveillance hématologique",
+        "Iode radioactif d'emblée",
+        "Thyroïdectomie totale d'emblée",
+        "Corticoïdes seuls"
+      ],
+      "correct": 0,
+      "explanation": "Chez une femme jeune avec première poussée de Basedow, les antithyroïdiens de synthèse pendant 12-18 mois sont la première ligne, avec surveillance de la numération (agranulocytose rare mais grave : toute angine sous traitement impose un contrôle en urgence). L'iode radioactif est contre-indiqué ici (orbitopathie active, allaitement récent) et la chirurgie se réserve aux goitres volumineux, aux récidives ou au refus."
+    },
+    {
+      "kind": "question",
+      "prompt": "Le signe qui impose une consultation ophtalmologique urgente est :",
+      "choices": [
+        "Diplopie, douleur oculaire, baisse d'acuité visuelle ou atteinte cornéenne : orbitopathie sévère menaçant la vision",
+        "L'exophtalmie modérée sans autres signes",
+        "Une simple sensation de sable dans les yeux",
+        "L'œdème palpébral isolé du matin"
+      ],
+      "correct": 0,
+      "explanation": "L'orbitopathie basedowienne menace la vue quand elle devient compressive : diplopie, neuropathie optique (baisse d'acuité, dyschromatopsie) ou kératite par exposition imposent un avis urgent, une corticothérapie voire une décompression orbitaire. L'exophtalmie modérée sans signe fonctionnel relève d'une surveillance rapprochée, du sevrage tabagique (facteur aggravant majeur) et de mesures locales."
+    }
+  ],
+  "diagnosis": "Maladie de Basedow : hyperthyroïdie franche (TSH effondrée, T4 à 42 pmol/L, TRAb fortement positifs) avec goitre diffus et orbitopathie modérée, compliquée de fibrillation atriale rapide et d'un amaigrissement majeur.",
+  "management": "Arrêt des gélules d'algues et du tabac, bêtabloquant pour le contrôle de la fréquence, anticoagulation évaluée selon le score de risque, antithyroïdiens de synthèse 12-18 mois avec surveillance clinique, hématologique et hormonologique, éducation (angine sous traitement = urgence hématologique). Suivi ophtalmologique de l'orbitopathie (avis urgent si diplopie ou baisse d'acuité), mesures locales (lunettes, lubrifiants, surélévation nocturne). Contrôle de la FA et réévaluation après retour à l'euthyroïdie ; discussion à distance de l'iode radioactif ou de la chirurgie selon l'évolution et le projet de grossesse.",
+  "pitfall": "Le piège de l'hyperthyroïdie déguisée : amaigrissement et palpitations font chercher un cancer ou une anxiété pendant des mois. Chez toute tachycardie irrégulière inexpliquée, une TSH fait partie du bilan minimal. Autre piège : le tabac aggrave l'orbitopathie — ne pas l'adresser, c'est laisser évoluer l'atteinte oculaire.",
+  "keyTakeaway": "Amaigrissement + tachycardie + thermophobie + tremblement = bilan thyroïdien, et TRAb positifs + orbitopathie = Basedow. Antithyroïdiens 12-18 mois, FA contrôlée par bêtabloquant, avis ophtalmo urgent si diplopie ou baisse d'acuité. Arrêter le tabac, toujours."
+}

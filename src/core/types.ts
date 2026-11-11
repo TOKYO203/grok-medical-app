@@ -275,6 +275,12 @@ export type ClinicalCase = {
   difficulty: string;
   summary: string;
   patient: { age: number; sex: string; context: string };
+  /**
+   * Nombre d'étapes annoncé par l'index public. Les dossiers fermés ne sont
+   * publiés qu'en teaser : `steps` reste vide tant qu'aucun jeton de contenu
+   * n'a été présenté (cf. scripts/split-cases.mjs).
+   */
+  stepCount?: number;
   steps: CaseStep[];
   diagnosis: string;
   management: string;

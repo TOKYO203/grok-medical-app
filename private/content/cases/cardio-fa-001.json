@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "case_id": "CARDIO-FA-001",
+  "steps": [
+    {
+      "kind": "reveal",
+      "title": "Motif",
+      "body": "Palpitations en continu depuis 2 jours, avec essoufflement à la montée des escaliers et fatigue. Pas de douleur thoracique, pas de syncope, pas de fièvre."
+    },
+    {
+      "kind": "reveal",
+      "title": "Examen",
+      "body": "TA 142/86, FC 132 irrégulière en fréquence et en amplitude, pouls radial irrégulier. Auscultation sans souffle, pas de crépitants, pas d'œdèmes, pas de turgescence jugulaire."
+    },
+    {
+      "kind": "reveal",
+      "title": "ECG / biologie",
+      "body": "ECG : rythme irrégulier, aucune onde P identifiable, QRS fins, pas de pré-excitation, pas de sus-décalage. Troponine hs normale, TSH normale, Hb 13,4 g/dL, créatinine 74 µmol/L. Échographie : FEVG 55 %, oreillette gauche 42 mm, pas de valvulopathie."
+    },
+    {
+      "kind": "question",
+      "prompt": "Le trouble du rythme sur cet ECG est :",
+      "choices": [
+        "Tachycardie sinusale sur anémie",
+        "Flutter atrial",
+        "Fibrillation atriale",
+        "Tachycardie supraventriculaire paroxystique"
+      ],
+      "correct": 2,
+      "explanation": "Absence totale d'ondes P et irrégularité totale des intervalles RR = fibrillation atriale. Le flutter garde des ondes F en dents de scie (II, III, aVF) et un rythme le plus souvent régulier ; l'anémie est écartée (Hb 13,4) ; une TSV est un rythme régulier à début et fin brusques."
+    },
+    {
+      "kind": "question",
+      "prompt": "Le score CHA2DS2-VASc de cette patiente (HTA, 78 ans, sexe féminin) vaut :",
+      "choices": [
+        "1 point : pas d'anticoagulation",
+        "2 points : antiagrégant plaquettaire seul",
+        "4 points : anticoagulation orale indiquée, AOD en première intention",
+        "6 points : anticoagulation et antiagrégant associés"
+      ],
+      "correct": 2,
+      "explanation": "HTA (1) + âge > 75 ans (2) + sexe féminin (1) = 4 points. Chez la femme, l'ESC recommande l'anticoagulation à partir de 3 points ; un anticoagulant oral direct est préféré aux AVK en l'absence de valvulopathie mécanique ou de rétrécissement mitral moyen à serré. L'association systématique anticoagulant + antiagrégant majore le risque hémorragique sans bénéfice démontré."
+    },
+    {
+      "kind": "question",
+      "prompt": "Concernant le rythme à la phase aiguë (FA documentée depuis environ 48 heures, patiente stable) :",
+      "choices": [
+        "Cardioversion électrique immédiate sans anticoagulation préalable",
+        "Contrôle de la fréquence (bêtabloquant) et anticoagulation débutée ; cardioversion seulement après 3 semaines d'anticoagulation ou échographie transœsophagienne",
+        "Amiodarone IV d'emblée à visée rythmique chez tous",
+        "Digoxine en première intention"
+      ],
+      "correct": 1,
+      "explanation": "Patiente stable : le contrôle de la fréquence et la mise en route de l'anticoagulation priment. Au-delà de 48 heures (ou de durée inconnue), une cardioversion ne se tente qu'après au moins 3 semaines d'anticoagulation efficace ou après échographie transœsophagienne excluant un thrombus. La digoxine est réservée au contrôle de la fréquence en cas d'insuffisance cardiaque ; l'amiodarone n'est pas un traitement d'attaque systématique."
+    }
+  ],
+  "diagnosis": "Fibrillation atriale rapide (≈130/min) chez une femme de 78 ans hypertendue, à haut risque thrombo-embolique (CHA2DS2-VASc ≥ 3), sans insuffisance cardiaque ni valvulopathie.",
+  "management": "Contrôle de la fréquence par bêtabloquant adapté à la FEVG, anticoagulation orale directe préférée aux AVK en l'absence de contre-indication (CHA2DS2-VASc ≥ 3 chez la femme), réévaluation à distance d'une éventuelle stratégie de contrôle du rythme, éducation : prise du pouls, signes d'alerte AVC, observance de l'anticoagulation.",
+  "pitfall": "Un rythme irrégulier n’est pas toujours une FA : le flutter garde le plus souvent un rythme régulier et des ondes en dents de scie. À l’inverse, une FA rapide peut sembler « presque régulière » au pouls — seul l’ECG 12 dérivations fait le diagnostic.",
+  "keyTakeaway": "FA = aucune onde P + irrégularité totale des RR. Trois réflexes : contrôler la fréquence, anticoaguler selon le CHA2DS2-VASc (≥ 3 chez la femme) et chercher la cause (thyroïde, valvulopathie, alcool)."
+}

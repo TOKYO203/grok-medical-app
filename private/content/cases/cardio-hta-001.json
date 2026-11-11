@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "case_id": "CARDIO-HTA-001",
+  "steps": [
+    {
+      "kind": "reveal",
+      "title": "Motif",
+      "body": "Céphalées postérieures avec phosphènes et bourdonnements d'oreille depuis 3 jours, sans déficit ni trouble de la parole. Aucun antécédent cardiaque, pas de douleur thoracique, pas de dyspnée. Rien de particulier au réveil sinon la persistance des céphalées."
+    },
+    {
+      "kind": "reveal",
+      "title": "Examen",
+      "body": "TA 210/124 aux deux bras confirmée après 10 minutes de repos, FC 82/min régulière, pas de souffle abdominal ni fémoral, pouls périphériques présents et symétriques. Pas d'œdème, pas de crépitants. Fond d'œil : rétrécissement artériolaire diffus, quelques hémorragies flammées, pas de œdème papillaire. Reste de l'examen neurologique normal, Glasgow 15."
+    },
+    {
+      "kind": "reveal",
+      "title": "Compléments",
+      "body": "ECG : sinusal, hypertrophie ventriculaire gauche (indice de Sokolow positif). Créatinine 92 µmol/L, pas de protéinurie significative à la bandelette, pas d'hématurie. Hb 12,4 g/dL. Glycémie 1,04 g/L. Échographie cardiaque disponible en ville la semaine suivante. Pas de kaliémie en urgence."
+    },
+    {
+      "kind": "question",
+      "prompt": "La situation est :",
+      "choices": [
+        "Urgence hypertensive : TA ≥ 180/110 avec souffrance d'organe débutante (rétinopathie hypertensive, HVG), sans atteinte vitale immédiate",
+        "Poussée tensionnelle simple sans aucun risque",
+        "HTA maligne avec insuffisance rénale avérée",
+        "Crise hypertensive paroxystique du phéochromocytome certain"
+      ],
+      "correct": 0,
+      "explanation": "TA ≥ 180/110 avec signe de souffrance d'organe (rétinopathie à hémorragies, HVG électrique) définit une urgence hypertensive, à traiter en milieu hospitalier avec baisse contrôlée. L'HTA maligne s'accompagne classiquement d'insuffisance rénale et de protéinurie sévères avec œdème papillaire ; le phéochromocytome est une cause rare à rechercher si paroxysmes avec sueurs et palpitations."
+    },
+    {
+      "kind": "question",
+      "prompt": "La vitesse de baisse tensionnelle adaptée ici est :",
+      "choices": [
+        "Réduction progressive sur 24-48 heures vers un objectif autour de 160/100 le premier jour, avec antihypertenseur oral ou IV titré",
+        "Normalisation à 120/80 en moins d'une heure",
+        "Baisse de moitié de la TA dans la première heure",
+        "Attendre l'échographie cardiaque avant tout traitement"
+      ],
+      "correct": 0,
+      "explanation": "Une baisse brutale de la pression de perfusion cérébrale chez un patient à autoregulation déplacée expose à l'ischémie cérébrale et coronarienne, voire au décès. La baisse se fait de façon contrôlée sur 24-48 heures, pas de normalisation en urgence, sauf dissection aortique ou HTA de la grossesse (baisse rapide nécessaire)."
+    },
+    {
+      "kind": "question",
+      "prompt": "Le traitement de première ligne de cette urgence hypertensive est :",
+      "choices": [
+        "Antihypertenseur oral titré (ex. inhibiteur calcique) avec monitorage hospitalier et réévaluation rapprochée",
+        "Nitroprussiate de sodium en IVSE à forte dose",
+        "Furosémide IV à haute dose seul",
+        "Antalgique seul et sortie le soir même"
+      ],
+      "correct": 0,
+      "explanation": "L'urgence hypertensive sans complication immédiatement vitale se traite par voie orale titrée sous surveillance hospitalière (inhibiteur calcique, IEC selon la fonction rénale et la kaliémie). Les antihypertenseurs IV puissants sont réservés aux urgences vitales (dissection, encéphalopathie, œdème pulmonaire). Le furosémide ne traite pas une HTA sans surcharge, et la sortie sans traitement ni plan de suivi serait une faute."
+    },
+    {
+      "kind": "question",
+      "prompt": "Après stabilisation, la clé du pronostic à long terme est :",
+      "choices": [
+        "Observance d'un traitement de fond adapté avec suivi régulier, réduction du sel, et recherche des causes secondaires et du diabète",
+        "Poursuite des tisanes seules",
+        "Un unique contrôle tensionnel à un mois, puis plus rien",
+        "Régime sans sucre seul"
+      ],
+      "correct": 0,
+      "explanation": "L'HTA est une maladie chronique : le pronostic dépend de l'observance au long cours, de la réduction du sel (le bouillon industriel est très riche en sodium), de la perte de poids si besoin, et du dépistage du diabète et des atteintes d'organes (fond d'œil, ECG/HVG, fonction rénale, protéinurie). Un traitement intermittent par « cures » ne protège ni le cerveau ni le rein."
+    }
+  ],
+  "diagnosis": "Urgence hypertensive sur HTA essentielle anciennement connue mais jamais traitée : TA 210/124, rétinopathie hypertensive (hémorragies flammées), hypertrophie ventriculaire gauche électrique, sans insuffisance rénale ni atteinte neurologique focale.",
+  "management": "Hospitalisation courte : baisse tensionnelle progressive sur 24-48 heures par antihypertenseur oral titré (inhibiteur calcique ; IEC après kaliémie et créatinine), monitorage, fond d'œil et bilan d'atteinte d'organe (ECG, créatinine, protéinurie, glycémie), échographie cardiaque. Sortie : bithérapie si besoin, éducation (sel, observance, auto-mesures), suivi mensuel jusqu'à contrôle, dépistage du diabète, et plan écrit des signes devant faire reconsulter.",
+  "pitfall": "Le piège de la baisse trop rapide : chez l'hypertendu ancien, l'autorégulation cérébrale est décalée vers le haut ; normaliser la tension en une heure peut provoquer un AVC ischémique iatrogène. L'autre piège : traiter la crise et oublier le fond — sans traitement au long cours et réduction du sel, la récidive est la règle.",
+  "keyTakeaway": "TA ≥ 180/110 + souffrance d'organe (fond d'œil, HVG) = urgence hypertensive : baisse progressive sur 24-48 heures, jamais de normalisation en urgence. Le fond de la prise en charge est la observance du traitement, le sel et le suivi — la crise n'est que le symptôme."
+}

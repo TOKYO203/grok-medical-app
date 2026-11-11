@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "case_id": "NEPHRO-IRA-001",
+  "steps": [
+    {
+      "kind": "reveal",
+      "title": "Motif",
+      "body": "Diarrhée liquidienne et vomissements depuis 3 jours. Les urines sont devenues rares depuis 24 heures, quasi absentes ce matin. Prise de diclofénac (anti-inflammatoire acheté en pharmacie) pendant 2 jours pour les douleurs abdominales."
+    },
+    {
+      "kind": "reveal",
+      "title": "Examen",
+      "body": "TA 96/58 couché, FC 102, FR 18, langue sèche, pli cutané persistant, yeux creux, pas de marbrures ni de cyanose. Abdomen souple, sensible sans défense. Pas d'œdème. Globe vésical absent. La sonde vésicale posée aux urgences ramène 40 mL d'urines foncées."
+    },
+    {
+      "kind": "reveal",
+      "title": "Biologie",
+      "body": "Créatinine 520 µmol/L (dossier antérieur il y a 6 mois : 96 µmol/L). Urée 28 mmol/L. K+ 6,3 mmol/L, Na+ 133 mmol/L. Hb 12,1 g/dL. Gaz du sang : pH 7,18, HCO3- 12 mmol/L. ECBU : pas de leucocyturie. Échographie : deux reins de taille normale, pas de dilatation des voies urinaires."
+    },
+    {
+      "kind": "reveal",
+      "title": "ECG",
+      "body": "Rythme sinusal à 100/min. Ondes T amples et pointues dans les précordiales, QRS élargi à 120 ms, discrète onde P invisible en II."
+    },
+    {
+      "kind": "question",
+      "prompt": "Le mécanisme principal de cette insuffisance rénale est :",
+      "choices": [
+        "Fonctionnel (prérénal) sur déplétion volémique aggravée par les AINS, sur un double traitement néphrotoxique",
+        "Obstructif par hypertrophie prostatique",
+        "Glomérulonéphrite aiguë post-infectieuse",
+        "Insuffisance rénale chronique terminale connue"
+      ],
+      "correct": 0,
+      "explanation": "Diarrhée + vomissements = déplétion volémique ; ramipril (blocage de l'angiotensine II) et furosémide altèrent l'autorégulation ; un AINS inhibe la vasodilatation prostaglandine-dépendante de l'artériole afférente. Ensemble, ces facteurs provoquent une nécrose tubulaire aiguë ischémique (insuffisance rénale aiguë fonctionnelle dépassée). La créatinine de base normale il y a 6 mois, l'absence de dilatation et la vessie vide écartent l'obstacle et la chronicité ; pas de syndrome néphritique."
+    },
+    {
+      "kind": "question",
+      "prompt": "L'urgence immédiate, avant tout autre geste, est :",
+      "choices": [
+        "Traitement de l'hyperkaliémie : gluconate de calcium IV pour stabiliser le myocarde, puis insuline + dextrose, arrêt des néphrotoxiques et remplissage prudent",
+        "Furosémide à forte dose d'emblée",
+        "Antibiothérapie probabiliste large spectre",
+        "Bicarbonate de sodium seul à forte dose"
+      ],
+      "correct": 0,
+      "explanation": "K+ à 6,3 mmol/L avec ondes T pointues et QRS élargi = hyperkaliémie menaçante : le calcium IV protège le cœur en quelques minutes, l'insuline-dextrose fait transférer le potassium vers les cellules. Le furosémide est peu efficace sur un rein hypoperfusé ; le bicarbonate seul n'est pas le traitement de première intention de l'hyperkaliémie ; il n'y a pas d'argument infectieux."
+    },
+    {
+      "kind": "question",
+      "prompt": "La conduite la plus adaptée pour les médicaments est :",
+      "choices": [
+        "Arrêter immédiatement l'AINS, le ramipril et le furosémide, reprendre les antihypertenseurs seulement après récupération rénale",
+        "Poursuivre tous les traitements à doses identiques",
+        "Doubler la dose de furosémide pour « forcer » la diurèse",
+        "Remplacer le ramipril par un autre IEC"
+      ],
+      "correct": 0,
+      "explanation": "Le triptyque déplétion + IEC/ARI + AINS est la cause : on arrête tout agent néphrotoxique ou hémodynamiquement actif sur le rein, on restaure la volémie prudemment (diabétique, âgé : réévaluation clinique régulière, voire contrôle échographique si besoin). Les antihypertenseurs reprennent secondairement, une fois la fonction rénale récupérée."
+    }
+  ],
+  "diagnosis": "Insuffisance rénale aiguë oligurique sur nécrose tubulaire aiguë ischémique (mécanisme fonctionnel dépassé) : déplétion volémique sur gastro-entérite, IEC + diurétique, automédication par AINS, avec hyperkaliémie à 6,3 mmol/L avec signes ECG et acidose métabolique.",
+  "management": "Urgence hospitalière : monitorage ECG continu, calcium IV (stabilisation myocardique), insuline rapide + dextrose, résine échangeuse si disponible, arrêt des néphrotoxiques (AINS, IEC, diurétique), remplissage prudent par NaCl 0,9 % avec réévaluation clinique régulière, contrôle de la kaliémie et de l'ECG à 1-2 heures, arrêt temporaire de la metformine, contrôle glycémique, éviction de tout contraste iodé, réévaluation du besoin de dialyse (hyperkaliémie réfractaire, acidose profonde, surcharge ou urée majeure), éducation à la renonciation aux AINS automédiqués pendant les épisodes de déshydratation.",
+  "pitfall": "Ne pas confondre « pas d'urines » et « vessie pleine » : la sonde vide écarte l'obstruction, et un furosémide donné à tort peut faire croire à une réponse diurétique alors qu'il aggrave l'hypoperfusion. Autre piège : l'hyperkaliémie peut être asymptomatique quelques heures puis tuer — l'ECG précède la douleur et l'alerte clinique doit partir de l'ionogramme, pas de la plainte du patient.",
+  "keyTakeaway": "Diarrhée + IEC + AINS = insuffisance rénale aiguë fonctionnelle dépassée jusqu'à preuve du contraire. L'hyperkaliémie ECG se traite avant le diagnostic étiologique : calcium IV d'abord, insuline-dextrose ensuite, néphrotoxiques arrêtés immédiatement."
+}

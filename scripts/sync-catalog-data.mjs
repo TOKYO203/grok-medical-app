@@ -11,12 +11,13 @@
  * src/content/data/diagnostics.json (245 Ko, 43 cas) servait via une copie
  * publique restée à 6 cas.
  *
- * ⚠️ `decks.json` n'est PLUS copié tel quel : depuis le correctif P0 du
- * pentest, les questions des decks premium ne doivent pas être publiées. La
- * copie publique est produite par `scripts/split-decks.mjs` (index sans
- * questions + actifs dans `private/content/decks/`). Le resynchroniseur garde
- * donc un seul rôle par fichier : copie à l'octet (cas, démarches) ou split
- * déterministe (decks).
+ * ⚠️ `decks.json` et `cases.json` ne sont PLUS copiés tels quels : depuis les
+ * correctifs P0/§14 du pentest, les questions des decks premium et le contenu
+ * des dossiers cliniques fermés ne doivent pas être publiés. Leurs copies
+ * publiques sont produites par `scripts/split-decks.mjs` et
+ * `scripts/split-cases.mjs` (index sans contenu + actifs dans
+ * `private/content/`). Le resynchroniseur garde donc un seul rôle par fichier :
+ * copie à l'octet (démarches) ou split déterministe (decks, cas).
  *
  * Tout démarrage Vite (dev, build, preview — les variantes :cloudflare,
  * :netlify et :worker comprises) resynchronise la copie AVANT que Vite ne
@@ -26,10 +27,11 @@
 import { existsSync, mkdirSync, readFileSync, renameSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { splitCases } from "./split-cases.mjs";
 import { splitDecks } from "./split-decks.mjs";
 
 /** Catalogues recopiés à l'octet depuis la source. */
-const COPIED_CATALOG_FILES = ["cases.json", "diagnostics.json"];
+const COPIED_CATALOG_FILES = ["diagnostics.json"];
 
 /** Le workspace root (ce fichier vit dans `<root>/scripts/`). */
 export function projectRoot() {
@@ -56,6 +58,9 @@ export function syncCatalogData({ root = projectRoot(), log = () => {} } = {}) {
 
   // Decks : index public sans les questions premium + actifs protégés.
   if (splitDecks({ root, log }).indexChanged) synced.push("decks.json");
+
+  // Cas cliniques : index public en teaser + dossiers protégés.
+  if (splitCases({ root, log }).indexChanged) synced.push("cases.json");
 
   for (const name of COPIED_CATALOG_FILES) {
     const src = join(srcDir, name);

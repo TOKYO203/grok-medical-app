@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "case_id": "INF-PYELONEPHRITE-001",
+  "steps": [
+    {
+      "kind": "reveal",
+      "title": "Motif",
+      "body": "Depuis 48 heures : fièvre à 39 °C avec frissons, douleur de la fosse lombaire droite, majorée à la percussion, brûlures mictionnelles et envies fréquentes d'uriner. Deux vomissements hier, pas de diarrhée, pas de toux. Se sent comme les autres fois, mais plus fort."
+    },
+    {
+      "kind": "reveal",
+      "title": "Examen",
+      "body": "T 39,2 °C, TA 106/64, FC 108/min, FR 20. Douleur exquise à la percussion de la fosse lombaire droite, sans défense abdominale. Pas d'œdème, pas de globe vésical. Urines troubles à l'inspection. Règles il y a 10 jours, pas de signe de grossesse."
+    },
+    {
+      "kind": "reveal",
+      "title": "Compléments",
+      "body": "Bandelette urinaire : leucocytes +++, nitrites positifs, sang +. NFS : leucocytes 15,8 G/L, CRP 128 mg/L. Créatinine 72 µmol/L. TDR paludisme négatif. Échographie en ville : reins de taille normale, pas de dilatation des cavités, pas de calcul visible."
+    },
+    {
+      "kind": "question",
+      "prompt": "Le diagnostic le plus cohérent est :",
+      "choices": [
+        "Paludisme simple",
+        "Pyélonéphrite aiguë droite (fièvre + douleur lombaire + leuco-nitrites positives)",
+        "Colique néphrétique fébrile sur lithiase obstructive",
+        "Fièvre typhoïde"
+      ],
+      "correct": 1,
+      "explanation": "Fièvre élevée + douleur lombaire unilatérale + leucocyturie et nitrites positifs = pyélonéphrite aiguë. Le paludisme est écarté par le TDR négatif et l'atteinte urinaire ; la colique sur lithiase obstructive donnerait une dilatation à l'échographie — son absence ici est rassurante mais sera contrôlée ; la fièvre typhoïde donne une fièvre prolongée sans signe urinaire."
+    },
+    {
+      "kind": "question",
+      "prompt": "L'examen indispensable à réaliser est :",
+      "choices": [
+        "Échographie rénale et des voies urinaires : chercher un obstacle (lithiase, dilatation) derrière chaque pyélonéphrite",
+        "Scanner cérébral",
+        "Frottis sanguin pour paludisme répété une seule fois",
+        "Cystoscopie d'emblée"
+      ],
+      "correct": 0,
+      "explanation": "Derrière toute pyélonéphrite, l'imagerie recherche un obstacle : une pyélonéphrite sur urine non drainée (lithiase, malformation, grossesse) est une urgence de drainage, l'antibiothérapie seule échoue. L'échographie, accessible et sans injection, est l'examen de première intention — elle est ici déjà réalisée et rassurante."
+    },
+    {
+      "kind": "question",
+      "prompt": "L'antibiothérapie probabiliste adaptée est :",
+      "choices": [
+        "Ceftriaxone IV ou fluoroquinolone selon protocole local et gravité, relayée par voie orale après apyrexie, durée totale 10 à 14 jours",
+        "Amoxicilline orale 3 jours, comme une cystite simple",
+        "Métronidazole seul",
+        "Abstention, en attendant l'antibiogramme de quelques jours"
+      ],
+      "correct": 0,
+      "explanation": "Une pyélonéphrite fébrile se traite par une antibiothérapie active sur E. coli et atteignant le parenchyme rénal : céphalosporine de 3e génération IV (ou fluoroquinolone selon la résistance locale) puis relais oral à l'apyrexie, pour 10 à 14 jours au total. Le schéma court de 3 jours, valable pour la cystite simple, échoue ici ; attendre l'antibiogramme sans traiter une fièvre à 39 °C serait une perte de chance."
+    },
+    {
+      "kind": "question",
+      "prompt": "Après guérison, compte tenu des récidives, la conduite correcte est :",
+      "choices": [
+        "Bilan urologique à distance (recherche de lithiase résiduelle, anomalie, diabète), ECBU de contrôle, éducation à l'hydratation et à la miction, dépistage du diabète",
+        "Rien : les infections urinaires sont bénignes chez la femme jeune",
+        "Antibioprophylaxie continue à vie d'emblée",
+        "Cystoscopie systématique à chaque épisode"
+      ],
+      "correct": 0,
+      "explanation": "Quatre épisodes en deux ans chez une jeune femme imposent de chercher un facteur favorisant : lithiase résiduelle, trouble de la vidange, diabète non diagnostiqué, hygiène hydrique insuffisante. L'ECBU de contrôle confirme la stérilisation des urines, et l'éducation (hydratation abondante, miction régulière, ne pas se retenir) réduit les récidives. La prophylaxie antibiotique continue n'est pas un réflexe de première intention."
+    }
+  ],
+  "diagnosis": "Pyélonéphrite aiguë droite, quatrième épisode en deux ans, sans obstacle à l'échographie, sur terrain à explorer (récidives, antécédent d'infection urinaire gravidique).",
+  "management": "Antibiothérapie probabiliste IV (céphalosporine de 3e génération selon protocole local) relayée par voie orale à l'apyrexie, durée totale 10 à 14 jours, antalgiques et hydratation abondante. ECBU avec antibiogramme avant traitement, contrôle de l'apyrexie à 72 heures. À distance : bilan urologique des récidives (échographie, lithiase résiduelle), dépistage du diabète, éducation à l'hydratation et à la miction, calendrier de surveillance, et avis urologique si nouvel épisode.",
+  "pitfall": "Le piège de la pyélonéphrite banalisée : une fièvre lombaire chez une femme jeune en zone d'endémie palustre se voit prescrire un antipaludique d'office — la bandelette urinaire et le TDR font la différence en dix minutes. Autre piège : ne pas chercher l'obstacle ; une pyélonéphrite sur voie excrétrice bloquée est une urgence de drainage, pas une question d'antibiotique.",
+  "keyTakeaway": "Fièvre + douleur lombaire + leuco-nitrites positives = pyélonéphrite : échographie à la recherche d'un obstacle, antibiotique actif sur le parenchyme 10 à 14 jours, ECBU de contrôle. Des récidives répétées imposent de chercher un facteur favorisant — jamais de traitement au coup par coup."
+}

@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "case_id": "HEME-ANEMIE-001",
+  "steps": [
+    {
+      "kind": "reveal",
+      "title": "Motif",
+      "body": "Fatigue croissante depuis 8 mois, essoufflement à la montée des escaliers, vertiges quand elle se lève vite. Règles très abondantes (ménorragies) depuis la pose d'un stérilet en cuivre il y a un an, durant 7 à 8 jours chaque mois."
+    },
+    {
+      "kind": "reveal",
+      "title": "Examen",
+      "body": "Pâleur cutanéo-muqueuse nette (conjunctives, paumes sans teinte rose). TA 100/62, FC 98, FR 16. Pas de souffle cardiaque pathologique, pas d'hépatosplénomégalie, pas de purpura, pas de glossite ni d'onychorrhixe franche."
+    },
+    {
+      "kind": "reveal",
+      "title": "Biologie",
+      "body": "Hb 7,9 g/dL, VGM 66 fL, CCMH 29 %, réticulocytes 45 000/mm³ (faibles au regard de l'anémie). Ferritine 4 µg/L, fer sérique bas, CRP normale. Leucocytes et plaquettes normaux. Pas de saignement digestif rapporté."
+    },
+    {
+      "kind": "question",
+      "prompt": "Le syndrome biologique est :",
+      "choices": [
+        "Anémie microcytaire hypochrome arégénérative, compatible avec une carence martiale profonde",
+        "Anémie macrocytaire régénérative par carence en B12",
+        "Anémie hémolytique à réticulocytes élevés",
+        "Syndrome myélodysplasique du sujet jeune"
+      ],
+      "correct": 0,
+      "explanation": "VGM 66 fL et CCMH effondrée = microcytose hypochrome ; réticulocytes non augmentés = arégénérative ; ferritine à 4 µg/L signe la carence martiale profonde (la ferritine est le marqueur le plus précoce et le plus spécifique en l'absence d'inflammation — CRP normale ici). Une hémolyse donnerait des réticulocytes élevés ; une carence B12 une macrocytose."
+    },
+    {
+      "kind": "question",
+      "prompt": "La cause la plus probable de la carence ici est :",
+      "choices": [
+        "Saignements gynécologiques chroniques (ménorragies sur stérilet) sur apports martiaux réduits",
+        "Malabsorption intestinale isolée",
+        "Hémorragie digestive occulte haute certaine",
+        "Anémie inflammatoire chronique"
+      ],
+      "correct": 0,
+      "explanation": "Le stérilet en cuivre est une cause classique de ménorragies, et les pertes menstruelles chroniques épuisent les réserves ; s'y ajoutent des apports faibles (pas de viande rouge) et le thé qui inhibe l'absorption du fer. L'anémie inflammatoire élève la ferritine (ici effondrée) ; une cause digestive doit être recherchée selon le contexte mais rien ne l'impose d'emblée chez cette patiente."
+    },
+    {
+      "kind": "question",
+      "prompt": "La prise en charge correcte est :",
+      "choices": [
+        "Fer oral (sels ferreux) à dose efficace, à jeun ou avec un aliment non inhibiteur, poursuite 3 mois après correction de l'hémoglobine, ET traitement de la cause (prise en charge des ménorragies)",
+        "Transfusion systématique en première intention",
+        "Fer en injection intraveineuse d'emblée chez tous",
+        "Acide folique seul, sans fer"
+      ],
+      "correct": 0,
+      "explanation": "Hb à 7,9 g/dL bien tolérée chez une jeune femme : correction orale (60-80 mg de fer élémentaire/jour en prises espacées), poursuivie 3 mois après normalisation de l'Hb pour reconstituer les réserves (ferritine). Traiter la cause est indispensable sinon la carence récidive. La transfusion est réservée à l'intolérance ou Hg < 7 g/dL selon contexte ; le IV est réservé à l'échec/contre-indication/intolérance digestive ou nécessité de reconstitution rapide. Le folate ne corrige pas une carence martiale."
+    },
+    {
+      "kind": "question",
+      "prompt": "L'évolution attendue sous traitement bien conduit est :",
+      "choices": [
+        "Réticulocytose vers J7-10, Hb qui monte d'environ 1 g/dL par 2 à 3 semaines",
+        "Normalisation de l'Hb en une semaine",
+        "Aucune modification avant 2 mois",
+        "Baisse de l'Hb sous fer oral"
+      ],
+      "correct": 0,
+      "explanation": "Le premier signe d'efficacité est la réticulocytose (J7-10), puis la remontée de l'hémoglobine d'environ 1 g/dL toutes les 2-3 semaines. L'absence de réponse doit faire reconsidérer l'observance (le fer oral est mal toléré : teintes noires, nausées), une cause non traitée, un dosage insuffisant ou un autre diagnostic."
+    }
+  ],
+  "diagnosis": "Anémie ferriprive profonde (Hb 7,9 g/dL, VGM 66 fL, ferritine 4 µg/L, arégénérative) par ménorragies chroniques sur stérilet en cuivre, aggravée par une alimentation pauvre en fer et la consommation de thé.",
+  "management": "Sels ferreux oraux à dose efficace (60-80 mg de fer élémentaire par jour, en une ou deux prises espacées, à distance du thé et des aliments inhibiteurs), poursuite 3 mois après normalisation de l'hémoglobine avec contrôle de la ferritine, prise en charge gynécologique des ménorragies (discussion du stérilet), conseils diététiques (sources de fer, association vitamine C), éducation sur la coloration noire des selles et l'observance, contrôle de l'Hb à 1 mois (absence de progression = réévaluer cause et diagnostic), recherche systématique d'une autre source de saignement si l'évolution est défavorable.",
+  "pitfall": "Ne jamais traiter une anémie microcytaire sans chercher la cause : une carence martiale chez un homme ou une femme ménopausée est un cancer digestif jusqu'à preuve du contraire. Chez cette patiente, le piège inverse existe : arrêter le fer dès la normalisation de l'Hb laisse les réserves vides (ferritine basse) et la carence récidive en quelques mois.",
+  "keyTakeaway": "Microcytose + ferritine effondrée = carence martiale ; réticulocytes bas = régénération insuffisante. Traiter le fer ET la cause, poursuivre 3 mois après la normalisation de l'Hb ; l'efficacité se surveille d'abord sur la réticulocytose à J7-10."
+}

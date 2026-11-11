@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "case_id": "PNEUMO-BPCO-001",
+  "steps": [
+    {
+      "kind": "reveal",
+      "title": "Motif",
+      "body": "Depuis 4 jours : toux plus intense, crachats jaune-vert plus abondants, essoufflement nettement majoré au moindre effort, sifflements habituels plus présents, réveils nocturnes pour respirer. Deux bouffées de salbutamol par jour habituellement, inefficaces depuis 2 jours."
+    },
+    {
+      "kind": "reveal",
+      "title": "Examen",
+      "body": "Émacié, respirant à lèvres pincées, speech haché. TA 132/74, FC 104/min, FR 26/min, SpO2 86 % en air, 90 % sous 2 L/min d'oxygène. Auscultation : sibilants diffus, expiration allongée, ronflements, crépitants aux bases. Pas d'œdème, pas de turgescence jugulaire nette. Pas de fièvre mesurée à 37,9 °C."
+    },
+    {
+      "kind": "reveal",
+      "title": "Compléments",
+      "body": "CRP 68 mg/L, leucocytes 13,2 G/L. Radio thoracique : hyperinflation, pas de foyer alvéolaire, pas d'épanchement, cœur étiré. Gaz du sang sous 2 L d'O2 : pH 7,36, PaO2 58 mmHg, PaCO2 52 mmHg, HCO3- 28 mmol/L. ECG sinusal, pas de signe d'ischémie aiguë."
+    },
+    {
+      "kind": "question",
+      "prompt": "Le tableau est :",
+      "choices": [
+        "Exacerbation de BPCO sur infection des voies respiratoires, hypoxémiante, sans détresse majeure",
+        "Pneumonie communautaire lobaire",
+        "Insuffisance cardiaque gauche aiguë",
+        "Pneumothorax spontané"
+      ],
+      "correct": 0,
+      "explanation": "Le triade d'Anthonisen (majoration de la dyspnée, du volume des expectorations, purulence) définit une exacerbation probablement d'origine infectieuse de BPCO. La radio sans foyer et l'absence de tableau cardiaque ou de décollement écartent les autres diagnostics ; la rétention modérée de CO2 est habituelle dans les BPCO sévères."
+    },
+    {
+      "kind": "question",
+      "prompt": "La prise en charge de l'exacerbation comprend :",
+      "choices": [
+        "Bronchodilatateurs de courte durée, corticoïde systémique 5 jours, antibiothérapie ciblée sur la purulence, oxygène titré vers SpO2 88-92 %",
+        "Oxygène haut débit sans mesure de la SpO2 pour remonter à 99 %",
+        "Corticoïde seul sans bronchodilatateur",
+        "Diurétique IV d'emblée"
+      ],
+      "correct": 0,
+      "explanation": "Bronchodilatateurs, corticoïde systémique et antibiothérapie (si purulence ou CRP élevée) sont le socle du traitement. L'oxygène est titré vers une cible 88-92 % : une hyperoxie aggrave l'hypercapnie en supprimant le stimulus hypoxique et en majorant le piégeage. Le diurétique n'a pas d'indication sans surcharge droite documentée."
+    },
+    {
+      "kind": "question",
+      "prompt": "Si le patient s'épuise : somnolence, PaCO2 qui monte à 68 mmHg, pH 7,28, la conduite est :",
+      "choices": [
+        "Ventilation non invasive (VNI) en biphasique en milieu surveillé, avec réévaluation horaire",
+        "Intubation immédiate sans essai de VNI",
+        "Sédatif pour l'agitation du patient",
+        "Augmenter seul l'oxygène à haut débit"
+      ],
+      "correct": 0,
+      "explanation": "L'acidose respiratoire (pH < 7,35) avec hypercapnie de l'exacerbation de BPCO est l'indication élective de la VNI, qui réduit l'intubation et la mortalité dans cette indication. La sédation est dangereuse (dépression respiratoire) ; l'oxygène seul aggrave la rétention ; l'intubation se réserve à l'échec de la VNI ou à la contre-indication."
+    },
+    {
+      "kind": "question",
+      "prompt": "À distance, la mesure qui réduit le mieux le risque d'exacerbation suivante est :",
+      "choices": [
+        "Arrêt du tabac, réhabilitation respiratoire, vaccinations (grippe, pneumocoque) et observance du traitement de fond inhalé",
+        "Antibiotique continu au long cours",
+        "Corticoïdes oraux en continu",
+        "Aucune mesure : les exacerbations sont inévitables"
+      ],
+      "correct": 0,
+      "explanation": "Le sevrage tabagique est la seule mesure qui modifie l'histoire naturelle de la maladie ; la réhabilitation et la vaccination réduisent significativement les exacerbations. L'antibiothérapie continue sélectionne des résistances, la corticothérapie orale au long cours expose à la myopathie et aux infections, et l'oxygène de longue durée n'est indiqué que selon les critères d'hypoxémie chronique."
+    }
+  ],
+  "diagnosis": "Exacerbation aiguë de BPCO sur infection des voies respiratoires, hypoxémiante, avec hypercapnie modérée compensée, sans détresse respiratoire majeure au stade actuel.",
+  "management": "Hospitalisation : oxygène titré vers SpO2 88-92 %, bronchodilatateurs nébulisés, corticoïde systémique 5 jours, antibiothérapie devant la purulence et la CRP, surveiller conscience, SpO2 et gaz du sang ; VNI si acidose respiratoire. Sortie : plan inhalateurs vérifiés, réhabilitation programmée, vaccinations à jour, arrêt du tabac, suivi pneumologique et contrôle à 2-4 semaines.",
+  "pitfall": "Le piège de l'oxygène : monter la SpO2 à 99 % chez le BPCO hypercapnique peut précipiter le coma hypercapnique. Cible 88-92 %, gaz du sang de contrôle. Autre piège : banaliser une exacerbation répétée sans chercher le facteur déclenchant ni renforcer le traitement de fond après la crise.",
+  "keyTakeaway": "Exacerbation de BPCO = bronchodilatateur + corticoïde court + antibiotique si purulence, oxygène titré à 88-92 %. Acidose respiratoire : VNI d'emblée en milieu surveillé. La prévention est hors crise : sevrage, réhabilitation, vaccins."
+}

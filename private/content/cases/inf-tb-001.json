@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "case_id": "INF-TB-001",
+  "steps": [
+    {
+      "kind": "reveal",
+      "title": "Motif",
+      "body": "Toux productive depuis six semaines, non amendée par deux antibiotiques achetés en pharmacie. Sueurs nocturnes profuses, amaigrissement de 6 kg, fatigue majeure. Pas de fièvre élevée au thermomètre, plutôt 37,8 °C le soir."
+    },
+    {
+      "kind": "reveal",
+      "title": "Examen",
+      "body": "TA 110/70, FC 88, FR 20, SpO2 96 % en air ambiant. Consciente, amaigrie (IMC 17). Auscultation : crépitants discrets des deux apex, un peu plus nets à droite. Pas de matité, pas d'adénopathie périphérique palpable."
+    },
+    {
+      "kind": "reveal",
+      "title": "Examen",
+      "body": "Radio thoracique de face : infiltrats réticulonodulaires des deux sommets, plus denses à droite, pas de cavité franche ni d'épanchement. NFS : Hb 10,8 g/dL, GB 9,2 G/L. CRP 42 mg/L. Sérologie VIH en cours de proposition, acceptée."
+    },
+    {
+      "kind": "question",
+      "prompt": "Le critère qui fait de cette toux une toux de dépistage de tuberculose est :",
+      "choices": [
+        "Toux depuis plus de 2 semaines dans un pays d'endémie, sans amélioration sous antibiotique",
+        "Toux du soir uniquement chez une fumeuse",
+        "Toux avec wheezing majoré la nuit",
+        "Toux précédant un rhume banal"
+      ],
+      "correct": 0,
+      "explanation": "Le Programme national de tuberculose et l'OMS définissent le cas suspect pulmonaire par une toux de plus de 2 semaines, a fortiori de 6 semaines avec sueurs nocturnes, amaigrissement et contage familial, dans un pays à haute incidence. Un wheezing nocturne évoque l'asthme ; la toux du fumeur ne s'accompagne pas de ce tableau général."
+    },
+    {
+      "kind": "question",
+      "prompt": "L'examen de confirmation de première intention ici est :",
+      "choices": [
+        "La recherche de BAAR sur deux crachats (microscopie), complétée si possible par un test moléculaire rapide type Xpert MTB/RIF",
+        "Une sérologie tuberculeuse",
+        "Un scanner thoracique d'emblée",
+        "Une intradermoréaction à la tuberculine"
+      ],
+      "correct": 0,
+      "explanation": "Le diagnostic de tuberculose pulmonaire à frottis positif repose sur la microscopie de deux échantillons de crachats ; le test moléculaire rapide (Xpert MTB/RIF) est recommandé par l'OMS en première intention quand il est disponible car il détecte aussi la résistance à la rifampicine. La sérologie et l'IDR ne diagnostiquent pas une tuberculose maladie ; le scanner n'est pas nécessaire au diagnostic."
+    },
+    {
+      "kind": "question",
+      "prompt": "Le traitement de première intention d'une tuberculose pulmonaire sensible, sans signe de gravité, est :",
+      "choices": [
+        "Isoniazide + rifampicine + pyrazinamide + éthambutol pendant 2 mois, puis isoniazide + rifampicine pendant 4 mois (2 RHZE / 4 HR)",
+        "Amoxicilline 7 jours",
+        "Isoniazide seul pendant 6 mois",
+        "Ceftriaxone IV 10 jours"
+      ],
+      "correct": 0,
+      "explanation": "Le schéma standard de 6 mois (2 mois quadrithérapie RHZE puis 4 mois bithérapie HR) reste le traitement de référence de la tuberculose pulmonaire sensible de l'adulte. Le schéma plus court de 4 mois contenant rifapentine et moxifloxacine est réservé à certaines situations selon les recommandations OMS et le protocole national. Une monothérapie expose à la résistance ; une bêta-lactamine n'a aucun effet sur M. tuberculosis."
+    }
+  ],
+  "diagnosis": "Tuberculose pulmonaire présumée BAAR+ (toux > 2 semaines, contage familial, infiltrats apicaux bilatéraux, syndrome inflammatoire modéré), forme de l'adulte probablement sensible à confirmer par microscopie et test moléculaire.",
+  "management": "Confirmation par deux crachats (microscopie ± Xpert MTB/RIF), déclaration au Programme national de lutte antituberculeuse, mise en route du traitement 2 RHZE / 4 HR avec observation directe du traitement si possible, information et dépistage des contacts domiciliaires (dont les enfants), recherche du VIH et du diabète, supplémentation nutritionnelle, éducation : couvrir la bouche quand elle tousse, aérer, ne pas arrêter le traitement malgré l'amélioration à 2-3 mois.",
+  "pitfall": "Deux antibiotiques achetés en pharmacie et une radio « pas de cavité » ne rassurent pas : la tuberculose peut être paucibacillaire et l'image infiltrative des sommets suffit à suspecter. Ne jamais traiter sans confirmation ni déclaration — le patient repart porteur d'une maladie transmissible, et une monothérapie improvisée crée une résistance que l'on ne retrouve qu'au test moléculaire.",
+  "keyTakeaway": "Toux > 2 semaines + sueurs nocturnes + amaigrissement + contage en pays d'endémie = tuberculose pulmonaire jusqu'à preuve du contraire : deux crachats pour la microscopie ± Xpert MTB/RIF, puis 2 RHZE / 4 HR avec dépistage des contacts et déclaration."
+}

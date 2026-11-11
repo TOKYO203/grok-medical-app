@@ -1,5 +1,6 @@
 import type { ClinicalCase, Competency, Deck, DiagnosticCase, Entitlement } from "@/core/types";
 import { CLINICAL_CASES, DIAGNOSTIC_CASES } from "@/content/catalog";
+import { caseStepCount } from "@/lib/case-step-count";
 import { specialtyCodeFromLabel } from "@/lib/library/specialty-label";
 import { hasEntitlement } from "@/state/store";
 import { deckQuestionCount } from "@/lib/deck-question-count";
@@ -111,7 +112,7 @@ function isDeckAccessible(deck: Deck, entitlements: Entitlement[], tier: string)
 }
 
 function caseToItem(clinical: ClinicalCase, entitlements: Entitlement[]): ContentItem {
-  const steps = clinical.steps.length;
+  const steps = caseStepCount(clinical);
   return {
     id: `case:${clinical.id}`,
     kind: "case",

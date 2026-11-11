@@ -6,7 +6,7 @@
 
 import { useSyncExternalStore } from "react";
 import type {
-  AccessPolicy, ClinicalCase, Competency, Deck, DeckDifficulty,
+  AccessPolicy, CaseStep, ClinicalCase, Competency, Deck, DeckDifficulty,
   DiagnosticCase, Question,
 } from "@/core/types";
 import { enrichSources } from "@/content/source-registry";
@@ -111,6 +111,80 @@ export function hydrateProtectedDecks(): Promise<void> {
   return deckHydration;
 }
 
+/**
+ * DOSSIERS CLINIQUES FERMÉS — chargés hors de l'index public.
+ *
+ * `public/data/cases.json` ne contient plus les étapes, le diagnostic ni la
+ * prise en charge d'un dossier fermé (§14 du pentest) : il ne porte que
+ * `stepCount` et le teaser. Le contenu réel vient de `private/content/cases/`
+ * via `/content/cases/_catalog.json`, une seule requête pour les 41 dossiers.
+ *
+ * Sans jeton la requête répond 401 : les dossiers restent verrouillés avec leur
+ * nombre d'étapes annoncé, aucun écran ne casse.
+ */
+const PROTECTED_CASE_CATALOG_URL = "/content/cases/_catalog.json";
+
+let caseHydration: Promise<void> | null = null;
+
+/** Contenu protégé d'un dossier, tel que le garde le rend. */
+type ProtectedCaseAsset = {
+  steps?: unknown;
+  diagnosis?: unknown;
+  management?: unknown;
+  pitfall?: unknown;
+  keyTakeaway?: unknown;
+};
+
+/**
+ * Récupère les dossiers protégés et les fusionne dans l'état du catalogue.
+ * Idempotent : un dossier qui a déjà ses étapes n'est jamais réécrit.
+ */
+export function hydrateProtectedCases(): Promise<void> {
+  if (typeof window === "undefined") return Promise.resolve();
+  if (caseHydration) return caseHydration;
+
+  caseHydration = (async () => {
+    try {
+      const response = await fetchWithAuth(PROTECTED_CASE_CATALOG_URL, {
+        headers: { accept: "application/json" },
+      });
+      if (!response.ok) return;
+
+      const payload = (await response.json()) as { cases?: Record<string, ProtectedCaseAsset> };
+      const assets = payload?.cases ?? {};
+
+      let changed = false;
+      state.cases = state.cases.map((clinical) => {
+        if (clinical.steps.length > 0) return clinical;
+        // Le garde indexe par nom de fichier : identifiant en minuscules.
+        const asset = assets[`${clinical.id.toLowerCase()}.json`];
+        if (!asset || !Array.isArray(asset.steps) || asset.steps.length === 0) return clinical;
+
+        changed = true;
+        return {
+          ...clinical,
+          steps: asset.steps as CaseStep[],
+          diagnosis:
+            typeof asset.diagnosis === "string" ? asset.diagnosis : clinical.diagnosis,
+          management:
+            typeof asset.management === "string" ? asset.management : clinical.management,
+          pitfall: typeof asset.pitfall === "string" ? asset.pitfall : clinical.pitfall,
+          keyTakeaway:
+            typeof asset.keyTakeaway === "string" ? asset.keyTakeaway : clinical.keyTakeaway,
+        };
+      });
+      if (changed) emit();
+    } catch {
+      // Hors ligne, garde non configuré, jeton absent : les dossiers restent
+      // verrouillés, aucune autre partie du catalogue n'est touchée.
+    } finally {
+      caseHydration = null;
+    }
+  })();
+
+  return caseHydration;
+}
+
 // ─── Transformations (identiques à avant) ──────────────────────────────────
 function asDeck(raw: Record<string, any>): Deck {
   return {
@@ -153,10 +227,11 @@ export function loadCatalog(): Promise<void> {
       state.cases = c.map(asCase);
       state.diagnostics = diag as DiagnosticCase[];
       state.ready = true;
-      // Les questions Premium vivent hors de `public/data` : on les demande au
-      // garde AVANT le premier rendu, pour qu'aucun écran ne montre un deck
-      // « 0 question » à un client qui a payé.
-      await hydrateProtectedDecks();
+      // Les questions Premium et les dossiers fermés vivent hors de
+      // `public/data` : on les demande au garde AVANT le premier rendu, pour
+      // qu'aucun écran ne montre un deck « 0 question » ou un dossier vide à un
+      // client qui a payé.
+      await Promise.all([hydrateProtectedDecks(), hydrateProtectedCases()]);
       emit();
     })
     .catch((err) => { state.error = err; inflight = null; emit(); });
@@ -243,7 +318,9 @@ if (typeof window !== "undefined") void loadCatalog();
 // catalogue reflète l'accès réel sans rechargement de page.
 if (typeof window !== "undefined") {
   window.addEventListener(CONTENT_SESSION_EVENT, () => {
-    if (state.ready) void hydrateProtectedDecks();
+    if (!state.ready) return;
+    void hydrateProtectedDecks();
+    void hydrateProtectedCases();
   });
 }
 
