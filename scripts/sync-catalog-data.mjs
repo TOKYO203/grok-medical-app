@@ -34,9 +34,6 @@ import { cpSync, existsSync, mkdirSync, readFileSync, readdirSync, renameSync, r
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
-/** Catalogues servis à l'app — mêmes noms des deux côtés. */
-const CATALOG_FILES = ["decks.json", "cases.json", "diagnostics.json"];
-
 /** Le workspace root (ce fichier vit dans `<root>/scripts/`). */
 export function projectRoot() {
   return dirname(dirname(fileURLToPath(import.meta.url)));

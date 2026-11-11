@@ -1,7 +1,11 @@
-# Déploiement Cloudflare Pages — optimusmedical
+# Déploiement Cloudflare — Worker `optimus-medical-prod`
 
-La production est `https://optimusmedical.pages.dev` (projet Cloudflare Pages
-connecté à ce dépôt, build automatique sur push vers `main`).
+**Depuis le 2026-11-10, la production est le Worker `optimus-medical-prod`**
+(déployé automatiquement par `.github/workflows/deploy-worker.yml` sur push
+vers `main`). Le projet Cloudflare Pages `optimusmedical` est **en pause** :
+il ne sert plus le trafic et son build git ne doit pas être réactivé. Les
+sections « Pages » ci-dessous sont conservées pour l'historique et pour la
+migration inverse éventuelle.
 
 ## Réglages attendus dans le dashboard Cloudflare
 

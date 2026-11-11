@@ -37,7 +37,7 @@ import { Progress } from "@/components/ui/progress";
 import { BADGE_CATALOG, type BadgeId } from "@/content/badges";
 import { PROFESSIONAL_LEVELS, YEARS } from "@/content/catalog";
 import { levelInfo } from "@/core/scoring";
-import { STUDY_LEVEL_LABEL, type CoverId, type StudyLevel } from "@/core/types";
+import { type CoverId, type StudyLevel } from "@/core/types";
 import { useI18n, LOCALES } from "@/i18n";
 import { markLocaleChosen } from "@/i18n/detect";
 import { getAuthRuntimeStatus, type AuthRuntimeStatus } from "@/lib/auth/runtime-status";
