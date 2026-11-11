@@ -34,7 +34,7 @@ jobs:
 
       - name: Override worker name
         run: |
-          node -e "const fs=require('fs');const p='.output/server/wrangler.json';const j=JSON.parse(fs.readFileSync(p,'utf8'));j.name='optimus';j.assets=j.assets||{};j.assets.not_found_handling='single-page-application';fs.writeFileSync(p,JSON.stringify(j,null,2));"
+          node -e "const fs=require('fs');const p='.output/server/wrangler.json';const j=JSON.parse(fs.readFileSync(p,'utf8'));j.name='optimus';j.assets=j.assets||{};j.assets.not_found_handling='single-page-application';j.workers_dev=true;fs.writeFileSync(p,JSON.stringify(j,null,2));"
           node -e "console.log('name =', JSON.parse(require('fs').readFileSync('.output/server/wrangler.json','utf8')).name)"
       # Variables d'authentification injectées au déploiement (pas dans le
       # dashboard) : sur un Worker, CF_PAGES_URL n'existe pas, donc
