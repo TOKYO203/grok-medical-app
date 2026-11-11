@@ -3,7 +3,8 @@ import { test, expect } from "@playwright/test";
 test.describe("PWA", () => {
   test("manifest déclaré et récupérable", async ({ page, request }) => {
     await page.goto("/");
-    await page.waitForLoadState("networkidle");
+    // "load" et non "networkidle" (jamais atteint : réseau continu de l'app).
+    await page.waitForLoadState("load");
     const manifestHref = await page
       .locator('link[rel="manifest"]')
       .getAttribute("href")
@@ -16,7 +17,7 @@ test.describe("PWA", () => {
 
   test("service worker enregistré", async ({ page }) => {
     await page.goto("/");
-    await page.waitForLoadState("networkidle");
+    await page.waitForLoadState("load");
     // Le SW peut mettre plusieurs secondes à s'activer en CI localhost
     const swUrl = await page.evaluate(async () => {
       if (!("serviceWorker" in navigator)) return null;

@@ -4,7 +4,8 @@ test.describe("Onboarding", () => {
   test.beforeEach(async ({ page }) => {
     await page.addInitScript(() => window.localStorage.clear());
     await page.goto("/");
-    await page.waitForLoadState("networkidle");
+    // Pas de waitForLoadState("networkidle") : l'app garde du réseau en cours,
+    // l'événement n'arrive jamais en CI. La première assertion attend déjà.
   });
 
   test("affiche l'écran de bienvenue puis l'étape niveau", async ({ page }) => {

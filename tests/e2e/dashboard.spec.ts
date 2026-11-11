@@ -27,8 +27,9 @@ test.describe("Dashboard", () => {
       window.localStorage.setItem("optimus.dailyGoal", "30min");
     }, SEED);
     await page.goto("/");
-    // Attendre que le store soit hydraté et l'onboarding bypass
-    await page.waitForLoadState("networkidle");
+    // Pas de waitForLoadState("networkidle") : l'app garde du réseau en cours
+    // (sondes, préchargement) et l'événement n'arrive jamais en CI. Les
+    // assertions ci-dessous portent déjà le temps d'attente (toBeVisible).
   });
 
   test("affiche la session du jour et la progression quotidienne", async ({ page }) => {

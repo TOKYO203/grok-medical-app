@@ -19,6 +19,8 @@ permissions:
 #    réparation complète de la dette R7 (10 fichiers de tests, fiches
 #    pathologies, fichiers morts de src/, lint). Un échec de Tests,
 #    Typecheck ou Lint fait de nouveau échouer la CI.
+#  • 2026-11-11 : garde-fou anti-base64 (incident du commit #468 : contenu
+#    poussé encodé à la place du code, Build+Tests rouges sur main).
 
 jobs:
   build-cloudflare:
@@ -62,6 +64,9 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v7
+
+      - name: Garde-fou anti-base64
+        run: node scripts/check-no-base64-files.mjs
 
       - name: Setup Node.js
         uses: actions/setup-node@v7

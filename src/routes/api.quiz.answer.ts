@@ -4,7 +4,6 @@ import { readAllProtectedAssets } from "@/lib/content/protected-assets.server";
 import {
   authenticate,
   contentUnavailableResponse,
-  jsonResponse,
   unauthorizedResponse,
 } from "@/server/content-guard";
 
