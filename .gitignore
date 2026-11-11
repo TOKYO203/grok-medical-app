@@ -13,9 +13,12 @@ out/
 .netlify/
 .vercel/
 
-# Environnement (.env* couvre .env, .env.local, .env.*.local et variantes)
+# Environnement — TOUT est ignoré, sans exception : .env.production ne doit
+# jamais revenir dans le dépôt (audit 2026-11, faille F4). Les valeurs de
+# production (même les variables VITE_ « publiques ») sont injectées par la
+# plateforme (Vercel/Netlify/Cloudflare), pas committées.
 .env*
-!.env.production
+!.env.example
 
 # Logs
 logs/
@@ -53,7 +56,7 @@ ton-app-grok-build-main(1)/
 # Sanitized staging proof is retained by CI, not committed.
 /artifacts/staging-migration.json
 
-# Répertoires locaux de travail (sauvegardes & artefacts d’audit/QA)
+# Répertoires locaux de travail (sauvegardes & artefacts d'audit/QA)
 # Tenir cette liste en phase avec les `ignores` de eslint.config.mjs.
 .optimus-backups/
 .optimus-backup-*/
@@ -105,9 +108,5 @@ scripts/sanity-index.sh
 .output/
 .wrangler/
 
-# Pentest 2026-11-09 §1/§14/§15 : actifs de contenu privés, générés par
-# scripts/sync-catalog-data.mjs depuis src/content/data (jamais committés).
-/private/content/decks/
-/private/content/cases/
-/private/content/diagnostics/
-/private/content/demarches/
+# Identifiants temporaires de rotation admin (jamais committés)
+.admin-credentials*

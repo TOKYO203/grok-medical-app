@@ -1,6 +1,12 @@
 #!/data/data/com.termux/files/usr/bin/bash
 set -euo pipefail
 
+# Audit 2026-11 (faille F7) :
+#   • le mot de passe n'est plus affiché en clair dans le terminal ;
+#   • il est écrit dans .admin-credentials (chmod 600, ignoré par git) ;
+#   • il est transmis à set-admin-password.mjs par stdin, plus jamais en
+#     argument CLI (visible dans `ps` et l'historique du shell).
+
 RED=$'\033[0;31m'; GREEN=$'\033[0;32m'; YELLOW=$'\033[1;33m'
 BLUE=$'\033[0;34m'; BOLD=$'\033[1m'; NC=$'\033[0m'
 
@@ -14,6 +20,7 @@ PROJECT="grok-medical-app"
 LIVE_URL="https://grok-medical-app.vercel.app"
 VAR_NAME="ADMIN_PASSWORD"
 ENVS=("production" "preview" "development")
+CREDS_FILE=".admin-credentials"
 
 cat <<'WARN'
 ⚠️  CE SCRIPT NE TOURNE QUE LA MOITIÉ DE LA ROTATION.
@@ -21,10 +28,8 @@ cat <<'WARN'
     et ne lit ADMIN_PASSWORD qu'en l'absence de hash. Remplacer la variable
     Vercel laisse donc l'ANCIEN mot de passe valide (constaté pendant
     l'incident du 2026-10-17 : la prod répondait encore {"valid":true}).
-    Il faut AUSSI réécrire le hash :
-      node scripts/set-admin-password.mjs '<nouveau-mot-de-passe>'
-    (ou la route de maintenance décrite dans docs/SECURITY-AUDIT.md quand la
-    base n'est joignable que depuis le déploiement).
+    Il faut AUSSI réécrire le hash — ce script le fait désormais via stdin :
+      printf '%s' "$SECRET" | node scripts/set-admin-password.mjs
     Détails : docs/production-runbook.md — section 0.
 
 WARN
@@ -46,10 +51,10 @@ if [[ -z "${ADMIN_PWD:-}" ]]; then
   else
     ADMIN_PWD="Optimus-$(date +%s | sha256sum | head -c 16)"
   fi
-  warn "Mot de passe généré : ${BOLD}${ADMIN_PWD}${NC}"
+  warn "Mot de passe généré (non affiché)."
 fi
 
-[[ ${#ADMIN_PWD} -lt 8 ]] && die "Mot de passe trop court (min 8 caractères)."
+[[ ${#ADMIN_PWD} < 8 ]] && die "Mot de passe trop court (min 8 caractères)."
 
 read -r -p "  Confirmer le déploiement sur Vercel ? [y/N] " CONFIRM
 [[ "${CONFIRM,,}" != "y" ]] && { warn "Annulé."; exit 0; }
@@ -68,6 +73,22 @@ for env in "${ENVS[@]}"; do
     && ok "  - ajoutée dans $env" \
     || die "Échec d'ajout dans $env"
 done
+
+# Le secret n'est PAS affiché : il est déposé dans un fichier local protégé,
+# ignoré par git, à copier dans un gestionnaire de mots de passe puis supprimer.
+umask 077
+printf '%s\n' "$ADMIN_PWD" > "$CREDS_FILE"
+warn "Mot de passe stocké dans ${CREDS_FILE} (chmod 600, ignoré par git)."
+warn "Copiez-le dans votre gestionnaire de mots de passe, PUIS supprimez le fichier."
+
+echo
+log "Réécriture du hash en base (stdin, sans argument CLI)…"
+if DATABASE_URL="$(grep -m1 '^DATABASE_URL=' .env.local 2>/dev/null | cut -d= -f2- | tr -d '"\'')"; then
+  export DATABASE_URL
+fi
+printf '%s' "$ADMIN_PWD" | node scripts/set-admin-password.mjs \
+  && ok "Hash réécrit — l'ancien mot de passe n'est plus valide." \
+  || err "Échec de réécriture du hash : refaites printf '%s' "$SECRET" | node scripts/set-admin-password.mjs"
 
 echo
 log "Redéploiement de production…"
@@ -102,7 +123,7 @@ echo "$R1" | grep -q '"valid":false' && ok "Test 1 OK" || err "Test 1 ÉCHEC (fa
 echo
 log "Test 2 : bon mot de passe…"
 R2=$(curl -s -X POST "$LIVE_URL/api/admin-verify" \
-  -H "Content-Type: application/json" -d "{\"adminKey\":\"$ADMIN_PWD\"}")
+  -H "Content-Type: application/json" -d "$(printf '{"adminKey":"%s"}' "$ADMIN_PWD")")
 echo "  → $R2"
 echo "$R2" | grep -q '"valid":true' && ok "Test 2 OK — LOGIN ADMIN FONCTIONNEL" \
   || err "Test 2 ÉCHEC — vérifie les logs Vercel"
@@ -111,9 +132,7 @@ echo
 echo "${BOLD}════════════════════════════════════════════════${NC}"
 if echo "$R2" | grep -q '"valid":true'; then
   ok "${BOLD}SUCCÈS${NC} — ${VAR_NAME} opérationnel."
-  echo "   Mot de passe : ${BOLD}${ADMIN_PWD}${NC}"
-  warn "${BOLD}ACTION REQUISE${NC} : réécrire le hash en base, sinon l'ancien mot de passe reste valide :"
-  echo "     node scripts/set-admin-password.mjs '${ADMIN_PWD}'"
+  echo "   Mot de passe : voir ${CREDS_FILE} (à supprimer après copie)."
   echo "   Type         : Secret"
   echo "   Envs         : ${ENVS[*]}"
 else

@@ -3,9 +3,29 @@ import crypto from "node:crypto";
 import { readFileSync, existsSync } from "node:fs";
 import pg from "pg";
 
-const password = process.argv[2];
+// Le mot de passe est lu, par ordre de préférence :
+//   1. l'argument CLI (compatibilité) — visible dans `ps`, à éviter ;
+//   2. la variable d'environnement ADMIN_PASSWORD ;
+//   3. l'entrée standard (recommandé : `printf '%s' "$PWD_SECRET" | node scripts/set-admin-password.mjs`).
+// Audit 2026-11 (faille F7) : ne plus imposer le passage par argv.
+async function resolvePassword() {
+  if (process.argv[2]) return process.argv[2];
+  if (process.env.ADMIN_PASSWORD) return process.env.ADMIN_PASSWORD;
+  if (!process.stdin.isTTY) {
+    const chunks = [];
+    for await (const chunk of process.stdin) chunks.push(chunk);
+    return Buffer.concat(chunks).toString("utf8").trim();
+  }
+  return undefined;
+}
+
+const password = await resolvePassword();
 if (!password || password.length < 8) {
-  console.error("Usage: node scripts/set-admin-password.mjs <password-min-8>");
+  console.error(
+    "Usage: node scripts/set-admin-password.mjs <password-min-8>\n" +
+      "   ou: ADMIN_PASSWORD=… node scripts/set-admin-password.mjs\n" +
+      "   ou: printf '%s' "$SECRET" | node scripts/set-admin-password.mjs",
+  );
   process.exit(1);
 }
 
@@ -62,15 +82,15 @@ await client.connect();
 
 await client.query(
   "CREATE TABLE IF NOT EXISTS admin_config (" +
-  "key TEXT PRIMARY KEY, " +
-  "value TEXT NOT NULL, " +
-  "updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW())"
+    "key TEXT PRIMARY KEY, " +
+    "value TEXT NOT NULL, " +
+    "updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW())"
 );
 
 await client.query(
   "INSERT INTO admin_config (key, value, updated_at) " +
-  "VALUES ('admin_password_hash', $1, NOW()) " +
-  "ON CONFLICT (key) DO UPDATE SET value = EXCLUDED.value, updated_at = NOW()",
+    "VALUES ('admin_password_hash', $1, NOW()) " +
+    "ON CONFLICT (key) DO UPDATE SET value = EXCLUDED.value, updated_at = NOW()",
   [stored]
 );
 
