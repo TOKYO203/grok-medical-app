@@ -8,7 +8,6 @@ import {
   resolveSupabaseServiceKey,
 } from "@/server/supabase-env.server";
 import { isLemonCheckoutConfigured, readLemonCheckoutConfig } from "@/content/international";
-import { BUILD_CLIENT_SUPABASE } from "@/lib/build-auth-config";
 
 /**
  * `GET /api/health/checkout` — « ce DÉPLOIEMENT peut-il encaisser ? »
@@ -130,7 +129,6 @@ export const Route = createFileRoute("/api/health/checkout")({
             webhookSecret: Boolean((env.LEMONSQUEEZY_WEBHOOK_SECRET ?? "").trim()),
             checkoutConfigured: isLemonCheckoutConfigured(lemon),
           },
-          clientBuild: BUILD_CLIENT_SUPABASE,
           env: {
             SUPABASE_URL: Boolean((env.SUPABASE_URL ?? "").trim()),
             VITE_SUPABASE_URL: Boolean((env.VITE_SUPABASE_URL ?? "").trim()),
