@@ -13,9 +13,10 @@ out/
 .netlify/
 .vercel/
 
-# Environnement (.env* couvre .env, .env.local, .env.*.local et variantes)
+# Environnement (.env* couvre .env, .env.local, .env.production et variantes)
+# Plus d'exception : même .env.production (variables VITE_ publiques) vit dans
+# les variables CI/Cloudflare, plus rien n'est versionné.
 .env*
-!.env.production
 
 # Logs
 logs/
