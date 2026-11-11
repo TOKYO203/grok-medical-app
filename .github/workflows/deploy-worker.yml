@@ -34,7 +34,7 @@ jobs:
 
       - name: Override worker name
         run: |
-          node -e "const fs=require('fs');const p='.output/server/wrangler.json';const j=JSON.parse(fs.readFileSync(p,'utf8'));j.name='optimus-medical-prod';j.assets=j.assets||{};j.assets.not_found_handling='single-page-application';fs.writeFileSync(p,JSON.stringify(j,null,2));"
+          node -e "const fs=require('fs');const p='.output/server/wrangler.json';const j=JSON.parse(fs.readFileSync(p,'utf8'));j.name='optimus';j.assets=j.assets||{};j.assets.not_found_handling='single-page-application';fs.writeFileSync(p,JSON.stringify(j,null,2));"
           node -e "console.log('name =', JSON.parse(require('fs').readFileSync('.output/server/wrangler.json','utf8')).name)"
       # Variables d'authentification injectées au déploiement (pas dans le
       # dashboard) : sur un Worker, CF_PAGES_URL n'existe pas, donc
@@ -59,7 +59,7 @@ jobs:
       - name: Deploy with Wrangler
         run: |
           ARGS="--config .output/server/wrangler.json"
-          ARGS="$ARGS --var BETTER_AUTH_URL:https://optimus-medical-prod.onjaandrianantenainafetramandr.workers.dev"
+          ARGS="$ARGS --var BETTER_AUTH_URL:https://optimus.on.workers.dev"
           ARGS="$ARGS --var TRUST_PROXY_HEADERS:true"
           if [ -n "$GROK_AUTH_CLIENT_ID" ]; then
             ARGS="$ARGS --var GROK_AUTH_CLIENT_ID:$GROK_AUTH_CLIENT_ID"
