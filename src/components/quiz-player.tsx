@@ -280,7 +280,7 @@ export function QuizPlayer({
   // attend la réponse serveur (checkState "idle" après vérification).
   const revealed = picked !== null && checkState === "idle";
   const effectiveCorrect = q.correct !== undefined ? q.correct : remoteAnswer?.correctIndex;
-  const ok = picked === effectiveCorrest;
+  const ok = picked === effectiveCorrect;
   const explanation = q.correct !== undefined ? q.explanation : remoteAnswer?.explanation ?? "";
   const sources = q.correct !== undefined ? q.sources : remoteAnswer?.sources ?? [];
 
