@@ -1,3 +1,4 @@
+successfully downloaded text file (SHA: a48bbb4d678efc67baf016f1e734edc69f439f2b)
 interface SecurityHeaderEvent {
   url: URL;
 }
@@ -25,7 +26,7 @@ function httpsOrigin(raw: string | undefined): string | null {
  * CSP construite depuis la configuration d'environnement, pour rester
  * correcte quel que soit le déploiement (Supabase, Upstash, OAuth).
  *
- * ÉCHAPPEETTES VOLONTAIRES :
+ * ÉCHAPPATOIRES VOLONTAIRES :
  *  • script-src/style-src tolèrent 'unsafe-inline' : TanStack Start injecte
  *    des scripts/styles d'amorçage inline au SSR, et une CSP trop stricte
  *    casserait l'hydratation et le login OAuth. Resserrer plus tard avec des

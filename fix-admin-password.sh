@@ -1,3 +1,4 @@
+successfully downloaded text file (SHA: 3af876282dbb6ea3b4d4a5f2dc8f908a813000e4)
 #!/data/data/com.termux/files/usr/bin/bash
 set -euo pipefail
 
@@ -54,7 +55,7 @@ if [[ -z "${ADMIN_PWD:-}" ]]; then
   warn "Mot de passe généré (non affiché)."
 fi
 
-[[ ${#ADMIN_PWD} < 8 ]] && die "Mot de passe trop court (min 8 caractères)."
+[[ ${#ADMIN_PWD} -lt 8 ]] && die "Mot de passe trop court (min 8 caractères)."
 
 read -r -p "  Confirmer le déploiement sur Vercel ? [y/N] " CONFIRM
 [[ "${CONFIRM,,}" != "y" ]] && { warn "Annulé."; exit 0; }
@@ -83,7 +84,7 @@ warn "Copiez-le dans votre gestionnaire de mots de passe, PUIS supprimez le fich
 
 echo
 log "Réécriture du hash en base (stdin, sans argument CLI)…"
-if DATABASE_URL="$(grep -m1 '^DATABASE_URL=' .env.local 2>/dev/null | cut -d= -f2- | tr -d '"\'')"; then
+if DATABASE_URL="$(grep -m1 '^DATABASE_URL=' .env.local 2>/dev/null | cut -d= -f2-)"; then
   export DATABASE_URL
 fi
 printf '%s' "$ADMIN_PWD" | node scripts/set-admin-password.mjs \
