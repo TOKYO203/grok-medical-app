@@ -244,8 +244,6 @@ export default defineConfig(withServerEnv(({ command, isPreview }) => ({
     ...(command === "build" || isPreview
       ? [
           nitro({
-            // DIAG TEMPORAIRE : exposer la stack réelle des 500 (retirer après incident).
-            errorHandler: "./error.ts",
             // The repository feeds both Vercel and Netlify previews. Pinning
             // this to Vercel made Netlify publish assets without the SSR
             // function, so every application route returned its 404 page.

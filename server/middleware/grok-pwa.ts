@@ -1,10 +1,12 @@
 /**
  * Deployed-app (Nitro) half of the platform PWA chrome.
  *
- * To speed up cold starts on serverless platforms (Vercel) we lazily import
- * the heavier shared modules and the raw install page only when needed.
- * This avoids paying for IO/parse at module-initialization time for functions
- * that don't need PWA logic.
+ * ROBUSTESSE PROD (incident 500 worker) : ce middleware s'exécute sur TOUTES
+ * les requêtes GET, y compris /api/*. Aucun de ses chemins ne doit pouvoir
+ * lever vers h3 : chaque appel est défensif et retombe sur next() en cas
+ * d'échec (head-injection et page d'install sont des bonus, pas des
+ * prérequis). Les imports lourds restent paresseux mais leurs échecs sont
+ * absorbés au lieu de casser la requête.
  */
 
 interface GrokPwaEvent {
@@ -22,6 +24,7 @@ function requestHost(event: GrokPwaEvent): string {
 // same function instance (reduces overhead after cold start).
 const cached: {
   loaded: boolean;
+  failed: boolean;
   installPageTemplate?: string;
   grokOgIdentity?: { site: unknown };
   createHeadInjector?: (opts: { host: string; site: unknown }) => any;
@@ -30,32 +33,54 @@ const cached: {
   isInstallQuery?: (q: string) => boolean;
   renderInstallPageHtml?: (tpl: string, opts: { host: string; url: string }) => string;
   renderWebManifest?: (host: string) => string;
-} = { loaded: false };
+} = { loaded: false, failed: false };
 
-async function ensureCachedModules() {
-  if (cached.loaded) return;
-  // Dynamic import of the raw template and shared helpers.
-  // These imports are only performed on the first request that actually
-  // needs PWA behavior, reducing function init time for other paths.
-  const [tplMod, sharedMod, ogMod] = await Promise.all([
-    import("../../scripts/install-page.html?raw") as Promise<{ default: string }> ,
-    import("../../scripts/grok-pwa-shared.mjs") as Promise<any>,
-    import("virtual:grok-og-identity") as Promise<{ grokOgIdentity: { site: unknown } }>,
-  ]);
+async function ensureCachedModules(): Promise<boolean> {
+  if (cached.loaded) return true;
+  if (cached.failed) return false;
+  try {
+    const [tplMod, sharedMod, ogMod] = await Promise.all([
+      import("../../scripts/install-page.html?raw") as Promise<{ default: string }>,
+      import("../../scripts/grok-pwa-shared.mjs") as Promise<any>,
+      import("virtual:grok-og-identity") as Promise<{ grokOgIdentity: { site: unknown } }>,
+    ]);
 
-  cached.installPageTemplate = (tplMod as any).default;
-  cached.grokOgIdentity = (ogMod as any).grokOgIdentity;
-  cached.createHeadInjector = (sharedMod as any).createHeadInjector;
-  cached.acceptsHtml = (sharedMod as any).acceptsHtml;
-  cached.isDocumentPath = (sharedMod as any).isDocumentPath;
-  cached.isInstallQuery = (sharedMod as any).isInstallQuery;
-  cached.renderInstallPageHtml = (sharedMod as any).renderInstallPageHtml;
-  cached.renderWebManifest = (sharedMod as any).renderWebManifest;
-  cached.loaded = true;
+    cached.installPageTemplate = (tplMod as any).default;
+    cached.grokOgIdentity = (ogMod as any).grokOgIdentity;
+    cached.createHeadInjector = (sharedMod as any).createHeadInjector;
+    cached.acceptsHtml = (sharedMod as any).acceptsHtml;
+    cached.isDocumentPath = (sharedMod as any).isDocumentPath;
+    cached.isInstallQuery = (sharedMod as any).isInstallQuery;
+    cached.renderInstallPageHtml = (sharedMod as any).renderInstallPageHtml;
+    cached.renderWebManifest = (sharedMod as any).renderWebManifest;
+    cached.loaded = true;
+    return true;
+  } catch (error) {
+    // Un échec de chargement (module virtuel absent du bundle Nitro, etc.)
+    // ne doit JAMAIS casser la requête : on dégrade sans chrome PWA.
+    cached.failed = true;
+    console.error("[grok-pwa] lazy modules unavailable, degrading:", error instanceof Error ? error.message : error);
+    return false;
+  }
+}
+
+function safePath(event: GrokPwaEvent): string {
+  try {
+    return event.url.pathname;
+  } catch {
+    return "/";
+  }
+}
+
+function safeSearch(event: GrokPwaEvent): string {
+  try {
+    return event.url.search;
+  } catch {
+    return "";
+  }
 }
 
 function injectHeadStreaming(response: Response, host: string) {
-  // createHeadInjector assumed available
   const injector = cached.createHeadInjector!({ host, site: cached.grokOgIdentity!.site });
   const transformed = (response.body as ReadableStream<Uint8Array>).pipeThrough(
     new TransformStream<Uint8Array, Uint8Array>({
@@ -80,67 +105,71 @@ export default async function grokPwaMiddleware(
   event: GrokPwaEvent,
   next: () => unknown | Promise<unknown>,
 ): Promise<unknown> {
-  const method = (event.req.method ?? "GET").toUpperCase();
-  if (method !== "GET") return next();
+  try {
+    const method = (event.req.method ?? "GET").toUpperCase();
+    if (method !== "GET") return next();
 
-  const path = event.url.pathname;
-  const urlWithQuery = path + event.url.search;
+    const path = safePath(event);
+    const urlWithQuery = path + safeSearch(event);
 
-  // Lightweight fast-paths that don't need the shared modules.
-  if (path === "/__grok/manifest.webmanifest" || path === "/__grok/manifest.json") {
-    // Ensure modules are loaded because renderWebManifest is in the shared module.
-    await ensureCachedModules();
-    return new Response(cached.renderWebManifest!(requestHost(event)), {
-      headers: {
-        "content-type": "application/manifest+json; charset=utf-8",
-        "cache-control": "no-cache",
-      },
-    });
-  }
-
-  // For the install page we need the template + helpers.
-  if (
-    (await (async () => {
-      // We must load the shared module to check isInstallQuery / isDocumentPath.
-      await ensureCachedModules();
-      return cached.isInstallQuery!(urlWithQuery) && cached.isDocumentPath!(path) && cached.acceptsHtml!(event.req.headers.get("accept"));
-    })())
-  ) {
-    const html = cached.renderInstallPageHtml!(cached.installPageTemplate!, {
-      host: requestHost(event),
-      url: urlWithQuery,
-    });
-    return new Response(html, {
-      headers: {
-        "content-type": "text/html; charset=utf-8",
-        "cache-control": "no-cache",
-      },
-    });
-  }
-
-  if (!cached.loaded) {
-    // Avoid loading the shared modules for non-document paths.
-    if (!(await (async () => {
-      // If the path is not a document path, skip loading.
-      await ensureCachedModules();
-      return cached.isDocumentPath!(path);
-    })())) {
+    if (path === "/__grok/manifest.webmanifest" || path === "/__grok/manifest.json") {
+      const ok = await ensureCachedModules();
+      if (ok && typeof cached.renderWebManifest === "function") {
+        return new Response(cached.renderWebManifest!(requestHost(event)), {
+          headers: {
+            "content-type": "application/manifest+json; charset=utf-8",
+            "cache-control": "no-cache",
+          },
+        });
+      }
       return next();
     }
-  } else if (!cached.isDocumentPath!(path)) {
+
+    const modulesReady = await ensureCachedModules();
+    const isDocument = modulesReady && typeof cached.isDocumentPath === "function" ? cached.isDocumentPath!(path) : true;
+    const isInstall =
+      modulesReady &&
+      typeof cached.isInstallQuery === "function" &&
+      typeof cached.acceptsHtml === "function" &&
+      cached.isInstallQuery!(urlWithQuery) &&
+      isDocument &&
+      cached.acceptsHtml!(event.req.headers.get("accept"));
+
+    if (isInstall && typeof cached.renderInstallPageHtml === "function") {
+      const html = cached.renderInstallPageHtml!(cached.installPageTemplate!, {
+        host: requestHost(event),
+        url: urlWithQuery,
+      });
+      return new Response(html, {
+        headers: {
+          "content-type": "text/html; charset=utf-8",
+          "cache-control": "no-cache",
+        },
+      });
+    }
+
+    if (!isDocument) return next();
+
+    const result = await next();
+    if (
+      result instanceof Response &&
+      result.body &&
+      String(result.headers.get("content-type") ?? "").includes("text/html") &&
+      !result.headers.get("content-encoding") &&
+      modulesReady &&
+      typeof cached.createHeadInjector === "function"
+    ) {
+      try {
+        return injectHeadStreaming(result, requestHost(event));
+      } catch (error) {
+        console.error("[grok-pwa] head injection failed, returning raw response:", error instanceof Error ? error.message : error);
+        return result;
+      }
+    }
+    return result;
+  } catch (error) {
+    // Filet absolu : ce middleware ne doit jamais être la cause d'un 500.
+    console.error("[grok-pwa] middleware error, falling through to next():", error instanceof Error ? error.message : error);
     return next();
   }
-
-  const result = await next();
-  if (
-    result instanceof Response &&
-    result.body &&
-    String(result.headers.get("content-type") ?? "").includes("text/html") &&
-    !result.headers.get("content-encoding")
-  ) {
-    // Ensure modules loaded (should be already in the document path branch).
-    await ensureCachedModules();
-    return injectHeadStreaming(result, requestHost(event));
-  }
-  return result;
 }
