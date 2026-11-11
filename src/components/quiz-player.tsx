@@ -10,8 +10,9 @@ import { emitExperienceFeedback } from "@/lib/experience-feedback";
 import { fetchWithAuth } from "@/lib/auth/session";
 import { useI18n } from "@/i18n";
 import { useExperiencePreferences } from "@/lib/use-experience-preferences";
-import { cn } from "@/lib/utils";
-import { useOptimus } from "@/state/store";
+import { cn, todayKey } from "@/lib/utils";
+import { dailyQuestionQuota, isTrialActive } from "@/lib/daily-quota";
+import { hasEntitlement, useOptimus } from "@/state/store";
 
 export type QuizItem = {
   question: Question;
@@ -117,6 +118,21 @@ export function QuizPlayer({
   const { preferences } = useExperiencePreferences();
   const { t } = useI18n();
   const focusMode = useFocusMode();
+  // Modèle freemium (chantier 2) — quota quotidien du gratuit : 10 questions/jour,
+  // compteur VISIBLE (annoncé avant la friction, jamais après un échec).
+  // Premium (licence active) et essai 7 jours : illimité.
+  const daily = useOptimus((s) => s.daily);
+  const entitlements = useOptimus((s) => s.entitlements);
+  const premiumTrial = useOptimus((s) => s.premiumTrial);
+  const quota = dailyQuestionQuota({
+    daily,
+    todayKey: todayKey(),
+    isPremium:
+      hasEntitlement("OPTIMUS_PRO", entitlements) || isTrialActive(premiumTrial, Date.now()),
+  });
+  // Une session déjà entamée se termine TOUJOURS : le blocage s'applique au
+  // lancement d'une nouvelle session (invariant « annoncé avant la friction »).
+  const [quotaBlocked] = useState(() => quota.blocked);
   const item = sessionItems[index];
   const done = index >= sessionItems.length;
   const order = useMemo(() => {
@@ -202,6 +218,7 @@ export function QuizPlayer({
   useEffect(() => {
     if (!item) return;
     function onKey(event: KeyboardEvent) {
+      if (quotaBlocked) return;
       const target = event.target as HTMLElement | null;
       if (
         target &&
@@ -239,6 +256,46 @@ export function QuizPlayer({
 
   if (sessionItems.length === 0) {
     return <p className="text-sm text-muted">{t("quiz.empty")}</p>;
+  }
+
+  // Modèle freemium (chantier 2) — quota du jour atteint : on n'ouvre pas une
+  // nouvelle session. Message sans frustration : la progression est conservée,
+  // la dose revient demain, Pro est la montée en gamme (pas la sortie de
+  // prison). docs/MODEL-FREEMIUM.md — invariants.
+  if (quotaBlocked) {
+    return (
+      <div className="mx-auto max-w-lg py-8 text-center">
+        <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted">
+          Quota du jour
+        </p>
+        <h2 className="mt-2 font-display text-3xl font-medium tracking-tight">
+          {Math.min(quota.used, quota.limit ?? quota.used)}/{quota.limit} questions
+        </h2>
+        <p className="mt-2 text-sm text-muted">
+          Ta dose gratuite du jour est complète. Ta progression t'attend demain —
+          rien n'est jamais perdu.
+        </p>
+        <div className="mt-6 rounded-[var(--radius-lg)] bg-card p-4 text-left shadow-[var(--shadow-border)]">
+          <p className="text-sm text-fg">
+            Envie d'aller plus loin aujourd'hui ? Pro débloque les 74 decks
+            avancés, les explications détaillées et le mode examen chronométré.
+          </p>
+          <a
+            href="/pro"
+            className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-primary underline-offset-4 hover:underline"
+          >
+            Découvrir Pro
+            <ArrowRight className="size-3.5" aria-hidden />
+          </a>
+        </div>
+        <a
+          href="/"
+          className="mt-4 inline-block text-sm text-muted underline-offset-4 hover:underline"
+        >
+          Retour à l'accueil
+        </a>
+      </div>
+    );
   }
 
   if (done || !item) {
@@ -383,6 +440,14 @@ export function QuizPlayer({
           >
             <Flame className="size-3.5" />
             x{combo}
+          </span>
+        ) : null}
+        {quota.limit !== null ? (
+          <span
+            className="shrink-0 rounded-full bg-secondary px-2 py-1 font-mono text-[11px] font-medium tabular-nums text-muted shadow-[var(--shadow-border)]"
+            aria-label={`Quota du jour : ${Math.min(quota.used, quota.limit)} sur ${quota.limit} questions gratuites`}
+          >
+            {Math.min(quota.used, quota.limit)}/{quota.limit}
           </span>
         ) : null}
         <span className="shrink-0 font-mono text-xs tabular-nums text-muted">
