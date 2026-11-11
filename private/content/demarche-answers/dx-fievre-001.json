@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "diagnosticId": "DX-FIEVRE-001",
+  "steps": [
+    {
+      "id": "examen",
+      "correct": 0,
+      "explanation": "Purpura fébrile = céfotaxime / ceftriaxone immédiate, avant même le scanner. On ne retarde pas l’ATB."
+    },
+    {
+      "id": "syndrome",
+      "correct": 0,
+      "explanation": "On nomme le syndrome (méningé) avant le germe. La PL (après éliminer un FOC) viendra ensuite."
+    },
+    {
+      "id": "hypotheses",
+      "correct": 0,
+      "explanation": "Les tueurs : méningocoque / pneumocoque, palu, sepsis urinaire. Le reste se discute après."
+    },
+    {
+      "id": "examens",
+      "correct": 0,
+      "explanation": "PL diagnostique. Si purpura ou gravité : ATB d’abord. Scanner seulement si FOC / trouble de conscience / immunodépression selon les reco."
+    },
+    {
+      "id": "interpreter",
+      "correct": 0,
+      "explanation": "Profil bactérien. Dexaméthasone si pneumocoque suspecté, ATB adaptée, isolement gouttelettes si méningocoque."
+    },
+    {
+      "id": "diagnostic",
+      "correct": 0,
+      "explanation": "Le diagnostic syndromique + LCR suffit pour traiter. Le germe vient des cultures / PCR."
+    },
+    {
+      "id": "pec",
+      "correct": 0,
+      "explanation": "Purpura fulminans : ATB immédiate, remplissage, transfert réa. Chaque minute compte."
+    }
+  ],
+  "synthesis": "Patient → voyage / purpura / nuque → syndrome méningé → hypothèses vitales (méningocoque, palu, sepsis) → ATB si gravité puis PL → profil bactérien → traitement et déclaration."
+}

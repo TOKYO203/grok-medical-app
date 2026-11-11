@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "diagnosticId": "DX-HEMORRAGIE-T1-001",
+  "steps": [
+    {
+      "id": "bilan",
+      "correct": 1,
+      "explanation": "β-hCG + échographie : sac intra-utérin avec activité cardiaque = grossesse évolutive intra-utérine ; utérus vide avec β-hCG au-dessus du seuil de visibilité (~1500-2000 UI/L) = grossesse de localisation incertaine à réévaluer à 48 h ; masse latéro-utérine ou épanchement du Douglas = GEU probable."
+    },
+    {
+      "id": "cinetique",
+      "correct": 1,
+      "explanation": "Une β-hCG au-dessus du seuil sans sac intra-utérin ne permet pas de conclure : la cinétique sur 48 h tranche. Ne pas s'appuyer sur un test urinaire : chez une patiente cliniquement suspecte, un test négatif n'écarte rien tant que les β-hCG plasmatiques ne sont pas doses."
+    },
+    {
+      "id": "classer",
+      "correct": 1,
+      "explanation": "Saignement modéré + col fermé + grossesse évolutive intra-utérine = menace d'avortement : surveillance, explication, pas d'hospitalisation systématique. Le col ouvert ou l'expulsion signent la fausse couche en cours ; la rétention impose l'évacuation."
+    },
+    {
+      "id": "mole",
+      "correct": 1,
+      "explanation": "Utérus trop grand + β-hCG très élevées + saignement typique = môle hydatiforme : évacuation par aspiration, surveillance β-hCG jusqu'à négativation puis contraception 6-12 mois, dépistage du choriocarcinome. Pas d'ocytociques majeurs."
+    },
+    {
+      "id": "septique",
+      "correct": 0,
+      "explanation": "Avortement septique = double urgence infectieuse et hémorragique : ATB IV large, évacuation, réanimation du sepsis, prévention tétanique, prise en charge sans jugement. La morbi-mortalité reste élevée là où l'avortement est illégal ou inégalement accessible."
+    },
+    {
+      "id": "rh",
+      "correct": 0,
+      "explanation": "Toute femme Rh négatif avec saignement du premier trimestre reçoit une prophylaxie anti-D selon le protocole local, pour éviter l'allo-immunisation Rhésus qui compromettra les grossesses suivantes."
+    }
+  ],
+  "synthesis": "Douleur pelvienne + spotting + aménorrhée → instabilité : GEU rompue, bloc sans attendre l'écho → stable : β-hCG + échographie → sac évolutif intra-utérin : classer (menace, en cours, complète, rétention) → utérus vide : cinétique des β-hCG à 48 h → utérus trop grand + β-hCG très élevées : môle → fièvre post-manœuvre : avortement septique → anti-D si Rh négatif. La GEU est le diagnostic qui tue."
+}

@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "diagnosticId": "DX-PROTEINURIE-001",
+  "steps": [
+    {
+      "id": "syndrome",
+      "correct": 1,
+      "explanation": "Protéinurie > 3 g/j + hypoalbuminémie < 30 g/L + œdèmes = syndrome néphrotique. Complications à prévoir : thromboses (fuite d'antithrombine), infections (pneumocoque), hypovolémie."
+    },
+    {
+      "id": "examen",
+      "correct": 0,
+      "explanation": "Le syndrome néphrotique de l'adulte impose de chercher les causes systémiques et infectieuses : lupus (arthralgies, éruption, photosensibilité), diabète, hépatites B et C, VIH, paludisme, médicaments, néoplasie. Le bilan : complément (C3-C4), sérologies, glycémie, NFS."
+    },
+    {
+      "id": "grossesse",
+      "correct": 1,
+      "explanation": "Après 20 SA, protéinurie + HTA = pré-éclampsie : hospitalisation, bilan (plaquettes, ASAT/ALAT, créatinine), antihypertenseurs, sulfate de magnésium si signes neurologiques, décision d'extraction avec l'obstétricien. Jamais « fonctionnelle » après 20 SA."
+    },
+    {
+      "id": "enfant",
+      "correct": 1,
+      "explanation": "90 % des syndromes néphrotiques de l'enfant sont des néphroses lipoïdiques, corticosensibles : corticothérapie orale selon protocole, vaccination contre le pneumocoque, avis néphrologique si corticorésistance."
+    },
+    {
+      "id": "traitement",
+      "correct": 0,
+      "explanation": "IEC/ARA2 (surveillance créatinine et kaliémie à l'initiation), contrôle tensionnel strict, régime hyposodé, arrêt du tabac et des néphrotoxiques. La biopsie rénale et les traitements spécifiques (immunosuppresseurs) dépendent de la cause, d'où l'avis néphrologique."
+    },
+    {
+      "id": "suivi",
+      "correct": 0,
+      "explanation": "Rapport P/C, créatinine, tension et kaliémie à intervalles réguliers selon la maladie ; éducation : éviter les AINS et les poudres traditionnelles néphrotoxiques, régime sans sel, suivi de l'observance. Chez le diabétique et l'hypertendu, dépistage annuel de la microalbuminurie."
+    }
+  ],
+  "synthesis": "Bandelette positive → confirmer par rapport P/C → > 3 g/j + hypoalbuminémie + œdèmes = syndrome néphrotique → chercher la cause (lupus, diabète, VIH, hépatites, paludisme, médicaments) → IEC/ARA2 + TA stricte + hyposodé ; enfant : néphrose corticosensible ; femme enceinte après 20 SA : pré-éclampsie = hospitalisation. Suivi : P/C, créatinine, tension."
+}

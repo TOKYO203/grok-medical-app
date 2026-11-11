@@ -40,8 +40,22 @@
  * `cases` suit le même contrat pour les DOSSIERS CLINIQUES fermés, sortis de
  * `public/data/cases.json` (§14) : l'index public ne garde que le teaser —
  * titre, résumé, patient, spécialité — et un `stepCount`.
+ *
+ * `demarches` porte les FICHES enrichies d'orientation (fiche, flashcards,
+ * carte mentale), déplacées de `public/content/demarches/` le 2026-11-11 :
+ * c'étaient des actifs statiques servis sans jeton (§15).
+ *
+ * `demarche-answers` porte les CORRIGÉS des QCM d'orientation (réponses,
+ * explications, synthèse), sortis de `public/data/diagnostics.json` : l'index
+ * public ne garde que la première étape complète (aperçu offert).
  */
-export type ProtectedFamily = "pathologies" | "signes" | "decks" | "cases";
+export type ProtectedFamily =
+  | "pathologies"
+  | "signes"
+  | "decks"
+  | "cases"
+  | "demarches"
+  | "demarche-answers";
 
 /**
  * Glob Vite des actifs privés. Chemins absolus (préfixe `/`) = relatifs à la
@@ -70,6 +84,14 @@ const FAMILY_GLOBS: Record<ProtectedFamily, Record<string, RawLoader>> = {
     query: "?raw",
     import: "default",
   }) as unknown as Record<string, RawLoader>,
+  demarches: import.meta.glob("/private/content/demarches/*.json", {
+    query: "?raw",
+    import: "default",
+  }) as unknown as Record<string, RawLoader>,
+  "demarche-answers": import.meta.glob("/private/content/demarche-answers/*.json", {
+    query: "?raw",
+    import: "default",
+  }) as unknown as Record<string, RawLoader>,
 };
 
 /** Garde-fou : un actif de contenu ne doit jamais peser plus que du texte. */
@@ -84,7 +106,14 @@ const cacheKey = (family: ProtectedFamily, file: string) => `${family}/${file}`;
 export const PROTECTED_FILE_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*\.json$/;
 
 export function isProtectedFamily(value: string): value is ProtectedFamily {
-  return value === "pathologies" || value === "signes" || value === "decks" || value === "cases";
+  return (
+    value === "pathologies" ||
+    value === "signes" ||
+    value === "decks" ||
+    value === "cases" ||
+    value === "demarches" ||
+    value === "demarche-answers"
+  );
 }
 
 /** Noms de fichiers privés publiés pour une famille (tri stable). */

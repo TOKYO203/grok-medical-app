@@ -14,14 +14,14 @@ import { projectRoot, syncCatalogData } from "./sync-catalog-data.mjs";
  * Ce test verrouille le contrat du resynchroniseur, sur des espaces de
  * travail temporaires : la suite ne doit jamais réécrire le check-out.
  *
- * ⚠️ `decks.json` et `cases.json` sont des cas à part depuis les correctifs du
- * pentest : ils ne sont pas recopiés tels quels mais SPLITÉS (index public sans
- * le contenu fermé + actifs dans `private/content/`). Les contrats sont testés
- * séparément, exprès : un deck premium ou un dossier fermé publié en clair est
- * le défaut qu'on cherche à rendre impossible.
+ * ⚠️ AUCUN catalogue n'est recopié tel quel depuis les correctifs du pentest :
+ * `decks.json`, `cases.json` et `diagnostics.json` sont SPLITÉS (index public
+ * sans le contenu fermé + actifs dans `private/content/`). Les contrats sont
+ * testés séparément, exprès : un deck premium, un dossier fermé ou un corrigé
+ * de démarche publié en clair est le défaut qu'on cherche à rendre impossible.
  */
-const COPIED_CATALOGS = ["diagnostics.json"];
-const SPLIT_CATALOGS = ["decks.json", "cases.json"];
+const COPIED_CATALOGS = [];
+const SPLIT_CATALOGS = ["decks.json", "cases.json", "diagnostics.json"];
 const CATALOGS = [...SPLIT_CATALOGS, ...COPIED_CATALOGS];
 
 function makeWorkspace() {
@@ -48,7 +48,7 @@ test("resynchronise une copie publique périmée depuis la source", () => {
   const synced = syncCatalogData({ root });
   assert.deepEqual(synced.sort(), [...CATALOGS].sort());
 
-  // Cas / démarches : copie à l'octet.
+  // Catalogue sans contenu fermé : copie à l'octet (aucun aujourd'hui).
   for (const name of COPIED_CATALOGS) {
     assert.equal(
       readFileSync(join(destDir, name), "utf8"),
@@ -81,6 +81,20 @@ test("resynchronise une copie publique périmée depuis la source", () => {
   assert.ok(
     existsSync(join(root, "private", "content", "cases")),
     "les dossiers protégés doivent être écrits par le sync",
+  );
+
+  // Démarches : aperçu + corrigés protégés.
+  const publishedDiagnostics = JSON.parse(readFileSync(join(destDir, "diagnostics.json"), "utf8"));
+  const leakedAnswers = publishedDiagnostics.flatMap((diagnostic) =>
+    (diagnostic.steps ?? [])
+      .slice(1)
+      .filter((step) => step.correct !== undefined || step.explanation !== undefined)
+      .map(() => diagnostic.id),
+  );
+  assert.deepEqual(leakedAnswers, [], "corrigés de démarches publiés par le sync");
+  assert.ok(
+    existsSync(join(root, "private", "content", "demarche-answers")),
+    "les corrigés protégés doivent être écrits par le sync",
   );
 });
 

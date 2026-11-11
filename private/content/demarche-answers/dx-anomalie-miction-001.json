@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "diagnosticId": "DX-ANOMALIE-MICTION-001",
+  "steps": [
+    {
+      "id": "cause_medicale",
+      "correct": 0,
+      "explanation": "Anticholinergiques et neuroleptiques (rétention iatrogène), fécalome (sujet âgé), adénome de prostate (première cause à cet âge), lithiase ou tumeur, vessie neurologique (diabète). Toucher rectal (après sondage) : volume et consistance de la prostate."
+    },
+    {
+      "id": "cystite",
+      "correct": 0,
+      "explanation": "Femme jeune non enceinte, symptômes typiques, sans fièvre ni douleur lombaire : cystite simple, traitement court selon l'écologie locale. ECBU obligatoire chez l'homme, la femme enceinte, le diabétique, les récidives et les tableaux atypiques."
+    },
+    {
+      "id": "homme",
+      "correct": 0,
+      "explanation": "Fièvre + douleur pelvienne + prostate douloureuse au TR = prostatite aiguë : antibiothérapie prolongée (3-4 semaines), ECBU, et reconnaissance d'une infection compliquée de l'homme (risque d'abcès et de rétention). Toute infection urinaire de l'homme est compliquée."
+    },
+    {
+      "id": "prostate",
+      "correct": 0,
+      "explanation": "Toucher rectal, résidu post-mictionnel à l'échographie, créatinine (rétention chronique ?) et PSA à distance : le PSA est faussé par la rétention et l'infection. Le traitement de l'adénome : alpha-bloquant en première intention, chirurgie selon gravité et moyens."
+    },
+    {
+      "id": "ist",
+      "correct": 1,
+      "explanation": "Une gonococcie non traitée cicatrise en sténose urétrale : dysurie progressive du jeune homme, infections répétées. Dépistage des IST et traitement du partenaire, urétrotomie ou urétroplastie selon les moyens. C'est une séquelle fréquente et évitable."
+    },
+    {
+      "id": "surveillance",
+      "correct": 0,
+      "explanation": "Hydratation, miction post-coïtale, ne pas se retenir, hygiène périnéale ; consulter en cas de fièvre, de douleur lombaire ou de sang : signes d'infection haute. Les récidives fréquentes justifient un avis (bilan, prophylaxie)."
+    }
+  ],
+  "synthesis": "Globe = sondage évacuateur d'abord, cause ensuite (anticholinergiques, fécalome, adénome, lithiase, vessie neurologique) → dysurie de l'homme > 50 ans : TR, résidu, créatinine, PSA à distance → cystite simple seulement chez la femme jeune typique ; homme, enceinte, diabétique : ECBU → jeune homme dysurique : sténose urétrale post-gonococcique, dépistage IST → conseils de prévention des récidives."
+}

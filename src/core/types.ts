@@ -300,8 +300,16 @@ export type DiagnosticStep = {
   lead: string;
   prompt: string;
   choices: string[];
-  correct: number;
-  explanation: string;
+  /**
+   * Réponse et explication d'une étape.
+   *
+   * ABSENTES de l'index public à partir de la deuxième étape (§15 du pentest) :
+   * `public/data/diagnostics.json` n'est qu'un APERÇU — la première décision
+   * est offerte, les suivantes arrivent sous jeton via
+   * `/content/demarche-answers/_catalog.json`.
+   */
+  correct?: number;
+  explanation?: string;
 };
 
 export type DiagnosticCase = {
@@ -310,7 +318,8 @@ export type DiagnosticCase = {
   specialty: string;
   vignette: string;
   steps: DiagnosticStep[];
-  synthesis: string;
+  /** Conclusion du raisonnement — protégée comme les étapes (§15). */
+  synthesis?: string;
 };
 
 /** Niveau de confiance déclaré avant la révélation du diagnostic (calibration). */

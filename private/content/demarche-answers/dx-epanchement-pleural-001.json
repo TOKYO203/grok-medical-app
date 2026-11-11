@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "diagnosticId": "DX-EPANCHEMENT-PLEURAL-001",
+  "steps": [
+    {
+      "id": "ponction",
+      "correct": 1,
+      "explanation": "La ponction analyse : protides, LDH, glucose, pH, cytologie, Gram, Ziehl, ADA. Le liquide classe l'épanchement ; on ne traite pas sans avoir vu le liquide, sauf transsudat cliniquement évident."
+    },
+    {
+      "id": "liquide",
+      "correct": 1,
+      "explanation": "Exsudat lymphocytaire + ADA > 40 UI/L + sujet jeune fébrile en zone d'endémie = tuberculose pleurale ; le Ziehl est souvent négatif (forme paucibacillaire)."
+    },
+    {
+      "id": "criticite",
+      "correct": 0,
+      "explanation": "Les critères de Light séparent transsudat et exsudat : un seul critère positif classe l'épanchement en exsudat."
+    },
+    {
+      "id": "urgences",
+      "correct": 1,
+      "explanation": "Empyème = collection septique : drainage immédiate, jamais d'antibiotiques oraux seuls ; retarder = pachypleurite et décortication chirurgicale."
+    },
+    {
+      "id": "diagnostic",
+      "correct": 0,
+      "explanation": "Sujet jeune, fièvre prolongée, exsudat lymphocytaire, ADA élevée : tuberculose pleurale ; compléments possibles : culture, biopsie pleurale, IDR."
+    },
+    {
+      "id": "pec",
+      "correct": 0,
+      "explanation": "2 RHZE / 4 RH selon protocole national, observance complète, évacuation initiale de confort, contrôle clinique et radiographique de fin de traitement."
+    }
+  ],
+  "synthesis": "Douleur pleurale fébrile → radiographie → ponction exploratrice (protides, Light, cytologie, Ziehl, ADA) → exsudat lymphocytaire du sujet jeune en zone d'endémie = tuberculose pleurale → quadrithérapie 6 mois. Pus ou pH < 7,2 = empyème = drainage, toujours."
+}

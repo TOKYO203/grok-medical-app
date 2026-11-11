@@ -5,7 +5,7 @@ import { Page, Shell } from "@/components/shell";
 import { Button } from "@/components/ui/button";
 import { buttonVariants } from "@/components/ui/button-variants";
 import { Progress } from "@/components/ui/progress";
-import { getDiagnostic, useCatalogVersion } from "@/content/catalog";
+import { getDiagnostic, hydrateProtectedDiagnostics, useCatalogVersion } from "@/content/catalog";
 import { PRICES_MGA, formatPrice } from "@/content/pricing";
 import { loadDemarcheContent } from "@/lib/demarches/catalog";
 import type { DemarcheContent } from "@/core/demarche";
@@ -32,18 +32,6 @@ function DemarchePage() {
   const { id } = Route.useParams();
   const { vue } = Route.useSearch();
   const dx = getDiagnostic(id);
-  // Fiche enrichie : actif statique public chargé à la demande (migration du
-  // 2026-11-08 — le contenu ne vit plus dans le bundle client ni serveur).
-  const [enriched, setEnriched] = useState<DemarcheContent | undefined>(undefined);
-  useEffect(() => {
-    let cancelled = false;
-    void loadDemarcheContent(id).then((content) => {
-      if (!cancelled) setEnriched(content);
-    });
-    return () => {
-      cancelled = true;
-    };
-  }, [id]);
   const navigate = useNavigate();
   const complete = useOptimus((s) => s.completeDiagnostic);
   const entitlements = useOptimus((s) => s.entitlements);
@@ -51,6 +39,38 @@ function DemarchePage() {
   const [step, setStep] = useState(0);
   const [picked, setPicked] = useState<number | null>(null);
   const [correct, setCorrect] = useState(0);
+  // Fiche enrichie : contenu PROTÉGÉ (§15), chargé sous jeton à la demande —
+  // jamais dans le bundle, jamais dans un actif statique public.
+  const [enriched, setEnriched] = useState<DemarcheContent | undefined>(undefined);
+
+  const trialActive = isTrialActive(premiumTrial);
+  const open = dx
+    ? hasEntitlement("OPTIMUS_PRO", entitlements) ||
+      hasEntitlement(specialtyPackProduct(dx.specialty), entitlements) ||
+      trialActive
+    : false;
+
+  useEffect(() => {
+    // Un chapitre verrouillé ne demande rien : le garde répondrait 401.
+    if (!open) {
+      setEnriched(undefined);
+      return;
+    }
+    let cancelled = false;
+    void loadDemarcheContent(id).then((content) => {
+      if (!cancelled) setEnriched(content);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [id, open]);
+
+  /** Réessai manuel : session de contenu relancée puis fiche redemandée. */
+  function retryProtectedContent() {
+    void hydrateProtectedDiagnostics();
+    if (!open) return;
+    void loadDemarcheContent(id).then((content) => setEnriched(content));
+  }
 
   if (!dx) {
     return (
@@ -62,16 +82,14 @@ function DemarchePage() {
     );
   }
 
-  const view: DemarcheView = enriched && vue ? vue : "demarche";
-  const trialActive = isTrialActive(premiumTrial);
-  const open =
-    hasEntitlement("OPTIMUS_PRO", entitlements) ||
-    hasEntitlement(specialtyPackProduct(dx.specialty), entitlements) ||
-    trialActive;
+  const view: DemarcheView = vue ?? "demarche";
   // Même résolution que le pack qui débloque réellement la démarche.
   const premiumSpecialty = diagnosticSpecialty(dx.specialty);
   const current = dx.steps[step];
   const done = step >= dx.steps.length;
+  // Un chapitre ouvert dont les corrigés n'ont pas pu être chargés (hors ligne,
+  // session expirée) ne doit pas compter chaque réponse comme fausse.
+  const answersMissing = current !== undefined && current.correct === undefined;
 
   function goToView(next: DemarcheView) {
     void navigate({ to: "/demarche/$id", params: { id }, search: { vue: next } });
@@ -90,11 +108,11 @@ function DemarchePage() {
         <h1 className="mt-4 font-display text-3xl font-medium tracking-tight">{dx.title}</h1>
         <p className="mt-2 text-sm text-muted">{dx.vignette}</p>
 
-        {enriched ? (
-          <div className="mt-5">
-            <ViewTabs value={view} onChange={goToView} />
-          </div>
-        ) : null}
+        {/* Les vues existent pour tout le monde : un chapitre fermé montre un
+            encart Premium par vue, jamais un onglet mort. */}
+        <div className="mt-5">
+          <ViewTabs value={view} onChange={goToView} />
+        </div>
 
         <div
           data-demarche-view={view}
@@ -128,6 +146,10 @@ function DemarchePage() {
                   body="Interrogatoire, examen, syndrome, hypothèses, examens, interprétation, diagnostic et prise en charge — avec correction à chaque décision."
                   premiumSpecialty={premiumSpecialty}
                 />
+              ) : answersMissing ? (
+                <ContentUnavailable onRetry={retryProtectedContent} />
+              ) : done && dx.synthesis === undefined ? (
+                <ContentUnavailable onRetry={retryProtectedContent} />
               ) : done ? (
                 <div className="mt-8">
                   <p className="text-sm text-muted">
@@ -209,34 +231,75 @@ function DemarchePage() {
           ) : null}
         </div>
 
-        {enriched && view === "fiche" ? <FicheView content={enriched} /> : null}
-
-        {enriched && view === "flashcards" ? (
-          open ? (
-            <FlashcardsView content={enriched} trackId={enriched.diagnosticId} />
+        {view === "fiche" ? (
+          !open ? (
+            <LockedPanel
+              title="La fiche d'orientation"
+              body="Sections rédigées, encadrés d'urgence et de piège, sources vérifiables — la fiche complète fait partie du contenu Premium de la spécialité."
+              premiumSpecialty={premiumSpecialty}
+            />
+          ) : enriched ? (
+            <FicheView content={enriched} />
           ) : (
+            <LoadingPanel label="Chargement de la fiche…" />
+          )
+        ) : null}
+
+        {view === "flashcards" ? (
+          !open ? (
             <LockedPanel
               title="Collez les cartes en mémoire"
               body="Les flashcards Q/R et la carte mentale font partie du contenu Premium de la spécialité."
               premiumSpecialty={premiumSpecialty}
             />
+          ) : enriched ? (
+            <FlashcardsView content={enriched} trackId={enriched.diagnosticId} />
+          ) : (
+            <LoadingPanel label="Chargement des flashcards…" />
           )
         ) : null}
 
-        {enriched && view === "mindmap" ? (
-          open ? (
-            <MindmapView content={enriched} />
-          ) : (
+        {view === "mindmap" ? (
+          !open ? (
             <LockedPanel
               title="Visualisez le raisonnement"
               body="La carte mentale interactive (démarche complète) fait partie du contenu Premium de la spécialité."
               premiumSpecialty={premiumSpecialty}
             />
+          ) : enriched ? (
+            <MindmapView content={enriched} />
+          ) : (
+            <LoadingPanel label="Chargement de la carte mentale…" />
           )
         ) : null}
       </Page>
     </Shell>
   );
+}
+
+/**
+ * État « le contenu protégé n'a pas pu être chargé » — distinct du verrou
+ * Premium : l'utilisateur a l'accès, c'est la session de contenu qui manque
+ * (hors ligne, jeton expiré). Sans cet état, chaque réponse serait comptée
+ * fausse, ce qui est pire qu'un message d'erreur.
+ */
+function ContentUnavailable({ onRetry }: { onRetry: () => void }) {
+  return (
+    <section className="mt-8 rounded-[var(--radius-lg)] bg-card p-5 shadow-[var(--shadow-border)]">
+      <p className="text-sm font-medium">Contenu du chapitre indisponible</p>
+      <p className="mt-1 text-sm leading-relaxed text-muted">
+        Les corrigés n'ont pas pu être récupérés (hors ligne ou session de contenu expirée). Votre
+        accès reste valable : réessayez dans un instant.
+      </p>
+      <Button className="mt-4 w-full" onClick={onRetry}>
+        Réessayer
+      </Button>
+    </section>
+  );
+}
+
+function LoadingPanel({ label }: { label: string }) {
+  return <p className="mt-6 text-sm text-muted">{label}</p>;
 }
 
 function LockedPanel({

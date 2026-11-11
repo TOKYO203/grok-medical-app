@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "diagnosticId": "DX-HEMATURIE-001",
+  "steps": [
+    {
+      "id": "confirmer_bio",
+      "correct": 0,
+      "explanation": "L'ECBU confirme les hématies, cherche une infection (leucocyturie, germes) et, à l'examen cytologique, évalue leur morphologie : dysmorphiques + cylindres = glomérulaire ; normomorphes + caillots = urologique. Le PSA se dose à distance, après exploration, chez l'homme de cet âge."
+    },
+    {
+      "id": "localiser",
+      "correct": 1,
+      "explanation": "Hématies normomorphes + caillots + absence de protéinurie/HTA = origine urologique : vessie (cancer, tabac, bilharziose), rein (tumeur, lithiase), prostate. Imagerie (échographie rénale et vésicale, TDM urographie selon moyens) et cystoscopie si disponible."
+    },
+    {
+      "id": "cause",
+      "correct": 1,
+      "explanation": "Hématurie macroscopique totale indolore + tabac + âge = cancer de vessie jusqu'à preuve du contraire. Le tabagisme est le premier facteur de risque ; la bilharziose urinaire (S. haematobium) est l'autre cause majeure en zone d'endémie, avec le même risque cancéreux à long terme."
+    },
+    {
+      "id": "tropical",
+      "correct": 0,
+      "explanation": "La recherche d'œufs de Schistosoma haematobium dans les urines de fin de miction est simple et rentable en zone d'endémie : hématurie terminale, cystite, risque de cancer de vessie. Traitement : praziquantel, traitement de l'entourage, surveillance au long cours."
+    },
+    {
+      "id": "anticoagulant",
+      "correct": 1,
+      "explanation": "L'anticoagulant ne fait pas saigner un vaisseau sain : l'hématurie sous anticoagulant reste une indication d'exploration complète ; la décision sur le traitement anticoagulant se prend avec le prescripteur selon le rapport bénéfice/risque, pas en aveugle."
+    },
+    {
+      "id": "urgence",
+      "correct": 0,
+      "explanation": "L'hématurie abondante peut obstruer la vessie par des caillots : sonde à double courant, irrigation-lavage, compensation volémique et transfusion si besoin, avis urologique urgent. C'est la seule vraie urgence mécanique de l'hématurie."
+    }
+  ],
+  "synthesis": "Hématurie macroscopique de l'adulte tabagique → ECBU + morphologie → normomorphe + caillots = urologique : imagerie + cystoscopie, même si le saignement a cessé → cancer de vessie à écarter (tabac, bilharziose : œufs dans les urines) → caillots + rétention : sonde double courant et irrigation. Anticoagulant : explorer quand même."
+}

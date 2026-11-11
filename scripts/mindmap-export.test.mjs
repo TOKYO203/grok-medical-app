@@ -42,7 +42,7 @@ const { buildMindmapSvg, svgToDataUrl } = await import(
 );
 
 const map = JSON.parse(
-  readFileSync(new URL("../public/content/demarches/douleur-thoracique.json", import.meta.url), "utf8"),
+  readFileSync(new URL("../private/content/demarches/douleur-thoracique.json", import.meta.url), "utf8"),
 ).mindmap;
 
 const PALETTE = {

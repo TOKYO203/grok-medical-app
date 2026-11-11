@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "diagnosticId": "DX-ICTERE-001",
+  "steps": [
+    {
+      "id": "gravite",
+      "correct": 1,
+      "explanation": "La triade de Charcot signe l'angiocholite (sepsis biliaire) : l'antibiothérapie IV est immédiate et le drainage biliaire (endoscopique, percutané ou chirurgical) doit suivre — attendre les cultures ou l'imagerie pour drainer est une erreur qui tue."
+    },
+    {
+      "id": "bilan",
+      "correct": 0,
+      "explanation": "Bilirubine totale et directe (confirmer le caractère conjugué), PAL et GGT (cholestase), transaminases (atteinte hépatocellulaire), TP (marqueur de gravité), NFS et CRP (infection). Le TP bas avec encéphalopathie signe l'insuffisance hépatique : urgence."
+    },
+    {
+      "id": "imagerie",
+      "correct": 1,
+      "explanation": "L'échographie trie en une visite : voies biliaires dilatées = obstacle (lithiase, tumeur) à drainer ; voies fines = foie malade ou cholestase intra-hépatique. La TDM ou l'écho-endoscopie viennent après, pour caractériser."
+    },
+    {
+      "id": "obstacle",
+      "correct": 1,
+      "explanation": "L'ictère obstructif indolore avec amaigrissement chez un sujet de plus de 50 ans est un cancer jusqu'à preuve du contraire (adénocarcinome pancréatique, cholangiocarcinome, syndrome de Klatskin). Bilan d'extension et drainage biliaire, avis oncologique."
+    },
+    {
+      "id": "contexte",
+      "correct": 1,
+      "explanation": "Hépatites B et E (E gravissime chez la femme enceinte), plantes et poudres traditionnelles (hépatites toxiques), paludisme (l'ictère est un critère de gravité), ascaridiose biliaire et douves : l'interrogatoire sans jugement sur les tradipraticiens trouve des causes quotidiennes."
+    },
+    {
+      "id": "traitement",
+      "correct": 0,
+      "explanation": "Antibiothérapie IV à couverture entérique et drainage biliaire : les deux, sans délai, avec réanimation du sepsis. Le drainage sans antibiotique expose au choc septique ; l'attente des cultures expose au choc septique."
+    }
+  ],
+  "synthesis": "Ictère progressif + selles décolorées + prurit = cholestase → bilan (bilirubine, PAL/GGT, TP) + échographie → dilatation = obstacle : lithiase (douleur) ou cancer (indolore > 50 ans) ; fièvre + douleur + ictère = angiocholite : ATB IV + drainage sans attendre. Voies fines : hépatite (virus, alcool, plantes, paludisme), surveiller le TP."
+}

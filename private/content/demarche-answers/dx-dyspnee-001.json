@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "diagnosticId": "DX-DYSPNEE-001",
+  "steps": [
+    {
+      "id": "examen",
+      "correct": 0,
+      "explanation": "Asymétrie + instabilité = pneumothorax compressif : décompression clinique immédiate. Les sibilants orientent vers l'obstructif, les crépitants vers la congestion, le souffle vers l'anémie."
+    },
+    {
+      "id": "syndrome",
+      "correct": 0,
+      "explanation": "On nomme le syndrome (détresse respiratoire aiguë, probablement PNO) avant l'étude étiologique complète : la stabilisation prime."
+    },
+    {
+      "id": "hypotheses",
+      "correct": 0,
+      "explanation": "Les tueurs de la dyspnée aiguë : PNO compressif, EP, OAP — avec l'asthme aigu grave et l'obstruction des voies aériennes. Le reste vient après."
+    },
+    {
+      "id": "examens",
+      "correct": 0,
+      "explanation": "Après stabilisation (oxygène, exsufflation si compression) : radiographie thoracique au lit ou échographie. L'ECG écarte le SCAn. Le reste attend."
+    },
+    {
+      "id": "interpreter",
+      "correct": 0,
+      "explanation": "Le décollement pleural confirme le pneumothorax ; le drainage se discute selon la taille, la tolérance et la récidive."
+    },
+    {
+      "id": "diagnostic",
+      "correct": 0,
+      "explanation": "Clinique + imagerie concordantes. Le diagnostic n'est clos qu'après avoir écarté EP et OAP si le tableau complet les suggérait."
+    },
+    {
+      "id": "pec",
+      "correct": 0,
+      "explanation": "Stabiliser, confirmer, surveiller, drainer si besoin : le PNO mal suivi est celui qui récidive en compression. Consignes de retour écrites obligatoires."
+    }
+  ],
+  "synthesis": "Patient → vitesse d'installation (brutale) → détresse (abolition unilatérale + SpO2 basse) → hypothèses létales (PNO, EP, OAP) → exsufflation si compression, puis radiographie → drainage selon taille et tolérance. La démarche force la stabilisation avant le diagnostic."
+}

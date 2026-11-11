@@ -41,7 +41,7 @@ const {
 const { toneCriticity, CRITICITY_ORDER } = await import("../src/lib/demarche/criticity.ts");
 
 const map = JSON.parse(
-  readFileSync(new URL("../public/content/demarches/douleur-thoracique.json", import.meta.url), "utf8"),
+  readFileSync(new URL("../private/content/demarches/douleur-thoracique.json", import.meta.url), "utf8"),
 ).mindmap;
 
 const BRANCH_IDS = map.branches.map((branch) => branch.id);

@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "diagnosticId": "DX-AGITATION-001",
+  "steps": [
+    {
+      "id": "febrile",
+      "correct": 1,
+      "explanation": "Agitation fébrile + trouble de conscience en zone d'endémie = paludisme cérébral jusqu'à preuve du contraire : TDR et goutte épaisse immédiats, artésunate parentéral si positif. L'étiquette psychiatrique sur une confusion fébrile est l'erreur qui tue."
+    },
+    {
+      "id": "organique",
+      "correct": 0,
+      "explanation": "Métaboliques (hypoglycémie, hyponatrémie), infectieuses (palu, méningite, sepsis), toxiques (alcool, pesticides, plantes), neurologiques (traumatisme, AVC, épilepsie post-critique), iatrogènes. Che ce patient fébrile : infection du SNC et sepsis d'abord."
+    },
+    {
+      "id": "entourage",
+      "correct": 0,
+      "explanation": "Le début brutal, l'absence d'antécédent, l'âge et la fièvre militent pour une cause organique : la confusion (délirium) a un début soudain, des fluctuations et une désorientation ; la psychose, elle, respecte l'orientation et s'inscrit dans une histoire."
+    },
+    {
+      "id": "sedation",
+      "correct": 1,
+      "explanation": "Sédation titrée, guidée par la cause présumée (benzodiazépine pour sevrage ou ivresse, neuroleptique pour psychose ou delirium), surveillance de la conscience, de la FR et de la TA. Les associations lourdes exposent le sujet âgé et l'insuffisant respiratoire."
+    },
+    {
+      "id": "examens",
+      "correct": 0,
+      "explanation": "Glycémie, ionogramme (hyponatrémie), NFS-CRP, créatinine, goutte épaisse, alcoolemie et toxiques si contexte ; PL si suspicion de méningite (après TDM ou sans signes de focalisation) ; imagerie cérébrale si traumatisme, signes focaux ou âge."
+    },
+    {
+      "id": "suivi",
+      "correct": 0,
+      "explanation": "Synthèse écrite (cause, traitement, conduite en cas de récidive), suivi de la cause organique, éducation de la famille sur les signes d'alerte et l'observance si traitement chronique ; avis psychiatrique si le bilan somatique reste négatif."
+    }
+  ],
+  "synthesis": "Agitation → sécuriser + glycémie + constantes → fièvre en zone d'endémie : paludisme cérébral à écarter (TDR, goutte épaisse, artésunate) → début brutal sans antécédent = organique : sepsis, métabolique, toxique, traumatique → sédation titrée et surveillée, jamais avant l'évaluation → anamnèse familiale essentielle → synthèse écrite et suivi."
+}

@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "diagnosticId": "DX-HEMOPTYSIE-001",
+  "steps": [
+    {
+      "id": "examen",
+      "correct": 0,
+      "explanation": "Le côté qui saigne en bas protège le poumon sain : c'est la mesure anti-asphyxique la plus simple. Constantes et tolérance suivent immédiatement."
+    },
+    {
+      "id": "syndrome",
+      "correct": 0,
+      "explanation": "Toux + mousseux + striés = sang pulmonaire. Le terrain fait suspecter une complication de caverne : aspergillome ou réactivation."
+    },
+    {
+      "id": "hypotheses",
+      "correct": 0,
+      "explanation": "Caverne ancienne + hémoptysie récidivante : grelot aspergillaire d'abord, réactivation ensuite, cancer toujours (fumeur de plus de 40 ans)."
+    },
+    {
+      "id": "examens",
+      "correct": 0,
+      "explanation": "Radio (côté, caverne), BK × 2 (tuberculose), NFS-groupe-coagulation (quantifier, préparer la transfusion). La TDM et la fibroscopie viennent selon la stabilité."
+    },
+    {
+      "id": "interpreter",
+      "correct": 0,
+      "explanation": "L'image en grelot dans une caverne est la signature de l'aspergillome ; la TDM confirme et le risque de massive hémoptysie impose l'avis chirurgical précoce."
+    },
+    {
+      "id": "diagnostic",
+      "correct": 0,
+      "explanation": "Terrain + radiographie : aspergillome le plus probable ; la tuberculose active et le cancer restent à exclure par BK et TDM/fibroscopie."
+    },
+    {
+      "id": "pec",
+      "correct": 0,
+      "explanation": "Anticiper la hémoptysie massive : le patient repart avec des consignes écrites (côté qui saigne, retour immédiat) et un plan chirurgical discuté."
+    }
+  ],
+  "synthesis": "Patient → qualifier le sang (toux, mousseux) → côté qui saigne en décubitus latéral → syndrome caverne + hémoptysie → hypothèses (aspergillome, réactivation, cancer) → radio + BK → TDM → avis chirurgical. La démarche force l'anti-asphyxie avant l'étiologie."
+}

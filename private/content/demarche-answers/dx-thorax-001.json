@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "diagnosticId": "DX-THORAX-001",
+  "steps": [
+    {
+      "id": "examen",
+      "correct": 0,
+      "explanation": "Asymétrie tensionnelle + souffle = dissection aortique jusqu'à preuve du contraire — une filière SCA seule serait une erreur."
+    },
+    {
+      "id": "syndrome",
+      "correct": 0,
+      "explanation": "On nomme le syndrome (SCA probable) avant de figer le diagnostic. L'angoisse est un diagnostic d'élimination."
+    },
+    {
+      "id": "hypotheses",
+      "correct": 0,
+      "explanation": "Les trois tueur : coronaire, aorte, EP. Les causes bénignes existent mais se placent après l'élimination des urgences."
+    },
+    {
+      "id": "examens",
+      "correct": 0,
+      "explanation": "L'ECG est immédiat. Il trie STEMI (salle) vs le reste (troponine, angio-TDM si dissection/EP)."
+    },
+    {
+      "id": "interpreter",
+      "correct": 0,
+      "explanation": "Sus-ST territorial + miroir = occlusion coronaire aiguë. On n'attend pas la troponine pour appeler la salle."
+    },
+    {
+      "id": "diagnostic",
+      "correct": 0,
+      "explanation": "Clinique + ECG territorial. L'angor stable n'a pas de sus-ST. La péricardite n'a pas de miroir."
+    },
+    {
+      "id": "pec",
+      "correct": 0,
+      "explanation": "Temps = myocarde. Filière 15 / USIC, aspirine, P2Y12, anticoagulation, PCI primaire."
+    }
+  ],
+  "synthesis": "Patient → interrogatoire (type, terrain) → examen (dissection ?) → syndrome SCA → hypothèses vitales → ECG immédiat → STEMI → reperfusion. Le QCM isolé saute ces étapes ; la démarche les force."
+}

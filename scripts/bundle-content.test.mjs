@@ -84,23 +84,24 @@ const CONTENT_FAMILIES = [
     registry: join(ROOT, "src/lib/pathologies/catalog.ts"),
     servedAs: "asset",
     marker: "content/pathologies/",
+    protectedDir: join(ROOT, CONTENT_ASSET_PATH),
     /** Servi sous jeton par `/content/$type/$file` : rien dans le statique. */
     published: false,
   },
   {
     name: "démarches enrichies",
-    dir: join(ROOT, "public/content/demarches"),
+    /**
+     * Déplacées en `private/content/` le 2026-11-11 (correctif §15) : elles
+     * étaient des actifs statiques PUBLICS depuis le 2026-11-08, donc servies
+     * par le CDN sans jeton (fiche, flashcards, carte mentale). Elles sortent
+     * désormais par `/content/demarches/<file>`, sous jeton de contenu.
+     */
+    dir: join(ROOT, "private/content/demarches"),
+    protectedDir: join(ROOT, "private/content/demarches"),
     registry: join(ROOT, "src/lib/demarches/catalog.ts"),
     marker: "content/demarches/",
-    /**
-     * Migrées en actifs statiques publics le 2026-11-08 (déblocage du bundle
-     * Functions Cloudflare Pages, plafond 25 Mo) : le contenu quittait le chunk
-     * SSR `/demarche/$id` (~1 Mo pour 43 fiches). Le verrouillage Premium des
-     * vues fiche/flashcards/mindmap reste côté client, comme avant la migration
-     * (le contenu était déjà publié dans le chunk client).
-     */
     servedAs: "asset",
-    published: true,
+    published: false,
   },
 ];
 
@@ -136,6 +137,7 @@ async function loadContents() {
         marker: family.marker,
         sentinels: payloadSentinels(content),
         published: family.published === true,
+        dir: family.dir,
       });
     }
   }
@@ -365,8 +367,8 @@ test("les fiches protégées vivent dans private/ et plus dans public/", async (
   );
 
   for (const asset of assets) {
-    const absolute = join(ROOT, CONTENT_ASSET_PATH, asset.file);
-    assert.ok(existsSync(absolute), `${asset.file}: actif absent de ${CONTENT_ASSET_PATH}/`);
+    const absolute = join(asset.dir, asset.file);
+    assert.ok(existsSync(absolute), `${asset.file}: actif absent de ${asset.dir}/`);
     const raw = readFileSync(absolute, "utf8");
     assert.ok(
       asset.sentinels.every((sentinel) => raw.includes(sentinel)),
@@ -528,9 +530,11 @@ test(
 
     // ⚠️ Le cœur de la session S1 : un fichier publié est servi par le CDN
     // AVANT tout code applicatif, donc sans jeton. On vérifie l'absence, pas la
-    // présence — c'est l'inverse de l'ancienne assertion.
-    const leakedDirectory = join(staticDirectory, "content/pathologies");
-    if (existsSync(leakedDirectory)) {
+    // présence — c'est l'inverse de l'ancienne assertion. Depuis §15, les
+    // démarches enrichies sont dans le même cas que la nosographie.
+    for (const relativePath of ["content/pathologies", "content/demarches"]) {
+      const leakedDirectory = join(staticDirectory, relativePath);
+      if (!existsSync(leakedDirectory)) continue;
       const leaked = readdirSync(leakedDirectory).filter(
         (name) => name.endsWith(".json") && name !== "_index.json",
       );
@@ -584,10 +588,10 @@ test(
 /* ------------------------------------------------------------------ */
 
 /*
- * Les DÉMARCHES enrichies sont des actifs statiques publics depuis le
- * 2026-11-08 (`public/content/demarches/`) : leur payload ne doit apparaître
- * dans AUCUN chunk JS (client ou serveur), et le verrouillage Premium des vues
- * reste appliqué côté client. L'ancienne « LIMITATION ASSUMÉE » (imports
- * statiques dans catalog.ts) est résolue — elle avait fait dépasser au bundle
- * Functions Pages le plafond de 25 Mo (production figée le 2026-11-08).
+ * Les DÉMARCHES enrichies ont suivi la nosographie le 2026-11-11 :
+ * `private/content/demarches/`, compilées dans le bundle SERVEUR, servies sous
+ * jeton par `/content/demarches/<file>`. Plus aucune famille de contenu n'est
+ * publiée dans le dossier statique, et l'ancienne « LIMITATION ASSUMÉE »
+ * (imports statiques dans catalog.ts) reste résolue — elle avait fait dépasser
+ * au bundle Functions Pages le plafond de 25 Mo (production figée le 2026-11-08).
  */

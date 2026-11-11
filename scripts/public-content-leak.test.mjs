@@ -5,10 +5,11 @@
    code applicatif, donc sans le moindre jeton. Ils contenaient :
      • les `questions[]` de 74 decks `access_policy.tier = "pro"` (P0) ;
      • les étapes, questions décisionnelles, diagnostic et prise en charge de
-       41 dossiers cliniques fermés (§14).
-   Soit ~1 Mio de contenu payant téléchargeable par `curl`.
+       41 dossiers cliniques fermés (§14) ;
+     • les corrigés et la synthèse des 43 démarches d'orientation (§15).
+   Soit ~1,2 Mio de contenu payant téléchargeable par `curl`.
 
-   CE QUE LE TEST VÉRIFIE, pour chaque famille (decks puis cas)
+   CE QUE LE TEST VÉRIFIE, pour chaque famille (decks, cas, démarches)
    1. aucun élément fermé de l'index publié ne porte de contenu ;
    2. chaque élément fermé a son actif dans `private/content/<famille>/`,
       complet (mêmes questions / mêmes étapes) ;
@@ -45,6 +46,15 @@ import {
   isPremiumDeck,
   splitDecksPayload,
 } from "./split-decks.mjs";
+import {
+  DIAGNOSTICS_INDEX,
+  DIAGNOSTICS_SOURCE,
+  FREE_STEP_COUNT,
+  PROTECTED_ANSWERS_DIR,
+  PROTECTED_ANSWER_FILE_PATTERN,
+  protectedAnswerFile,
+  splitDiagnosticsPayload,
+} from "./split-demarches.mjs";
 
 const ROOT = resolve(fileURLToPath(new URL("..", import.meta.url)));
 
@@ -255,5 +265,105 @@ test("l'index publié des cas est exactement le split de la source (aucune déri
     const path = join(ROOT, ...PROTECTED_CASES_DIR, asset.file);
     const written = JSON.parse(readFileSync(path, "utf8"));
     assert.deepEqual(written, asset.payload, `${asset.file} : dossier protégé périmé par rapport à la source`);
+  }
+});
+
+// ─── Démarches d'orientation ────────────────────────────────────────
+const sourceDiagnostics = readJson(...DIAGNOSTICS_SOURCE);
+const publishedDiagnostics = readJson(...DIAGNOSTICS_INDEX);
+
+/** Étapes qui ne sont PAS offertes dans l'aperçu public. */
+const lockedSteps = (diagnostic) => (diagnostic.steps ?? []).slice(FREE_STEP_COUNT);
+
+test("aucun corrigé de démarche n'est publié au-delà de l'aperçu offert", () => {
+  assert.ok(sourceDiagnostics.length > 0, "aucune démarche dans la source : test inopérant");
+
+  const offenders = publishedDiagnostics.flatMap((diagnostic) => {
+    const leaked = [];
+    const steps = diagnostic.steps ?? [];
+    const exposed = steps.slice(FREE_STEP_COUNT);
+    if (exposed.some((step) => step.correct !== undefined || step.explanation !== undefined)) {
+      leaked.push(`${diagnostic.id} : ${exposed.length} étape(s) avec correction`);
+    }
+    if (diagnostic.synthesis !== undefined) leaked.push(`${diagnostic.id} : synthesis`);
+    return leaked;
+  });
+
+  assert.deepEqual(
+    offenders,
+    [],
+    "des corrigés de démarches sont encore servis par /data/diagnostics.json :\n" +
+      offenders.join("\n") +
+      "\nRelancer `node scripts/split-demarches.mjs` (ou `npm run build`).",
+  );
+});
+
+test("chaque démarche a son corrigé protégé complet", () => {
+  for (const diagnostic of sourceDiagnostics) {
+    const file = protectedAnswerFile(diagnostic.id);
+    assert.match(
+      file,
+      PROTECTED_ANSWER_FILE_PATTERN,
+      `${diagnostic.id} : nom de fichier non publiable dans private/`,
+    );
+
+    const path = join(ROOT, ...PROTECTED_ANSWERS_DIR, file);
+    assert.ok(existsSync(path), `${file} : corrigé absent de ${PROTECTED_ANSWERS_DIR.join("/")}/`);
+
+    const asset = JSON.parse(readFileSync(path, "utf8"));
+    assert.deepEqual(
+      asset.steps.map((step) => step.id),
+      lockedSteps(diagnostic).map((step) => step.id),
+      `${file} : les étapes protégées ne correspondent plus à la source`,
+    );
+    assert.equal(asset.synthesis, diagnostic.synthesis, `${file} : synthèse protégée divergente`);
+  }
+});
+
+test("l'aperçu public garde la première décision corrigée", () => {
+  for (const diagnostic of sourceDiagnostics) {
+    const published = publishedDiagnostics.find((candidate) => candidate.id === diagnostic.id);
+    assert.ok(published, `${diagnostic.id} : démarche absente de l'index publié`);
+    assert.deepEqual(
+      published.steps[0],
+      diagnostic.steps[0],
+      `${diagnostic.id} : la première décision doit rester jouable sans jeton`,
+    );
+    assert.equal(
+      published.steps.length,
+      diagnostic.steps.length,
+      `${diagnostic.id} : nombre d'étapes divergent (l'UI afficherait un mauvais total)`,
+    );
+  }
+});
+
+test("l'index publié des démarches est exactement le split de la source (aucune dérive)", () => {
+  const { index, answers } = splitDiagnosticsPayload(sourceDiagnostics);
+
+  assert.deepEqual(
+    publishedDiagnostics,
+    index,
+    "public/data/diagnostics.json n'est pas le split de src/content/data/diagnostics.json : " +
+      "relancer `node scripts/split-demarches.mjs`",
+  );
+
+  for (const asset of answers) {
+    const path = join(ROOT, ...PROTECTED_ANSWERS_DIR, asset.file);
+    const written = JSON.parse(readFileSync(path, "utf8"));
+    assert.deepEqual(written, asset.payload, `${asset.file} : corrigé protégé périmé`);
+  }
+});
+
+test("ni les fiches ni les corrigés des démarches ne sont dans le dossier publié", () => {
+  for (const dir of [
+    join(ROOT, "public", "content", "demarches"),
+    join(ROOT, "public", "content", "demarche-answers"),
+    join(ROOT, "public", "data", "demarche-answers"),
+  ]) {
+    assert.equal(
+      existsSync(dir),
+      false,
+      `${dir} existe : le CDN servirait les fiches ou les corrigés sans jeton`,
+    );
   }
 });

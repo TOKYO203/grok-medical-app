@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "diagnosticId": "DX-ASCITE-001",
+  "steps": [
+    {
+      "id": "analyse",
+      "correct": 1,
+      "explanation": "Gradient > 11 g/L = transsudat : hypertension portale (cirrhose, ici contexte d'hépatite B) ou insuffisance cardiaque. Exsudat (< 11 g/L) : péritonite, tuberculose, carcinose, liquide pancréatique."
+    },
+    {
+      "id": "ila",
+      "correct": 0,
+      "explanation": "Plus de 250 éléments/mm³ = infection du liquide d'ascite : antibiothérapie IV (céphalosporine 3e génération) immédiate et albumine (1,5 g/kg à J1) pour prévenir le syndrome hépatorénal ; contrôle cytologique à 48 h. La fièvre manque souvent : c'est la ponction qui fait le diagnostic."
+    },
+    {
+      "id": "cause",
+      "correct": 1,
+      "explanation": "Toute décompensation a un facteur : infection (ILA ici), saignement digestif, AINS ou néphrotoxiques, thrombose portale, alcool, hépatocarcinome. L'identifier change le pronostic — et l'ILA elle-même est un facteur de décompensation."
+    },
+    {
+      "id": "differentiel",
+      "correct": 1,
+      "explanation": "Exsudat lymphocytaire + fièvre longue + AEG du sujet jeune en zone d'endémie = tuberculose péritonéale : ADA élevée, confirmation par culture ou biopsie péritonéale, quadrithérapie. La carcinose péritonéale se voit plutôt après 50 ans."
+    },
+    {
+      "id": "traitement",
+      "correct": 0,
+      "explanation": "Moins de 2 g de sodium/jour, spironolactone titrée sur le poids (-500 g/j sans œdèmes) et la kaliémie, arrêt de l'alcool et des néphrotoxiques. Les ponctions évacuatrices sont réservées à la détresse ou à l'inconfort, avec compensation albuminique si grande abondance."
+    },
+    {
+      "id": "surveillance",
+      "correct": 0,
+      "explanation": "Poids quotidien (efficacité des diurétiques), créatinine (syndrome hépatorénal), kaliémie (diurétiques), conscience (encéphalopathie) et signes de récidive de l'ILA. L'éducation du patient (régime sans sel, poids, signes d'alerte) fait partie du traitement."
+    }
+  ],
+  "synthesis": "Ascite de novo → ponction : cellules (> 250/mm³ = ILA : céphalo 3e gen + albumine), gradient d'albumine (> 11 = transsudat : cirrhose ou cœur ; < 11 = exsudat : tuberculose, carcinose) → cirrhose décompensée : chercher le facteur déclenchant → régime sans sel + spironolactone, poids quotidien, créatinine. Exsudat lymphocytaire fébrile du sujet jeune : tuberculose péritonéale."
+}

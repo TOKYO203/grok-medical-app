@@ -185,6 +185,96 @@ export function hydrateProtectedCases(): Promise<void> {
   return caseHydration;
 }
 
+/**
+ * CORRIGÉS DES DÉMARCHES — chargés hors de l'index public.
+ *
+ * `public/data/diagnostics.json` ne contient plus, au-delà de la première
+ * étape, ni `correct` ni `explanation`, et plus aucune `synthesis` (§15 du
+ * pentest) : c'est l'aperçu « première décision offerte ». Le reste vient de
+ * `private/content/demarche-answers/` via
+ * `/content/demarche-answers/_catalog.json`, une seule requête pour les 43
+ * chapitres.
+ *
+ * Sans jeton (ou jeton expiré) la requête répond 401 : les étapes restent sans
+ * correction et l'écran affiche un état explicite au lieu de compter chaque
+ * réponse comme fausse.
+ */
+const PROTECTED_ANSWER_CATALOG_URL = "/content/demarche-answers/_catalog.json";
+
+let answerHydration: Promise<void> | null = null;
+
+/** Corrigé protégé d'un chapitre, tel que le garde le rend. */
+type ProtectedAnswerAsset = {
+  steps?: { id?: unknown; correct?: unknown; explanation?: unknown }[];
+  synthesis?: unknown;
+};
+
+/**
+ * Récupère les corrigés protégés et les fusionne dans l'état du catalogue.
+ * Idempotent : une étape qui porte déjà sa correction n'est jamais réécrite.
+ */
+export function hydrateProtectedDiagnostics(): Promise<void> {
+  if (typeof window === "undefined") return Promise.resolve();
+  if (answerHydration) return answerHydration;
+
+  answerHydration = (async () => {
+    try {
+      const response = await fetchWithAuth(PROTECTED_ANSWER_CATALOG_URL, {
+        headers: { accept: "application/json" },
+      });
+      if (!response.ok) return;
+
+      const payload = (await response.json()) as {
+        answers?: Record<string, ProtectedAnswerAsset>;
+      };
+      const assets = payload?.answers ?? {};
+
+      let changed = false;
+      state.diagnostics = state.diagnostics.map((diagnostic) => {
+        // Le garde indexe par nom de fichier : identifiant en minuscules.
+        const asset = assets[`${diagnostic.id.toLowerCase()}.json`];
+        if (!asset) return diagnostic;
+
+        const byId = new Map(
+          (asset.steps ?? [])
+            .filter((step): step is { id: string; correct?: unknown; explanation?: unknown } =>
+              typeof step?.id === "string",
+            )
+            .map((step) => [step.id, step] as const),
+        );
+
+        let touched = false;
+        const steps = diagnostic.steps.map((step) => {
+          if (step.correct !== undefined) return step;
+          const answer = byId.get(step.id);
+          if (typeof answer?.correct !== "number" || typeof answer.explanation !== "string") {
+            return step;
+          }
+          touched = true;
+          return { ...step, correct: answer.correct, explanation: answer.explanation };
+        });
+
+        const synthesis =
+          diagnostic.synthesis === undefined && typeof asset.synthesis === "string"
+            ? asset.synthesis
+            : diagnostic.synthesis;
+
+        if (!touched && synthesis === diagnostic.synthesis) return diagnostic;
+        changed = true;
+        return { ...diagnostic, steps, synthesis };
+      });
+      if (changed) emit();
+    } catch {
+      // Hors ligne, garde non configuré, jeton absent : les corrigés manquent,
+      // l'écran de démarche le dit explicitement.
+    } finally {
+      answerHydration = null;
+    }
+  })();
+
+  return answerHydration;
+}
+
 // ─── Transformations (identiques à avant) ──────────────────────────────────
 function asDeck(raw: Record<string, any>): Deck {
   return {
@@ -231,7 +321,11 @@ export function loadCatalog(): Promise<void> {
       // `public/data` : on les demande au garde AVANT le premier rendu, pour
       // qu'aucun écran ne montre un deck « 0 question » ou un dossier vide à un
       // client qui a payé.
-      await Promise.all([hydrateProtectedDecks(), hydrateProtectedCases()]);
+      await Promise.all([
+        hydrateProtectedDecks(),
+        hydrateProtectedCases(),
+        hydrateProtectedDiagnostics(),
+      ]);
       emit();
     })
     .catch((err) => { state.error = err; inflight = null; emit(); });
@@ -321,6 +415,7 @@ if (typeof window !== "undefined") {
     if (!state.ready) return;
     void hydrateProtectedDecks();
     void hydrateProtectedCases();
+    void hydrateProtectedDiagnostics();
   });
 }
 

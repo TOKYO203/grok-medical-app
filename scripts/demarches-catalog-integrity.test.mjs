@@ -3,7 +3,10 @@ import { readFile, readdir } from "node:fs/promises";
 import test from "node:test";
 
 const indexDir = new URL("../src/content/data/demarches/", import.meta.url);
-const assetDir = new URL("../public/content/demarches/", import.meta.url);
+// Depuis le correctif §15 (2026-11-11), les fiches ne sont plus des actifs
+// publics : elles vivent dans `private/content/demarches/` et sortent sous
+// jeton par `/content/demarches/<file>`.
+const assetDir = new URL("../private/content/demarches/", import.meta.url);
 const readJson = (dir, name) => readFile(new URL(name, dir), "utf8").then(JSON.parse);
 
 const [index, diagnostics] = await Promise.all([

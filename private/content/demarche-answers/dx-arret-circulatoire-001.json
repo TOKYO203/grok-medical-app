@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "diagnosticId": "DX-ARRET-CIRCULATOIRE-001",
+  "steps": [
+    {
+      "id": "premier_geste",
+      "correct": 1,
+      "explanation": "Masser tôt et fort, alerter en parallèle (numéro local, défibrillateur). Toute minute perdue coûte environ 10 % de survie. Le massage du premier soignant présent double ou triple les chances, bien avant l'arrivée du matériel."
+    },
+    {
+      "id": "rythme",
+      "correct": 1,
+      "explanation": "FV = rythme choquable : choc immédiat, puis reprise des compressions dès que le choc est délivré (interruptions < 10 s). L'adrénaline et l'amiodarone viennent ensuite selon le protocole (adrénaline au 3e choc dans les recommandations européennes actuelles, amiodarone 300 mg au 3e choc)."
+    },
+    {
+      "id": "drogues",
+      "correct": 0,
+      "explanation": "Dans un rythme non choquable, l'adrénaline 1 mg IV/IO toutes les 3-5 minutes est le pilier, dès que la voie est disponible. Le bicarbonate est réservé à l'hyperkaliémie ou l'intoxication aux tricycliques ; l'atropine n'a plus d'indication en réanimation."
+    },
+    {
+      "id": "cause",
+      "correct": 1,
+      "explanation": "4H : hypoxie, hypovolémie, hyper-/hypokaliémie et troubles métaboliques, hypothermie. 4T : tension pneumothorax, tamponnade, toxiques, thrombose (coronaire ou pulmonaire). Chaque cause a son geste spécifique — la reprise sans traitement de la cause récidive."
+    },
+    {
+      "id": "enfant",
+      "correct": 1,
+      "explanation": "L'arrêt pédiatrique est hypoxique (paludisme grave, pneumopathie, déshydratation) : 5 insufflations initiales puis 30:2 (15:2 en pédiatrie à 2 sauveteurs), adrénaline 10 µg/kg. Le pouls se prend au bras (brachial) chez le nourrisson."
+    },
+    {
+      "id": "arret",
+      "correct": 1,
+      "explanation": "On poursuit tant qu'une cause réversible (toxique, hypothermie, hypovolémie opérable) est en cours de traitement — « pas de mort avant d'être réchauffé ». Sinon, la décision d'arrêt suit le protocole local, souvent après 20-30 minutes sans retour à la circulation."
+    }
+  ],
+  "synthesis": "Patient → inconscient + gasps → massage immédiat (100-120/min, 5-6 cm) + alerte → DAE : FV choquable ou asystolie non choquable → adrénaline 1 mg/3-5 min, amiodarone au 3e choc en FV → 4H-4T cherchées à chaque cycle → RACS : soins post-arrêt (SpO2, TA, température, ECG). La qualité du massage est le seul levier toujours disponible, même sans matériel."
+}

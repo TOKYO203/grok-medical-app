@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "diagnosticId": "DX-EXOPHTALMIE-001",
+  "steps": [
+    {
+      "id": "laterabilite",
+      "correct": 0,
+      "explanation": "La latéralité est le premier triage : bilatérale évoque le Basedow, unilatérale impose d'éliminer l'infection (urgence) et la tumeur."
+    },
+    {
+      "id": "urgence",
+      "correct": 0,
+      "explanation": "Menace visuelle = urgence absolue : corticoïdes IV, avis ophtalmo-endocrinologique, décompression orbitaire selon accessibilité."
+    },
+    {
+      "id": "cellulite",
+      "correct": 0,
+      "explanation": "Cellulite orbitaire = menace visuelle et complications (thrombose du sinus caverneux, méningite) : hospitalisation IV sans délai ; ne pas la prendre pour une conjonctivite."
+    },
+    {
+      "id": "basedow",
+      "correct": 0,
+      "explanation": "Le tabac est le facteur d'aggravation majeur ; la protection cornéenne est immédiate ; formes sévères actives : corticoïdes et avis spécialisé."
+    },
+    {
+      "id": "tumeur",
+      "correct": 0,
+      "explanation": "Progressive + indolore + unilatérale = tumeur jusqu'à preuve du contraire ; l'imagerie est obligatoire ; chez l'enfant : urgence (rhabdomyosarcome)."
+    },
+    {
+      "id": "cornée",
+      "correct": 0,
+      "explanation": "L'œil qui ne ferme pas s'ulcère : la protection cornéenne est le traitement le plus rentable dans notre contexte, dès la première consultation."
+    }
+  ],
+  "synthesis": "Exophtalmie = acuité visuelle d'abord, comparer les deux yeux. Bilatérale + thyroïde = Basedow (tabac, protection cornéenne, corticoïdes si sévère). Unilatérale fébrile douloureuse = cellulite orbitaire (IV). Unilatérale progressive indolore = tumeur (imagerie, biopsie). Baisse d'acuité ou défaut pupillaire = compression : corticoïdes IV, urgence. Yeux qui ne ferment pas = larmes + occlusion nocturne."
+}

@@ -39,7 +39,14 @@ const viteSource = readFileSync(VITE_CONFIG_PATH, "utf8");
 const guardSource = readFileSync(GUARD_PATH, "utf8");
 
 /** Chemins dont le contenu est servi SOUS JETON. */
-const PROTECTED_PATHS = ["/content/pathologies", "/content/signes"];
+const PROTECTED_PATHS = [
+  "/content/pathologies",
+  "/content/signes",
+  "/content/decks",
+  "/content/cases",
+  "/content/demarches",
+  "/content/demarche-answers",
+];
 
 test("aucune règle de cache public ne subsiste sur le contenu protégé (_headers)", () => {
   for (const base of PROTECTED_PATHS) {
@@ -188,7 +195,14 @@ test("l'artefact publié ne rend pas le contenu protégé cacheable (Cloudflare 
 });
 
 test("le déploiement ne publie AUCUNE fiche de contenu", { skip: !builtStaticDirectory }, () => {
-  for (const relativePath of ["content/pathologies", "content/signes"]) {
+  for (const relativePath of [
+    "content/pathologies",
+    "content/signes",
+    "content/decks",
+    "content/cases",
+    "content/demarches",
+    "content/demarche-answers",
+  ]) {
     const directory = join(builtStaticDirectory, relativePath);
     if (!existsSync(directory)) continue;
     const files = readdirSync(directory).filter((name) => name.endsWith(".json"));

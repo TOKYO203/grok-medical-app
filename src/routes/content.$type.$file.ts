@@ -143,6 +143,15 @@ async function buildCasesCatalog() {
   return { schemaVersion: 1, cases: await readAllProtectedAssets("cases") };
 }
 
+/**
+ * Catalogue groupé des corrigés de démarches : une requête rend les réponses,
+ * explications et synthèses de tous les chapitres, indexés par nom de fichier
+ * (`<id-minuscule>.json`).
+ */
+async function buildDemarcheAnswersCatalog() {
+  return { schemaVersion: 1, answers: await readAllProtectedAssets("demarche-answers") };
+}
+
 export const Route = createFileRoute("/content/$type/$file")({
   server: {
     handlers: {
@@ -174,7 +183,9 @@ export const Route = createFileRoute("/content/$type/$file")({
         const isSignesCatalog = family === "signes" && file === "_catalog.json";
         const isDecksCatalog = family === "decks" && file === "_catalog.json";
         const isCasesCatalog = family === "cases" && file === "_catalog.json";
-        const isCatalog = isSignesCatalog || isDecksCatalog || isCasesCatalog;
+        const isAnswersCatalog = family === "demarche-answers" && file === "_catalog.json";
+        const isCatalog =
+          isSignesCatalog || isDecksCatalog || isCasesCatalog || isAnswersCatalog;
         if (!isCatalog && !/^[a-z0-9]+(?:-[a-z0-9]+)*\.json$/.test(file)) {
           return notFoundResponse();
         }
@@ -190,7 +201,9 @@ export const Route = createFileRoute("/content/$type/$file")({
             ? await buildDecksCatalog()
             : isCasesCatalog
               ? await buildCasesCatalog()
-              : await buildSignesCatalog();
+              : isAnswersCatalog
+                ? await buildDemarcheAnswersCatalog()
+                : await buildSignesCatalog();
           return jsonResponse(catalog, 200, {
             "Cache-Control": "private, max-age=60",
           });

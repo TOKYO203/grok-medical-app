@@ -11,13 +11,14 @@
  * src/content/data/diagnostics.json (245 Ko, 43 cas) servait via une copie
  * publique restée à 6 cas.
  *
- * ⚠️ `decks.json` et `cases.json` ne sont PLUS copiés tels quels : depuis les
- * correctifs P0/§14 du pentest, les questions des decks premium et le contenu
- * des dossiers cliniques fermés ne doivent pas être publiés. Leurs copies
- * publiques sont produites par `scripts/split-decks.mjs` et
- * `scripts/split-cases.mjs` (index sans contenu + actifs dans
- * `private/content/`). Le resynchroniseur garde donc un seul rôle par fichier :
- * copie à l'octet (démarches) ou split déterministe (decks, cas).
+ * ⚠️ AUCUN catalogue n'est plus copié tel quel : depuis les correctifs
+ * P0/§14/§15 du pentest, les questions des decks premium, le contenu des
+ * dossiers cliniques fermés et les corrigés des démarches ne doivent pas être
+ * publiés. Les copies publiques sont produites par `scripts/split-decks.mjs`,
+ * `scripts/split-cases.mjs` et `scripts/split-demarches.mjs` (index sans
+ * contenu + actifs dans `private/content/`). Le resynchroniseur garde donc un
+ * seul rôle par fichier : split déterministe. La boucle de copie à l'octet
+ * reste en place pour un futur catalogue qui n'aurait aucun contenu fermé.
  *
  * Tout démarrage Vite (dev, build, preview — les variantes :cloudflare,
  * :netlify et :worker comprises) resynchronise la copie AVANT que Vite ne
@@ -29,9 +30,10 @@ import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { splitCases } from "./split-cases.mjs";
 import { splitDecks } from "./split-decks.mjs";
+import { splitDiagnostics } from "./split-demarches.mjs";
 
-/** Catalogues recopiés à l'octet depuis la source. */
-const COPIED_CATALOG_FILES = ["diagnostics.json"];
+/** Catalogues recopiés à l'octet depuis la source (aucun aujourd'hui). */
+const COPIED_CATALOG_FILES = [];
 
 /** Le workspace root (ce fichier vit dans `<root>/scripts/`). */
 export function projectRoot() {
@@ -47,7 +49,8 @@ function atomicWrite(src, dest) {
 
 /**
  * Recopie chaque catalogue src → public si, et seulement si, il diverge.
- * `decks.json` passe par le split (jamais les questions premium en clair).
+ * `decks.json`, `cases.json` et `diagnostics.json` passent par leur split
+ * (jamais de contenu fermé en clair).
  * Retourne la liste des fichiers resynchronisés (vide = déjà à jour).
  */
 export function syncCatalogData({ root = projectRoot(), log = () => {} } = {}) {
@@ -61,6 +64,9 @@ export function syncCatalogData({ root = projectRoot(), log = () => {} } = {}) {
 
   // Cas cliniques : index public en teaser + dossiers protégés.
   if (splitCases({ root, log }).indexChanged) synced.push("cases.json");
+
+  // Démarches : aperçu public + corrigés protégés (§15).
+  if (splitDiagnostics({ root, log }).indexChanged) synced.push("diagnostics.json");
 
   for (const name of COPIED_CATALOG_FILES) {
     const src = join(srcDir, name);

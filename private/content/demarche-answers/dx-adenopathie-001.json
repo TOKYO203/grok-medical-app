@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "diagnosticId": "DX-ADENOPATHIE-001",
+  "steps": [
+    {
+      "id": "examen",
+      "correct": 0,
+      "explanation": "Dureté, fixation et atteinte de plusieurs aires orientent vers l'hémopathie ou la métastase ; la douleur et l'inflammation évoquent plutôt l'infection."
+    },
+    {
+      "id": "syndrome",
+      "correct": 0,
+      "explanation": "On nomme le syndrome : adénopathie chronique suspecte, ce qui impose le prélèvement, pas un troisième antibiotique."
+    },
+    {
+      "id": "hypotheses",
+      "correct": 0,
+      "explanation": "Après échec d'antibiotiques : TB ganglionnaire (scrofula) en premier, VIH et ses complications, puis lymphome. La métastase se garde selon l'âge."
+    },
+    {
+      "id": "examens",
+      "correct": 0,
+      "explanation": "VIH et BK couvrent les deux causes infectieuses majeures ; la ponction à l'aiguille fine est le geste clé, la biopsie suivra si la cytologie est insuffisante."
+    },
+    {
+      "id": "interpreter",
+      "correct": 0,
+      "explanation": "Le granulome épithélioïde et gigantocellulaire avec nécrose caséeuse est la signature tuberculeuse ; la fistule cicatrise lentement sous traitement bien conduit."
+    },
+    {
+      "id": "diagnostic",
+      "correct": 0,
+      "explanation": "Terrain + cytologie + GeneXpert : tuberculose ganglionnaire. Le VIH, dépisté, conditionne le pronostic et le suivi."
+    },
+    {
+      "id": "pec",
+      "correct": 0,
+      "explanation": "Le traitement médical standardisé guérit ; la biopsie d'exérèse n'est pas nécessaire au diagnostic lorsque la ponction et le GeneXpert concluent."
+    }
+  ],
+  "synthesis": "Patient → caractériser (dur, 3 cm, 2 mois, antibiotiques sans effet) → syndrome adénopathie suspecte → hypothèses (TB, VIH, lymphome) → sérologie VIH + BK + ponction → granulome caséum → quadrithérapie et déclaration. La démarche interdit les cures d'antibiotiques répétées sans prélèvement."
+}

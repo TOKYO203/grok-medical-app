@@ -8,6 +8,11 @@
 
 **Securite** : voir docs/SECURITY-AUDIT.md (apres Session 1)
 
+**Chantiers de securite (pentest)** : suivi commit par commit dans
+`docs/CORRECTIFS-SECURITE.md` — y ajouter une ligne a chaque correctif livre
+(chantier, commit, preuve, ce qui reste ouvert). Constat source :
+`docs/PENTEST-2026-11-09.md`.
+
 **CI (incident 2026-10-17)** : si les 4 jobs réels (release-check, test, PostgreSQL smoke,
 dependency audit) échouent tous en ~2 s sans avoir tourné, c'est un démarrage de runner
 impossible (minutes Actions incluses épuisées ou plafond de dépense) — vérifier

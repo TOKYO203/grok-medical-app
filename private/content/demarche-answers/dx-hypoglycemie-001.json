@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "diagnosticId": "DX-HYPOGLYCEMIE-001",
+  "steps": [
+    {
+      "id": "mesure",
+      "correct": 1,
+      "explanation": "0,38 g/L avec signes neuroglycopéniques = hypoglycémie sévère : resucrer sans attendre la moindre confirmation. Le laboratoire viendra après le traitement ; la preuve documentaire peut se faire sur le tube prélevé au moment du resucrage."
+    },
+    {
+      "id": "traitement",
+      "correct": 0,
+      "explanation": "Si le patient déglutit : 15-20 g de glucose oral (sucre, jus), réévaluer à 15 min, renouveler si besoin, puis collation complexe. Le glucagon IM et le G30 % IV sont réservés à l'impossibilité de déglutir ou à la perte de connaissance."
+    },
+    {
+      "id": "etiologie",
+      "correct": 1,
+      "explanation": "Chez le diabétique traité, l'hypoglycémie est la complication la plus fréquente : dose inadaptée, repas sauté, effort inhabituel, vomissements, insuffisance rénale. On vérifie la technique d'injection et le traitement réel pris."
+    },
+    {
+      "id": "palu",
+      "correct": 1,
+      "explanation": "Chez l'enfant et la femme enceinte, une glycémie < 2,2 mmol/L (0,40 g/L) est un critère OMS de paludisme grave : TDR immédiat, artésunate parentéral, resucrage — l'hypoglycémie aggrave le pronostic cérébral."
+    },
+    {
+      "id": "surveillance",
+      "correct": 1,
+      "explanation": "Les sulfamides (demi-vie longue) et l'insuline lente provoquent des récidives à distance : hospitalisation, perfusion glucosée, glycémies rapprochées pendant 24-48 h. Le « resucrer et laisser repartir » du sulfamide est une erreur classique."
+    },
+    {
+      "id": "suivi",
+      "correct": 1,
+      "explanation": "Une hypoglycémie sévère est une indication de modification du traitement ou de levée du facteur favorisant. Éducation : reconnaître ses signes, toujours avoir du sucre, jamais sauter un repas après l'insuline."
+    }
+  ],
+  "synthesis": "Confusion aiguë d'un diabétique → glycémie capillaire immédiate → 0,38 g/L = hypoglycémie sévère → resucrage 15-20 g oral (G30 % IV ou glucagon si inconscient) → réévaluer à 15 min → cause : traitement antidiabétique → sulfamide = surveillance 24-48 h → éducation et adaptation du traitement de fond. Le glucomètre fait partie de l'examen neurologique."
+}
