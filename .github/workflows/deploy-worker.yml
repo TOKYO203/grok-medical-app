@@ -40,6 +40,22 @@ jobs:
       # dashboard) : sur un Worker, CF_PAGES_URL n'existe pas, donc
       # BETTER_AUTH_URL doit être explicite. Les secrets absents sont simplement
       # omis (l'app retombe alors sur son mode « profil local » documenté).
+
+      - name: Inject worker config (assets + compat flags)
+        run: |
+          node -e "
+            const fs=require('fs');
+            const p='.output/server/wrangler.json';
+            const j=JSON.parse(fs.readFileSync(p,'utf8'));
+            j.compatibility_date='2025-04-01';
+            j.compatibility_flags=Array.from(new Set([...(j.compatibility_flags||[]),'nodejs_compat','nodejs_compat_populate_process_env']));
+            j.assets=j.assets||{};
+            j.assets.run_worker_first=['/api/*'];
+            fs.writeFileSync(p,JSON.stringify(j,null,2));
+            console.log('compat_flags=',j.compatibility_flags);
+            console.log('run_worker_first=',j.assets.run_worker_first);
+          "
+
       - name: Deploy with Wrangler
         run: |
           ARGS="--config .output/server/wrangler.json"
