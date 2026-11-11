@@ -100,6 +100,14 @@ export function QuizPlayer({
   // serveur (POST /api/quiz/answer) APRÈS le choix, jamais avant.
   const [remoteAnswer, setRemoteAnswer] = useState<RemoteAnswer | null>(null);
   const [checkState, setCheckState] = useState<"idle" | "checking" | "error">("idle");
+  // Modèle freemium (chantier 1) — decks gratuits : la projection publique ne
+  // porte plus l'explication. Une session premium/essai peut la récupérer via
+  // /api/quiz/answer ; sinon on affiche le bloc « Explication disponible avec
+  // Pro » (le gratuit garde la correction juste/faux, pas le pourquoi).
+  const [freeExplanation, setFreeExplanation] = useState<{
+    status: "idle" | "loading" | "ok" | "locked";
+    text?: string;
+  }>({ status: "idle" });
   const pendingChoice = useRef<number | null>(null);
   const answerLocked = useRef(false);
   const advanceLocked = useRef(false);
@@ -127,8 +135,47 @@ export function QuizPlayer({
   useEffect(() => {
     setRemoteAnswer(null);
     setCheckState("idle");
+    setFreeExplanation({ status: "idle" });
     pendingChoice.current = null;
   }, [index]);
+
+  // Modèle freemium — decks gratuits : tentative de récupération de
+  // l'explication pour les sessions premium/essai. Tout échec (401/402/404,
+  // réseau) retombe sur le bloc « disponible avec Pro », jamais sur une erreur.
+  useEffect(() => {
+    if (picked === null || checkState !== "idle") return;
+    const question = sessionItems[index]?.question;
+    if (!question || question.correct === undefined || question.explanation) return;
+    if (freeExplanation.status !== "idle") return;
+    const deckId = sessionItems[index]?.deckId;
+    setFreeExplanation({ status: "loading" });
+    let cancelled = false;
+    void (async () => {
+      try {
+        const response = await fetchWithAuth("/api/quiz/answer", {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify({
+            family: "decks",
+            itemId: deckId ?? question.id,
+            questionId: question.id,
+            choice: picked,
+          }),
+        });
+        if (!response.ok) throw new Error(`http_${response.status}`);
+        const data = (await response.json()) as { explanation?: unknown };
+        if (typeof data.explanation !== "string" || data.explanation.length === 0) {
+          throw new Error("locked");
+        }
+        if (!cancelled) setFreeExplanation({ status: "ok", text: data.explanation });
+      } catch {
+        if (!cancelled) setFreeExplanation({ status: "locked" });
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, [index, picked, checkState, freeExplanation.status, sessionItems]);
 
   // Session 11 — compteur de temps d'étude : le temps passé sur le quiz est
   // crédité à la sortie du lecteur (seules les visites > 1 s comptent).
@@ -454,7 +501,28 @@ export function QuizPlayer({
 
           </div>
 
-          <p className="mt-2 text-sm leading-relaxed text-fg">{explanation}</p>
+          {explanation ? (
+            <p className="mt-2 text-sm leading-relaxed text-fg">{explanation}</p>
+          ) : freeExplanation.status === "ok" ? (
+            <p className="mt-2 text-sm leading-relaxed text-fg">{freeExplanation.text}</p>
+          ) : freeExplanation.status === "loading" ? (
+            <p className="mt-2 text-sm text-muted">Chargement de l'explication…</p>
+          ) : (
+            /* Modèle freemium — decks gratuits : l'explication est le
+               différenciateur premium (chantier 1, docs/MODEL-FREEMIUM.md). */
+            <div className="mt-2 rounded-[var(--radius-md)] bg-secondary p-3">
+              <p className="text-sm text-muted">
+                Explication disponible avec Pro : comprenez chaque réponse, pas seulement son score.
+              </p>
+              <a
+                href="/pro"
+                className="mt-2 inline-flex items-center gap-1 text-sm font-medium text-primary underline-offset-4 hover:underline"
+              >
+                Découvrir Pro
+                <ArrowRight className="size-3.5" aria-hidden />
+              </a>
+            </div>
+          )}
           <MedicalSources sources={sources} compact />
           <ReportContentError
             target={{
@@ -475,3 +543,4 @@ export function QuizPlayer({
     </div>
   );
 }
+

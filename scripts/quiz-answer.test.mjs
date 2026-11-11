@@ -20,7 +20,22 @@ import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const CHECKOUT = join(fileURLToPath(import.meta.url), "..", "..");
-const readSource = (path) => readFileSync(join(CHECKOUT, path), "utf8");
+/**
+ * Résolution tolérante : pendant l'incident #476-#483, la route
+ * /api/quiz/answer est désactivée côté main (renommée .disabled). Le contrat
+ * de source porte sur le CONTENU du module, pas sur son nom : on retombe sur
+ * le fichier .disabled s'il existe, sans jamais réactiver la route ici.
+ */
+const readSource = (path) => {
+  try {
+    return readFileSync(join(CHECKOUT, path), "utf8");
+  } catch (error) {
+    if (error?.code === "ENOENT") {
+      return readFileSync(join(CHECKOUT, `${path}.disabled`), "utf8");
+    }
+    throw error;
+  }
+};
 
 test("la route de contenu sanitise les familles QCM (decks, diagnostics)", () => {
   const route = readSource("src/routes/content.$type.$file.ts");

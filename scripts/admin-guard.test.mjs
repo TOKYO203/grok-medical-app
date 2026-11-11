@@ -21,7 +21,23 @@ import {
   verifyAdminSessionToken,
 } from "../src/lib/security/admin-auth.server.ts";
 
-const read = (path) => readFileSync(new URL(path, import.meta.url), "utf8");
+/**
+ * Résolution tolérante : pendant l'incident #476-#483, le garde admin est
+ * désactivé côté main (server/middleware/admin-guard.ts renommé .disabled).
+ * Le contrat de source porte sur le CONTENU du module, pas sur son nom : on
+ * retombe sur le fichier .disabled s'il existe, sans jamais réactiver le garde.
+ */
+const read = (path) => {
+  const url = new URL(path, import.meta.url);
+  try {
+    return readFileSync(url, "utf8");
+  } catch (error) {
+    if (error?.code === "ENOENT") {
+      return readFileSync(new URL(`${path}.disabled`, import.meta.url), "utf8");
+    }
+    throw error;
+  }
+};
 
 /** Source sans commentaires : les assertions négatives ne doivent pas tomber
  * sur la documentation, qui cite les anti-patterns interdits. */

@@ -55,9 +55,26 @@ function writeIfChanged(dest, text) {
 
 const serialize = (value) => `${JSON.stringify(value, null, 2)}\n`;
 
-/** Un deck Pro devient une carte de catalogue : métadonnées, jamais les questions. */
+/**
+ * Un deck Pro devient une carte de catalogue : métadonnées, jamais les
+ * questions. Un deck GRATUIT garde ses questions et sa grille de correction
+ * (`correct`, correction immédiate) mais perd l'explication — modèle freemium
+ * v2 (docs/MODEL-FREEMIUM.md, chantier 1) : « le gratuit fait goûter, le
+ * premium fait passer ». L'explication est servie aux sessions premium/essai
+ * par POST /api/quiz/answer.
+ */
 function publicDeck(deck) {
-  if (deck.access_policy?.tier !== "pro") return deck;
+  if (deck.access_policy?.tier !== "pro") {
+    if (!Array.isArray(deck.questions)) return deck;
+    return {
+      ...deck,
+      questions: deck.questions.map((question) => {
+        if (!question || typeof question !== "object") return question;
+        const { explanation: _explanation, ...rest } = question;
+        return rest;
+      }),
+    };
+  }
   const { questions, ...rest } = deck;
   return { ...rest, questions: [], questionCount: Array.isArray(questions) ? questions.length : 0 };
 }
@@ -89,6 +106,9 @@ function publicDiagnostic(item) {
 
 /** Nom de fichier privé sûr pour chaque famille (aucune traversée possible). */
 const SAFE_ID = /^[A-Za-z0-9]+(?:[-_][A-Za-z0-9]+)*$/;
+
+// Projections exportées pour les tests (scripts/freemium-explanations.test.mjs).
+export { publicDeck, publicClinicalCase, publicDiagnostic };
 
 function privateFileName(id) {
   if (typeof id !== "string" || !SAFE_ID.test(id)) {
@@ -169,3 +189,4 @@ if (process.argv[1] && fileURLToPath(import.meta.url) === join(process.cwd(), "s
   const synced = syncCatalogData({ log: console.log });
   if (synced.length === 0) console.log("[catalog-sync] catalogues déjà à jour");
 }
+
