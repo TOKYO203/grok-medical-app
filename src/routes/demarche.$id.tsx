@@ -97,7 +97,9 @@ function DemarchePage() {
   }
 
   async function chooseStep(i: number) {
-    if (!current) return;
+    // Narrowing local : TS ne propage pas le garde `if (!dx)` dans cette closure.
+    const diagnostic = dx;
+    if (!diagnostic || !current) return;
     if (current.correct !== undefined) {
       // Projection non sanitisée (aperçu/essai sans sanitisation) : chemin local.
       setPicked(i);
@@ -113,7 +115,7 @@ function DemarchePage() {
         headers: { "content-type": "application/json" },
         body: JSON.stringify({
           family: "diagnostics",
-          itemId: dx.id,
+          itemId: diagnostic.id,
           questionId: current.id,
           choice: i,
         }),
