@@ -15,7 +15,7 @@ export type Currency = (typeof CURRENCIES)[number];
  * Prix de référence.
  *
  * `subscriptionQuarter` est l'offre MISE EN AVANT (Abonnement Trimestriel) :
- * 15 000 Ar pour 3 mois, soit 5 000 Ar par mois. C'est le seul montant à
+ * 35 000 Ar pour 3 mois, soit ~11 667 Ar par mois. C'est le seul montant à
  * modifier pour changer le prix affiché sur /tarifs et dans les CTA.
  *
  * `deck` et `specialty` restent les montants servis par le tunnel de commande
