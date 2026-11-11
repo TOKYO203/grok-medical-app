@@ -79,6 +79,7 @@ export const Route = createFileRoute("/api/health/checkout")({
   server: {
     handlers: {
       GET: async ({ request }) => {
+        try {
         const decision = await rateLimitRequest(
           request,
           "health-checkout",
@@ -138,6 +139,10 @@ export const Route = createFileRoute("/api/health/checkout")({
         };
 
         return json(report);
+        } catch (err) {
+          console.error("[HEALTH-CRASH]", err);
+          return json({ error: true, message: String(err && err.message || err), name: err && err.name, stack: String(err && err.stack || "").split("\n").slice(0, 15) }, 500);
+        }
       },
     },
   },
