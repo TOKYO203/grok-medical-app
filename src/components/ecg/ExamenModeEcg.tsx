@@ -54,7 +54,10 @@ export function ExamenModeEcg() {
   const score = results.filter(Boolean).length;
   // La fiche complète (trace, son, déformation) — chargée côté client,
   // jamais affichée avant la validation : c'est toute la valeur du mode.
-  const fiche = useMemo(() => (entry ? getEcg(entry.id) : undefined), [entry?.id]);
+  // entryId extrait : la fiche ne se recharge qu'au changement de cas, et
+  // le memo ne dépend que d'un scalaire (react-hooks/exhaustive-deps OK).
+  const entryId = entry?.id;
+  const fiche = useMemo(() => (entryId ? getEcg(entryId) : undefined), [entryId]);
   const deformation = useMemo(
     () => (fiche ? buildDeformation(fiche) : undefined),
     [fiche],
