@@ -23,7 +23,12 @@ const env = ((import.meta as ImportMeta & { env?: EnvLike }).env ?? {}) as EnvLi
 
 function readEnv(key: string): string {
   const value = env[key];
-  return typeof value === "string" ? value.trim() : "";
+  if (typeof value !== "string") return "";
+  // Les secrets GitHub collés avec leurs guillemets ("https://…" ou '…') ont
+  // produit en prod un client Supabase construit sur une URL invalide : le
+  // chargement échouait silencieusement et le login affichait « cloud non
+  // configuré » (constaté le 2026-11-10). On retire tout guillemet englobant.
+  return value.trim().replace(/^["'`]+/, "").replace(/["'`]+$/, "").trim();
 }
 
 const isBrowser = typeof window !== "undefined";
