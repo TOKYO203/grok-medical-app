@@ -55,9 +55,12 @@ test("le module de sanitisation retire correct et explanation", () => {
 
 test("/api/quiz/answer applique quota, garde, puis lecture — jamais l'inverse", () => {
   const route = readSource("src/routes/api.quiz.answer.ts");
-  const idxRate = route.indexOf("rateLimitRequest");
-  const idxAuth = route.indexOf("await authenticate(request)");
-  const idxRead = route.indexOf("readAllProtectedAssets");
+  // Ancrage sur les SITES D'APPEL (après "POST: async") : les imports en tête
+  // de fichier mentionnent les mêmes symboles et faussaient l'ordre.
+  const handler = route.slice(route.indexOf("POST: async"));
+  const idxRate = handler.indexOf("await rateLimitRequest(");
+  const idxAuth = handler.indexOf("await authenticate(request)");
+  const idxRead = handler.indexOf("readAllProtectedAssets(family");
   assert.ok(idxRate > -1 && idxAuth > -1 && idxRead > -1, "quota, garde et lecture doivent exister");
   assert.ok(idxRate < idxAuth, "le quota doit précéder l'authentification");
   assert.ok(idxAuth < idxRead, "aucune lecture d'actif avant authentification (fail closed)");
