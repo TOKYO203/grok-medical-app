@@ -19,7 +19,12 @@ import {
   publicClinicalCase,
   publicDeck,
   publicDiagnostic,
+  syncCatalogData,
 } from "./sync-catalog-data.mjs";
+
+// Les projections publiques sont GÉNÉRÉES (gitignore) : on les régénère ici
+// depuis la source gelée, puis on vérifie qu'elles ne fuient rien.
+syncCatalogData({ log: () => {} });
 
 const readJson = (name) => JSON.parse(readFileSync(join(projectRoot(), "public", "data", name), "utf8"));
 
@@ -102,7 +107,7 @@ test("publicDiagnostic : une démarche ne garde que la vignette", () => {
   assert.deepEqual(Object.keys(projected).sort(), ["id", "specialty", "title", "vignette"]);
 });
 
-test("public/data/decks.json versionné : aucune explication, grille gratuite intacte", () => {
+test("public/data/decks.json généré : aucune explication, grille gratuite intacte", () => {
   const decks = readJson("decks.json");
   assert.ok(Array.isArray(decks) && decks.length > 0);
   for (const deck of decks) {
@@ -120,7 +125,7 @@ test("public/data/decks.json versionné : aucune explication, grille gratuite in
   }
 });
 
-test("public/data/cases.json versionné : les cas Pro sont des teasers", () => {
+test("public/data/cases.json généré : les cas Pro sont des teasers", () => {
   const cases = readJson("cases.json");
   for (const item of cases) {
     if (item.access === "pro") {
@@ -131,7 +136,7 @@ test("public/data/cases.json versionné : les cas Pro sont des teasers", () => {
   }
 });
 
-test("public/data/diagnostics.json versionné : vignettes seules", () => {
+test("public/data/diagnostics.json généré : vignettes seules", () => {
   const diagnostics = readJson("diagnostics.json");
   assert.ok(Array.isArray(diagnostics) && diagnostics.length > 0);
   const allowed = new Set(["id", "title", "specialty", "vignette"]);
