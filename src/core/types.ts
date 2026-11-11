@@ -84,8 +84,15 @@ export type Question = {
   id: string;
   prompt: string;
   choices: string[];
-  correct: number;
-  explanation: string;
+  /**
+   * Indice de la bonne réponse. ABSENT des projections premium servies sous
+   * jeton (pentest 2026-11-09, plan P2) : la correction est décidée côté
+   * serveur par `POST /api/quiz/answer`. Présent uniquement pour les decks
+   * gratuits publics, où la grille n'est pas un secret.
+   */
+  correct?: number;
+  /** Explication pédagogique — même règle que `correct` (absente en premium). */
+  explanation?: string;
   sources: Source[];
   difficulty: Difficulty;
   competency: Competency;
@@ -294,8 +301,14 @@ export type DiagnosticStep = {
   lead: string;
   prompt: string;
   choices: string[];
-  correct: number;
-  explanation: string;
+  /**
+   * Indice de la bonne décision. ABSENT des projections premium servies sous
+   * jeton (pentest 2026-11-09, plan P2) — correction serveur via
+   * `POST /api/quiz/answer`.
+   */
+  correct?: number;
+  /** Explication pédagogique — même règle que `correct` (absente en premium). */
+  explanation?: string;
 };
 
 export type DiagnosticCase = {
