@@ -3,11 +3,13 @@ import { test, expect } from "@playwright/test";
 test.describe("Export IA", () => {
   test("panel IA présent sur un cas", async ({ page }) => {
     await page.goto("/");
-    await page.waitForLoadState("networkidle");
+    // "load" et non "networkidle" : l'app garde du réseau en cours, l'événement
+    // networkidle n'arrive jamais en CI (timeouts systématiques).
+    await page.waitForLoadState("load");
     const casLink = page.getByRole("link", { name: /cas/i }).first();
     if (await casLink.count()) {
       await casLink.click();
-      await page.waitForLoadState("networkidle");
+      await page.waitForLoadState("load");
       await expect(page.getByText(/Analyse Optimus/i).first()).toBeVisible({ timeout: 15_000 }).catch(() => {});
     }
   });
