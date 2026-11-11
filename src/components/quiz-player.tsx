@@ -7,6 +7,7 @@ import type { Question } from "@/core/types";
 import { comboBonus } from "@/core/quiz-engine";
 import { track } from "@/lib/analytics/client";
 import { emitExperienceFeedback } from "@/lib/experience-feedback";
+import { fetchWithAuth } from "@/lib/auth/session";
 import { useI18n } from "@/i18n";
 import { useExperiencePreferences } from "@/lib/use-experience-preferences";
 import { cn } from "@/lib/utils";
@@ -17,6 +18,13 @@ export type QuizItem = {
   deckTitle?: string;
   deckId?: string;
   deckVersion?: string;
+};
+
+/** Réponse renvoyée par /api/quiz/answer pour une question premium sanitisée. */
+type RemoteAnswer = {
+  correctIndex: number;
+  explanation: string;
+  sources: Question["sources"];
 };
 
 const QUESTION_ARM_DELAY_MS = 500;
@@ -88,6 +96,11 @@ export function QuizPlayer({
   const [combo, setCombo] = useState(0);
   const [maxCombo, setMaxCombo] = useState(0);
   const [answerReady, setAnswerReady] = useState(true);
+  // Pentest P2 — questions premium sanitisées : la clé de correction vient du
+  // serveur (POST /api/quiz/answer) APRÈS le choix, jamais avant.
+  const [remoteAnswer, setRemoteAnswer] = useState<RemoteAnswer | null>(null);
+  const [checkState, setCheckState] = useState<"idle" | "checking" | "error">("idle");
+  const pendingChoice = useRef<number | null>(null);
   const answerLocked = useRef(false);
   const advanceLocked = useRef(false);
   const unlockTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -109,6 +122,13 @@ export function QuizPlayer({
     },
     [],
   );
+
+  // Pentest P2 — nouvel état de vérification à chaque question.
+  useEffect(() => {
+    setRemoteAnswer(null);
+    setCheckState("idle");
+    pendingChoice.current = null;
+  }, [index]);
 
   // Session 11 — compteur de temps d'étude : le temps passé sur le quiz est
   // crédité à la sortie du lecteur (seules les visites > 1 s comptent).
@@ -209,20 +229,75 @@ export function QuizPlayer({
   }
 
   const q = item.question;
-  const revealed = picked !== null;
-  const ok = picked === q.correct;
+  // Pentest P2 : la question premium n'a pas de clé locale — la révélation
+  // attend la réponse serveur (checkState "idle" après vérification).
+  const revealed = picked !== null && checkState === "idle";
+  const effectiveCorrect = q.correct !== undefined ? q.correct : remoteAnswer?.correctIndex;
+  const ok = picked === effectiveCorrect;
+  const explanation = q.correct !== undefined ? q.explanation : remoteAnswer?.explanation ?? "";
+  const sources = q.correct !== undefined ? q.sources : remoteAnswer?.sources ?? [];
 
-  function choose(i: number) {
-    if (!answerReady || answerLocked.current || picked !== null) return;
-    answerLocked.current = true;
-    const isOk = i === q.correct;
-    setPicked(i);
+  function applyResult(i: number, isOk: boolean) {
     const nextCombo = isOk ? combo + 1 : 0;
     setCombo(nextCombo);
     setMaxCombo((m) => Math.max(m, nextCombo));
     if (isOk) setCorrectCount((c) => c + 1);
     emitExperienceFeedback(isOk ? "correct" : "incorrect", preferences);
     onAnswer(item, isOk, nextCombo);
+  }
+
+  async function choose(i: number) {
+    if (!answerReady || answerLocked.current || picked !== null) return;
+    if (q.correct !== undefined) {
+      // Decks gratuits : la grille n'est pas un secret, correction locale.
+      answerLocked.current = true;
+      setPicked(i);
+      applyResult(i, i === q.correct);
+      return;
+    }
+    // Pentest P2 — question premium sanitisée : le serveur corrige.
+    answerLocked.current = true;
+    setPicked(i);
+    setCheckState("checking");
+    try {
+      const response = await fetchWithAuth("/api/quiz/answer", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          family: "decks",
+          itemId: item.deckId ?? q.id,
+          questionId: q.id,
+          choice: i,
+        }),
+      });
+      if (!response.ok) throw new Error(`http_${response.status}`);
+      const data = (await response.json()) as {
+        correctIndex?: unknown;
+        explanation?: unknown;
+        sources?: unknown;
+      };
+      if (typeof data.correctIndex !== "number") throw new Error("bad_payload");
+      setRemoteAnswer({
+        correctIndex: data.correctIndex,
+        explanation: typeof data.explanation === "string" ? data.explanation : "",
+        sources: Array.isArray(data.sources) ? (data.sources as Question["sources"]) : [],
+      });
+      setCheckState("idle");
+      applyResult(i, i === data.correctIndex);
+    } catch {
+      // Échec réseau/serveur : ni faux ni juste, l'utilisateur peut réessayer.
+      setCheckState("error");
+      pendingChoice.current = i;
+      setPicked(null);
+      answerLocked.current = false;
+    }
+  }
+
+  function retry() {
+    const i = pendingChoice.current;
+    if (i === null) return;
+    pendingChoice.current = null;
+    void choose(i);
   }
 
   function next() {
@@ -300,13 +375,13 @@ export function QuizPlayer({
       <ul className="mt-6 space-y-2">
         {order.map((i) => {
           const choice = q.choices[i];
-          const isCorrect = i === q.correct;
+          const isCorrect = i === effectiveCorrect;
           const isPicked = i === picked;
           return (
             <li key={i}>
               <button
                 type="button"
-                disabled={revealed || !answerReady}
+                disabled={revealed || checkState === "checking" || !answerReady}
                 onClick={() => choose(i)}
                 className={cn(
                   "flex min-h-14 w-full items-start gap-3 rounded-[var(--radius-lg)] px-4 py-3 text-left text-sm shadow-[var(--shadow-border)] transition-[background-color,color,transform,box-shadow] duration-150 disabled:cursor-default",
@@ -341,6 +416,21 @@ export function QuizPlayer({
           );
         })}
       </ul>
+      {checkState === "checking" ? (
+        <div className="mt-5 rounded-[var(--radius-lg)] bg-card p-4 shadow-[var(--shadow-border)]">
+          <p className="text-sm font-medium text-muted">Vérification de la réponse…</p>
+        </div>
+      ) : null}
+      {checkState === "error" ? (
+        <div className="mt-5 rounded-[var(--radius-lg)] bg-card p-4 shadow-[var(--shadow-border)]">
+          <p className="text-sm font-medium text-danger">
+            Impossible de vérifier la réponse (réseau ou session expirée).
+          </p>
+          <Button className="mt-4 w-full" onClick={retry}>
+            Réessayer
+          </Button>
+        </div>
+      ) : null}
       {revealed ? (
         <div
           className={cn(
@@ -364,8 +454,8 @@ export function QuizPlayer({
 
           </div>
 
-          <p className="mt-2 text-sm leading-relaxed text-fg">{q.explanation}</p>
-          <MedicalSources sources={q.sources} compact />
+          <p className="mt-2 text-sm leading-relaxed text-fg">{explanation}</p>
+          <MedicalSources sources={sources} compact />
           <ReportContentError
             target={{
               contentType: "question",

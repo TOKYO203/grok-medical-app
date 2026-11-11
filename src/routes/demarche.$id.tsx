@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight, Check, Lock, X } from "lucide-react";
 import { Page, Shell } from "@/components/shell";
@@ -9,6 +9,7 @@ import { getDiagnostic, useCatalogVersion } from "@/content/catalog";
 import { PRICES_MGA, formatPrice } from "@/content/pricing";
 import { loadDemarcheContent } from "@/lib/demarches/catalog";
 import type { DemarcheContent } from "@/core/demarche";
+import { fetchWithAuth } from "@/lib/auth/session";
 import { FlashcardsView } from "@/components/demarche/flashcards-view";
 import { FicheView } from "@/components/demarche/fiche-view";
 import { MindmapView } from "@/components/demarche/mindmap-view";
@@ -51,6 +52,17 @@ function DemarchePage() {
   const [step, setStep] = useState(0);
   const [picked, setPicked] = useState<number | null>(null);
   const [correct, setCorrect] = useState(0);
+  // Pentest P2 — étapes premium sanitisées : la clé de correction vient du
+  // serveur (POST /api/quiz/answer) APRÈS le choix, jamais avant.
+  const [stepAnswer, setStepAnswer] = useState<{ correctIndex: number; explanation: string } | null>(null);
+  const [stepCheck, setStepCheck] = useState<"idle" | "checking" | "error">("idle");
+  const pendingStepChoice = useRef<number | null>(null);
+
+  useEffect(() => {
+    setStepAnswer(null);
+    setStepCheck("idle");
+    pendingStepChoice.current = null;
+  }, [step]);
 
   if (!dx) {
     return (
@@ -75,6 +87,57 @@ function DemarchePage() {
 
   function goToView(next: DemarcheView) {
     void navigate({ to: "/demarche/$id", params: { id }, search: { vue: next } });
+  }
+
+  function retryStep() {
+    const i = pendingStepChoice.current;
+    if (i === null || !current) return;
+    pendingStepChoice.current = null;
+    void chooseStep(i);
+  }
+
+  async function chooseStep(i: number) {
+    // Narrowing local : TS ne propage pas le garde `if (!dx)` dans cette closure.
+    const diagnostic = dx;
+    if (!diagnostic || !current) return;
+    if (current.correct !== undefined) {
+      // Projection non sanitisée (aperçu/essai sans sanitisation) : chemin local.
+      setPicked(i);
+      if (i === current.correct) setCorrect((n) => n + 1);
+      return;
+    }
+    // Pentest P2 — étape premium sanitisée : le serveur corrige.
+    setPicked(i);
+    setStepCheck("checking");
+    try {
+      const response = await fetchWithAuth("/api/quiz/answer", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          family: "diagnostics",
+          itemId: diagnostic.id,
+          questionId: current.id,
+          choice: i,
+        }),
+      });
+      if (!response.ok) throw new Error(`http_${response.status}`);
+      const data = (await response.json()) as {
+        correctIndex?: unknown;
+        explanation?: unknown;
+      };
+      if (typeof data.correctIndex !== "number") throw new Error("bad_payload");
+      setStepAnswer({
+        correctIndex: data.correctIndex,
+        explanation: typeof data.explanation === "string" ? data.explanation : "",
+      });
+      setStepCheck("idle");
+      if (i === data.correctIndex) setCorrect((n) => n + 1);
+    } catch {
+      // Échec réseau/serveur : ni faux ni juste, l'utilisateur peut réessayer.
+      setStepCheck("error");
+      pendingStepChoice.current = i;
+      setPicked(null);
+    }
   }
 
   return (
@@ -156,17 +219,19 @@ function DemarchePage() {
                   </p>
                   <ul className="mt-4 space-y-2">
                     {current.choices.map((choice, i) => {
-                      const revealed = picked !== null;
-                      const isCorrect = i === current.correct;
+                      const revealed = picked !== null && stepCheck === "idle";
+                      const effectiveCorrect =
+                        current.correct !== undefined ? current.correct : stepAnswer?.correctIndex;
+                      const isCorrect = i === effectiveCorrect;
                       const isPicked = i === picked;
                       return (
                         <li key={i}>
                           <button
                             type="button"
+                            disabled={revealed || stepCheck === "checking"}
                             onClick={() => {
-                              if (picked !== null) return;
-                              setPicked(i);
-                              if (i === current.correct) setCorrect((n) => n + 1);
+                              if (picked !== null || stepCheck !== "idle") return;
+                              void chooseStep(i);
                             }}
                             className={cn(
                               "flex min-h-14 w-full items-start gap-3 rounded-[var(--radius-lg)] px-4 py-3 text-left text-sm shadow-[var(--shadow-border)]",
@@ -189,9 +254,28 @@ function DemarchePage() {
                       );
                     })}
                   </ul>
-                  {picked !== null ? (
+                  {stepCheck === "checking" ? (
                     <div className="mt-4 rounded-[var(--radius-lg)] bg-card p-4 shadow-[var(--shadow-border)]">
-                      <p className="text-sm leading-relaxed">{current.explanation}</p>
+                      <p className="text-sm font-medium text-muted">Vérification de la décision…</p>
+                    </div>
+                  ) : null}
+                  {stepCheck === "error" ? (
+                    <div className="mt-4 rounded-[var(--radius-lg)] bg-card p-4 shadow-[var(--shadow-border)]">
+                      <p className="text-sm font-medium text-danger">
+                        Impossible de vérifier la décision (réseau ou session expirée).
+                      </p>
+                      <Button className="mt-4 w-full" onClick={retryStep}>
+                        Réessayer
+                      </Button>
+                    </div>
+                  ) : null}
+                  {picked !== null && stepCheck === "idle" ? (
+                    <div className="mt-4 rounded-[var(--radius-lg)] bg-card p-4 shadow-[var(--shadow-border)]">
+                      <p className="text-sm leading-relaxed">
+                        {current.correct !== undefined
+                          ? current.explanation
+                          : stepAnswer?.explanation ?? ""}
+                      </p>
                       <Button
                         className="mt-4 w-full"
                         onClick={() => {

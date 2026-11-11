@@ -5,6 +5,7 @@ import {
   readProtectedAsset,
   type ProtectedFamily,
 } from "@/lib/content/protected-assets.server";
+import { sanitizeQuizAsset, type QuizFamily } from "@/lib/content/quiz-sanitize.server";
 import { pathologyEntry } from "@/lib/pathologies/manifest";
 import {
   authenticate,
@@ -33,6 +34,10 @@ import type { SigneCategory } from "@/core/signes/types";
  *
  * `_catalog.json` (signes) est un acteur à part : une seule requête rend les
  * 110 fiches, ce qui évite 110 allers-retours vers la fonction serveur.
+ *
+ * Pentest P2 : pour les familles QCM (`decks`, `diagnostics`), la projection
+ * servie est SANITISÉE — ni `correct` ni `explanation` ne quittent le serveur ;
+ * la correction se fait par `POST /api/quiz/answer`.
  */
 
 /**
@@ -41,6 +46,9 @@ import type { SigneCategory } from "@/core/signes/types";
  * complète par ces catalogues sous jeton — un seul aller-retour par famille.
  */
 const GROUPED_FAMILIES = new Set<ProtectedFamily>(["signes", "decks", "cases", "diagnostics"]);
+
+/** Familles QCM : la grille de correction ne quitte jamais le serveur (P2). */
+const SERVER_SCORED_FAMILIES = new Set<ProtectedFamily>(["decks", "diagnostics"]);
 
 /** Ordre éditorial des catégories « Signes » (le manifeste n'est pas lisible ici). */
 const SIGNE_CATEGORY_ORDER: SigneCategory[] = [
@@ -53,6 +61,13 @@ const SIGNE_CATEGORY_ORDER: SigneCategory[] = [
 
 function notFoundResponse(): Response {
   return jsonResponse({ error: "not_found" }, 404);
+}
+
+/** Projection servie au client : sanitisation des familles QCM, tel quel sinon. */
+function projectAsset(family: ProtectedFamily, asset: unknown): unknown {
+  return SERVER_SCORED_FAMILIES.has(family)
+    ? sanitizeQuizAsset(family as QuizFamily, asset)
+    : asset;
 }
 
 /**
@@ -176,9 +191,13 @@ export const Route = createFileRoute("/content/$type/$file")({
           }
           // Pentest §1/§14/§15 : decks Pro, cas cliniques Pro et démarches,
           // regroupés dans UNE réponse privée (jamais de cache partagé).
+          // Pentest P2 : familles QCM sanitisiées (pas de correct/explanation).
           const assets = await readAllProtectedAssets(family);
           return jsonResponse(
-            { schemaVersion: 1, items: Object.values(assets) },
+            {
+              schemaVersion: 1,
+              items: Object.values(assets).map((value) => projectAsset(family, value)),
+            },
             200,
             { "Cache-Control": "private, max-age=60" },
           );
@@ -187,7 +206,7 @@ export const Route = createFileRoute("/content/$type/$file")({
         const asset = await readProtectedAsset(family, file);
         if (asset === undefined) return notFoundResponse();
 
-        return jsonResponse(asset, 200);
+        return jsonResponse(projectAsset(family, asset), 200);
       },
     },
   },
