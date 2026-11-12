@@ -10,7 +10,15 @@ export async function recentResponseExists(
   ipHash: string,
   windowMinutes: number,
 ) {
-  const safeWindow = Math.max(1, Math.min(Math.trunc(windowMinutes), 24 * 60));
+  // Math.trunc(NaN) === NaN et NaN se propage dans Math.min/max : une variable
+  // d'environnement malformée (RECENT_WINDOW_MINUTES="abc") faisait échouer la
+  // requête SQL (interval 'NaN minutes') en 500 sur CHAQUE soumission de
+  // sondage. Repli sur 60 minutes si la valeur n'est pas un nombre fini
+  // (audit sécurité 2026-11-12).
+  const parsedWindow = Math.trunc(Number(windowMinutes));
+  const safeWindow = Number.isFinite(parsedWindow)
+    ? Math.max(1, Math.min(parsedWindow, 24 * 60))
+    : 60;
   const rows = await sql.query<{ cnt: number | string }>(
     `select count(*) as cnt
        from survey_responses
