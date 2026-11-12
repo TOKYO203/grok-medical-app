@@ -40,7 +40,7 @@ const tracked = execFileSync("git", ["ls-files"], { encoding: "utf8" })
  * être ajouté ICI et passer le test suivant — toute variable NON préfixée
  * `VITE_` y serait un secret serveur publié, et ferait échouer la suite.
  */
-const TRACKED_ENV_ALLOWLIST = new Set<string>([]);
+const TRACKED_ENV_ALLOWLIST = new Set([]);
 
 test("no .env file is ever tracked by git", () => {
   const offenders = tracked.filter(

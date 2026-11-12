@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import {ArrowRight, Check, Flame, Maximize2, Minimize2, X, Lightbulb } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 import { MedicalSources, ReportContentError } from "@/components/content-trust";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
@@ -280,20 +281,20 @@ export function QuizPlayer({
             Envie d'aller plus loin aujourd'hui ? Pro débloque les 74 decks
             avancés, les explications détaillées et le mode examen chronométré.
           </p>
-          <a
-            href="/pro"
+          <Link
+            to="/pro"
             className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-primary underline-offset-4 hover:underline"
           >
             Découvrir Pro
             <ArrowRight className="size-3.5" aria-hidden />
-          </a>
+          </Link>
         </div>
-        <a
-          href="/"
+        <Link
+          to="/"
           className="mt-4 inline-block text-sm text-muted underline-offset-4 hover:underline"
         >
           Retour à l'accueil
-        </a>
+        </Link>
       </div>
     );
   }
@@ -579,13 +580,13 @@ export function QuizPlayer({
               <p className="text-sm text-muted">
                 Explication disponible avec Pro : comprenez chaque réponse, pas seulement son score.
               </p>
-              <a
-                href="/pro"
+              <Link
+                to="/pro"
                 className="mt-2 inline-flex items-center gap-1 text-sm font-medium text-primary underline-offset-4 hover:underline"
               >
                 Découvrir Pro
                 <ArrowRight className="size-3.5" aria-hidden />
-              </a>
+              </Link>
             </div>
           )}
           <MedicalSources sources={sources} compact />

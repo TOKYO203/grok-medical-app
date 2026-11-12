@@ -9,6 +9,19 @@ on:
 permissions:
   contents: read
 
+# Post-mortem 2026-11-07 : la CI était rouge en continu depuis le 24 octobre
+# (suite de tests cassée par les changements RPC Supabase/webhook, jamais
+# réparée) et la croix rouge permanente a masqué les vrais blocages de
+# déploiement. Réparation :
+#  • le job BLOQUANT est le build exact du chemin de production
+#    (`npm run build:cloudflare` : budget, garde-fous stubs, assert Supabase) ;
+#  • la suite de tests a été remise BLOQUANTE le 2026-11-08 après la
+#    réparation complète de la dette R7 (10 fichiers de tests, fiches
+#    pathologies, fichiers morts de src/, lint). Un échec de Tests,
+#    Typecheck ou Lint fait de nouveau échouer la CI.
+#  • 2026-11-11 : garde-fou anti-base64 (incident du commit #468 : contenu
+#    poussé encodé à la place du code, Build+Tests rouges sur main).
+
 jobs:
   build-cloudflare:
     name: Build prod (Cloudflare)
@@ -67,35 +80,8 @@ jobs:
       - name: Régénère l'arbre des routes
         run: npm run routes:generate
 
-      # DIAGNOSTIC TEMPORAIRE (à révert). Le commentaire conserve la chaîne
-      # surveillée par scripts/api-security.test.mjs : run: npm test
       - name: Tests
-        run: |
-          set +e
-          node --test 'scripts/**/*.test.mjs' > /tmp/tests-scripts.log 2>&1
-          r1=$?
-          r2=0
-          if [ "$r1" -eq 0 ]; then
-            node --experimental-strip-types --test src/content/imported-deck-integrity.test.ts src/content/license-receipt.test.ts src/content/purchase-order.test.ts src/lib/auth/gate-identity.test.ts src/lib/auth/supabase-identity.server.test.ts src/lib/auscultation/phonocardiogram.test.ts src/lib/auscultation/catalog.test.ts src/lib/ecg/deformation.test.ts src/lib/ecg/analyzeEcg.test.ts src/lib/ecg/waveform.test.ts src/lib/ecg/ecg-fiches.test.ts src/lib/cloud/subscription.test.ts src/lib/checkout/messages.test.ts src/server/supabase-env.server.test.ts src/lib/analytics/events.test.ts src/lib/imported-deck-storage.test.ts src/lib/library/specialty-label.test.ts src/lib/library/deck-series.test.ts src/lib/optimus-sync-model.test.ts src/lib/daily-quota.test.ts src/state/persist-migrations.test.ts src/i18n/messages.test.ts src/i18n/detect.test.ts src/i18n/format.test.ts src/lib/units.test.ts src/server/jwt.test.ts src/server/replay-guard.test.ts src/server/license-verify.test.ts src/content/international.test.ts src/server/lemonsqueezy/signature.test.ts src/server/lemonsqueezy/webhook.test.ts src/server/lemonsqueezy/checkout.server.test.ts > /tmp/tests-src.log 2>&1
-            r2=$?
-          fi
-          echo "scripts_exit=$r1 src_exit=$r2"
-          if [ "$r1" -ne 0 ]; then
-            node --test --test-concurrency=1 'scripts/**/*.test.mjs' > /tmp/tests-serial.log 2>&1
-            rs=$?
-            echo "scripts_serial_exit=$rs bytes=$(wc -c < /tmp/tests-serial.log) notok=$(grep -c 'not ok' /tmp/tests-serial.log)"
-            echo "::error::STATS par=$r1 serial=$rs notok=$(grep -c 'not ok' /tmp/tests-serial.log)"
-            echo "::error::NOTOKS:$(grep 'not ok' /tmp/tests-serial.log | head -6 | tr '\n' '~' | cut -c1-900)"
-            echo "::error::DETAILS:$( { grep -A 12 -m 1 'not ok' /tmp/tests-serial.log || true; } | tr '\n' '~' | cut -c1-950)"
-            echo "::error::DETAILS2:$( { grep -A 12 'not ok' /tmp/tests-serial.log || true; } | sed -n '14,28p' | tr '\n' '~' | cut -c1-950)"
-            echo "::error::ENDTAIL:$(tail -c 400 /tmp/tests-serial.log | tr '\n' '~')"
-          fi
-          if [ "$r2" -ne 0 ]; then
-            echo "::error::SRC_FAILED exit=$r2 notok=$(grep -c 'not ok' /tmp/tests-src.log)"
-            echo "::error::S2NOTOKS:$(grep 'not ok' /tmp/tests-src.log | head -6 | tr '\n' '~' | cut -c1-900)"
-            echo "::error::S2DETAILS:$( { grep -A 12 -m 1 'not ok' /tmp/tests-src.log || true; } | tr '\n' '~' | cut -c1-950)"
-          fi
-          if [ "$r1" -ne 0 ] || [ "$r2" -ne 0 ]; then exit 1; fi
+        run: npm test
 
       - name: Typecheck
         run: npm run typecheck
