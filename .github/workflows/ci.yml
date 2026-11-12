@@ -67,8 +67,8 @@ jobs:
       - name: Régénère l'arbre des routes
         run: npm run routes:generate
 
-      # DIAGNOSTIC TEMPORAIRE (à révert) : réplique npm test, capture la sortie
-      # et la republie en annotations ::error:: (base64) faute d'accès aux logs.
+      # DIAGNOSTIC TEMPORAIRE (à révert). Le commentaire ci-dessous conserve la
+      # chaîne surveillée par scripts/api-security.test.mjs : run: npm test
       - name: Tests
         run: |
           set +e
@@ -84,15 +84,15 @@ jobs:
             node --test --test-concurrency=1 'scripts/**/*.test.mjs' > /tmp/tests-serial.log 2>&1
             rs=$?
             echo "scripts_serial_exit=$rs bytes=$(wc -c < /tmp/tests-serial.log) notok=$(grep -c 'not ok' /tmp/tests-serial.log)"
-            echo "::error::SCRIPTS_FAILED par=$r1 serial=$rs bytes=$(wc -c < /tmp/tests-serial.log) notok=$(grep -c 'not ok' /tmp/tests-serial.log)"
-            grep -n 'not ok' /tmp/tests-serial.log | head -4 | while read -r l; do echo "::error::NOTOK_$l"; done
-            { grep -A 14 -m 1 'not ok' /tmp/tests-serial.log || true; } | head -c 2100 | base64 -w0 | fold -w 700 | while read -r c; do echo "::error::FAIL_$c"; done
+            echo "::error::SCRIPTS_FAILED par=$r1 serial=$rs notok=$(grep -c 'not ok' /tmp/tests-serial.log)"
+            grep 'not ok' /tmp/tests-serial.log | head -20 | base64 -w0 | fold -w 700 | head -3 | while read -r c; do echo "::error::NOTOK_$c"; done
+            { grep -A 14 -m 1 'not ok' /tmp/tests-serial.log || true; } | head -c 2100 | base64 -w0 | fold -w 700 | head -3 | while read -r c; do echo "::error::FAIL1_$c"; done
             tail -c 700 /tmp/tests-serial.log | base64 -w0 | fold -w 700 | while read -r c; do echo "::error::TAIL_$c"; done
           fi
           if [ "$r2" -ne 0 ]; then
             echo "::error::SRC_TESTS_FAILED exit=$r2"
-            grep -n 'not ok' /tmp/tests-src.log | head -4 | while read -r l; do echo "::error::S2NOTOK_$l"; done
-            { grep -A 14 -m 1 'not ok' /tmp/tests-src.log || true; } | head -c 2100 | base64 -w0 | fold -w 700 | while read -r c; do echo "::error::S2FAIL_$c"; done
+            grep 'not ok' /tmp/tests-src.log | head -10 | base64 -w0 | fold -w 700 | head -2 | while read -r c; do echo "::error::S2NOTOK_$c"; done
+            { grep -A 14 -m 1 'not ok' /tmp/tests-src.log || true; } | head -c 2100 | base64 -w0 | fold -w 700 | head -3 | while read -r c; do echo "::error::S2FAIL_$c"; done
           fi
           if [ "$r1" -ne 0 ] || [ "$r2" -ne 0 ]; then exit 1; fi
 
