@@ -80,8 +80,29 @@ jobs:
       - name: Régénère l'arbre des routes
         run: npm run routes:generate
 
+      # DIAGNOSTIC TEMPORAIRE : réplique npm test en capturant la sortie des
+      # deux moitiés de la suite et la republie en annotations ::error:: (base64)
+      # pour permettre le diagnostic sans accès aux logs Actions. À révert.
       - name: Tests
-        run: npm test
+        run: |
+          set +e
+          node --test 'scripts/**/*.test.mjs' > /tmp/tests-scripts.log 2>&1
+          r1=$?
+          r2=0
+          if [ "$r1" -eq 0 ]; then
+            node --experimental-strip-types --test src/content/imported-deck-integrity.test.ts src/content/license-receipt.test.ts src/content/purchase-order.test.ts src/lib/auth/gate-identity.test.ts src/lib/auth/supabase-identity.server.test.ts src/lib/auscultation/phonocardiogram.test.ts src/lib/auscultation/catalog.test.ts src/lib/ecg/deformation.test.ts src/lib/ecg/analyzeEcg.test.ts src/lib/ecg/waveform.test.ts src/lib/ecg/ecg-fiches.test.ts src/lib/cloud/subscription.test.ts src/lib/checkout/messages.test.ts src/server/supabase-env.server.test.ts src/lib/analytics/events.test.ts src/lib/imported-deck-storage.test.ts src/lib/library/specialty-label.test.ts src/lib/library/deck-series.test.ts src/lib/optimus-sync-model.test.ts src/lib/daily-quota.test.ts src/state/persist-migrations.test.ts src/i18n/messages.test.ts src/i18n/detect.test.ts src/i18n/format.test.ts src/lib/units.test.ts src/server/jwt.test.ts src/server/replay-guard.test.ts src/server/license-verify.test.ts src/content/international.test.ts src/server/lemonsqueezy/signature.test.ts src/server/lemonsqueezy/webhook.test.ts src/server/lemonsqueezy/checkout.server.test.ts > /tmp/tests-src.log 2>&1
+            r2=$?
+          fi
+          echo "scripts_exit=$r1 src_exit=$r2"
+          if [ "$r1" -ne 0 ]; then
+            echo "::error::SCRIPTS_TESTS_FAILED exit=$r1"
+            tail -c 2000 /tmp/tests-scripts.log | base64 -w0 | fold -w 700 | while read -r c; do echo "::error::S1_$c"; done
+          fi
+          if [ "$r2" -ne 0 ]; then
+            echo "::error::SRC_TESTS_FAILED exit=$r2"
+            tail -c 2000 /tmp/tests-src.log | base64 -w0 | fold -w 700 | while read -r c; do echo "::error::S2_$c"; done
+          fi
+          if [ "$r1" -ne 0 ] || [ "$r2" -ne 0 ]; then exit 1; fi
 
       - name: Typecheck
         run: npm run typecheck
