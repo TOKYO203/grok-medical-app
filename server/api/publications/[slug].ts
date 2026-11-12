@@ -92,7 +92,9 @@ export default defineEventHandler(async (event) => {
       let idx = 1;
 
       for (const [key, value] of Object.entries(body)) {
-        if (key === "body" || key === "authors") {
+        const kind = UPDATABLE_COLUMNS[key];
+        if (!kind) continue; // clé inconnue : jamais interpolée dans le SQL
+        if (kind === "json") {
           sets.push(`${key} = $${idx}`);
           values.push(JSON.stringify(value ?? null));
         } else {
