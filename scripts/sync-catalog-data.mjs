@@ -90,6 +90,10 @@ function publicClinicalCase(item) {
   for (const field of CASE_PROJECTION_FIELDS) {
     if (item[field] !== undefined) projection[field] = item[field];
   }
+  // Le teaser Pro porte toujours ses liens « à lire ensuite » : le contrat de
+  // scripts/freemium-explanations.test.mjs fixe la liste exacte des clés du
+  // teaser — vide si la source ne définit aucun cas relié.
+  if (projection.related === undefined) projection.related = [];
   return projection;
 }
 
