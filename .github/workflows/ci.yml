@@ -9,19 +9,6 @@ on:
 permissions:
   contents: read
 
-# Post-mortem 2026-11-07 : la CI était rouge en continu depuis le 24 octobre
-# (suite de tests cassée par les changements RPC Supabase/webhook, jamais
-# réparée) et la croix rouge permanente a masqué les vrais blocages de
-# déploiement. Réparation :
-#  • le job BLOQUANT est le build exact du chemin de production
-#    (`npm run build:cloudflare` : budget, garde-fous stubs, assert Supabase) ;
-#  • la suite de tests a été remise BLOQUANTE le 2026-11-08 après la
-#    réparation complète de la dette R7 (10 fichiers de tests, fiches
-#    pathologies, fichiers morts de src/, lint). Un échec de Tests,
-#    Typecheck ou Lint fait de nouveau échouer la CI.
-#  • 2026-11-11 : garde-fou anti-base64 (incident du commit #468 : contenu
-#    poussé encodé à la place du code, Build+Tests rouges sur main).
-
 jobs:
   build-cloudflare:
     name: Build prod (Cloudflare)
@@ -80,9 +67,8 @@ jobs:
       - name: Régénère l'arbre des routes
         run: npm run routes:generate
 
-      # DIAGNOSTIC TEMPORAIRE : réplique npm test en capturant la sortie des
-      # deux moitiés de la suite et la republie en annotations ::error:: (base64)
-      # pour permettre le diagnostic sans accès aux logs Actions. À révert.
+      # DIAGNOSTIC TEMPORAIRE (à révert) : réplique npm test, capture la sortie
+      # et la republie en annotations ::error:: (base64) faute d'accès aux logs.
       - name: Tests
         run: |
           set +e
@@ -95,12 +81,18 @@ jobs:
           fi
           echo "scripts_exit=$r1 src_exit=$r2"
           if [ "$r1" -ne 0 ]; then
-            echo "::error::SCRIPTS_TESTS_FAILED exit=$r1"
-            tail -c 2000 /tmp/tests-scripts.log | base64 -w0 | fold -w 700 | while read -r c; do echo "::error::S1_$c"; done
+            node --test --test-concurrency=1 'scripts/**/*.test.mjs' > /tmp/tests-serial.log 2>&1
+            rs=$?
+            echo "scripts_serial_exit=$rs bytes=$(wc -c < /tmp/tests-serial.log) notok=$(grep -c 'not ok' /tmp/tests-serial.log)"
+            echo "::error::SCRIPTS_FAILED par=$r1 serial=$rs bytes=$(wc -c < /tmp/tests-serial.log) notok=$(grep -c 'not ok' /tmp/tests-serial.log)"
+            grep -n 'not ok' /tmp/tests-serial.log | head -4 | while read -r l; do echo "::error::NOTOK_$l"; done
+            { grep -A 14 -m 1 'not ok' /tmp/tests-serial.log || true; } | head -c 2100 | base64 -w0 | fold -w 700 | while read -r c; do echo "::error::FAIL_$c"; done
+            tail -c 700 /tmp/tests-serial.log | base64 -w0 | fold -w 700 | while read -r c; do echo "::error::TAIL_$c"; done
           fi
           if [ "$r2" -ne 0 ]; then
             echo "::error::SRC_TESTS_FAILED exit=$r2"
-            tail -c 2000 /tmp/tests-src.log | base64 -w0 | fold -w 700 | while read -r c; do echo "::error::S2_$c"; done
+            grep -n 'not ok' /tmp/tests-src.log | head -4 | while read -r l; do echo "::error::S2NOTOK_$l"; done
+            { grep -A 14 -m 1 'not ok' /tmp/tests-src.log || true; } | head -c 2100 | base64 -w0 | fold -w 700 | while read -r c; do echo "::error::S2FAIL_$c"; done
           fi
           if [ "$r1" -ne 0 ] || [ "$r2" -ne 0 ]; then exit 1; fi
 
