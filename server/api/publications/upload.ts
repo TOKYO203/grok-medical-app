@@ -98,6 +98,15 @@ export default defineEventHandler(async (event) => {
     return { error: "file_too_large", maxBytes: MAX_UPLOAD_BYTES };
   }
 
+  // Buffer.from(x, "base64") ne lève JAMAIS : les caractères invalides sont
+  // ignorés silencieusement, donc le catch ci-dessous était mort et un corps
+  // corrompu pouvait produire un buffer inattendu. Validation stricte d'abord
+  // (audit sécurité 2026-11-12).
+  if (!/^[A-Za-z0-9+/]*={0,2}$/.test(contentBase64) || contentBase64.length % 4 !== 0) {
+    setResponseStatus(event, 400);
+    return { error: "invalid_base64" };
+  }
+
   let buffer: Buffer;
   try {
     buffer = Buffer.from(contentBase64, "base64");

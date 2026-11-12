@@ -23,6 +23,27 @@ const updateSchema = z
   })
   .strict();
 
+/**
+ * Allowlist explicite corps -> colonne SQL (audit sécurité 2026-11-12).
+ *
+ * Le PATCH construisait ses colonnes par interpolation des clés du corps
+ * (`\${key} = $n`). Les clés étaient bornées par le schéma Zod `.strict()`,
+ * mais la sûreté reposait sur une seule couche : toute évolution du schéma
+ * (ou un contournement du parseur) aurait injecté un identifiant SQL arbitraire.
+ * La correspondance passe désormais par une table figée : une clé absente de
+ * la table n'atteint jamais la requête.
+ */
+const UPDATABLE_COLUMNS: Readonly<Record<string, "json" | "raw">> = Object.freeze({
+  title: "raw",
+  summary: "raw",
+  body: "json",
+  authors: "json",
+  tags: "raw",
+  specialties: "raw",
+  visibility: "raw",
+  status: "raw",
+});
+
 export default defineEventHandler(async (event) => {
   const method = getMethod(event).toUpperCase();
   const slug = getRouterParam(event, "slug") ?? null;
