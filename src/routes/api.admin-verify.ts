@@ -46,7 +46,7 @@ async function secretsMatch(a: string, b: string): Promise<boolean> {
     crypto.subtle.digest("SHA-256", enc.encode(b)),
   ]);
   const va = new Uint8Array(da);
-  const vb = new Uint8Array(db);
+  const vb = new Uint8Array(vb);
   let diff = 0;
   for (let i = 0; i < va.length; i++) diff |= va[i] ^ vb[i];
   return diff === 0;
@@ -148,14 +148,27 @@ export const Route = createFileRoute("/api/admin-verify")({
               return secretsMatch(key, expected);
             })();
 
-        // Pentest §5 : la session admin est aussi posée en cookie HttpOnly par
-        // le serveur ; le garde /admin* (server/middleware/admin-guard.ts)
-        // refuse les pages back-office en 403 sans cookie valide. Le jeton est
-        // un HMAC horodaté dérivé du secret — jamais le mot de passe.
         const headers: Record<string, string> = {
           "Content-Type": "application/json",
           "Cache-Control": "no-store",
         };
+
+        // Audit 2026-11-13 : le cookie de session admin ne doit être posé QUE
+        // lorsque le mot de passe est validé. Auparavant, un appel avec un mot
+        // de passe erroné recevait quand même un cookie optimus_admin VALIDE
+        // (HMAC correct), ce qui ouvrait toutes les pages /admin* via le garde
+        // server/middleware/admin-guard.ts sans connaître le secret.
+        if (!valid) {
+          return new Response(JSON.stringify({ valid: false }), {
+            status: 200,
+            headers,
+          });
+        }
+
+        // Pentest §5 : la session admin est aussi posée en cookie HttpOnly par
+        // le serveur ; le garde /admin* (server/middleware/admin-guard.ts)
+        // refuse les pages back-office en 403 sans cookie valide. Le jeton est
+        // un HMAC horodaté dérivé du secret — jamais le mot de passe.
         const sessionToken = signAdminSessionToken();
         if (sessionToken) headers["Set-Cookie"] = adminSessionCookie(sessionToken);
 
