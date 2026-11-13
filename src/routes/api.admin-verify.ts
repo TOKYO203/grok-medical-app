@@ -46,7 +46,7 @@ async function secretsMatch(a: string, b: string): Promise<boolean> {
     crypto.subtle.digest("SHA-256", enc.encode(b)),
   ]);
   const va = new Uint8Array(da);
-  const vb = new Uint8Array(vb);
+  const vb = new Uint8Array(db);
   let diff = 0;
   for (let i = 0; i < va.length; i++) diff |= va[i] ^ vb[i];
   return diff === 0;
