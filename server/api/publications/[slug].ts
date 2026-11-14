@@ -23,6 +23,13 @@ const updateSchema = z
   })
   .strict();
 
+// Audit 2026-11-14 : la lecture PUBLIQUE projette une liste explicite de
+// colonnes. `select *` renvoyait aussi `created_by` (identifiant d'éditeur
+// Better Auth) à tout visiteur anonyme — énumération d'identifiants internes
+// inutile pour le rendu et exploitable pour cibler des comptes.
+const PUBLIC_COLUMNS =
+  "id, slug, title, summary, body, authors, tags, specialties, visibility, status, published_at, created_at, updated_at";
+
 export default defineEventHandler(async (event) => {
   const method = getMethod(event).toUpperCase();
   const slug = getRouterParam(event, "slug") ?? null;
@@ -35,7 +42,7 @@ export default defineEventHandler(async (event) => {
 
   if (method === "GET") {
     const rows = await sql.query(
-      `select * from publications
+      `select ${PUBLIC_COLUMNS} from publications
        where slug = $1 and status = 'published' and visibility = 'public'
        limit 1`,
       [slug],

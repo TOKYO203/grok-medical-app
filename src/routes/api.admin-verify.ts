@@ -152,12 +152,21 @@ export const Route = createFileRoute("/api/admin-verify")({
         // le serveur ; le garde /admin* (server/middleware/admin-guard.ts)
         // refuse les pages back-office en 403 sans cookie valide. Le jeton est
         // un HMAC horodaté dérivé du secret — jamais le mot de passe.
+        // Audit 2026-11-14 : le cookie de session admin n'est posé QUE lorsque
+        // le mot de passe est validé. Avant, Set-Cookie était émis
+        // inconditionnellement (dès que ADMIN_PASSWORD est configuré) : un
+        // appel anonyme avec n'importe quel corps recevait un cookie
+        // `optimus_admin` VALIDE, contournant entièrement le garde /admin*
+        // (server/middleware/admin-guard.ts) — accès back-office complet sans
+        // mot de passe.
         const headers: Record<string, string> = {
           "Content-Type": "application/json",
           "Cache-Control": "no-store",
         };
-        const sessionToken = signAdminSessionToken();
-        if (sessionToken) headers["Set-Cookie"] = adminSessionCookie(sessionToken);
+        if (valid) {
+          const sessionToken = signAdminSessionToken();
+          if (sessionToken) headers["Set-Cookie"] = adminSessionCookie(sessionToken);
+        }
 
         return new Response(JSON.stringify({ valid }), {
           status: 200,
@@ -167,3 +176,4 @@ export const Route = createFileRoute("/api/admin-verify")({
     },
   },
 });
+
