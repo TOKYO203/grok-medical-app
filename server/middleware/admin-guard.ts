@@ -29,9 +29,18 @@ interface AdminGuardEvent {
  * une variable perdue lors d'une rotation ne rouvre plus les pages /admin*.
  * Hors production (dev/preview), le comportement permissif précédent est
  * conservé pour ne pas casser le développement local.
+ *
+ * Audit 2026-11-15 (F3) : l'exemption de /admin-login utilisait
+ * startsWith("/admin-login"), qui laissait aussi passer n'importe quel
+ * préfixe (/admin-login-x…). L'exemption est désormais exacte : la page de
+ * connexion elle-même et ses sous-chemins uniquement.
  */
 function isProduction(): boolean {
   return process.env.NODE_ENV === "production" || process.env.VERCEL === "1" || process.env.CF_PAGES === "1";
+}
+
+function isAdminLoginPage(pathname: string): boolean {
+  return pathname === "/admin-login" || pathname.startsWith("/admin-login/");
 }
 
 function cookieHeaderFromEvent(event: AdminGuardEvent): string | null {
@@ -76,11 +85,7 @@ export default async function adminGuardMiddleware(
   next: () => unknown | Promise<unknown>,
 ): Promise<unknown> {
   const pathname = event.url?.pathname ?? "/";
-  if (
-    !pathname.startsWith("/admin") ||
-    pathname.startsWith("/admin-login") ||
-    pathname.startsWith("/api/")
-  ) {
+  if (!pathname.startsWith("/admin") || isAdminLoginPage(pathname) || pathname.startsWith("/api/")) {
     return next();
   }
   const secret = (process.env.ADMIN_PASSWORD ?? "").trim();
