@@ -53,7 +53,13 @@ export default defineEventHandler(async (event) => {
   }
 
   const clientIp = getClientIp(event);
-  const subject = clientIp || `${optimusId}:${deviceId.toLowerCase()}`;
+  // Audit 2026-11-15 (F2) : l'ancien repli optimusId:deviceId était contrôlé
+  // par l'appelant. Sans IP résoluble (auto-hébergement sans
+  // TRUST_PROXY_HEADERS), un attaquant changeait de deviceId à chaque requête
+  // et obtenait un quota neuf : contournement du throttling du brute-force de
+  // clés. Le repli est désormais une constante : toutes les requêtes sans IP
+  // partagent un seul bucket, donc le quota global tient quoi qu'il arrive.
+  const subject = clientIp ?? "no-client-ip";
   try {
     const decision = await consumeRateLimit({
       scope: "license-activate",

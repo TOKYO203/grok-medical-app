@@ -42,10 +42,11 @@ export default defineEventHandler(async (event) => {
   }
   const receipt = body.receipt;
 
-  const subject =
-    getClientIp(event) ||
-    receipt.payload.licenseId ||
-    `${receipt.payload.optimusId}:${receipt.payload.deviceId}:${receipt.payload.product}`;
+  // Audit 2026-11-15 (F2) : les anciens replis (licenseId / optimusId /
+  // deviceId du reçu) étaient contrôlés par l'appelant anonyme : sans IP
+  // résoluble, chaque requête avec un identifiant inventé ouvrait un bucket
+  // neuf et contournait le quota. Repli constant : un seul bucket partagé.
+  const subject = getClientIp(event) ?? "no-client-ip";
   try {
     const decision = await consumeRateLimit({
       scope: "license-status",
