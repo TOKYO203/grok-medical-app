@@ -11,12 +11,15 @@
  *     sur le seau mémoire local ;
  *  4. les handlers de route attendent (`await`) le limiteur devenu asynchrone —
  *     oublier l'`await` comparerait une Promise à `undefined` et laisserait
- *     passer toutes les requêtes.
+ *     passer toutes les requêtes ;
+ *  5. (audit 2026-11-16) la clé Redis est PSEUDONYMISÉE : l'IP brute ne quitte
+ *     jamais l'application, même vers le store de quota partagé.
  *
  * Le faux Upstash est un vrai serveur HTTP local : on vérifie le contrat réseau
  * (chemin, jeton, corps) plutôt que de simuler une fonction.
  */
 import assert from "node:assert/strict";
+import { createHash } from "node:crypto";
 import { readFileSync, readdirSync } from "node:fs";
 import { createServer } from "node:http";
 import test from "node:test";
@@ -29,6 +32,12 @@ import {
 
 const ENV_URL = "UPSTASH_REDIS_REST_URL";
 const ENV_TOKEN = "UPSTASH_REDIS_REST_TOKEN";
+
+/** Miroir exact de la pseudonymisation du module (sel de dev hors production). */
+function expectedSubject(ip) {
+  const salt = process.env.RATE_LIMIT_SALT?.trim() || "optimus-dev-rate-limit-salt";
+  return createHash("sha256").update(`${salt}:${ip}`, "utf8").digest("hex");
+}
 
 /** `process.env` restauré même si le test échoue. */
 async function withEnv(values, fn) {
@@ -146,7 +155,7 @@ test("rateLimitRequest est asynchrone, rateLimit (admin) reste synchrone", async
   assert.equal(typeof sync.ok, "boolean");
 });
 
-test("Upstash configuré : une seule requête /pipeline, INCR + PEXPIRE NX + PTTL", async () => {
+test("Upstash configuré : une seule requête /pipeline, INCR + PEXPIRE NX + PTTL, clé pseudonymisée", async () => {
   const fake = fakeUpstash(() => ({
     payload: [{ result: 1 }, { result: 1 }, { result: 60_000 }],
   }));
@@ -171,10 +180,15 @@ test("Upstash configuré : une seule requête /pipeline, INCR + PEXPIRE NX + PTT
     assert.equal(call.authorization, "Bearer token-de-test");
     assert.match(call.contentType, /application\/json/);
 
+    // Audit 2026-11-16 : l'IP ne doit apparaître NULLE PART dans la clé Redis.
+    const pseudonym = expectedSubject("203.0.113.50");
+    const expectedKey = `optimus:ratelimit:redis-a:${pseudonym}`;
+    assert.doesNotMatch(JSON.stringify(JSON.parse(call.body)), /203\.0\.113\.50/,
+      "l'IP brute ne doit jamais être envoyée au store de quota");
     const commands = JSON.parse(call.body);
-    assert.deepEqual(commands[0], ["INCR", "optimus:ratelimit:redis-a:203.0.113.50"]);
-    assert.deepEqual(commands[1], ["PEXPIRE", "optimus:ratelimit:redis-a:203.0.113.50", 60_000, "NX"]);
-    assert.deepEqual(commands[2], ["PTTL", "optimus:ratelimit:redis-a:203.0.113.50"]);
+    assert.deepEqual(commands[0], ["INCR", expectedKey]);
+    assert.deepEqual(commands[1], ["PEXPIRE", expectedKey, 60_000, "NX"]);
+    assert.deepEqual(commands[2], ["PTTL", expectedKey]);
     assert.equal(commands[1][3], "NX", "sans NX, chaque appel repousserait la fenêtre");
   } finally {
     await fake.stop();
@@ -274,4 +288,8 @@ test("le limiteur partagé ne dépend d'aucun SDK (0 dépendance ajoutée)", () 
   assert.match(source, /\/pipeline/, "le compteur passe par /pipeline");
   assert.match(source, /MAX_BUCKETS\s*=\s*\d+/, "le seau mémoire doit rester borné");
   assert.match(source, /rateLimitMemory\(key, max, windowMs\)/, "le repli mémoire doit rester branché");
+  // Audit 2026-11-16 : pseudonymisation obligatoire + sel requis en production.
+  assert.match(source, /pseudonymizeSubject/, "les sujets de quota doivent être pseudonymisés");
+  assert.match(source, /RATE_LIMIT_SALT must be configured in production/,
+    "le sel doit être obligatoire en production (fail closed)");
 });
