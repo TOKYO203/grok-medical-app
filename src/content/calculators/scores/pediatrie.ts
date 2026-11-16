@@ -171,9 +171,11 @@ const blantyre: Calculator = {
     const yeux = num(i.yeux);
     const score = motrice + verbale + yeux;
 
-    const coma = score <= 2 || (score === 3 && motrice === 0);
+    // Critère OMS : coma = Blantyre ≤ 2/5 (incapacité de localiser la douleur,
+    // d'émettre une réponse verbale appropriée et de regarder/suivre du regard).
+    const coma = score <= 2;
     const severity: CalculatorResult["severity"] =
-      score <= 2 ? "critical" : score <= 3 ? "high" : score <= 4 ? "medium" : "low";
+      score <= 2 ? "critical" : score === 3 ? "high" : score === 4 ? "medium" : "low";
     return {
       value: `${score}/5`,
       label: coma
@@ -182,7 +184,7 @@ const blantyre: Calculator = {
           ? "Conscience normale"
           : "Conscience altérée",
       interpretation: coma
-        ? "Blantyre ≤ 2 (ou ≤ 3 sans localisation de la douleur) : coma — traiter comme un neuropaludisme grave : artésunate IV, glycémie, anticonvulsivants si convulsions, recherche de causes associées (méningite, hypoglycémie)."
+        ? "Blantyre ≤ 2/5 : coma — critère OMS de neuropaludisme grave : artésunate IV sans délai, glycémie capillaire, anticonvulsivants si convulsions, recherche de causes associées (méningite, hypoglycémie)."
         : "Blantyre 3–5 : conscience altérée mais non comateuse — surveillance neurologique rapprochée et recherche de la cause.",
       severity,
     };
