@@ -32,8 +32,11 @@ export const Route = createFileRoute("/api/checkout/ariari")({
           if (error instanceof IdentityUnavailableError) {
             return Response.json({ ok: false, error: "identity_unavailable" }, { status: 503 });
           }
+          // Audit 2026-11-17 : message d'erreur d'identification loggue
+          // serveur, jamais renvoye brut au client.
+          console.error("[checkout/ariari] identite indisponible", error);
           return Response.json(
-            { ok: false, error: "auth_failed", message: error instanceof Error ? error.message : String(error) },
+            { ok: false, error: "auth_failed" },
             { status: 500 },
           );
         }
@@ -81,12 +84,12 @@ export const Route = createFileRoute("/api/checkout/ariari")({
             userId,
           });
         } catch (error) {
+          // Audit 2026-11-17 : le message brut du provider (URL, diagnostics
+          // internes) reste dans les logs serveur ; le client recoit une
+          // reponse stable, sans oracle d'information.
+          console.error("[checkout/ariari] creation de paiement impossible", error);
           return Response.json(
-            {
-              ok: false,
-              error: "ariari_failed",
-              message: error instanceof Error ? error.message : String(error),
-            },
+            { ok: false, error: "ariari_failed" },
             { status: 503 },
           );
         }

@@ -111,7 +111,9 @@ export const Route = createFileRoute("/api/checkout/lemonsqueezy")({
         });
         if (!order.ok) {
           console.error("[checkout/lemonsqueezy] création de commande impossible", (order as any).debug);
-          return json({ error: "checkout_unavailable", reason: "database", debug: (order as any).debug }, 503);
+          // Audit 2026-11-17 : le bloc de debug (details SQL/driver) reste dans
+          // les logs serveur uniquement - il n'est plus renvoye au client.
+          return json({ error: "checkout_unavailable", reason: "database" }, 503);
         }
 
         return json({
