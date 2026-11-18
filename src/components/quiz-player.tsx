@@ -34,6 +34,37 @@ const QUESTION_ARM_DELAY_MS = 500;
 const FOCUS_MODE_STORAGE_KEY = "optimus.focusMode";
 
 /*
+ * Correction du biais d'ordre : 37 des 79 decks embarqués placent la bonne
+ * réponse en premier choix (correct === 0) sur TOUTES leurs questions. Le
+ * lecteur ne doit jamais reposer sur l'ordre du fichier : les choix sont
+ * permutés par question, de façon déterministe (graine = id + sel de session)
+ * pour rester stables aux re-rendus, et la saisie est remappée vers l'index
+ * original. La correction reste identique, seul l'ordre d'affichage change.
+ */
+
+/** Permutation déterministe des choix — renvoie, pour chaque position
+ *  affichée, l'index ORIGINAL du choix correspondant. */
+function answerOrder(question: Question, salt: number): number[] {
+  const idx = question.choices.map((_, i) => i);
+  let h = (2166136261 ^ salt) >>> 0;
+  const key = `${question.id}#${salt}`;
+  for (let k = 0; k < key.length; k += 1) {
+    h = Math.imul(h ^ key.charCodeAt(k), 16777619) >>> 0;
+  }
+  for (let i = idx.length - 1; i > 0; i -= 1) {
+    h = (h ^ (h << 13)) >>> 0;
+    h = (h ^ (h >>> 17)) >>> 0;
+    h = (h ^ (h << 5)) >>> 0;
+    const j = h % (i + 1);
+    const a = idx[i] as number;
+    const b = idx[j] as number;
+    idx[i] = b;
+    idx[j] = a;
+  }
+  return idx;
+}
+
+/*
  * D33 — mode focus (Session 16) : masque l'en-tête mobile et la barre de
  * navigation le temps de la session de quiz. Le choix est mémorisé dans
  * localStorage et réappliqué à la prochaine session ; l'attribut sur <html>
@@ -92,6 +123,11 @@ export function QuizPlayer({
   finishLabel?: string;
 }) {
   const [sessionItems] = useState(() => items);
+  // Sel de session : la permutation des choix change d'une session à l'autre
+  // mais reste stable pour toute la session en cours (pas de re-hash volatil).
+  const [answerSalt] = useState(
+    () => Math.floor(Math.random() * 1_000_000_000) >>> 0,
+  );
   const [index, setIndex] = useState(0);
   const [picked, setPicked] = useState<number | null>(null);
   const [correctCount, setCorrectCount] = useState(0);
@@ -136,10 +172,11 @@ export function QuizPlayer({
   const [quotaBlocked] = useState(() => quota.blocked);
   const item = sessionItems[index];
   const done = index >= sessionItems.length;
+  // Biais d'ordre : position affichée → index original du choix.
   const order = useMemo(() => {
     if (!item) return [];
-    return item.question.choices.map((_, i) => i);
-  }, [item]);
+    return answerOrder(item.question, answerSalt);
+  }, [item, answerSalt]);
 
   useEffect(
     () => () => {
@@ -238,17 +275,18 @@ export function QuizPlayer({
       }
       if (!answerReady) return;
       const key = event.key.toLowerCase();
-      let choiceIdx = -1;
+      let displayIdx = -1;
       const digit = Number.parseInt(key, 10);
       if (!Number.isNaN(digit) && digit >= 1 && digit <= q.choices.length) {
-        choiceIdx = digit - 1;
+        displayIdx = digit - 1;
       } else if (/^[a-z]$/.test(key)) {
         const letterIdx = key.charCodeAt(0) - 97; /* a = 0 */
-        if (letterIdx < q.choices.length) choiceIdx = letterIdx;
+        if (letterIdx < q.choices.length) displayIdx = letterIdx;
       }
-      if (choiceIdx >= 0) {
+      if (displayIdx >= 0) {
         event.preventDefault();
-        choose(choiceIdx);
+        // Biais d'ordre : la lettre affichée pointe vers l'index original.
+        choose(answerOrder(q, answerSalt)[displayIdx] ?? displayIdx);
       }
     }
     window.addEventListener("keydown", onKey);
@@ -486,7 +524,7 @@ export function QuizPlayer({
         {q.prompt}
       </h2>
       <ul className="mt-6 space-y-2">
-        {order.map((i) => {
+        {order.map((i, pos) => {
           const choice = q.choices[i];
           const isCorrect = i === effectiveCorrect;
           const isPicked = i === picked;
@@ -519,7 +557,7 @@ export function QuizPlayer({
                         : "bg-secondary text-muted",
                   )}
                 >
-                  {String.fromCharCode(65 + i)}
+                  {String.fromCharCode(65 + pos)}
                 </span>
                 <span className="flex-1">{choice}</span>
                 {revealed && isCorrect ? <Check className="size-4 text-primary" /> : null}
@@ -609,4 +647,3 @@ export function QuizPlayer({
     </div>
   );
 }
-
