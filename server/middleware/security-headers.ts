@@ -16,6 +16,12 @@ interface SecurityHeaderEvent {
  *   - `connect-src` : Supabase (REST + Realtime wss) et l'API LemonSqueezy.
  *   - `img-src` : images.unsplash.com (photo de fond de l'écran de connexion).
  */
+// NOTE audit 2026-11-18 : « 'unsafe-inline' » et « https://grok.com » dans
+// script-src sont VOLONTAIRES et requis (PR #460) : TanStack Start émet des
+// scripts inline d'hydratation ($_TSR) qui n'acceptent pas de nonce fiable dans
+// la version utilisée, et extensions.js (chrome plateforme grok.me) est servi
+// depuis https://grok.com. Ne pas les retirer sans écran blanc. Correctif
+// durable : CSP par nonce dès que la chaîne TanStack le permet.
 const CONTENT_SECURITY_POLICY = [
   "default-src 'self'",
   "script-src 'self' 'unsafe-inline' https://grok.com",

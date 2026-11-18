@@ -28,8 +28,11 @@
 # CONTENT_SECURITY_POLICY dans ce middleware.
 #   - frame-ancestors 'none' + X-Frame-Options: DENY : l'app n'a pas vocation à
 #     être encadrée (anti-clickjacking sur les écrans de paiement/activation).
-#   - script-src 'self' : le shell SPA ne charge que des modules du domaine,
-#     aucun script inline (voir docs/PENTEST-2026-11-09.md §3).
+#   - script-src : 'unsafe-inline' et https://grok.com sont VOLONTAIRES
+#     (PR #460) : scripts inline d'hydratation TanStack Start (sans nonce fiable
+#     dans cette version) + extensions.js de la plateforme grok.me. Ne pas
+#     retirer sans régression (écran blanc). Test : scripts/security-hardening.test.mjs
+#     verrouille cette politique EXACTE (audit 2026-11-18).
 #   - connect-src : Supabase (REST + Realtime wss) et l'API LemonSqueezy.
 #   - HSTS : HTTPS, 1 an, sous-domaines inclus.
 /*
