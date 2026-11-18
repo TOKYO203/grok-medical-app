@@ -13,26 +13,29 @@ const cdnHeaders = readFileSync(
 );
 
 /**
- * Politique CSP de référence — pentest 2026-11-09 §3 (docs/PENTEST-2026-11-09.md).
- * Le middleware Nitro et le bloc /* de public/_headers doivent poser la
- * MÊME politique : un écart créerait deux comportements selon que la réponse
- * vient du CDN (statique) ou du worker (dynamique). Ce test verrouille le
- * miroir directive par directive.
+ * Politique CSP de référence — pentest 2026-11-09 §3 (docs/PENTEST-2026-11-09.md),
+ * amendée le 2026-11-18 (audit sécurité) : la comparaison precedente testait la
+ * PRÉSENCE de sous-chaînes, donc « script-src 'self' » passait meme si la
+ * politique déployée avait gagne 'unsafe-inline' ou de nouvelles origines.
+ * On verrouille maintenant la chaîne CSP EXACTE des deux côtés.
  */
-const CSP_DIRECTIVES = [
-  "default-src 'self'",
-  "script-src 'self'",
-  "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' data: blob: https://images.unsplash.com",
-  "font-src 'self' data:",
-  "connect-src 'self' https://*.supabase.co wss://*.supabase.co https://api.lemonsqueezy.com",
-  "worker-src 'self'",
-  "manifest-src 'self'",
-  "object-src 'none'",
-  "frame-ancestors 'none'",
-  "base-uri 'self'",
-  "form-action 'self'",
-];
+const CSP_ALLOWED_ORIGIN_EXCEPTIONS = ["https://grok.com"];
+
+function extractMiddlewareCsp(source) {
+  const body = source.match(
+    /const CONTENT_SECURITY_POLICY = \[([\s\S]*?)\]\.join\("; "\)/,
+  )?.[1];
+  assert.ok(body, "CONTENT_SECURITY_POLICY introuvable dans le middleware");
+  return body
+    .split(",")
+    .map((line) => line.trim().replace(/^"|"$/g, ""))
+    .filter(Boolean);
+}
+
+function extractCdnCsp(source) {
+  const line = source.match(/^ {2}Content-Security-Policy: (.+)$/m)?.[1];
+  return line;
+}
 
 test("baseline Nitro security headers avoid high-risk MIME/referrer/browser capabilities", () => {
   assert.match(headersSource, /x-content-type-options["']:\s*["']nosniff/);
@@ -54,17 +57,37 @@ test("framing et CSP : décision de déploiement explicite, désormais posée (p
   assert.match(headersSource, /docs\/PENTEST-2026-11-09\.md §3/);
 });
 
-test("CSP : le middleware et le _headers CDN posent exactement la même politique", () => {
-  for (const directive of CSP_DIRECTIVES) {
+test("audit 2026-11-18 : CSP middleware = CSP CDN, caractere par caractere", () => {
+  const cdnCsp = extractCdnCsp(cdnHeaders);
+  assert.ok(cdnCsp, "public/_headers doit poser Content-Security-Policy sur /*");
+  const middlewareDirectives = extractMiddlewareCsp(headersSource);
+  assert.equal(
+    middlewareDirectives.join("; "),
+    cdnCsp,
+    "la CSP du middleware et celle du CDN doivent etre STRICTEMENT identiques",
+  );
+});
+
+test("audit 2026-11-18 : script-src ne senlargit pas silencieusement", () => {
+  const scriptSrc = extractMiddlewareCsp(headersSource).find((d) => d.startsWith("script-src"));
+  assert.ok(scriptSrc, "directive script-src manquante");
+  const origins = scriptSrc.split(/\s+/).slice(1);
+  for (const origin of origins) {
+    if (/^https?:\/\//.test(origin)) {
+      assert.ok(
+        CSP_ALLOWED_ORIGIN_EXCEPTIONS.includes(origin),
+        `origine tiers inattendue dans script-src : ${origin} (ajouter une justification + le cadre aux exceptions du test)`,
+      );
+    }
     assert.ok(
-      headersSource.includes(directive),
-      `le middleware doit contenir « ${directive} »`,
-    );
-    assert.ok(
-      cdnHeaders.includes(directive),
-      `public/_headers doit contenir « ${directive} »`,
+      origin !== "'unsafe-eval'" && origin !== "'strict-dynamic'",
+      `script-src ne doit pas contenir ${origin}`,
     );
   }
+  // 'unsafe-inline' est un risque résiduel documenté (PR #460 : les scripts
+  // inline d'hydratation TanStack Start n'acceptent pas de nonce fiable dans
+  // cette version) — on l'accepte mais on l'interdit de réintroduire
+  // 'unsafe-eval' ou une nouvelle origine tiers sans decision explicite.
 });
 
 test("_headers CDN : baseline anti-clickjacking + HSTS sur /*, cache SW intact", () => {
