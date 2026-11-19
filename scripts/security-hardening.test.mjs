@@ -13,11 +13,12 @@ const cdnHeaders = readFileSync(
 );
 
 /**
- * Politique CSP de référence — pentest 2026-11-09 §3 (docs/PENTEST-2026-11-09.md).
- * Le middleware Nitro et le bloc /* de public/_headers doivent poser la
- * MÊME politique : un écart créerait deux comportements selon que la réponse
- * vient du CDN (statique) ou du worker (dynamique). Ce test verrouille le
- * miroir directive par directive.
+ * Politique CSP de référence — pentest 2026-11-09 §3 (docs/PENTEST-2026-11-09.md),
+ * durcie par l'audit #467 F1 (2026-11-19) : script-src par hash, aucun domaine
+ * tiers exécutable. Le middleware Nitro et le bloc /* de public/_headers doivent
+ * poser la MÊME politique : un écart créerait deux comportements selon que la
+ * réponse vient du CDN (statique) ou du worker (dynamique). Ce test verrouille
+ * le miroir directive par directive.
  */
 const CSP_DIRECTIVES = [
   "default-src 'self'",
@@ -65,6 +66,26 @@ test("CSP : le middleware et le _headers CDN posent exactement la même politiqu
       `public/_headers doit contenir « ${directive} »`,
     );
   }
+});
+
+test("CSP script-src : allowlist par hash, aucun 'unsafe-inline' ni domaine tiers en production (audit #467 F1)", () => {
+  // La CSP de production est calculée par scriptSrc() à partir du hash du
+  // script inline de thème ; le mode dev conservant 'unsafe-inline', on
+  // interdit la chaîne GLOBALEMENT ailleurs que dans la branche dev.
+  assert.match(headersSource, /scriptSrc\(\)/);
+  assert.match(headersSource, /THEME_BOOT_HASH/);
+  assert.doesNotMatch(headersSource, /script-src 'self' 'unsafe-inline' https:\/\/grok\.com/);
+  // Un domaine d'exécution tiers dans script-src est interdit : seul grok.com
+  // y figurait historiquement, sa présence (hors commentaire) est une régression.
+  assert.doesNotMatch(headersSource, /^\s*"script-src 'self' https:\/\//m);
+  // Côté CDN : aucun script inline ni tiers n'y est jamais servi.
+  const cdnCsp = cdnHeaders.match(/script-src ([^;\n]+)/);
+  assert.ok(cdnCsp, "la CSP du _headers doit définir script-src");
+  assert.equal(cdnCsp[1].trim(), "'self'");
+});
+
+test("CSP : le hash de THEME_BOOT_SCRIPT est calculé depuis la constante source (pas de valeur figée)", () => {
+  assert.match(headersSource, /createHash\("sha256"\)\.update\(THEME_BOOT_SCRIPT, "utf8"\)\.digest\("base64"\)/);
 });
 
 test("_headers CDN : baseline anti-clickjacking + HSTS sur /*, cache SW intact", () => {
