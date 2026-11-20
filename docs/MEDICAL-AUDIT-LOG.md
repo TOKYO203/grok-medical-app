@@ -8,6 +8,7 @@ Protocole : docs/MEDICAL-AUDIT-PROTOCOL.md
 |---|---|---|---|---|---|
 | 2026-10-27 | pathologies/paludisme | PASS_WITH_NOTES | 1 | Oui (verifie conforme, sans modification) | audit IA 2026-11-15 ; relecture humaine en attente |
 | 2026-11-15 | calculators/scores (8 fichiers, 59 scores) | PASS_WITH_NOTES | 1 | Oui | audit IA ; relecture humaine en attente |
+| 2026-11-20 | decks (urgences, cardio, infectio, neuro) + valeurs-reference + ECG | PASS_WITH_NOTES | 4 | decks.json a appliquer (voir ticket) ; neuro-avc-l3.json fait | audit IA ; relecture humaine en attente |
 
 ## Detail
 
