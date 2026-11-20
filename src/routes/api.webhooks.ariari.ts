@@ -17,6 +17,7 @@
  *   503 → panne transitoire (Ariari rejoue)
  */
 import { createFileRoute } from "@tanstack/react-router";
+import { rateLimitRequest, retryAfterSeconds } from "@/lib/security/rate-limit.server";
 import { fetchAriariPayment } from "@/server/ariari/ariari.server";
 import { deliverLemonEventRest } from "@/server/lemonsqueezy/delivery-rest";
 import { responseForOutcome } from "@/server/lemonsqueezy/webhook";
@@ -25,7 +26,18 @@ export const Route = createFileRoute("/api/webhooks/ariari")({
   server: {
     handlers: {
       POST: async ({ request }) => {
+        // Correctif audit 2026-11-20 : quota sur ce webhook anonyme (il était
+        // le seul endpoint public sans rate limit : relais gratuit vers l'API
+        // Ariari) et corps borné, comme les autres endpoints.
+        const decision = await rateLimitRequest(request, "ariari-webhook", 30, 60_000);
+        if (!decision.ok) {
+          return Response.json({ ok: false, error: "rate_limited" }, { status: 429, headers: { "Retry-After": String(retryAfterSeconds(decision)) } });
+        }
+
         const rawBody = await request.text().catch(() => "");
+        if (rawBody.length > 8 * 1024) {
+          return Response.json({ ok: false, error: "invalid_body" }, { status: 413 });
+        }
         let payload: Record<string, unknown>;
         try {
           payload = JSON.parse(rawBody);

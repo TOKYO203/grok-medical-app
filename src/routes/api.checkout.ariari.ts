@@ -7,6 +7,7 @@
  */
 import { createFileRoute } from "@tanstack/react-router";
 import { requireUserId, UnauthorizedError, IdentityUnavailableError } from "@/lib/auth/verify.server";
+import { rateLimitRequest, retryAfterSeconds } from "@/lib/security/rate-limit.server";
 import { createAriariPayment, isAriariConfigured } from "@/server/ariari/ariari.server";
 import { normalizePremiumOrderInput, orderAmount } from "@/content/purchase-order";
 import { z } from "zod";
@@ -21,6 +22,16 @@ export const Route = createFileRoute("/api/checkout/ariari")({
   server: {
     handlers: {
       POST: async ({ request }) => {
+        // 0. Quota — correctif audit 2026-11-20 : aligné sur l'homologue
+        // Lemon Squeezy (10/min) ; plus de création de paiements par rafale.
+        const rlDecision = await rateLimitRequest(request, "ariari-checkout", 10, 60_000);
+        if (!rlDecision.ok) {
+          return Response.json(
+            { ok: false, error: "rate_limited" },
+            { status: 429, headers: { "Retry-After": String(retryAfterSeconds(rlDecision)) } },
+          );
+        }
+
         // 1. Auth
         let userId: string;
         try {
