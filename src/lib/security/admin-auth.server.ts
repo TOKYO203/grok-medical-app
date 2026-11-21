@@ -145,10 +145,10 @@ export function verifyAdminSessionToken(
 
 /** Attribut Set-Cookie de session (HttpOnly, Secure, SameSite=Strict, 7 j). */
 export function adminSessionCookie(token: string): string {
-  return `${ADMIN_SESSION_COOKIE}=${token}; Path=/; Max-Age=${ADMIN_SESSION_TTL_SECONDS}; SameSite=Lax; HttpOnly; Secure`;
+  return `${ADMIN_SESSION_COOKIE}=${token}; Path=/; Max-Age=${ADMIN_SESSION_TTL_SECONDS}; SameSite=Strict; HttpOnly; Secure`;
 }
 
 /** Attribut Set-Cookie d'effacement de la session admin. */
 export function clearAdminSessionCookie(): string {
-  return `${ADMIN_SESSION_COOKIE}=; Path=/; Max-Age=0; SameSite=Lax; HttpOnly; Secure`;
+  return `${ADMIN_SESSION_COOKIE}=; Path=/; Max-Age=0; SameSite=Strict; HttpOnly; Secure`;
 }
