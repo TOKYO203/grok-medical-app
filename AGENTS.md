@@ -584,7 +584,15 @@ never:   build an app for a greeting/number/question; invent imagine_* calls;
 **Contraintes**
 - Structure existante : src/content/data/programmes/
 - Sources : Hampton, Adnet, ESC, OMS
-- Reformuler, ne pas copie## 📦 CONSIGNE CONTENU — MISE À JOUR (2026-11-21)
+- Reformuler, ne pas copier
+- 3 commits atomiques (1 par spécialité)
+- Ligne DECISIONS.md par commit
+- i18n 4 langues synchronisées si nouvelle clé
+- BUDGET : 50 itérations max
+
+---
+
+## 📦 CONSIGNE CONTENU — MISE À JOUR (2026-11-21)
 
 Le cahier des charges demandé existe désormais : **`docs/STANDARD-FICHES-COMPLET.md`**.
 Le verrou « ne pas toucher au contenu » est LEVÉ, avec ces règles :
