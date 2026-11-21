@@ -22,7 +22,7 @@ const cdnHeaders = readFileSync(
  */
 const CSP_DIRECTIVES = [
   "default-src 'self'",
-  "script-src 'self'",
+  "script-src 'self' 'unsafe-inline'",
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: blob: https://images.unsplash.com",
   "font-src 'self' data:",
@@ -68,20 +68,20 @@ test("CSP : le middleware et le _headers CDN posent exactement la même politiqu
   }
 });
 
-test("CSP script-src : allowlist par hash, aucun 'unsafe-inline' ni domaine tiers en production (audit #467 F1)", () => {
-  // La CSP de production est calculée par scriptSrc() à partir du hash du
-  // script inline de thème ; le mode dev conservant 'unsafe-inline', on
-  // interdit la chaîne GLOBALEMENT ailleurs que dans la branche dev.
+test("CSP script-src : rétablissement incident 2026-11-20/21, 'unsafe-inline' temporaire, aucun domaine tiers", () => {
+  // Incident 2026-11-20/21 : page blanche prod (pages.dev + workers.dev) —
+  // l'allowlist par hash de #467 F1 bloquait les scripts d'hydratation inline
+  // de TanStack Start. 'unsafe-inline' est rétabli ; le hash du script de thème
+  // reste calculé et présent (cible du futur resserrement, cf. middleware).
+  // INTERDIT MAINTENU : aucun domaine tiers exécutable (grok.com notamment).
   assert.match(headersSource, /scriptSrc\(\)/);
   assert.match(headersSource, /THEME_BOOT_HASH/);
-  assert.doesNotMatch(headersSource, /script-src 'self' 'unsafe-inline' https:\/\/grok\.com/);
-  // Un domaine d'exécution tiers dans script-src est interdit : seul grok.com
-  // y figurait historiquement, sa présence (hors commentaire) est une régression.
+  assert.match(headersSource, /script-src 'self' 'unsafe-inline'/);
+  assert.doesNotMatch(headersSource, /script-src[^\n]*https:\/\/grok\.com/);
   assert.doesNotMatch(headersSource, /^\s*"script-src 'self' https:\/\//m);
-  // Côté CDN : aucun script inline ni tiers n'y est jamais servi.
   const cdnCsp = cdnHeaders.match(/script-src ([^;\n]+)/);
   assert.ok(cdnCsp, "la CSP du _headers doit définir script-src");
-  assert.equal(cdnCsp[1].trim(), "'self'");
+  assert.equal(cdnCsp[1].trim(), "'self' 'unsafe-inline'");
 });
 
 test("CSP : le hash de THEME_BOOT_SCRIPT est calculé depuis la constante source (pas de valeur figée)", () => {

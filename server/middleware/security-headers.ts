@@ -22,12 +22,21 @@ interface SecurityHeaderEvent {
  */
 const THEME_BOOT_HASH = `sha256-${createHash("sha256").update(THEME_BOOT_SCRIPT, "utf8").digest("base64")}`;
 
-function isProduction(): boolean {
-  return process.env.NODE_ENV === "production" || process.env.VERCEL === "1" || process.env.CF_PAGES === "1";
-}
-
+/**
+ * INCIDENT 2026-11-20/21 — page blanche en production (pages.dev + workers.dev).
+ * Le durcissement #467 F1 posait script-src 'self' <hash de THEME_BOOT_SCRIPT>,
+ * or TanStack Start émet AUSSI des scripts inline (données d'hydratation du
+ * router). Bloqués, l'application ne s'hydrate jamais et reste figée sur le
+ * rendu serveur (splash « Connexion à Optimus… », écran perçu comme vide).
+ * Rétablissement temporaire de 'unsafe-inline' (état antérieur au 19/11, ayant
+ * toujours fonctionné). TODO : recalculer l'allowlist par hash sur le HTML
+ * construit réel (thème + scripts de données TanStack), puis retirer de nouveau
+ * 'unsafe-inline'. Le THEME_BOOT_HASH est conservé dans la politique — ignoré
+ * par les navigateurs tant que 'unsafe-inline' est présent, mais il documente
+ * la cible du futur resserrement et reste vérifié par les tests.
+ */
 function scriptSrc(): string {
-  return isProduction() ? `script-src 'self' ${THEME_BOOT_HASH}` : "script-src 'self' 'unsafe-inline'";
+  return `script-src 'self' 'unsafe-inline' ${THEME_BOOT_HASH}`;
 }
 
 /**
@@ -35,7 +44,7 @@ function scriptSrc(): string {
  * `public/_headers` (actifs statiques du CDN) : les deux doivent rester
  * alignées — un écart créerait deux politiques selon le type de réponse.
  *
- * Pentest 2026-11-09 §3 : sans CSP ni X-Frame-Options, l'app est encadrable
+ * INCIDENT 2026-11-20/21 : script-src porte de nouveau 'unsafe-inline' (voir scriptSrc). Pentest 2026-11-09 §3 : sans CSP ni X-Frame-Options, l'app est encadrable
  * (clickjacking sur les écrans de paiement/activation) et un XSS sur le jeton
  * de contenu (§4) n'a aucun frein. Audit #467 F1 : `script-src` passe en
  * allowlist par hash — plus de 'unsafe-inline' ni de domaine tiers en prod.
