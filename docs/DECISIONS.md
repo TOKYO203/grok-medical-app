@@ -830,3 +830,13 @@ une affectation de `VITE_AUTH_ENABLED` sur `process.env` dans le lanceur.
 - **Rivaux silencieux** : des COMPTEURS calculés depuis les lignes du classement (« N étudiants te devancent »), jamais d'identités — la compétition sans exposition.
 - **Classe des facultés** : somme des XP hebdo par faculté, agrégée côté client depuis le classement (top 200) — aucune donnée serveur supplémentaire.
 - **Délibérément absent de LB-2** : badges collectifs de promo et duels 1v1 (le moteur WebRTC src/lib/multiplayer/p2p.ts existe déjà pour la Phase 3).
+
+
+## 2026-11-21 — Sessions contenu : cahier des charges fiches + protocole agent
+
+| Date | ID | Décision | Motif | Auteur |
+|------|----|----------|-------|--------|
+| 2026-11-21 | C-STD-1 | Cahier des charges du contenu écrit (`docs/STANDARD-FICHES-COMPLET.md`) : plan standard, 9 gates, portée internationale (cœur OMS universel + protocoles nationaux en `localAdaptations[]`) | La consigne « NE PAS TOUCHER LE CONTENU » exigeait un cahier des charges précis ; il est fourni, le verrou est levé | Vibe |
+| 2026-11-21 | C-STD-2 | Fiche `paludisme.json` enrichie au standard complet : redFlags, disclaimer, dosagePolicy, encadré « Adaptation locale — Madagascar (PNLP) » (ASAQ 1re intention, AL 2e), 3 sources datées (PNLP 2013, Severe Malaria Observatory, Malaria Journal 2018 doi 10.1186/s12936-018-2440-0), posologies dé-chiffrées (2,4 mg/kg retirés) — commits `63dfe32` + `9d99bbb` | Prototype de référence du standard ; en attente de validation médicale | Vibe |
+| 2026-11-21 | C-STD-3 | Protocole de première connexion agent créé (`docs/AGENT-ONBOARDING.md`) et branché dans `AGENTS.md` (bloc MISSION ACTIVE + levée du verrou contenu) | Un agent qui arrive en début de session doit savoir quoi lire et quoi faire sans répéter les erreurs passées | Vibe |
+| 2026-11-21 | C-STD-4 | Fiches `signes` : alignement au standard confirmé comme tâche ouverte (minimum vital : schemaVersion, reviewStatus, updatedAt, verifiedAt, disclaimer, correction attribution « JNDES ») | Priorité aux items pathologies du référentiel | Vibe |

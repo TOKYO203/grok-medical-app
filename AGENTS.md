@@ -3,6 +3,8 @@
 **Toute session DOIT commencer par lire :**
 - `docs/MISSION-INTERNATIONAL.md` — 53 items priorisés, plan 6 sessions
 - `docs/DECISIONS.md` — journal des décisions
+- `docs/AGENT-ONBOARDING.md` — protocole de première connexion (ici)
+- (si session contenu) `docs/STANDARD-FICHES-COMPLET.md` — cahier des charges des fiches
 
 **Sessions 1–17 livrées** (business model Sessions 1 & 8, onboarding, UX navigation, crédibilité médicale, i18n, audit prod Top 5, QA auscultation, bugs accueil #4/#5, bugs secondaires #6–#13, progression, tests moteur ECG, examen blanc chronométré E44, accessibilité WCAG AA F46–F50, code-splitting des données G51, UX mobile D29–D38, changelog public et email institutionnel B19–B20) — suite : puis vagues d'améliorations 🟢 ci-dessous
 
@@ -582,49 +584,20 @@ never:   build an app for a greeting/number/question; invent imagine_* calls;
 **Contraintes**
 - Structure existante : src/content/data/programmes/
 - Sources : Hampton, Adnet, ESC, OMS
-- Reformuler, ne pas copier
-- 3 commits atomiques (1 par spécialité)
-- Ligne DECISIONS.md par commit
-- i18n 4 langues synchronisées si nouvelle clé
-- BUDGET : 50 itérations max
+- Reformuler, ne pas copie## 📦 CONSIGNE CONTENU — MISE À JOUR (2026-11-21)
 
+Le cahier des charges demandé existe désormais : **`docs/STANDARD-FICHES-COMPLET.md`**.
+Le verrou « ne pas toucher au contenu » est LEVÉ, avec ces règles :
 
----
-
-## ⚠️ CONSIGNE CONTENU — NE PAS TOUCHER POUR L'INSTANT
-
-**Important** : ne pas générer/modifier de contenu médical tant que
-le propriétaire n'a pas fourni son cahier des charges précis.
-
-Raison : exigences de format et de fond spécifiques en cours de
-définition (structure des fiches, niveau de détail, sources, etc.).
-
-**Comportement attendu de l'agent** :
-- Si une session propose du contenu → DEMANDER confirmation avant
-- Ne PAS créer de nouveaux JSON dans src/content/data/
-- Ne PAS étendre programme/, ecg/, auscultation/, demarche/
-- Peut travailler sur : UX, i18n, business, sécurité, légal, tests
-
-**Sessions à faire EN ATTENDANT** (hors contenu médical) :
-- Onboarding (Session 9 en cours)
-- Progression (Session 10)
-- UX Navigation (Session 11)
-- Sécurité (Sessions 12-13)
-- Tests moteur ECG — ✅ Session 12
-- Examen blanc chronométré (E44) — ✅ Session 13
-- Accessibilité (F46–F50) — ✅ Session 14
-- Code-splitting routes (G51) — ✅ Session 15
-- Monitoring + backup
-
-**Sessions BLOQUÉES** tant que le cahier des charges n'est pas fourni :
-- Contenu 30 items (Sessions 9/10 initialement prévues)
-- Chapitres orientation
-- Tout ajout d'items au programme
-
-> Cette consigne PRIME sur la ROADMAP 14 JOURS ci-dessus.
-> Quand le propriétaire fournira le cahier des charges, cette section
-> sera retirée et les sessions Contenu pourront reprendre.
-
+1. Toute fiche suivra `docs/STANDARD-FICHES-COMPLET.md` (plan standard, gates, portée internationale : cœur OMS universel, protocoles nationaux uniquement en `localAdaptations[]`).
+2. Les fiches vivent dans `private/content/pathologies/` (et `private/content/signes/`) ; rien dans `src/content/data/`.
+3. Contrôles obligatoires avant chaque push : `npm test` + `npm run content:check`.
+4. `reviewStatus` reste `pending-medical-review` tant qu'aucun médecin n'a signé ; `fully_reviewed` exige `reviewedBy` + preuve.
+5. Jamais de posologie chiffrée, jamais de donnée inventée (`[À COMPLÉTER AVEC SOURCE]` / UNVERIFIABLE sinon).
+6. Priorisation : `docs/MISSION-INTERNATIONAL.md`, puis poids au concours (éclampsie, hémorragies de la délivrance, état de choc, polytraumatisme, tuberculose, VIH).
+7. Prototype de référence : `private/content/pathologies/paludisme.json` (commit `63dfe32`) — s'en inspirer, ne pas réinventer le format.
+8. 1 commit = 1 fiche ; 1 ligne dans `docs/DECISIONS.md`.
+9. Détail opératoire complet (ordre de lecture, chemins, commandes, pièges) : `docs/AGENT-ONBOARDING.md`.
 
 ## Module "Signes & Syndromes" (Raisonnement inversé)
 
