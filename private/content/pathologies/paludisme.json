@@ -6,7 +6,7 @@
   "subtitle": "Fiche de nosographie — infectiologie tropicale",
   "objective": "Devant une fièvre en zone d'endémie ou au retour d'un voyage : confirmer le parasite, classer immédiatement la forme (simple ou grave) et traiter sans délai.",
   "language": "fr",
-  "updatedAt": "2026-10-17",
+  "updatedAt": "2026-11-21",
   "reviewStatus": "pending-medical-review",
   "curriculum": {
     "collection": "Nosographie — spécialité médicale",
@@ -46,14 +46,18 @@
       "La référence « Guidelines for the treatment of malaria » (document source, réf. 5) est l'ancien intitulé, remplacé par les lignes directrices consolidées (« WHO guidelines for malaria ») : conservée ici uniquement sous cette forme consolidée.",
       "Les seuils des critères de gravité proviennent des critères OMS ; le protocole national malgache doit primer en cas d'écart et doit être ajouté à la bibliographie par le propriétaire (aucune version en ligne vérifiable pendant cette session).",
       "Aucun moyen mnémotechnique n'est proposé : il n'existe pas d'acronyme validé pour le paludisme, et en inventer un serait de la décoration, pas de la pédagogie.",
-      "Contrôle des millésimes effectué le 2026-10-17 sur les pages officielles : le World malaria report 2025 est bien daté du 4 décembre 2025, et la recommandation de la SPILF sur le paludisme d'importation reste celle de 2018 (révision annoncée, aucune version 2025 publiée). Les deux références portent donc leur date réelle ; aucune n'a été antidatée ni postdatée pour aligner la bibliographie sur une année attendue."
+      "Contrôle des millésimes effectué le 2026-10-17 sur les pages officielles : le World malaria report 2025 est bien daté du 4 décembre 2025, et la recommandation de la SPILF sur le paludisme d'importation reste celle de 2018 (révision annoncée, aucune version 2025 publiée). Les deux références portent donc leur date réelle ; aucune n'a été antidatée ni postdatée pour aligner la bibliographie sur une année attendue.",
+      "Le 2026-11-21 achat des sources annoncées par la note du 2026-10-17 : directives du PNLP de Madagascar (édition 2013, version la plus récente vérifiable en ligne, hébergée par Severe Malaria Observatory) et étude d'efficacité ASAQ vs AL (Malaria Journal 2018, doi 10.1186/s12936-018-2440-0). L'encadré « Adaptation locale — Madagascar » cite désormais explicitement l'ASAQ en première intention du paludisme simple.",
+      "Le 2026-11-21 achat de la politique de posologie, alignée sur la fiche Migraine : le schéma d'artésunate n'est plus chiffré dans la section IV, la mindmap ni les flashcards ; molécules, voies et calendrier conservés, doses exactes renvoyées au protocole national.",
+      "Le 2026-11-21 achat de la portée internationale de la charte : le cœur clinique reste universel (OMS), valable pour des étudiants du monde entier ; le protocole national n'est présenté qu'en encadré « adaptation locale », doublé du champ racine localAdaptations dans la donnée."
     ],
     "qcChecklist": [
       "Exactitude des critères de gravité et de leurs seuils",
       "Conformité des schémas thérapeutiques au protocole national en vigueur",
       "Pertinence des priorités du contexte malgache",
       "Absence de recopie du document source",
-      "Validité des liens et des versions de sources"
+      "Validité des liens et des versions de sources",
+      "Posologies non chiffrées : molécules et voies seules, doses renvoyées au protocole national"
     ]
   },
   "sections": [
@@ -534,6 +538,12 @@
           "text": "Paludisme non compliqué — Le traitement repose sur une association thérapeutique à base d'artémisinine (ACT), choisie selon le protocole national, le résultat parasitologique, l'espèce lorsqu'elle est connue et le terrain. La cure se prend en entier : une automédication incomplète laisse des parasites résiduels et sélectionne la résistance."
         },
         {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "Adaptation locale — Madagascar (PNLP)",
+          "text": "À Madagascar, le protocole national (PNLP) retient l'artésunate-amodiaquine (ASAQ) en première intention du paludisme simple, en cure complète de trois jours ; l'artéméther-luméfantrine est l'alternative en cas d'échec ou d'intolérance. La règle ne change pas avec la molécule : cure entière et réévaluation à 48-72 h si la fièvre persiste."
+        },
+        {
           "type": "list",
           "items": [
             "Antipyrétique adapté (paracétamol) ; hydratation prudente, sans surcharge",
@@ -552,7 +562,7 @@
         },
         {
           "type": "paragraph",
-          "text": "L'artésunate par voie injectable arrive en première ligne. Le schéma de référence est de 2,4 mg/kg par voie intraveineuse à H0, H12 et H24, puis une injection toutes les 24 heures ; dès que la voie orale est possible, une cure complète d'ACT prend le relais. Les posologies exactes doivent être confirmées sur le protocole national en vigueur."
+          "text": "L'artésunate par voie injectable arrive en première ligne. Le schéma de référence comporte une dose d'attaque intraveineuse, renouvelée puis quotidiennement selon le protocole national ; dès que la voie orale est possible, une cure complète d'ACT prend le relais. Les posologies exactes doivent être confirmées sur le protocole national en vigueur."
         },
         {
           "type": "paragraph",
@@ -733,14 +743,22 @@
             [
               "5",
               "SPILF. Prise en charge et prévention du paludisme d'importation. Texte court du comité des référentiels, 2018 (révision annoncée en cours sur la page officielle de la SPILF). https://www.infectiologie.com/fr/recommandations.html#palu"
+            ],
+            [
+              "6",
+              "PNLP Madagascar. Directives de prise en charge du paludisme (2013), version la plus récente vérifiable en ligne (hébergée par Severe Malaria Observatory). https://www.severemalaria.org/sites/default/files/content/document/DIRECTIVES%20DE%20PRISE%20EN%20CHARGE%20PALUDISME%20Final_PDF.pdf"
+            ],
+            [
+              "7",
+              "Randriarison M. et al. Efficacy of artesunate-amodiaquine and artemether-lumefantrine for uncomplicated Plasmodium falciparum malaria in Madagascar. Malaria Journal ; 2018. doi:10.1186/s12936-018-2440-0"
             ]
           ]
         },
         {
           "type": "callout",
           "tone": "memo",
-          "title": "Deux sources à ajouter par le propriétaire",
-          "text": "Le protocole national malgache en vigueur (Programme national de lutte contre le paludisme) et, le cas échéant, le guide de prise en charge des formes graves au niveau des centres de santé de base. Aucune version en ligne vérifiable de ces documents n'a été trouvée pendant la rédaction : ils constituent la référence qui prime sur les seuils et les schémas indiqués ici."
+          "title": "Le protocole national prime",
+          "text": "Les directives du PNLP de Madagascar (édition 2013, version la plus récente vérifiable en ligne) sont désormais citées en sources : l'ASAQ y est la première intention du paludisme simple. En cas d'écart entre ces directives et les seuils OMS ci-dessus, le protocole national le plus récent prime sur la fiche."
         }
       ]
     }
@@ -794,7 +812,7 @@
     {
       "id": "fc-06",
       "front": "Traitement de première intention du paludisme grave ?",
-      "back": "Artésunate injectable 2,4 mg/kg IV à H0, H12 et H24 puis toutes les 24 heures, relayé par une cure complète d'ACT dès que la voie orale est possible.",
+      "back": "Artésunate injectable IV en dose d'attaque à H0, H12 et H24, puis une fois par jour, relayé par une cure complète d'ACT dès que la voie orale est possible.",
       "tags": [
         "traitement",
         "urgence"
@@ -852,6 +870,14 @@
       "tags": [
         "prévention",
         "vaccins"
+      ]
+    },
+    {
+      "id": "fc-13",
+      "front": "À Madagascar, quelle molécule en première intention du paludisme simple ?",
+      "back": "Artésunate-amodiaquine (ASAQ), en cure complète de 3 jours ; l'artéméther-luméfantrine est la deuxième intention (protocole national, PNLP).",
+      "tags": [
+        "Madagascar"
       ]
     }
   ],
@@ -1047,7 +1073,7 @@
           {
             "id": "tra-grave",
             "label": "Artésunate injectable",
-            "detail": "Première intention : 2,4 mg/kg IV à H0, H12, H24 puis toutes les 24 h, relayé par une cure d'ACT dès que l'oral est possible.",
+            "detail": "Première intention : artésunate injectable IV/IM, relayé par une cure d'ACT dès que l'oral est possible.",
             "leaves": [
               {
                 "id": "tra-grave-1",
@@ -1307,7 +1333,92 @@
         "Prévention du voyageur"
       ],
       "note": "Vérifié le 2026-10-17 sur la page « Recommandations » de la SPILF : la rubrique Paludisme renvoie à « Prise en charge et prévention du paludisme d'importation – SPILF 2018 » et signale une révision en cours. Il n'existe PAS de version 2025 : 2018 est la date réelle, à ne pas corriger en 2025."
+    },
+    {
+      "id": "SRC-PNLP-MG",
+      "title": "Directives de prise en charge du paludisme à Madagascar",
+      "citation": "Programme national de lutte contre le paludisme (PNLP), Madagascar. Directives de prise en charge du paludisme ; 2013 (version la plus récente disponible en ligne).",
+      "organization": "PNLP Madagascar",
+      "year": 2013,
+      "version": "édition 2013, hébergée par Severe Malaria Observatory",
+      "url": "https://www.severemalaria.org/sites/default/files/content/document/DIRECTIVES%20DE%20PRISE%20EN%20CHARGE%20PALUDISME%20Final_PDF.pdf",
+      "verifiedAt": "2026-11-21",
+      "usedFor": [
+        "Adaptation locale Madagascar",
+        "ASAQ première intention du paludisme simple",
+        "AL deuxième intention",
+        "Grossesse"
+      ],
+      "note": "Version la plus récente vérifiable en ligne du protocole national malgache ; en cas d'écart avec les seuils OMS, le protocole national le plus récent prime."
+    },
+    {
+      "id": "SRC-SEVO-MG",
+      "title": "Severe Malaria Observatory — page Madagascar",
+      "citation": "Severe Malaria Observatory. Madagascar — page pays, profil épidémiologique et programme national.",
+      "organization": "Severe Malaria Observatory (Médecins pour la Malaria)",
+      "year": 2026,
+      "version": "page pays, consultation du 2026-11-21",
+      "url": "https://www.severemalaria.org/fr/pays/madagascar",
+      "verifiedAt": "2026-11-21",
+      "usedFor": [
+        "Contexte Madagascar",
+        "Accès aux directives du PNLP"
+      ]
+    },
+    {
+      "id": "SRC-MALARJ-MG",
+      "title": "Efficacité de l'ASAQ et de l'AL à Madagascar, 2018",
+      "citation": "Randriarison M. et al. Efficacy of artesunate-amodiaquine and artemether-lumefantrine for uncomplicated Plasmodium falciparum malaria in Madagascar. Malaria Journal ; 2018. doi:10.1186/s12936-018-2440-0.",
+      "organization": "Malaria Journal",
+      "year": 2018,
+      "doi": "10.1186/s12936-018-2440-0",
+      "url": "https://doi.org/10.1186/s12936-018-2440-0",
+      "verifiedAt": "2026-11-21",
+      "usedFor": [
+        "Efficacité de l'ASAQ et de l'AL à Madagascar",
+        "Adaptation locale Madagascar"
+      ]
     }
   ],
-  "specialty": "Infectiologie"
+  "specialty": "Infectiologie",
+  "disclaimer": "Support pédagogique. Ne remplace ni un avis médical ni les protocoles locaux.",
+  "dosagePolicy": "Molécules citées sans posologies : se référer aux protocoles locaux et au contexte du patient.",
+  "redFlags": [
+    {
+      "sign": "Trouble de la conscience (Glasgow < 11 chez l'adulte)",
+      "action": "Paludisme grave : hospitalisation immédiate et artésunate injectable"
+    },
+    {
+      "sign": "Convulsions répétées (au moins 2 en 24 h)",
+      "action": "Paludisme grave : arrêter la crise, glycémie immédiate, artésunate injectable"
+    },
+    {
+      "sign": "Respiration profonde ou détresse respiratoire",
+      "action": "Acidose : gravité, artésunate injectable et transfert sans délai"
+    },
+    {
+      "sign": "Diurèse effondrée ou créatininémie élevée",
+      "action": "Insuffisance rénale aiguë : forme grave, référence vers une structure de prise en charge"
+    },
+    {
+      "sign": "Collapsus (extrémités froides, marbrures)",
+      "action": "Choc : artésunate IV, remplissage prudent, transfert urgent"
+    },
+    {
+      "sign": "Sueurs et somnolence",
+      "action": "Hypoglycémie : glycémie capillaire immédiate et dextrose, surtout chez l'enfant"
+    },
+    {
+      "sign": "Pâleur conjonctivale sévère avec tachycardie",
+      "action": "Anémie profonde : évaluation transfusionnelle selon le protocole et le terrain"
+    }
+  ],
+  "localAdaptations": [
+    {
+      "country": "Madagascar",
+      "programme": "PNLP — Programme national de lutte contre le paludisme",
+      "note": "Paludisme simple : artésunate-amodiaquine (ASAQ) en première intention, artéméther-luméfantrine (AL) en deuxième intention. Paludisme grave : artésunate injectable. Grossesse : traitement préventif intermittent à la sulfadoxine-pyriméthamine (TPIg) selon la politique nationale.",
+      "sourceId": "SRC-PNLP-MG"
+    }
+  ]
 }
