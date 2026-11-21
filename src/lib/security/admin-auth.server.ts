@@ -143,7 +143,7 @@ export function verifyAdminSessionToken(
   return timingSafeEqual(new Uint8Array(provided), new Uint8Array(expected));
 }
 
-/** Attribut Set-Cookie de session (HttpOnly, Secure, SameSite=Lax, 7 j). */
+/** Attribut Set-Cookie de session (HttpOnly, Secure, SameSite=Strict, 7 j). */
 export function adminSessionCookie(token: string): string {
   return `${ADMIN_SESSION_COOKIE}=${token}; Path=/; Max-Age=${ADMIN_SESSION_TTL_SECONDS}; SameSite=Lax; HttpOnly; Secure`;
 }

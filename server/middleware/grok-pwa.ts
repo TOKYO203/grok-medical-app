@@ -14,10 +14,42 @@ interface GrokPwaEvent {
   req: { method: string; headers: Headers };
 }
 
+/**
+ * Accueil figure 2026-11-21 (audit sécurité Vibe) : `x-forwarded-host` n'est
+ * plus confiance aveugle. Utilisé seul, il permet à un appelant de forger les
+ * URL du manifest web (`start_url`/`scope`) et des balises OG/manifest
+ * injectées dans le HTML (phishing de prévisualisation de lien, manifest
+ * déporté vers un domaine tiers). L'en-tête n'est accepté QUE s'il correspond
+ * à l'hôte de la requête (`Host`) ou à un hôte explicitement autorisé :
+ * `VITE_PUBLIC_HOSTNAME` (nom d'hôte ou origine) et `GROK_GATE_ORIGIN` (origine).
+ * Sinon on retombe sur `Host`/`event.url.host`, qui eux ne sont pas forgeables
+ * par le routage applicatif.
+ */
+function allowedHosts(event: GrokPwaEvent): Set<string> {
+  const hosts = new Set<string>();
+  for (const candidate of [event.url.host, event.req.headers.get("host")]) {
+    const value = candidate?.trim().toLowerCase();
+    if (value) hosts.add(value);
+  }
+  for (const raw of [process.env.VITE_PUBLIC_HOSTNAME, process.env.GROK_GATE_ORIGIN]) {
+    const value = raw?.trim();
+    if (!value) continue;
+    try {
+      const parsed = new URL(value.includes("://") ? value : `https://${ value }`);
+      if (parsed.hostname) hosts.add(parsed.host === parsed.hostname ? parsed.hostname : parsed.host);
+    } catch {
+      // Valeur d'environnement mal formée : ignorée, jamais interprétée.
+    }
+  }
+  return hosts;
+}
+
 function requestHost(event: GrokPwaEvent): string {
-  return (
-    event.req.headers.get("x-forwarded-host") ?? event.req.headers.get("host") ?? event.url.host
-  );
+  const forwarded = event.req.headers.get("x-forwarded-host")?.trim();
+  if (forwarded && allowedHosts(event).has(forwarded.toLowerCase())) {
+    return forwarded;
+  }
+  return event.req.headers.get("host") ?? event.url.host;
 }
 
 // Cache imports so subsequent requests reuse the loaded modules inside the
