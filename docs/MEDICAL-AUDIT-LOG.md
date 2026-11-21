@@ -8,7 +8,7 @@ Protocole : docs/MEDICAL-AUDIT-PROTOCOL.md
 |---|---|---|---|---|---|
 | 2026-10-27 | pathologies/paludisme | PASS_WITH_NOTES | 1 | Oui (verifie conforme, sans modification) | audit IA 2026-11-15 ; relecture humaine en attente |
 | 2026-11-15 | calculators/scores (8 fichiers, 59 scores) | PASS_WITH_NOTES | 1 | Oui | audit IA ; relecture humaine en attente |
-| 2026-11-20 | decks (urgences, cardio, infectio, neuro) + valeurs-reference + ECG | PASS_WITH_NOTES | 4 | 1 applique (neuro-avc-l3) ; 4 documentees issue #507 | audit IA ; relecture humaine en attente |
+| 2026-11-20 | decks (urgences, cardio, infectio, neuro) + valeurs-reference + ECG | PASS_WITH_NOTES | 4 | Oui (neuro-avc-l3 puis corrections residuelles decks.json issue #507, commit ef1742a) | audit IA ; relecture humaine en attente |
 
 ## Detail
 
@@ -40,5 +40,5 @@ Protocole : docs/MEDICAL-AUDIT-PROTOCOL.md
 - Verifies conformes : alteplase 0,9 mg/kg (bolus 10 %, max 90 mg) ; seuils PA 185/110 pre-thrombolyse et <180/105 a H24 ; cible systolique ~140 mmHg dans l'HIC (INTERACT-2/ATACH) ; adrenaline 1 mg toutes les 3-5 min ; amiodarone 300 mg apres le 3e choc ; adrenaline IM 0,5 mg anaphylaxie (EAACI) ; remplissage 30 mL/kg (SSC 2021) ; sulfate de magnesium eclampsie ; test VIH 4e generation ; TLD OMS ; stats VIH 41,0 M / 1,2 M / 570 000 (fiche OMS 27 juillet 2026) ; vitamine A deux doses a 24 h (rougeole) ; schema 6 doses VAT anatoxine ; PEV Madagascar 6-10-14 semaines ; metronidazole tetanos ; azithromycine/ceftriaxone typhoide.
 - Corrections appliquees :
   1. neuro-avc-l3.json (APPLIQUE sur main) : « sylvien superficial » -> « sylvien superficiel » ; « artère vertébro-cérébelleuse postéro-inférieure » -> « artère cérébelleuse postéro-inférieure (PICA) » (nom canonique du territoire de Wallenberg).
-- Corrections documentees mais PAS ENCORE APPLIQUEES a decks.json (850 Ko, limite memoire du bac a sable de l'agent) : an-1 « Un anastomose » -> « Une anastomose » ; vih-l2-5 « simultément » -> « simultanément » ; tetanos-l4-6 « levèrent » -> « lèvent » ; avc-l3-4 « superficial » -> « superficiel » + PICA. Suivi : issue TOKYO203/grok-medical-app#507.
+- Corrections residuelles decks.json (issue #507) APPLIQUEES le 2026-11-21 a an-1 (« Un anastomose » -> « Une anastomose »), vih-l2-5 (« simultément » -> « simultanément »), tetanos-l4-6 (« levèrent » -> « lèvent »), avc-l3-4 (« superficial » -> « superficiel » + nom canonique PICA). Commits 1026e17 (blob vide par erreur de l'outil de push volumineux) puis ef1742a (restauration avec corrections) ; JSON valide et anciennes chaines absentes verifies apres push. Relance de `npm run release:check` et regeneration des signatures Premium restent a faire en local.
 - Statut : PASS_WITH_NOTES ; relecture humaine toujours en attente (l'audit IA ne vaut pas validation medicale).
