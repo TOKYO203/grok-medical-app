@@ -37,7 +37,7 @@ const INLINE_SCRIPT_PATTERN = /<script(?![^>]*\bsrc=)[^>]*>([\s\S]*?)<\/script>/
 function inlineScriptHashes(html) {
   const hashes = new Set();
   for (const match of html.matchAll(INLINE_SCRIPT_PATTERN)) {
-    hashes.add(`sha256-${createHash("sha256").update(match[1], "utf8").digest("base64")}`('sha256').update(match[1], 'utf8').digest('base64')}`);
+    hashes.add(`sha256-${createHash("sha256").update(match[1], "utf8").digest("base64")}`);
   }
   return [...hashes];
 }
@@ -49,7 +49,7 @@ function isProduction(): boolean {
 function scriptSrc(responseHashes: string[]): string {
   const sources = ["'self'", THEME_BOOT_HASH, ...responseHashes];
   if (!isProduction()) sources.push("'unsafe-inline'");
-  return `script-src ${sources.join(" ")}.join(' ')}`;
+  return `script-src ${sources.join(" ")}`;
 }
 
 /**
