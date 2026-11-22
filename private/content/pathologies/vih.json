@@ -6,7 +6,7 @@
   "specialty": "Infectiologie",
   "objective": "Reconnaître et prendre en charge l'infection à VIH : connaître le virus et ses modes de transmission (sexuel, sanguin, mère-enfant), la physiopathologie (destruction des lymphocytes T CD4), les phases cliniques (primo-infection, latence, SIDA), les indications du dépistage, les infections opportunistes et cancers classant SIDA, les grands principes du traitement antirétroviral (trithérapie, observance, suivi CD4/charge virale), la prophylaxie post-exposition et pré-exposition, et la prévention de la transmission mère-enfant.",
   "language": "fr",
-  "updatedAt": "2026-10-31",
+  "updatedAt": "2026-11-22",
   "reviewStatus": "pending-medical-review",
   "curriculum": {
     "collection": "pathologies",
@@ -32,7 +32,8 @@
     "verificationNotes": [
       "Source 1 : Maartens G, Celum C, Lewin SR. HIV infection: epidemiology, pathogenesis, treatment, and prevention. Lancet. 2014;384(9939):258-271 — DOI 10.1016/S0140-6736(14)60164-1, page officielle ScienceDirect/The Lancet consultée avant citation.",
       "Source 2 : OMS, aide-mémoire « VIH/SIDA » — page officielle https://www.who.int/news-room/fact-sheets/detail/hiv-aids consultée avant citation.",
-      "Pas d'image : pas d'illustration clinique avec licence vérifiée retenue — choix documenté."
+      "Pas d'image : pas d'illustration clinique avec licence vérifiée retenue — choix documenté.",
+      "Le 2026-11-22 alignement au cahier des charges commun : tableau racine callouts dissous dans les sections (les doublons supprimés, les contenus spécifiques fusionnés dans les sections Diagnostic et Histoire naturelle), sources uniques en racine, redFlags, disclaimer et dosagePolicy au niveau racine, champ localAdaptations (Madagascar, centres de traitement ambulatoire et PTME)."
     ],
     "qcChecklist": [
       "VIH : rétrovirus, transmission sexuelle/sanguine/mère-enfant",
@@ -42,7 +43,11 @@
       "Traitement : trithérapie ARV dès que possible, à vie, objectif charge virale indétectable",
       "PTME : ARV mère-enfant, accouchement, allaitement selon contexte",
       "Prévention : préservatif, PrEP, PPE, dépistage, matériel unique",
-      "Self-checks exécutés avant push"
+      "Self-checks exécutés avant push",
+      "Posologies non chiffrées (molécules et voies seules)",
+      "Drapeaux rouges structurés en tête (redFlags)",
+      "Sources racine datées (verifiedAt), aucune source imbriquée",
+      "Adaptation locale Madagascar en champ dédié"
     ]
   },
   "sections": [
@@ -52,21 +57,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "text": "L'infection à virus de l'immunodéficience humaine (VIH) détruit progressivement le système immunitaire cellulaire et évolue, sans traitement, vers le syndrome d'immunodéficience acquise (SIDA) : infections opportunistes et cancers. Le traitement antirétroviral a transformé une maladie mortelle en infection chronique contrôlée : un patient dépisté tôt, traité et observant a une espérance de vie proche de la normale et ne transmet plus le virus lorsque sa charge virale est indétectable. Le VIH reste néanmoins une épidémie mondiale, concentrée dans l'Afrique subsaharienne, d'où l'importance du dépistage universel.",
-          "sources": [
-            {
-              "id": "who2025vih",
-              "organization": "Organisation mondiale de la Santé",
-              "title": "Aide-mémoire : VIH/SIDA",
-              "year": 2025
-            },
-            {
-              "id": "maartens2014",
-              "organization": "The Lancet",
-              "title": "HIV infection: epidemiology, pathogenesis, treatment, and prevention",
-              "year": 2014
-            }
-          ]
+          "text": "L'infection à virus de l'immunodéficience humaine (VIH) détruit progressivement le système immunitaire cellulaire et évolue, sans traitement, vers le syndrome d'immunodéficience acquise (SIDA) : infections opportunistes et cancers. Le traitement antirétroviral a transformé une maladie mortelle en infection chronique contrôlée : un patient dépisté tôt, traité et observant a une espérance de vie proche de la normale et ne transmet plus le virus lorsque sa charge virale est indétectable. Le VIH reste néanmoins une épidémie mondiale, concentrée dans l'Afrique subsaharienne, d'où l'importance du dépistage universel."
         },
         {
           "type": "callout",
@@ -89,14 +80,6 @@
             "PAS DE TRANSMISSION PAR : embrassements, vaisselle, moustiques, contacts sociaux, partage de sanitaires — lutter contre ces idées reçues, elles alimentent la stigmatisation.",
             "FACTEURS DE RISQUE : rapports non protégés, partenaires multiples, autres IST, prostitution, usage de drogues injectables, transfusions non contrôlées, absence de dépistage chez la femme enceinte.",
             "PHYSIOPATHOLOGIE : destruction progressive des T CD4 ; le déficit immunitaire cellulaire favorise les infections opportunistes, certains cancers et un risque accru de tuberculose (co-infection VIH-tuberculose majeure à Madagascar et en Afrique)."
-          ],
-          "sources": [
-            {
-              "id": "maartens2014",
-              "organization": "The Lancet",
-              "title": "HIV infection: epidemiology, pathogenesis, treatment, and prevention",
-              "year": 2014
-            }
           ]
         }
       ]
@@ -111,7 +94,7 @@
             "PRIMO-INFECTION (2 à 4 semaines après la contamination) : syndrome pseudo-grippal ou pseudo-mononucléosique (fièvre, angine, éruption, polyadénopathies, arthralgies) dans 40 à 90 % des cas, parfois asymptomatique ; charge virale très élevée = contagiosité maximale ; sérologie encore négative (fenêtre sérologique) — PCR utile si suspicion forte.",
             "LATENCE CLINIQUE : années sans symptôme majeur (polyadénopathies persistantes possibles), mais réplication virale continue et baisse progressive des CD4 ; le patient est contagieux pendant toute cette phase.",
             "SYMPTÔMES DE LA PHASE SYMPTOMATIQUE : amaigrissement, fièvre prolongée, diarrhée chronique, sueurs nocturnes, zona, candidose orale/œsophagienne, leucoplasie chevelue ; tuberculose pulmonaire et extrapulmonaire.",
-            "SIDA : CD4 bas (moins de 200/mm³) ; INFECTIONS OPPORTUNISTES : pneumocystose (PJP), toxoplasmose cérébrale, cryptocoquose neuroméningée, cytomégalovirus (rétinite), mycobactéries atypiques, candidose œsophagienne, cryptosporidiose ; CANCERS : sarcome de Kaposi, lymphomes, cancer du col (HPV).",
+            "SIDA : CD4 bas (moins de 200/mm³) ; INFECTIONS OPPORTUNISTES : pneumocystose (PJP), toxoplasmose cérébrale, cryptococcose neuroméningée, cytomégalovirus (rétinite), mycobactéries atypiques, candidose œsophagienne, cryptosporidiose ; CANCERS : sarcome de Kaposi, lymphomes, cancer du col (HPV).",
             "Toute tuberculose, tout zona du sujet jeune, toute candidose œsophagienne, tout amaigrissement inexpliqué = DEMANDER une sérologie VIH.",
             "IMMUNODÉPRESSION ET VACCINS : pas de vaccins vivants (BCG, rougeole) chez le patient très immunodéprimé ; vacciner contre l'hépatite B, la grippe, le pneumocoque."
           ]
@@ -120,15 +103,13 @@
           "type": "callout",
           "tone": "urgence",
           "title": "Urgences du SIDA",
-          "text": "Certaines complications imposent une hospitalisation en urgence : pneumocystose (fièvre, toux sèche, hypoxie), toxoplasmose cérébrale (déficit focal, convulsions), méningite cryptocoquique (céphalées, fièvre), syndrome inflammatoire de restauration immunitaire (IRIS) à l'instauration des ARV chez les patients très immunodéprimés, œsophagite candidosique (dysphagie douloureuse). Un SIDA déclaré est une urgence thérapeutique.",
-          "sources": [
-            {
-              "id": "maartens2014",
-              "organization": "The Lancet",
-              "title": "HIV infection: epidemiology, pathogenesis, treatment, and prevention",
-              "year": 2014
-            }
-          ]
+          "text": "Certaines complications imposent une hospitalisation en urgence : pneumocystose (fièvre, toux sèche, hypoxie), toxoplasmose cérébrale (déficit focal, convulsions), méningite cryptococcique (céphalées, fièvre), syndrome inflammatoire de restauration immunitaire (IRIS) à l'instauration des ARV chez les patients très immunodéprimés, œsophagite candidosique (dysphagie douloureuse). Un SIDA déclaré est une urgence thérapeutique. Ne jamais débuter les ARV au milieu d'une infection opportuniste non traitée sans évaluation (risque d'IRIS)."
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "Trois phases, un dépistage",
+          "text": "Primo-infection (pseudo-grippale, très contagieuse, sérologie encore négative) → latence de plusieurs années (contagieux, asymptomatique) → SIDA (CD4 bas, infections opportunistes). Ne jamais attendre les symptômes pour dépister."
         }
       ]
     },
@@ -138,21 +119,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "text": "Le diagnostic repose sur la SÉROLOGIE VIH : tests rapides d'orientation (TROD) à l'aveugle au doigt ou sur sang/salive, confirmés par un test différentiel (ligne de confirmation selon les protocoles nationaux) ; toute sérologie positive doit être confirmée avant annonce. La PCR ARN VIH (charge virale) sert au suivi et au diagnostic précoce (nourrisson, fenêtre sérologique). Le dépistage est proposé à TOUS : toute personne sexuellement active, toute femme enceinte, tout patient atteint d'une IST, d'une tuberculose, d'un zona, d'un amaigrissement, tout donneur de sang, tout exposé professionnel.",
-          "sources": [
-            {
-              "id": "who2025vih",
-              "organization": "Organisation mondiale de la Santé",
-              "title": "Aide-mémoire : VIH/SIDA",
-              "year": 2025
-            },
-            {
-              "id": "maartens2014",
-              "organization": "The Lancet",
-              "title": "HIV infection: epidemiology, pathogenesis, treatment, and prevention",
-              "year": 2014
-            }
-          ]
+          "text": "Le diagnostic repose sur la SÉROLOGIE VIH : tests rapides d'orientation (TROD) à l'aveugle au doigt ou sur salive, confirmés par un test différentiel (ligne de confirmation selon les protocoles nationaux) ; toute sérologie positive doit être confirmée avant annonce. La PCR ARN VIH (charge virale) sert au suivi et au diagnostic précoce (nourrisson, fenêtre sérologique). Le dépistage est proposé à TOUS : toute personne sexuellement active, toute femme enceinte, tout patient atteint d'une IST, d'une tuberculose, d'un zona, d'un amaigrissement, tout donneur de sang, tout exposé professionnel."
         },
         {
           "type": "list",
@@ -168,6 +135,12 @@
           "tone": "prudence",
           "title": "Fenêtre sérologique",
           "text": "Les tests détectent les anticorps à partir de quelques semaines après la contamination : une sérologie précoce peut être négative alors que le patient est TRÈS contagieux (charge virale massive de la primo-infection). Toute exposition récente = test immédiat + test de contrôle à 4-6 semaines (selon le test utilisé) ; PPE à discuter dans les 72 heures si exposition à risque."
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Annonce et confidentialité",
+          "text": "Le dépistage VIH requiert consentement et confidentialité ; l'annonce d'une sérologie positive se fait toujours après confirmation, si possible avec un conseiller, et avec orientation immédiate vers les soins : le plus grand risque est la perte de vue entre l'annonce et la première consultation."
         }
       ]
     },
@@ -178,42 +151,20 @@
         {
           "type": "list",
           "items": [
-            "PRINCIPE : associer au moins 3 molécules antirétrovirales (trithérapie) de classes différentes — inhibiteurs nucléosidiques/tidiques de la transcriptase inverse (INTI), inhibiteurs non nucléosidiques (INNTI), inhibiteurs de protéase (IP, souvent boostés), inhibiteurs d'intégrase (les plus utilisés en première ligne moderne), antagonistes du CCR5.",
+            "PRINCIPE : associer au moins 3 molécules antirétrovirales (trithérapie) de classes différentes — inhibiteurs nucléosidiques et nucléotidiques de la transcriptase inverse (INTI), inhibiteurs non nucléosidiques (INNTI), inhibiteurs de protéase (IP, souvent boostés), inhibiteurs d'intégrase (les plus utilisés en première ligne moderne), antagonistes du CCR5.",
             "QUAND COMMENCER : DÈS QUE POSSIBLE chez TOUT patient infecté, quel que soit le taux de CD4 et le stade (recommandations OMS) ; chez le patient avec infection opportuniste, traiter l'infection en cours et introduire les ARV en fonction du germe et de l'état (risque d'IRIS).",
             "OBJECTIFS : charge virale INDÉTECTABLE (intransmissibilité), remontée des CD4, prévention du SIDA, grossesse sans transmission, qualité et durée de vie normales.",
             "OBSERVANCE : la clé du succès — la prise doit être quotidienne, à vie ; les ruptures de traitement sélectionnent des virus résistants ; éducation thérapeutique, soutien par les pairs, gestion des effets indésirables.",
             "SUIVI : charge virale à quelques semaines puis régulièrement, CD4, tolérance (selon molécules : toxicité mitochondriale, rénale, osseuse, hépatique), dépistage de l'échec virologique et des résistances.",
             "PROPHYLAXIE DES INFECTIONS OPPORTUNISTES selon le taux de CD4 : cotrimoxazole (pneumocystose, toxoplasmose, isosporose, paludisme) chez les patients immunodéprimés selon les protocoles nationaux ; traitement de la tuberculose associée ; antifongiques et antiviraux selon les infections.",
-            "ACTIONS ASSOCIÉES : dépistage du VIH chez le(s) partenaire(s) et les enfants, prévention (préservatifs, contraception adaptée), soutien nutritionnel, prise en charge psychosociale, luttre contre la stigmatisation ; vaccination (hépatite B, pneumocoque, grippe ; pas de vivants si immunodépression sévère)."
-          ],
-          "sources": [
-            {
-              "id": "maartens2014",
-              "organization": "The Lancet",
-              "title": "HIV infection: epidemiology, pathogenesis, treatment, and prevention",
-              "year": 2014
-            },
-            {
-              "id": "who2025vih",
-              "organization": "Organisation mondiale de la Santé",
-              "title": "Aide-mémoire : VIH/SIDA",
-              "year": 2025
-            }
+            "ACTIONS ASSOCIÉES : dépistage du VIH chez le(s) partenaire(s) et les enfants, prévention (préservatifs, contraception adaptée), soutien nutritionnel, prise en charge psychosociale, lutte contre la stigmatisation ; vaccination (hépatite B, pneumocoque, grippe ; pas de vivants si immunodépression sévère)."
           ]
         },
         {
           "type": "callout",
           "tone": "reflexe",
           "title": "Exposition accidentelle au VIH",
-          "text": "AES professionnel ou exposition sexuelle à risque : PPE (prophylaxie post-exposition) à débuter IDEMMENT, idéalement dans les 2 à 4 heures, au plus tard dans les 72 heures, pendant 28 jours ; évaluer le statut de la source, dépister VIH, hépatites B et C ; pour l'AES : décontamination immédiate (lavage, antiseptique). L'efficacité de la PPE dépend de sa précocité.",
-          "sources": [
-            {
-              "id": "who2025vih",
-              "organization": "Organisation mondiale de la Santé",
-              "title": "Aide-mémoire : VIH/SIDA",
-              "year": 2025
-            }
-          ]
+          "text": "AES professionnel ou exposition sexuelle à risque : PPE (prophylaxie post-exposition) à débuter immédiatement, idéalement dans les 2 à 4 heures, au plus tard dans les 72 heures, pendant 28 jours ; évaluer le statut de la source, dépister VIH, hépatites B et C ; pour l'AES : décontamination immédiate (lavage, antiseptique). L'efficacité de la PPE dépend de sa précocité."
         }
       ]
     },
@@ -232,20 +183,6 @@
             "CIRCONCISION MASCULINE : réduit la transmission hétérosexuelle homme-femme dans les contextes à haute prévalence (offre chirurgicale sûre).",
             "TRAITER = PRÉVENIR : chaque personne mise sous ARV avec charge virale indétectable ne transmet plus le virus sexuellement (I = I) ; dépistage + traitement immédiat = stratégie de prévention populationnelle.",
             "lutte contre la stigmatisation et la discrimination ; information communautaire ; implication des personnes vivant avec le VIH."
-          ],
-          "sources": [
-            {
-              "id": "who2025vih",
-              "organization": "Organisation mondiale de la Santé",
-              "title": "Aide-mémoire : VIH/SIDA",
-              "year": 2025
-            },
-            {
-              "id": "maartens2014",
-              "organization": "The Lancet",
-              "title": "HIV infection: epidemiology, pathogenesis, treatment, and prevention",
-              "year": 2014
-            }
           ]
         },
         {
@@ -278,38 +215,6 @@
           ]
         }
       ]
-    }
-  ],
-  "callouts": [
-    {
-      "id": "c1",
-      "tone": "urgence",
-      "title": "SIDA déclaré = urgence",
-      "text": "Pneumocystose (hypoxie), toxoplasmose cérébrale, méningite cryptocoquique, œsophagite candidosique : hospitalisation, traitement de l'infection opportuniste, puis introduction des ARV selon le germe (risque d'IRIS). Ne jamais commencer les ARV au milieu d'une infection opportuniste non traitée sans évaluation."
-    },
-    {
-      "id": "c2",
-      "tone": "prudence",
-      "title": "Annonce et confidentialité",
-      "text": "Le dépistage VIH requiert consentement et confidentialité ; l'annonce d'une sérologie positive se fait toujours après confirmation, en présence si possible d'un conseiller, avec orientation immédiate vers les soins : le plus grand risque est la perte de vue entre l'annonce et la première consultation."
-    },
-    {
-      "id": "c3",
-      "tone": "reflexe",
-      "title": "PPE dans les 72 heures",
-      "text": "Exposition professionnelle ou sexuelle à risque : PPE débutée idéalement dans les 2-4 heures, au plus tard 72 heures, 28 jours. Décontamination immédiate si AES, évaluation de la source, dépistage VIH/VHB/VHC. Chaque heure compte."
-    },
-    {
-      "id": "c4",
-      "tone": "retenir",
-      "title": "Trois phases, un dépistage",
-      "text": "Primo-infection (pseudo-grippale, très contagieuse, sérologie encore négative) → latence de plusieurs années (contagieux, asymptomatique) → SIDA (CD4 bas, infections opportunistes). Ne jamais attendre les symptômes pour dépister."
-    },
-    {
-      "id": "c5",
-      "tone": "memo",
-      "title": "Tuberculose = réflexe VIH",
-      "text": "Co-infection majeure : toute tuberculose justifie une sérologie VIH, et tout patient VIH doit être dépisté pour la tuberculose à chaque consultation. Les deux maladies s'accélèrent mutuellement ; le dépistage croisé sauve des vies."
     }
   ],
   "mnemonics": [
@@ -374,7 +279,7 @@
     {
       "id": "f5",
       "front": "Citez des infections opportunistes et cancers classant SIDA.",
-      "back": "Pneumocystose, toxoplasmose cérébrale, cryptocoquose neuroméningée, candidose œsophagienne, rétinite à CMV, mycobactéries atypiques ; sarcome de Kaposi, lymphomes, cancer du col lié au HPV."
+      "back": "Pneumocystose, toxoplasmose cérébrale, cryptococcose neuroméningée, candidose œsophagienne, rétinite à CMV, mycobactéries atypiques ; sarcome de Kaposi, lymphomes, cancer du col lié au HPV."
     },
     {
       "id": "f6",
@@ -632,6 +537,42 @@
         "PrEP/PPE et stratégies de prévention",
         "Dépistage"
       ]
+    }
+  ],
+  "disclaimer": "Support pédagogique. Ne remplace ni un avis médical ni les protocoles locaux.",
+  "dosagePolicy": "Molécules citées sans posologies : se référer aux protocoles locaux et au contexte du patient.",
+  "redFlags": [
+    {
+      "sign": "Fièvre, toux sèche et hypoxie chez un patient VIH très immunodéprimé",
+      "action": "Pneumocystose probable : hospitalisation et traitement urgent, ARV à programmer selon l'état"
+    },
+    {
+      "sign": "Déficit focal ou convulsions chez un patient VIH",
+      "action": "Toxoplasmose cérébrale suspectée : imagerie et traitement urgent"
+    },
+    {
+      "sign": "Céphalées et fièvre chez un patient VIH",
+      "action": "Méningite cryptococcique suspectée : ponction lombaire urgente et traitement"
+    },
+    {
+      "sign": "Exposition à risque (accident d'exposition au sang, rapport non protégé)",
+      "action": "Prophylaxie post-exposition dès que possible, au plus tard dans les 72 heures, puis suivi sérologique"
+    },
+    {
+      "sign": "Tuberculose chez un patient ou un cas contact",
+      "action": "Dépistage VIH systématique, et dépistage de la tuberculose chez tout patient VIH à chaque consultation"
+    },
+    {
+      "sign": "Grossesse chez une femme séropositive",
+      "action": "Prévention de la transmission mère-enfant immédiate : ARV chez la mère, prophylaxie du nourrisson, suivi de la charge virale"
+    }
+  ],
+  "localAdaptations": [
+    {
+      "country": "Madagascar",
+      "programme": "Services de prise en charge VIH — centres de traitement ambulatoire et PTME",
+      "sourceId": "who2025vih",
+      "note": "Points critiques en contexte : distribution gratuite des antirétroviraux en centres de traitement ambulatoire, file active PTME dans les maternités, dépistage proposé systématiquement au cours de la grossesse ; disponibilité de la charge virale et des CD4 variable hors grandes villes (l'observance clinique et la tolérance restent à surveiller), choix d'allaitement guidés par le protocole national. Protocole national détaillé non accessible en ligne au 2026-11-22 : schémas exacts et modalités à confirmer sur le protocole en vigueur."
     }
   ]
 }

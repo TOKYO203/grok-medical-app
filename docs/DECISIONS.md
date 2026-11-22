@@ -871,3 +871,9 @@ une affectation de `VITE_AUTH_ENABLED` sur `process.env` dans le lanceur.
 | Date | ID | Décision | Motif | Auteur |
 |------|----|----------|-------|--------|
 | 2026-11-22 | C-STD-10 | Fiche `tuberculose.json` alignée au standard complet : sources déplacées des sections vers la racine, numérotation romaine retirée des titres, redFlags (6), disclaimer + dosagePolicy, `localAdaptations` Madagascar (PNLT, CDT, BCG), mindmap nettoyée du champ tone et racine renommée `tb-root` | Item Infectiologie majeur (ordinal 42) : encadré « Contexte malgache » existant cristallisé en adaptation locale | Vibe |
+
+## 2026-11-22 — Fiches : VIH alignée au standard (session contenu 2)
+
+| Date | ID | Décision | Motif | Auteur |
+|------|----|----------|-------|--------|
+| 2026-11-22 | C-STD-11 | Fiche `vih.json` alignée au standard complet : sources des blocs supprimées (racine seule), tableau racine `callouts` dissous dans les sections (contenus spécifiques intégrés à Diagnostic et Histoire naturelle, doublons supprimés), redFlags (6), disclaimer + dosagePolicy, `localAdaptations` Madagascar (centres de traitement ambulatoire, PTME), corrections orthographiques (cryptococcose, PPE immédiate, VIH-2, lutte) | Item Infectiologie chronique (ordinal 47) : cohérence du triptyque tuberculose-VIH-paludisme | Vibe |
