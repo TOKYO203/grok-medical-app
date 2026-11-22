@@ -840,3 +840,10 @@ une affectation de `VITE_AUTH_ENABLED` sur `process.env` dans le lanceur.
 | 2026-11-21 | C-STD-2 | Fiche `paludisme.json` enrichie au standard complet : redFlags, disclaimer, dosagePolicy, encadré « Adaptation locale — Madagascar (PNLP) » (ASAQ 1re intention, AL 2e), 3 sources datées (PNLP 2013, Severe Malaria Observatory, Malaria Journal 2018 doi 10.1186/s12936-018-2440-0), posologies dé-chiffrées (2,4 mg/kg retirés) — commits `63dfe32` + `9d99bbb` | Prototype de référence du standard ; en attente de validation médicale | Vibe |
 | 2026-11-21 | C-STD-3 | Protocole de première connexion agent créé (`docs/AGENT-ONBOARDING.md`) et branché dans `AGENTS.md` (bloc MISSION ACTIVE + levée du verrou contenu) | Un agent qui arrive en début de session doit savoir quoi lire et quoi faire sans répéter les erreurs passées | Vibe |
 | 2026-11-21 | C-STD-4 | Fiches `signes` : alignement au standard confirmé comme tâche ouverte (minimum vital : schemaVersion, reviewStatus, updatedAt, verifiedAt, disclaimer, correction attribution « JNDES ») | Priorité aux items pathologies du référentiel | Vibe |
+
+## 2026-11-22 — Fiches : éclampsie alignée au standard (session contenu 2)
+
+| Date | ID | Décision | Motif | Auteur |
+|------|----|----------|-------|--------|
+| 2026-11-22 | C-STD-5 | Fiche `eclampsie.json` alignée au standard complet : redFlags (6), disclaimer + dosagePolicy, `localAdaptations` Madagascar (COE, diazépam en alternative, guide MSF), posologies chiffrées supprimées (sulfate de magnésium, diazépam), WikEM remplacé par les recommandations OMS 2011, tableau racine `callouts` supprimé (mémo surveillance intégré à la section Traitement), `verificationNotes` converties en tableau | Standard commun appliqué à la première urgence obstétricale | Vibe |
+| 2026-11-22 | C-STD-6 | Clarification de la règle « zéro posologie » : les seuils de monitorage (PA cible < 160/110 mmHg, réflexes, diurèse, fréquence respiratoire) ne sont pas des posologies et restent chiffrés | Le contrôle horaire du sulfate de magnésium a besoin de ses paramètres pour être cliniquement utile | Vibe |

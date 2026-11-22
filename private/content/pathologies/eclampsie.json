@@ -5,7 +5,7 @@
   "title": "Éclampsie",
   "specialty": "Gynécologie-Obstétrique",
   "language": "fr",
-  "updatedAt": "2026-11-01",
+  "updatedAt": "2026-11-22",
   "reviewStatus": "pending-medical-review",
   "objective": "Définir l'éclampsie, reconnaître la crise convulsive gravidique et la prendre en charge en urgence (sulfate de magnésium, contrôle tensionnel, extraction fœtale), identifier les signes de gravité, les diagnostics différentiels en contexte malgache et les complications maternelles et fœtales.",
   "curriculum": {
@@ -28,8 +28,13 @@
   "editorial": {
     "reviewStatus": "pending-medical-review",
     "reviewedBy": null,
-    "reformulation": "Fiche centrée sur l'urgence vitale : séquence de prise en charge de la crise, protocoles de sulfate de magnésium (voie veineuse et intramusculaire), extraction fœtale et surveillance. La physiopathologie, les signes d'alerte et le traitement de la pré-éclampsie sont détaillés dans la fiche Grossesse et hypertension artérielle, à consulter conjointement.",
-    "verificationNotes": "Doses issues des recommandations SFAR (prise en charge extra-hospitalière), du guide clinique MSF (contexte africain : alternative au sulfate, différents paludisme et méningite) et de la revue Cochrane confirmant le sulfate de magnésium comme médicament de référence. Schéma veineux (charge 4-6 g puis 1-2 g/h) et schéma intramusculaire (10 g puis 5 g toutes les 4 h) vérifiés. En contexte malgache, le diazépam reste l'alternative quand le sulfate de magnésium n'est pas disponible.",
+    "reformulation": "Fiche centrée sur l'urgence vitale : séquence de prise en charge de la crise, protocoles de sulfate de magnésium (voie veineuse et intramusculaire), extraction fœtale et surveillance. La physiopathologie, les signes d'alerte et le traitement de la pré-éclampsie sont détaillés dans la fiche Grossesse et hypertension artérielle, à consulter conjointement. Mise à jour du 2026-11-22 : arrivée au cahier des charges commun (drapeaux rouges structurés, adaptation locale Madagascar, retrait des posologies chiffrées en faveur de molécules + voies).",
+    "verificationNotes": [
+      "Doses issues des recommandations SFAR (prise en charge extra-hospitalière), du guide clinique MSF (contexte africain : alternative au sulfate, différents paludisme et méningite) et de la revue Cochrane confirmant le sulfate de magnésium comme médicament de référence. Schémas veineux et intramusculaire vérifiés dans les sources ; conformément à la politique de posologie, les chiffres ont été retirés de la fiche et renvoyés au protocole national. En contexte malgache, le diazépam reste l'alternative quand le sulfate de magnésium n'est pas disponible.",
+      "Le 2026-11-22 alignement au cahier des charges commun (docs/STANDARD-FICHES-COMPLET.md) : drapeaux rouges structurés en tête, disclaimer et politique de posologie au niveau racine, champ localAdaptations (Madagascar, COE, guide MSF en référence opérationnelle) et suppression des posologies chiffrées (sulfate de magnésium, diazépam) au profit de molécules + voies avec renvoi au protocole national.",
+      "Le 2026-11-22 clarification de la règle « zéro posologie » : les seuils de monitorage (pression artérielle cible < 160/110 mmHg, réflexes rotuliens, diurèse, fréquence respiratoire) ne sont pas des posologies et restent chiffrés, car le contrôle horaire du sulfate de magnésium en a besoin.",
+      "Le 2026-11-22 sources : WikEM remplacé par les recommandations OMS (2011) sur la pré-éclampsie et l'éclampsie, d'autorité supérieure ; aucun protocole national malgache détaillé n'était vérifiable en ligne à cette date (point signalé dans localAdaptations)."
+    ],
     "qcChecklist": [
       "8 sections requises présentes",
       "Sources citées dans le diagnostic et le traitement",
@@ -37,7 +42,9 @@
       "4 mnémoniques",
       "16 cartes de révision",
       "Carte mentale complète",
-      "Articulation avec la fiche grossesse-hta sans duplication"
+      "Articulation avec la fiche grossesse-hta sans duplication",
+      "Posologies non chiffrées (molécules et voies seules)",
+      "Drapeaux rouges structurés en tête (redFlags)"
     ]
   },
   "sections": [
@@ -133,7 +140,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Protocole veineux de sulfate de magnésium : dose de charge de 4 à 6 g en solution diluée, perfusée en 20 à 30 minutes, puis dose d'entretien de 1 à 2 g par heure, poursuivie 24 heures après l'accouchement ou la dernière crise. Protocole intramusculaire (en l'absence d'abord veineux) : 10 g (5 g dans chaque fesse), puis 5 g toutes les 4 heures. La surveillance clinique est horaire : réflexes rotuliens, fréquence respiratoire (au-dessus de 12 par minute), diurèse ; en cas de signes de surdosage (abolition des réflexes, dépression respiratoire), arrêter le sulfate et injecter du gluconate de calcium.",
+          "text": "Protocole veineux de sulfate de magnésium : dose de charge en solution diluée perfusée lentement, puis dose d'entretien continue (schéma précisé par le protocole national), poursuivie 24 heures après l'accouchement ou la dernière crise. Protocole intramusculaire (en l'absence d'abord veineux) : une dose de charge répartie en deux points, puis des injections répétées (protocole national). La surveillance clinique est horaire : réflexes rotuliens, fréquence respiratoire (au-dessus de 12 par minute), diurèse ; en cas de signes de surdosage (abolition des réflexes, dépression respiratoire), arrêter le sulfate et injecter du gluconate de calcium.",
           "sources": [
             "s2",
             "s3",
@@ -142,7 +149,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Le contrôle tensionnel vise une pression artérielle systolique inférieure à 160 mmHg et diastolique inférieure à 110 mmHg : labétalol, nicardipine ou urapidil par voie veineuse selon les disponibilités, avec un objectif de baisse progressive. En l'absence de sulfate de magnésium, le diazépam (10 mg en voie veineuse lente ou rectale, puis 40 mg sur 24 heures en perfusion) constitue l'alternative, moins efficace sur la récidive. La patiente est transférée en milieu spécialisé (maternité de niveau adapté, réanimation si besoin) après stabilisation ; l'extraction fœtale est décidée en équipe, sans précipitation vaine mais sans retard inutile.",
+          "text": "Le contrôle tensionnel vise une pression artérielle systolique inférieure à 160 mmHg et diastolique inférieure à 110 mmHg : labétalol, nicardipine ou urapidil par voie veineuse selon les disponibilités, avec un objectif de baisse progressive. En l'absence de sulfate de magnésium, le diazépam en voie veineuse lente ou rectale puis en perfusion continue constitue l'alternative (schémas du protocole national), moins efficace sur la récidive. La patiente est transférée en milieu spécialisé (maternité de niveau adapté, réanimation si besoin) après stabilisation ; l'extraction fœtale est décidée en équipe, sans précipitation vaine mais sans retard inutile.",
           "sources": [
             "s1",
             "s2"
@@ -153,6 +160,18 @@
           "tone": "urgence",
           "title": "Séquence de la crise",
           "text": "Protéger (latéraliser, aspirer, oxygéner) → Sulfate de magnésium sans délai → Contrôle tensionnel → Bilan et enregistrement du rythme fœtal → Extraction fœtale une fois la mère stabilisée."
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Mémo surveillance du sulfate",
+          "text": "Réflexes rotuliens présents, respiration au-dessus de 12 par minute, diurèse supérieure à 30 mL par heure : contrôle horaire obligatoire."
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "Adaptation locale — Madagascar (COE)",
+          "text": "À Madagascar, l'accès au sulfate de magnésium est inégal : maternités périphériques souvent dépourvues, COE (centres d'obstétrique et de néonatologie d'urgence) mieux équipés. En l'absence de sulfate, le diazépam reste l'alternative, et le transfert vers un COE fait partie de la séquence de survie maternelle. Les schémas exacts relèvent du protocole national en vigueur."
         }
       ]
     },
@@ -192,7 +211,7 @@
           "type": "callout",
           "tone": "retenir",
           "title": "À retenir",
-          "text": "Crise convulsive gravidique = éclampsie jusqu'à preuve du contraire. Sulfate de magnésium : charge 4-6 g veineux puis 1-2 g/h (ou 10 g intramusculaire puis 5 g/4 h), poursuivi 24 h après l'accouchement. Seul traitement curatif : l'extraction fœtale. Surveiller réflexes, respiration, diurèse ; antidote : gluconate de calcium."
+          "text": "Crise convulsive gravidique = éclampsie jusqu'à preuve du contraire. Sulfate de magnésium : dose de charge puis entretien selon le protocole national, poursuivi 24 h après l'accouchement. Seul traitement curatif : l'extraction fœtale. Surveiller réflexes, respiration, diurèse ; antidote : gluconate de calcium."
         }
       ]
     },
@@ -211,38 +230,6 @@
           ]
         }
       ]
-    }
-  ],
-  "callouts": [
-    {
-      "id": "c1",
-      "tone": "urgence",
-      "title": "Convulsion chez une femme enceinte = éclampsie",
-      "text": "Ne pas attendre la protéinurie ni l'hypertension : toute crise convulsive gravidique est une éclampsie jusqu'à preuve du contraire."
-    },
-    {
-      "id": "c2",
-      "tone": "urgence",
-      "title": "Séquence de la crise",
-      "text": "Protéger → Sulfate de magnésium → Contrôle tensionnel → Bilan et rythme fœtal → Extraction fœtale après stabilisation maternelle."
-    },
-    {
-      "id": "c3",
-      "tone": "reflexe",
-      "title": "Réflexe prévention",
-      "text": "Pré-éclampsie sévère avec céphalées, phosphènes, barre épigastrique ou hyperreflexie : sulfate de magnésium prophylactique immédiat."
-    },
-    {
-      "id": "c4",
-      "tone": "retenir",
-      "title": "À retenir",
-      "text": "Sulfate de magnésium : charge 4-6 g veineux puis 1-2 g/h, ou 10 g intramusculaire puis 5 g toutes les 4 h ; poursuivre 24 h. Antidote : gluconate de calcium."
-    },
-    {
-      "id": "c5",
-      "tone": "memo",
-      "title": "Mémo surveillance du sulfate",
-      "text": "Réflexes rotuliens présents, respiration au-dessus de 12 par minute, diurèse supérieure à 30 mL par heure : contrôle horaire obligatoire."
     }
   ],
   "mnemonics": [
@@ -355,17 +342,17 @@
     {
       "id": "f5",
       "front": "Quel est le médicament de référence de la crise d'éclampsie ?",
-      "back": "Le sulfate de magnésium : charge de 4 à 6 g en veineuse sur 20-30 minutes, puis 1 à 2 g par heure en entretien."
+      "back": "Le sulfate de magnésium : dose de charge en veineuse diluée puis entretien continu (schéma national)."
     },
     {
       "id": "f6",
       "front": "Quel est le protocole intramusculaire du sulfate de magnésium ?",
-      "back": "10 g (5 g dans chaque fesse) en dose de charge, puis 5 g toutes les 4 heures — utile en l'absence d'abord veineux."
+      "back": "une dose de charge répartie en deux points puis des injections répétées — utile en l'absence d'abord veineux — utile en l'absence d'abord veineux."
     },
     {
       "id": "f7",
       "front": "Quelle est l'alternative quand le sulfate de magnésium n'est pas disponible ?",
-      "back": "Le diazépam : 10 mg en veineuse lente ou rectale, puis 40 mg sur 24 heures en perfusion — moins efficace sur la récidive."
+      "back": "Le diazépam : une dose en veineuse lente ou rectale puis une perfusion selon le protocole — moins efficace sur la récidive."
     },
     {
       "id": "f8",
@@ -486,7 +473,7 @@
           },
           {
             "id": "ec-l8",
-            "label": "Sulfate de magnésium : 4-6 g puis 1-2 g/h (ou 10 g IM)"
+            "label": "Sulfate de magnésium sans délai (schéma national)"
           },
           {
             "id": "ec-l9",
@@ -598,17 +585,55 @@
     },
     {
       "id": "s4",
-      "title": "Eclampsia — WikEM (édition française)",
-      "citation": "WikEM — Éclampsie (protocoles de sulfate de magnésium)",
-      "organization": "WikEM",
-      "year": 2024,
-      "version": "Aide-mémoire clinique",
-      "url": "https://wikem.org/wiki/Eclampsia/fr",
-      "verifiedAt": "2026-11-01",
+      "title": "WHO recommendations for prevention and treatment of pre-eclampsia and eclampsia",
+      "citation": "Organisation mondiale de la Santé. WHO recommendations for prevention and treatment of pre-eclampsia and eclampsia ; 2011.",
+      "organization": "Organisation mondiale de la Santé (OMS)",
+      "year": 2011,
+      "version": "recommandations OMS (référence internationale)",
+      "url": "https://www.who.int/publications/i/item/9789241548335",
+      "verifiedAt": "2026-11-22",
       "usedFor": [
-        "doses de charge et d'entretien",
-        "surveillance"
-      ]
+        "Sulfate de magnésium traitement de référence",
+        "Contrôle tensionnel",
+        "Prophylaxie par aspirine"
+      ],
+      "note": "Lien vérifié le 2026-11-22 : l'OMS confirme le sulfate de magnésium comme anticonvulsivant de référence de l'éclampsie et la prophylaxie par aspirine en cas de risque de pré-éclampsie."
+    }
+  ],
+  "disclaimer": "Support pédagogique. Ne remplace ni un avis médical ni les protocoles locaux.",
+  "dosagePolicy": "Molécules citées sans posologies : se référer aux protocoles locaux et au contexte du patient.",
+  "redFlags": [
+    {
+      "sign": "Crise convulsive en cours ou récidivante",
+      "action": "Protéger la patiente (latéralisation, aspiration, oxygène) et sulfate de magnésium sans délai"
+    },
+    {
+      "sign": "Abolition des réflexes rotuliens, respiration ralentie",
+      "action": "Surdosage en magnésium : arrêter le sulfate, gluconate de calcium en veineuse"
+    },
+    {
+      "sign": "Pression artérielle ≥ 160/110 mmHg malgré le traitement",
+      "action": "Contrôle tensionnel intraveineux immédiat : risque d'hémorragie cérébrale"
+    },
+    {
+      "sign": "Douleur épigastrique avec hémolyse et plaquettes basses",
+      "action": "Syndrome HELLP : prise en charge obstétricale spécialisée en urgence"
+    },
+    {
+      "sign": "Rythme cardiaque fœtal pathologique",
+      "action": "Décision obstétricale immédiate : l'extraction fœtale est le seul traitement curatif"
+    },
+    {
+      "sign": "Céphalées persistantes, troubles visuels ou coma en post-partum",
+      "action": "Imagerie cérébrale : œdème ou hémorragie cérébrale à éliminer ; penser à l'éclampsie tardive"
+    }
+  ],
+  "localAdaptations": [
+    {
+      "country": "Madagascar",
+      "programme": "Réseau de santé maternelle et néonatale — COE / SUR-CONE (soins obstétricaux d'urgence)",
+      "note": "Sulfate de magnésium et diazépam : disponibilité variable selon les maternités ; le guide MSF sert de référence opérationnelle en contexte africain et le transfert vers un COE d'urgence fait partie de la séquence. Protocole national détaillé non accessible en ligne au 2026-11-22 : schémas exacts à confirmer par le propriétaire sur le protocole en vigueur.",
+      "sourceId": "s2"
     }
   ]
 }
