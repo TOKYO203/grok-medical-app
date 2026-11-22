@@ -11,3 +11,7 @@
   - API `/api/leaderboard` avec pagination
   - Anti-triche côté serveur (validation events)
   - Remplacer `src/content/leaderboard.ts` par fetch API
+
+### Vérification pipelines (2026-11-22)
+
+- [ ] `release:check` vert sur l'arbre incluant les corrections de contenu du 20-22/11 (#507, audit IA familles restantes) — pilote : PR de vérification ci/verify-2026-11-22.
