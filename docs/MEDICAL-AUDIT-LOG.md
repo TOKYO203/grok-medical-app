@@ -54,3 +54,12 @@ Protocole : docs/MEDICAL-AUDIT-PROTOCOL.md
   3. py-8 explication : « l'hypoxie alveolaire constrict les arterioles » -> « ... resserre les arterioles ».
 - Verifications post-push : JSON valide, anciennes chaines absentes, fichier 864 077 octets, sha 480cb0da (pas de blob vide).
 - Relecture humaine : en attente (l'audit IA ne vaut pas validation medicale, protocole docs/MEDICAL-AUDIT-PROTOCOL.md).
+
+### 2026-11-22 (2e passe) - audit independant complet de decks.json (87 decks, ~800 questions)
+- Perimetre : re-lecture integrale de decks.json (864 077 octets) : validite JSON, bornes de l'index correct, doublons d'identifiants ou de choix, puis verification ciblee des 453 questions a enjeu (doses, seuils, mmHg, %).
+- Faits externes re-verifies sur sources OMS : tétanos maternel et neonatal 52/59 pays valides en juillet 2026 CONFIRME ; campagne integree rougeole-polio-vitamine A Madagascar 5-9 octobre 2026, 23 regions, 115 districts CONFIRME (OMS AFRO).
+- Corrections identifiees (3) ; push de decks.json bloque par une limite memoire de l'outil d'execution (patch jq prepare, a appliquer en local puis release:check et regeneration des signatures Premium) :
+  1. tetanos-l4-6 : pharmacologie — les benzodiazepines potentialisent l'inhibition GABAergique (renforcent l'action du GABA), elles ne la 'levent' pas ; explication a corriger.
+  2. avc-l2-7 : imagerie hyperaigue — l'examen de premiere ligne est le scanner (disponible, rapide, ecarte l'hemorragie avant thrombolyse), cohérent avec avc-l4-1 du meme deck ; reponse et explication a corriger (avant : IRM).
+  3. vih-l3-10 : le stade 4 OMS se definit cliniquement, pas par les CD4 ; le seuil de 200 CD4/mm3 est le critere de sida (CDC) ; explication a nuancer.
+- Statut : PASS_WITH_NOTES ; relecture humaine toujours en attente (l'audit IA ne vaut pas validation medicale, protocole docs/MEDICAL-AUDIT-PROTOCOL.md).
