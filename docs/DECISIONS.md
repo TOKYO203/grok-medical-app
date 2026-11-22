@@ -853,3 +853,9 @@ une affectation de `VITE_AUTH_ENABLED` sur `process.env` dans le lanceur.
 | Date | ID | Décision | Motif | Auteur |
 |------|----|----------|-------|--------|
 | 2026-11-22 | C-STD-7 | Fiche `hemorragies-delivrance.json` alignée au standard complet : restructuration 8 sections, redFlags (6), disclaimer + dosagePolicy, `localAdaptations` Madagascar (MSF, chaîne du froid, accès au sang), sources consolidées à la racine (OMS 2025 consolidée, MSF 8.2 et 8.3, essai WOMAN Lancet 2017), flashcards identifiées, mindmap nettoyée, ordinal du référentiel corrigé de 227 à 223 | Première cause de mortalité maternelle évitable : l'urgence vitale obstétricale arrive au standard du prototype Paludisme | Vibe |
+
+## 2026-11-22 — Fiches : état de choc aligné au standard (session contenu 2)
+
+| Date | ID | Décision | Motif | Auteur |
+|------|----|----------|-------|--------|
+| 2026-11-22 | C-STD-8 | Fiche `etat-de-choc.json` alignée au standard complet : sources déplacées des sections vers la racine, numérotation romaine retirée des titres, dose d'adrénaline IM dé-chiffrée (3 occurrences, C-STD-6), redFlags (6), disclaimer + dosagePolicy, `localAdaptations` Madagascar (urgences hors CHU, absence de lactate), section Références remplacée par fiches liées, coquilles corrigées (« la sous-remplissage », « se opère », « monitorise »), mindmap nettoyée du champ tone | Urgence transversale n°1 du référentiel (ordinal 48) : homogénéité des urgences vitales | Vibe |

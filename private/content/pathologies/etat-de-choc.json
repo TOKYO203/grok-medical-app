@@ -6,7 +6,7 @@
   "subtitle": "Fiche de nosographie — urgences et réanimation",
   "objective": "Devant un patient qui s'effondre : reconnaître l'état de choc en moins d'une minute, identifier la famille en cause et engager les gestes et traitements qui sauvent.",
   "language": "fr",
-  "updatedAt": "2026-10-24",
+  "updatedAt": "2026-11-22",
   "reviewStatus": "pending-medical-review",
   "curriculum": {
     "collection": "Nosographie — spécialité médicale",
@@ -35,13 +35,19 @@
     "verificationNotes": [
       "Millésimes vérifiés le 2026-10-24 sur les pages officielles : Surviving Sepsis Campaign 2021 (Intensive Care Medicine 2021;47:1181-1247), Sepsis-3 (JAMA 2016;315:801-810), ERC 2021 (Resuscitation 2021;161:152-219), EAACI Anaphylaxis 2021 update (Allergy 2022;77:357-377), CRASH-2 (The Lancet 2010;376:23-32) et ATLS 10e édition. Aucune version plus récente n'a remplacé ces références pour la prise en charge du choc.",
       "Aucun protocole national malgache de réanimation de l'état de choc n'a été trouvé en ligne sous forme vérifiable : les seuils cités sont ceux des référentiels internationaux. Le protocole du service ou du ministère, s'il existe, prime sur ces seuils et doit être ajouté à la bibliographie par le propriétaire.",
-      "Les décimales suivent l'usage francophone (virgule) et les doses sont celles de l'adulte sauf mention contraire ; les posologies pédiatriques, les adaptations de grossesse et les contraintes locales de disponibilité (vasopresseurs, produits sanguins) relèvent du protocole du service."
+      "Les décimales suivent l'usage francophone (virgule) et les doses sont celles de l'adulte sauf mention contraire ; les posologies pédiatriques, les adaptations de grossesse et les contraintes locales de disponibilité (vasopresseurs, produits sanguins) relèvent du protocole du service.",
+      "Le 2026-11-22 alignement au cahier des charges commun : titres sans numérotation en dur, sources uniques en racine, redFlags, disclaimer et dosagePolicy au niveau racine, champ localAdaptations (Madagascar, urgences hors CHU).",
+      "Le 2026-11-22 posologies : dose d'adrénaline intramusculaire de chiffretée en « dose du protocole local » (3 occurrences), à la règle zéro posologie ; les seuils de monitorage (PAM 65 mmHg, lactate 2 et 4 mmol/L, diurèse 0,5 mL/kg/h, temps de recoloration 3 secondes) restent chiffrés (décision C-STD-6)."
     ],
     "qcChecklist": [
       "Exactitude des seuils (PAM 65 mmHg, lactate 2 et 4 mmol/L, temps de recoloration 3 secondes, diurèse 0,5 mL/kg/h)",
       "Conformité des schémas thérapeutiques aux recommandations citées (SSC 2021, Sepsis-3, ERC 2021, EAACI, CRASH-2, ATLS)",
       "Cohérence entre cette fiche, les decks « urgences-choc » et le manifeste des fiches",
-      "Absence de toute recommandation non sourcée et de toute phrase recopiée d'une source"
+      "Absence de toute recommandation non sourcée et de toute phrase recopiée d'une source",
+      "Posologies non chiffrées (molécules et voies seules)",
+      "Drapeaux rouges structurés en tête (redFlags)",
+      "Sources racine datées (verifiedAt), aucune source imbriquée",
+      "Adaptation locale Madagascar en champ dédié"
     ]
   },
   "sections": [
@@ -49,22 +55,6 @@
       "id": "introduction",
       "title": "Introduction",
       "summary": "Définir le choc par le mécanisme — l'hypoperfusion cellulaire — et non par un chiffre de tension.",
-      "sources": [
-        {
-          "id": "SRC-OMS-SEPSIS",
-          "organization": "Organisation mondiale de la Santé (OMS)",
-          "title": "OMS — Sepsis, aide-mémoire",
-          "year": 2020,
-          "url": "https://www.who.int/news-room/fact-sheets/detail/sepsis"
-        },
-        {
-          "id": "SRC-SSC-2021",
-          "organization": "Society of Critical Care Medicine / European Society of Intensive Care Medicine",
-          "title": "Surviving Sepsis Campaign 2021",
-          "year": 2021,
-          "url": "https://www.sccm.org/survivingsepsiscampaign/guidelines"
-        }
-      ],
       "blocks": [
         {
           "type": "paragraph",
@@ -88,31 +78,8 @@
     },
     {
       "id": "reconnaitre",
-      "title": "I. Reconnaître le choc avant l'effondrement",
+      "title": "Reconnaître le choc avant l'effondrement",
       "summary": "Marbrures, temps de recoloration, diurèse, index de choc : lire l'hypoperfusion avant la chute de tension.",
-      "sources": [
-        {
-          "id": "SRC-SSC-2021",
-          "organization": "Society of Critical Care Medicine / European Society of Intensive Care Medicine",
-          "title": "Surviving Sepsis Campaign 2021",
-          "year": 2021,
-          "url": "https://www.sccm.org/survivingsepsiscampaign/guidelines"
-        },
-        {
-          "id": "SRC-OMS-SEPSIS",
-          "organization": "Organisation mondiale de la Santé (OMS)",
-          "title": "OMS — Sepsis, aide-mémoire",
-          "year": 2020,
-          "url": "https://www.who.int/news-room/fact-sheets/detail/sepsis"
-        },
-        {
-          "id": "SRC-ERC-2021",
-          "organization": "European Resuscitation Council",
-          "title": "ERC 2021 — circonstances particulières et péri-arrêt",
-          "year": 2021,
-          "url": "https://www.cprguidelines.eu/"
-        }
-      ],
       "blocks": [
         {
           "type": "paragraph",
@@ -175,38 +142,8 @@
     },
     {
       "id": "familles",
-      "title": "II. Les quatre familles de choc",
+      "title": "Les quatre familles de choc",
       "summary": "Classer pour traiter : chaque famille désigne le geste qui sauve.",
-      "sources": [
-        {
-          "id": "SRC-SEPSIS3",
-          "organization": "Journal of the American Medical Association / ESICM",
-          "title": "Sepsis-3",
-          "year": 2016,
-          "url": "https://jamanetwork.com/journals/jama/fullarticle/2496461"
-        },
-        {
-          "id": "SRC-ERC-2021",
-          "organization": "European Resuscitation Council",
-          "title": "ERC 2021 — circonstances particulières et péri-arrêt",
-          "year": 2021,
-          "url": "https://www.cprguidelines.eu/"
-        },
-        {
-          "id": "SRC-EAACI-2022",
-          "organization": "European Academy of Allergy and Clinical Immunology",
-          "title": "EAACI — Anaphylaxie (mise à jour 2021)",
-          "year": 2022,
-          "url": "https://onlinelibrary.wiley.com/doi/10.1111/all.15082"
-        },
-        {
-          "id": "SRC-ATLS",
-          "organization": "American College of Surgeons",
-          "title": "ATLS — 10e édition",
-          "year": 2018,
-          "url": "https://www.facs.org/quality-programs/trauma/education/atls/"
-        }
-      ],
       "blocks": [
         {
           "type": "paragraph",
@@ -256,38 +193,8 @@
     },
     {
       "id": "gestes",
-      "title": "III. Gestes et traitements immédiats",
+      "title": "Gestes et traitements immédiats",
       "summary": "La première minute ne demande aucun plateau technique — mais chaque minute compte.",
-      "sources": [
-        {
-          "id": "SRC-ERC-2021",
-          "organization": "European Resuscitation Council",
-          "title": "ERC 2021 — circonstances particulières et péri-arrêt",
-          "year": 2021,
-          "url": "https://www.cprguidelines.eu/"
-        },
-        {
-          "id": "SRC-EAACI-2022",
-          "organization": "European Academy of Allergy and Clinical Immunology",
-          "title": "EAACI — Anaphylaxie (mise à jour 2021)",
-          "year": 2022,
-          "url": "https://onlinelibrary.wiley.com/doi/10.1111/all.15082"
-        },
-        {
-          "id": "SRC-CRASH2",
-          "organization": "London School of Hygiene & Tropical Medicine",
-          "title": "CRASH-2",
-          "year": 2010,
-          "url": "https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(10)60835-5/fulltext"
-        },
-        {
-          "id": "SRC-ATLS",
-          "organization": "American College of Surgeons",
-          "title": "ATLS — 10e édition",
-          "year": 2018,
-          "url": "https://www.facs.org/quality-programs/trauma/education/atls/"
-        }
-      ],
       "blocks": [
         {
           "type": "paragraph",
@@ -305,7 +212,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Chaque famille a son geste propre. Anaphylaxie : adrénaline en intramusculaire, 0,5 mg chez l'adulte dans la face antéro-latérale de la cuisse, en première intention et sans attendre — corticoïdes et antihistaminiques ne viennent qu'en second rang. Hémorragie : compression directe, garrot si un membre saigne, acide tranexamique le plus tôt possible dans les trois premières heures, et contrôle de la source avant le remplissage lorsque le saignement relève du bloc opératoire. Tamponnade : péricardocentèse en urgence dès que le diagnostic est évoqué — aucun remplissage ne décomprime un péricarde plein."
+          "text": "Chaque famille a son geste propre. Anaphylaxie : adrénaline en intramusculaire chez l'adulte, dans la face antéro-latérale de la cuisse, en première intention et sans attendre, à la dose du protocole local — corticoïdes et antihistaminiques ne viennent qu'en second rang. Hémorragie : compression directe, garrot si un membre saigne, acide tranexamique le plus tôt possible dans les trois premières heures, et contrôle de la source avant le remplissage lorsque le saignement relève du bloc opératoire. Tamponnade : péricardocentèse en urgence dès que le diagnostic est évoqué — aucun remplissage ne décomprime un péricarde plein."
         },
         {
           "type": "callout",
@@ -317,31 +224,8 @@
     },
     {
       "id": "choc-septique",
-      "title": "IV. Choc septique : la course de l'heure 1",
+      "title": "Choc septique : la course de l'heure 1",
       "summary": "Vasopresseurs pour une PAM d'au moins 65 mmHg, lactate supérieur à 2 : la définition commande le rythme.",
-      "sources": [
-        {
-          "id": "SRC-SEPSIS3",
-          "organization": "Journal of the American Medical Association / ESICM",
-          "title": "Sepsis-3",
-          "year": 2016,
-          "url": "https://jamanetwork.com/journals/jama/fullarticle/2496461"
-        },
-        {
-          "id": "SRC-SSC-2021",
-          "organization": "Society of Critical Care Medicine / European Society of Intensive Care Medicine",
-          "title": "Surviving Sepsis Campaign 2021",
-          "year": 2021,
-          "url": "https://www.sccm.org/survivingsepsiscampaign/guidelines"
-        },
-        {
-          "id": "SRC-OMS-SEPSIS",
-          "organization": "Organisation mondiale de la Santé (OMS)",
-          "title": "OMS — Sepsis, aide-mémoire",
-          "year": 2020,
-          "url": "https://www.who.int/news-room/fact-sheets/detail/sepsis"
-        }
-      ],
       "blocks": [
         {
           "type": "paragraph",
@@ -384,7 +268,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Le contrôle de la source n'est pas un supplément : un abcès non drainé ou un matériel infecté laissé en place condamne le traitement antibiotique. Une pyélonéphrite obstructive se draine, une perforation d'organe se opère — la recherche et le traitement de la source font partie du bundle, au même titre que l'antibiotique."
+          "text": "Le contrôle de la source n'est pas un supplément : un abcès non drainé ou un matériel infecté laissé en place condamne le traitement antibiotique. Une pyélonéphrite obstructive se draine, une perforation d'organe se traite chirurgicalement — la recherche et le traitement de la source font partie du bundle, au même titre que l'antibiotique."
         },
         {
           "type": "paragraph",
@@ -400,24 +284,8 @@
     },
     {
       "id": "objectifs",
-      "title": "V. Objectifs de réanimation et surveillance",
+      "title": "Objectifs de réanimation et surveillance",
       "summary": "Des cibles explicites, réévaluées sans cesse : PAM, diurèse, lactate, marbrures, conscience.",
-      "sources": [
-        {
-          "id": "SRC-SSC-2021",
-          "organization": "Society of Critical Care Medicine / European Society of Intensive Care Medicine",
-          "title": "Surviving Sepsis Campaign 2021",
-          "year": 2021,
-          "url": "https://www.sccm.org/survivingsepsiscampaign/guidelines"
-        },
-        {
-          "id": "SRC-ATLS",
-          "organization": "American College of Surgeons",
-          "title": "ATLS — 10e édition",
-          "year": 2018,
-          "url": "https://www.facs.org/quality-programs/trauma/education/atls/"
-        }
-      ],
       "blocks": [
         {
           "type": "paragraph",
@@ -425,7 +293,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Le remplissage s'évalue de façon dynamique : veine cave inférieure à l'échographie au lit, variation au lever de jambes passif ou à la respiration. Remplir trop noie le poumon, et la surcharge est une erreur aussi meurtrière que la sous-remplissage. Si la perfusion reste basse malgré une pression artérielle moyenne correcte, la dobutamine soutient le débit cardiaque ; l'hydrocortisone ne se discute que si le choc reste réfractaire aux vasopresseurs."
+          "text": "Le remplissage s'évalue de façon dynamique : veine cave inférieure à l'échographie au lit, variation au lever de jambes passif ou à la respiration. Remplir trop noie le poumon, et la surcharge est une erreur aussi meurtrière que le sous-remplissage. Si la perfusion reste basse malgré une pression artérielle moyenne correcte, la dobutamine soutient le débit cardiaque ; l'hydrocortisone ne se discute que si le choc reste réfractaire aux vasopresseurs."
         },
         {
           "type": "paragraph",
@@ -441,102 +309,22 @@
     },
     {
       "id": "references",
-      "title": "Références essentielles",
+      "title": "Références et fiches liées",
       "summary": "Sources officielles utilisées, vérifiées à la date de rédaction.",
-      "sources": [
-        {
-          "id": "SRC-SSC-2021",
-          "organization": "Society of Critical Care Medicine / European Society of Intensive Care Medicine",
-          "title": "Surviving Sepsis Campaign 2021",
-          "year": 2021,
-          "url": "https://www.sccm.org/survivingsepsiscampaign/guidelines"
-        },
-        {
-          "id": "SRC-SEPSIS3",
-          "organization": "Journal of the American Medical Association / ESICM",
-          "title": "Sepsis-3",
-          "year": 2016,
-          "url": "https://jamanetwork.com/journals/jama/fullarticle/2496461"
-        },
-        {
-          "id": "SRC-ERC-2021",
-          "organization": "European Resuscitation Council",
-          "title": "ERC 2021 — circonstances particulières et péri-arrêt",
-          "year": 2021,
-          "url": "https://www.cprguidelines.eu/"
-        },
-        {
-          "id": "SRC-EAACI-2022",
-          "organization": "European Academy of Allergy and Clinical Immunology",
-          "title": "EAACI — Anaphylaxie (mise à jour 2021)",
-          "year": 2022,
-          "url": "https://onlinelibrary.wiley.com/doi/10.1111/all.15082"
-        },
-        {
-          "id": "SRC-CRASH2",
-          "organization": "London School of Hygiene & Tropical Medicine",
-          "title": "CRASH-2",
-          "year": 2010,
-          "url": "https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(10)60835-5/fulltext"
-        },
-        {
-          "id": "SRC-OMS-SEPSIS",
-          "organization": "Organisation mondiale de la Santé (OMS)",
-          "title": "OMS — Sepsis, aide-mémoire",
-          "year": 2020,
-          "url": "https://www.who.int/news-room/fact-sheets/detail/sepsis"
-        },
-        {
-          "id": "SRC-ATLS",
-          "organization": "American College of Surgeons",
-          "title": "ATLS — 10e édition",
-          "year": 2018,
-          "url": "https://www.facs.org/quality-programs/trauma/education/atls/"
-        }
-      ],
       "blocks": [
         {
-          "type": "table",
-          "columns": [
-            "N°",
-            "Référence"
-          ],
-          "rows": [
-            [
-              "1",
-              "Evans L., et al. — Surviving Sepsis Campaign 2021. Intensive Care Medicine 2021;47:1181-1247. https://www.sccm.org/survivingsepsiscampaign/guidelines"
-            ],
-            [
-              "2",
-              "Singer M., et al. — Sepsis-3. JAMA 2016;315:801-810. https://jamanetwork.com/journals/jama/fullarticle/2496461"
-            ],
-            [
-              "3",
-              "Lott C., et al. — ERC 2021 : circonstances particulières. Resuscitation 2021;161:152-219. https://www.cprguidelines.eu/"
-            ],
-            [
-              "4",
-              "Muraro A., et al. — EAACI Guidelines : Anaphylaxis (2021 update). Allergy 2022;77:357-377. https://onlinelibrary.wiley.com/doi/10.1111/all.15082"
-            ],
-            [
-              "5",
-              "CRASH-2 Collaborators. The Lancet 2010;376:23-32. https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(10)60835-5/fulltext"
-            ],
-            [
-              "6",
-              "OMS — Sepsis, aide-mémoire, 2020. https://www.who.int/news-room/fact-sheets/detail/sepsis"
-            ],
-            [
-              "7",
-              "American College of Surgeons — ATLS, 10e édition, 2018. https://www.facs.org/quality-programs/trauma/education/atls/"
-            ]
+          "type": "list",
+          "items": [
+            "Fiche eclampsie— précéclampsie, HELLP et urgence hypertensive de la grossesse.",
+            "Fiche hemorragies-delivrance— le choc hypovolémique obstétrical en pratique.",
+            "Fiche paludisme— formes graves et traitement de première intention."
           ]
         },
         {
           "type": "callout",
           "tone": "memo",
           "title": "À compléter par le propriétaire",
-          "text": "Le protocole national malgache de réanimation et celui du service (disponibilité des vasopresseurs, seuils transfusionnels locaux) doivent être ajoutés à cette bibliographie par le propriétaire : aucune version en ligne vérifiable n'a été trouvée pendant la rédaction."
+          "text": "Le protocole national de réanimation et celui du service (disponibilité des vasopresseurs, seuils transfusionnels locaux) doivent être ajoutés à la bibliographie par le propriétaire : aucune version en ligne vérifiable n'a été trouvée pendant la rédaction."
         }
       ]
     }
@@ -661,7 +449,7 @@
     {
       "id": "fc-10",
       "front": "Quel est le traitement de première intention de l'anaphylaxie ?",
-      "back": "L'adrénaline en intramusculaire, 0,5 mg chez l'adulte dans la face antéro-latérale de la cuisse, à renouveler toutes les 5 à 15 minutes si nécessaire.",
+      "back": "L'adrénaline en intramusculaire chez l'adulte, dans la face antéro-latérale de la cuisse, à renouveler toutes les 5 à 15 minutes si nécessaire.",
       "tags": [
         "traitement"
       ]
@@ -701,7 +489,7 @@
   ],
   "mindmap": {
     "root": {
-      "id": "root",
+      "id": "choc-root",
       "label": "État de choc",
       "detail": "Hypoperfusion aiguë : reconnaître avant l'effondrement, classer dans l'une des quatre familles, puis corriger le mécanisme. Une tension normale ne rassure jamais."
     },
@@ -709,7 +497,6 @@
       {
         "id": "reconnaitre",
         "label": "Reconnaître",
-        "tone": "urgence",
         "detail": "Marbrures des genoux, temps de recoloration supérieur à 3 secondes, tachycardie, oligurie : l'hypoperfusion se voit avant la chute de tension.",
         "children": [
           {
@@ -720,7 +507,7 @@
               {
                 "id": "rec-signes-1",
                 "label": "Oligurie < 0,5 mL/kg/h",
-                "detail": "La sonde urinaire monitorise la perfusion rénale."
+                "detail": "La sonde urinaire mesure la perfusion rénale."
               },
               {
                 "id": "rec-signes-2",
@@ -746,7 +533,6 @@
       {
         "id": "familles-map",
         "label": "Quatre familles",
-        "tone": "retenir",
         "detail": "Hypovolémique (réservoir vide), cardiogénique (pompe en panne), obstructif (tuyau comprimé), distributif (circuit dilaté : septique, anaphylactique, neurogène).",
         "children": [
           {
@@ -802,7 +588,6 @@
       {
         "id": "gestes-map",
         "label": "Gestes immédiats",
-        "tone": "reflexe",
         "detail": "Alerter, allonger, oxygéner, poser une voie, vérifier la glycémie — puis traiter le mécanisme : adrénaline, contrôle du saignement, remplissage.",
         "children": [
           {
@@ -820,7 +605,7 @@
           {
             "id": "ges-adre",
             "label": "Anaphylaxie",
-            "detail": "Adrénaline intramusculaire 0,5 mg dans la cuisse, sans délai, en première intention.",
+            "detail": "Adrénaline intramusculaire dans la cuisse, sans délai, en première intention, à la dose du protocole local.",
             "leaves": [
               {
                 "id": "ges-adre-1",
@@ -846,7 +631,6 @@
       {
         "id": "septique-map",
         "label": "Choc septique",
-        "tone": "urgence",
         "detail": "Vasopresseurs pour une PAM d'au moins 65 mmHg et lactate supérieur à 2 mmol/L persistant : l'heure 1 décide du reste.",
         "children": [
           {
@@ -878,7 +662,6 @@
       {
         "id": "surveillance-map",
         "label": "Objectifs et surveillance",
-        "tone": "prudence",
         "detail": "PAM d'au moins 65 mmHg, diurèse d'au moins 0,5 mL/kg/h, lactate en clairance de 20 % toutes les 2 h : réévaluer sans cesse.",
         "children": [
           {
@@ -1009,5 +792,41 @@
       ]
     }
   ],
-  "specialty": "Réanimation"
+  "specialty": "Réanimation",
+  "disclaimer": "Support pédagogique. Ne remplace ni un avis médical ni les protocoles locaux.",
+  "dosagePolicy": "Molécules citées sans posologies : se référer aux protocoles locaux et au contexte du patient.",
+  "redFlags": [
+    {
+      "sign": "Marbrures des genoux ou temps de recoloration cutanée supérieur à 3 secondes",
+      "action": "Hypoperfusion déjà installée : réanimation immédiate, sans attendre la chute de tension"
+    },
+    {
+      "sign": "Lactate supérieur à 4 mmol/L",
+      "action": "Urgence absolue : remplissage dosé, et si contexte infectieux, antibiothérapie dans l'heure"
+    },
+    {
+      "sign": "Hypotension persistante malgré le remplissage",
+      "action": "Vasopresseurs en urgence (noradrénaline en première intention) et identification de la famille du choc"
+    },
+    {
+      "sign": "Urticaire, œdème ou sibilants après une piqûre, un médicament ou un aliment",
+      "action": "Anaphylaxie : adrénaline en intramusculaire immédiate, en première intention, jamais secondaire"
+    },
+    {
+      "sign": "Hypotension avec jugulaires turgescentes et bruits du cœur assourdis",
+      "action": "Tamponnade suspectée : échographie au lit et péricardocentèse en urgence"
+    },
+    {
+      "sign": "Saignement extériorisé abondant ou contexte traumatique hémorragique",
+      "action": "Contrôle de la source, acide tranexamique dans les 3 premières heures, commande de produits sanguins"
+    }
+  ],
+  "localAdaptations": [
+    {
+      "country": "Madagascar",
+      "programme": "Services d'urgences et réanimation — CHU et structures périphériques",
+      "note": "Points critiques en contexte : disponibilité de la noradrénaline variable hors CHU, lactate rarement mesurable en périphérie (s'appuyer alors sur les signes cliniques d'hypoperfusion : marbrures, temps de recoloration, diurèse, index de choc), accès aux produits sanguins limité. Le protocole national de réanimation n'est pas accessible en ligne au 2026-11-22 : seuils et schémas exacts à confirmer sur le protocole en vigueur.",
+      "sourceId": "SRC-SSC-2021"
+    }
+  ]
 }
