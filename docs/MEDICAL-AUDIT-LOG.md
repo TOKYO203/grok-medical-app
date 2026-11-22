@@ -9,6 +9,7 @@ Protocole : docs/MEDICAL-AUDIT-PROTOCOL.md
 | 2026-10-27 | pathologies/paludisme | PASS_WITH_NOTES | 1 | Oui (verifie conforme, sans modification) | audit IA 2026-11-15 ; relecture humaine en attente |
 | 2026-11-15 | calculators/scores (8 fichiers, 59 scores) | PASS_WITH_NOTES | 1 | Oui | audit IA ; relecture humaine en attente |
 | 2026-11-20 | decks (urgences, cardio, infectio, neuro) + valeurs-reference + ECG | PASS_WITH_NOTES | 4 | Oui (neuro-avc-l3 puis corrections residuelles decks.json issue #507, commit ef1742a) | audit IA ; relecture humaine en attente |
+| 2026-11-22 | decks pharmaco, tropical, semio, dermato, physio, anatomie (46 questions) | PASS_WITH_NOTES | 3 | Oui (commit 40990433) | audit IA ; relecture humaine en attente |
 
 ## Detail
 
@@ -42,3 +43,14 @@ Protocole : docs/MEDICAL-AUDIT-PROTOCOL.md
   1. neuro-avc-l3.json (APPLIQUE sur main) : « sylvien superficial » -> « sylvien superficiel » ; « artère vertébro-cérébelleuse postéro-inférieure » -> « artère cérébelleuse postéro-inférieure (PICA) » (nom canonique du territoire de Wallenberg).
 - Corrections residuelles decks.json (issue #507) APPLIQUEES le 2026-11-21 a an-1 (« Un anastomose » -> « Une anastomose »), vih-l2-5 (« simultément » -> « simultanément »), tetanos-l4-6 (« levèrent » -> « lèvent »), avc-l3-4 (« superficial » -> « superficiel » + nom canonique PICA). Commits 1026e17 (blob vide par erreur de l'outil de push volumineux) puis ef1742a (restauration avec corrections) ; JSON valide et anciennes chaines absentes verifies apres push. Relance de `npm run release:check` et regeneration des signatures Premium restent a faire en local.
 - Statut : PASS_WITH_NOTES ; relecture humaine toujours en attente (l'audit IA ne vaut pas validation medicale).
+
+
+### 2026-11-22 - audit IA decks pharmaco/tropical/semio/dermato/physio/anatomie (46 questions)
+- Perimetre : familles restantes de la collection V1 (urgences/cardio/infectio/neuro auditees 2026-11-20, calculateurs 2026-11-15, paludisme 2026-10-27).
+- Verifies conformes : paracetamol 3 g/j automedication / 1 g par prise / 4 h (ANSM), 4 g/j max sous avis ; metformine CI DFG < 30 mL/min (RCP) ; naloxone (OMS 2025) ; paludisme : fievre en zone d'endemie = palu jusqu'a preuve du contraire, artesunate parenteral >= 24 h puis CTA 3 jours des que VO toleree, TDR faussement negatif -> repeter frottis/GE (OMS 13/08/2025) ; praziquantel schistosomoses ; peste : isolement, prelevements, aminoside/fluoroquinolone, alerte sanitaire ; rage : lavage + Essen/accelere + Ig categorie III (OMS) ; impetigo localise : fusidique/mupirocine topique 1re intention (SPILF/SFD) ; SJS/Lyell : arret du suspect + transfert type brule ; erytheme migrant : diagnostic clinique, ATB sans attendre la serologie (HAS 2025) ; pulsus paradoxus > 10 mmHg ; DFG adulte ~ 120 mL/min ; effet Bohr, phase 0 Na+, AQP2, barorecepteurs (Guyton 14e).
+- Corrections appliquees (commit 40990433, redactionnelles sans impact clinique) :
+  1. ph-9 : enonce reconstruit (« Quelle statine est un inhibiteur de l'HMG-CoA reductase dont l'effet indesirable musculaire majeur est » -> « Les statines sont des inhibiteurs de l'HMG-CoA reductase ; leur effet indesirable musculaire majeur est »).
+  2. py-8 : « vasoconstroconstriction hypoxique pulmonaire » -> « vasoconstriction pulmonaire hypoxique ».
+  3. py-8 explication : « l'hypoxie alveolaire constrict les arterioles » -> « ... resserre les arterioles ».
+- Verifications post-push : JSON valide, anciennes chaines absentes, fichier 864 077 octets, sha 480cb0da (pas de blob vide).
+- Relecture humaine : en attente (l'audit IA ne vaut pas validation medicale, protocole docs/MEDICAL-AUDIT-PROTOCOL.md).
