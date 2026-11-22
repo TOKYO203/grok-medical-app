@@ -28,19 +28,16 @@ const THEME_BOOT_HASH = `sha256-${createHash("sha256").update(THEME_BOOT_SCRIPT,
  * or TanStack Start émet AUSSI des scripts inline (données d'hydratation du
  * router). Bloqués, l'application ne s'hydrate jamais et reste figée sur le
  * rendu serveur (splash « Connexion à Optimus… », écran perçu comme vide).
- * Rétablissement temporaire de 'unsafe-inline' (état antérieur au 19/11, ayant
- * toujours fonctionné). TODO : recalculer l'allowlist par hash sur le HTML
- * construit réel (thème + scripts de données TanStack), puis retirer de nouveau
- * 'unsafe-inline'. Le THEME_BOOT_HASH est conservé dans la politique — ignoré
- * par les navigateurs tant que 'unsafe-inline' est présent, mais il documente
- * la cible du futur resserrement et reste vérifié par les tests.
+ * RÉSOLUTION (audit 2026-11-21) : l'allowlist par hash est désormais calculée
+ * sur le HTML construit réel — voir inlineScriptHashes() et hardenResponse().
+ * Aucun 'unsafe-inline' n'est émis en production ; THEME_BOOT_HASH reste inclus.
  */
 const INLINE_SCRIPT_PATTERN = /<script(?![^>]*\bsrc=)[^>]*>([\s\S]*?)<\/script>/gi;
 
 function inlineScriptHashes(html) {
   const hashes = new Set();
   for (const match of html.matchAll(INLINE_SCRIPT_PATTERN)) {
-    hashes.add(`sha256-${'${'}createHash('sha256').update(match[1], 'utf8').digest('base64')}`);
+    hashes.add(`sha256-${createHash("sha256").update(match[1], "utf8").digest("base64")}`('sha256').update(match[1], 'utf8').digest('base64')}`);
   }
   return [...hashes];
 }
@@ -52,7 +49,7 @@ function isProduction(): boolean {
 function scriptSrc(responseHashes: string[]): string {
   const sources = ["'self'", THEME_BOOT_HASH, ...responseHashes];
   if (!isProduction()) sources.push("'unsafe-inline'");
-  return `script-src ${'${'}sources.join(' ')}`;
+  return `script-src ${sources.join(" ")}.join(' ')}`;
 }
 
 /**
