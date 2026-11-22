@@ -34,7 +34,7 @@ const THEME_BOOT_HASH = `sha256-${createHash("sha256").update(THEME_BOOT_SCRIPT,
  */
 const INLINE_SCRIPT_PATTERN = /<script(?![^>]*\bsrc=)[^>]*>([\s\S]*?)<\/script>/gi;
 
-function inlineScriptHashes(html) {
+function inlineScriptHashes(html: string): string[] {
   const hashes = new Set();
   for (const match of html.matchAll(INLINE_SCRIPT_PATTERN)) {
     hashes.add(`sha256-${createHash("sha256").update(match[1], "utf8").digest("base64")}`);
