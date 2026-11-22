@@ -859,3 +859,9 @@ une affectation de `VITE_AUTH_ENABLED` sur `process.env` dans le lanceur.
 | Date | ID | Décision | Motif | Auteur |
 |------|----|----------|-------|--------|
 | 2026-11-22 | C-STD-8 | Fiche `etat-de-choc.json` alignée au standard complet : sources déplacées des sections vers la racine, numérotation romaine retirée des titres, dose d'adrénaline IM dé-chiffrée (3 occurrences, C-STD-6), redFlags (6), disclaimer + dosagePolicy, `localAdaptations` Madagascar (urgences hors CHU, absence de lactate), section Références remplacée par fiches liées, coquilles corrigées (« la sous-remplissage », « se opère », « monitorise »), mindmap nettoyée du champ tone | Urgence transversale n°1 du référentiel (ordinal 48) : homogénéité des urgences vitales | Vibe |
+
+## 2026-11-22 — Fiches : polytraumatisme aligné au standard (session contenu 2)
+
+| Date | ID | Décision | Motif | Auteur |
+|------|----|----------|-------|--------|
+| 2026-11-22 | C-STD-9 | Fiche `polytraumatisme.json` alignée au standard complet : tableau racine `callouts` supprimé (doublon des encadrés de section), ordinal du référentiel corrigé de 7 à 182 selon le manifeste, redFlags (6), disclaimer + dosagePolicy, `localAdaptations` Madagascar (préhospitalier limité, scanner hors CHU, produits sanguins rares), source CRASH-2 (Lancet 2010, DOI) ajoutée, `verificationNotes` converties en tableau, corrections orthographiques (oxygénothérapie, réanimation, analgésie, « toute détérioration ») ; le manifeste `fiches.status` de `hemorragies-delivrance` passe de `planned` à `available` | Urgence chirurgicale majeure du référentiel : homogénéité des fiches urgence avec état de choc ; registre synchronisé avec le contenu réellement livré | Vibe |
