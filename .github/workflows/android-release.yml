@@ -1,0 +1,33 @@
+name: Android (Capacitor)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  apk:
+    name: Assembler l'APK debug
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+      - name: Deployances
+        run: npm ci
+      - name: Sync Capacitor
+        run: npx cap sync android
+      - name: Gradle assembleDebug
+        run: |
+          cd android
+          chmod +x gradlew
+          ./gradlew assembleDebug --no-daemon
+      - name: Publier l'artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: optimus-debug-apk
+          path: android/app/build/outputs/apk/debug/app-debug.apk
