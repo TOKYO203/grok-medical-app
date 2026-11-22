@@ -156,7 +156,14 @@ export default defineEventHandler(async (event) => {
   const salt = responseSalt || "development-only-response-salt";
   const ipHash = clientIp ? hashString(`${clientIp}:${salt}`) : null;
   if (ipHash) {
-    const recentWindow = Number(process.env.RECENT_WINDOW_MINUTES ?? 60);
+    // Audit 2026-11-22 : la fenetre anti-doublon est analysee de facon sure.
+    // Une valeur absente, non numerique, infinie ou negative produisait
+    // `recentWindow = NaN` puis un intervalle « NaN minutes », donc un 500 brut
+    // au lieu de retomber sur la valeur par defaut de 60 minutes.
+    const recentWindowRaw = Number(process.env.RECENT_WINDOW_MINUTES);
+    const recentWindow = Number.isFinite(recentWindowRaw)
+      ? Math.min(Math.max(Math.trunc(recentWindowRaw), 1), 24 * 60)
+      : 60;
     if (await recentResponseExists(sql, surveyId, ipHash, recentWindow)) {
       setResponseStatus(event, 429);
       return { error: "duplicate_response" };
