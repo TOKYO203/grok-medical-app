@@ -847,3 +847,9 @@ une affectation de `VITE_AUTH_ENABLED` sur `process.env` dans le lanceur.
 |------|----|----------|-------|--------|
 | 2026-11-22 | C-STD-5 | Fiche `eclampsie.json` alignée au standard complet : redFlags (6), disclaimer + dosagePolicy, `localAdaptations` Madagascar (COE, diazépam en alternative, guide MSF), posologies chiffrées supprimées (sulfate de magnésium, diazépam), WikEM remplacé par les recommandations OMS 2011, tableau racine `callouts` supprimé (mémo surveillance intégré à la section Traitement), `verificationNotes` converties en tableau | Standard commun appliqué à la première urgence obstétricale | Vibe |
 | 2026-11-22 | C-STD-6 | Clarification de la règle « zéro posologie » : les seuils de monitorage (PA cible < 160/110 mmHg, réflexes, diurèse, fréquence respiratoire) ne sont pas des posologies et restent chiffrés | Le contrôle horaire du sulfate de magnésium a besoin de ses paramètres pour être cliniquement utile | Vibe |
+
+## 2026-11-22 — Fiches : hémorragies de la délivrance alignée au standard (session contenu 2)
+
+| Date | ID | Décision | Motif | Auteur |
+|------|----|----------|-------|--------|
+| 2026-11-22 | C-STD-7 | Fiche `hemorragies-delivrance.json` alignée au standard complet : restructuration 8 sections, redFlags (6), disclaimer + dosagePolicy, `localAdaptations` Madagascar (MSF, chaîne du froid, accès au sang), sources consolidées à la racine (OMS 2025 consolidée, MSF 8.2 et 8.3, essai WOMAN Lancet 2017), flashcards identifiées, mindmap nettoyée, ordinal du référentiel corrigé de 227 à 223 | Première cause de mortalité maternelle évitable : l'urgence vitale obstétricale arrive au standard du prototype Paludisme | Vibe |
