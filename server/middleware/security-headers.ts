@@ -35,8 +35,24 @@ const THEME_BOOT_HASH = `sha256-${createHash("sha256").update(THEME_BOOT_SCRIPT,
  * par les navigateurs tant que 'unsafe-inline' est présent, mais il documente
  * la cible du futur resserrement et reste vérifié par les tests.
  */
-function scriptSrc(): string {
-  return `script-src 'self' 'unsafe-inline' ${THEME_BOOT_HASH}`;
+const INLINE_SCRIPT_PATTERN = /<script(?![^>]*\bsrc=)[^>]*>([\s\S]*?)<\/script>/gi;
+
+function inlineScriptHashes(html) {
+  const hashes = new Set();
+  for (const match of html.matchAll(INLINE_SCRIPT_PATTERN)) {
+    hashes.add(`sha256-${'${'}createHash('sha256').update(match[1], 'utf8').digest('base64')}`);
+  }
+  return [...hashes];
+}
+
+function isProduction(): boolean {
+  return process.env.NODE_ENV === 'production' || process.env.VERCEL === '1' || process.env.CF_PAGES === '1';
+}
+
+function scriptSrc(responseHashes: string[]): string {
+  const sources = ["'self'", THEME_BOOT_HASH, ...responseHashes];
+  if (!isProduction()) sources.push("'unsafe-inline'");
+  return `script-src ${'${'}sources.join(' ')}`;
 }
 
 /**
@@ -53,9 +69,10 @@ function scriptSrc(): string {
  *   - `connect-src` : Supabase (REST + Realtime wss) et l'API LemonSqueezy.
  *   - `img-src` : images.unsplash.com (photo de fond de l'écran de connexion).
  */
-const CONTENT_SECURITY_POLICY = [
+function contentSecurityPolicy(scriptSources: string): string {
+  return [
   "default-src 'self'",
-  scriptSrc(),
+  scriptSources,
   "style-src 'self' 'unsafe-inline'",
   // images.unsplash.com : photo de fond de l'écran de connexion (AuthScreen).
   // CDN d'images passif, aucune exécution de code : acceptable en img-src.
@@ -68,10 +85,10 @@ const CONTENT_SECURITY_POLICY = [
   "frame-ancestors 'none'",
   "base-uri 'self'",
   "form-action 'self'",
-].join("; ");
+  ].join("; ");
+}
 
 const BASE_SECURITY_HEADERS: Readonly<Record<string, string>> = {
-  "content-security-policy": CONTENT_SECURITY_POLICY,
   "x-frame-options": "DENY",
   "x-content-type-options": "nosniff",
   "referrer-policy": "strict-origin-when-cross-origin",
@@ -79,11 +96,35 @@ const BASE_SECURITY_HEADERS: Readonly<Record<string, string>> = {
   "x-permitted-cross-domain-policies": "none",
 };
 
-function hardenResponse(response: Response, event: SecurityHeaderEvent): Response {
+async function hardenResponse(response: Response, event: SecurityHeaderEvent): Promise<Response> {
   const headers = new Headers(response.headers);
   for (const [name, value] of Object.entries(BASE_SECURITY_HEADERS)) {
     if (!headers.has(name)) headers.set(name, value);
   }
+  headers.delete("content-security-policy");
+
+  // CSP par hash sur le HTML construit (production) : les scripts inline
+  // réellement servis sont autorisés, rien d'autre (résolution du TODO de
+  // l'incident 2026-11-20/21 : TanStack Start émet des scripts d'hydratation
+  // inline inconnus d'une politique figée). Hors production, Vite (HMR)
+  // garde son mode permissif.
+  const isHtml = (headers.get("content-type") ?? "").includes("text/html");
+  if (isHtml) {
+    const html = await response.text();
+    headers.set(
+      "content-security-policy",
+      contentSecurityPolicy(scriptSrc(inlineScriptHashes(html))),
+    );
+    return new Response(html, {
+      status: response.status,
+      statusText: response.statusText,
+      headers,
+    });
+  }
+
+  // Réponse non-HTML (JSON, actifs statiques…) : aucun script inline légitime,
+  // politique stricte sans exception.
+  headers.set("content-security-policy", contentSecurityPolicy("script-src 'self'"));
 
   // HSTS is meaningful only on HTTPS. Do not emit it for localhost/dev HTTP,
   // because browsers ignore it there and it would make local behavior confusing.
@@ -113,5 +154,5 @@ export default async function securityHeadersMiddleware(
   next: () => unknown | Promise<unknown>,
 ): Promise<unknown> {
   const result = await next();
-  return result instanceof Response ? hardenResponse(result, event) : result;
+  return result instanceof Response ? await hardenResponse(result, event) : result;
 }

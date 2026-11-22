@@ -121,7 +121,18 @@ export function signAdminSessionToken(nowMs: number = Date.now()): string | null
   return `${issuedAt}.${toBase64Url(new Uint8Array(mac))}`;
 }
 
-/** Vérifie un jeton de session admin (signature + fraîcheur). */
+/**
+ * Époque (secondes) avant laquelle tout jeton de session admin est refusé :
+ * levier de révocation GLOBALE sans changer le mot de passe. Variable
+ * ADMIN_SESSION_NOT_BEFORE (ex. valeur de `date +%s` au moment d'un incident).
+ * Absente/invalide : aucune borne, comportement antérieur inchangé.
+ */
+function adminSessionNotBefore(): number {
+  const raw = Number(process.env.ADMIN_SESSION_NOT_BEFORE ?? "");
+  return Number.isFinite(raw) && raw > 0 ? Math.trunc(raw) : 0;
+}
+
+/** Vérifie un jeton de session admin (signature, fraîcheur et révocation). */
 export function verifyAdminSessionToken(
   token: string | null | undefined,
   nowMs: number = Date.now(),
@@ -135,6 +146,9 @@ export function verifyAdminSessionToken(
   if (!Number.isInteger(issuedAt)) return false;
   const now = Math.floor(nowMs / 1000);
   if (issuedAt > now || now - issuedAt > ttlSeconds) return false;
+  // Révocation globale : un jeton émis avant la borne est invalide même si sa
+  // signature reste correcte (rotation d'incident sans rotation du mot de passe).
+  if (issuedAt < adminSessionNotBefore()) return false;
   const expected = createHmac("sha256", key)
     .update(`admin-session:${issuedAt}`)
     .digest();
