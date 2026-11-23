@@ -18,7 +18,8 @@ interface AdminGuardEvent {
  * phishing ciblé). Désormais : toute page /admin* exige le cookie de session
  * admin posé par /api/admin-verify (HttpOnly, jeton HMAC horodaté) — sinon 403.
  *
- *   - /admin-login reste public : c'est la porte d'entrée ;
+ *   - /admin-login reste public : c'est la porte d'entrée (correspondance
+*     EXACTE : les prefixes du type /admin-login-x ne contournent plus le garde) ;
  *   - /api/** est exclu : chaque endpoint gère sa propre autorisation ;
  *   - le garde n'est actif que si ADMIN_PASSWORD est configuré. Sans secret
  *     serveur, aucune session vérifiable n'existe (aucun cookie n'est jamais
@@ -78,7 +79,8 @@ export default async function adminGuardMiddleware(
   const pathname = event.url?.pathname ?? "/";
   if (
     !pathname.startsWith("/admin") ||
-    pathname.startsWith("/admin-login") ||
+    pathname === "/admin-login" ||
+    pathname.startsWith("/admin-login/") ||
     pathname.startsWith("/api/")
   ) {
     return next();
