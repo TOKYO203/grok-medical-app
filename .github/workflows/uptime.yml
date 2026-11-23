@@ -1,0 +1,48 @@
+name: Production uptime probe
+
+# Phase 0 de docs/ROADMAP-PRODUIT-SERIEUX.md : personne ne lit les logs, donc
+# une panne silencieuse restait invisible. Cette sonde interroge
+# `/api/health` (route triviale, sans base ni configuration) et échoue
+# explicitement si la production ne répond pas correctement.
+#
+# Secret optionnel : `UPTIME_ALERT_WEBHOOK` (Slack/Discord/Teams/n8n) —
+# sans lui, l'échec reste visible dans l'onglet Actions.
+#
+# ⚠️ ORDRE DE DÉPLOIEMENT : vérifié le 2026-11-12, la production répond encore
+# 404 sur `/api/health` (route pas encore publiée). Ce cron doit donc être
+# activé APRÈS le déploiement du Worker qui embarque `src/routes/api.health.ts`,
+# sinon chaque exécution échouera à juste titre.
+# Variable optionnelle : `UPTIME_URL` (Settings → Variables) pour cibler un
+# autre environnement que la production.
+
+on:
+  schedule:
+    - cron: "*/15 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: uptime-probe
+  cancel-in-progress: true
+
+jobs:
+  probe:
+    name: GET /api/health
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      UPTIME_URL: ${{ vars.UPTIME_URL }}
+      UPTIME_ALERT_WEBHOOK: ${{ secrets.UPTIME_ALERT_WEBHOOK }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: "22"
+
+      - name: Sonde uptime
+        run: node scripts/uptime-check.mjs

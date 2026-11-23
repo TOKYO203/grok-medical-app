@@ -208,6 +208,45 @@ pas une sauvegarde) :
 
 ## 5. Security monitoring
 
+### 5.1 Erreurs serveur et uptime (2026-11-12)
+
+Trois briques, aucune dépendance externe obligatoire :
+
+| Brique | Ce qu'elle fait | Activation |
+| --- | --- | --- |
+| `GET /api/health` | sonde triviale (aucune base, aucune config) : `{status:"ok"}`, `no-store`, `noindex`, HEAD supporté | toujours disponible |
+| `server/middleware/00-observability.ts` + `server/lib/error-alert.ts` | sur exception ou réponse 5xx : log JSON existant **+** alerte webhook (Slack/Discord/Teams/n8n), une fois par signature et par minute | secret `ERROR_ALERT_WEBHOOK` |
+| `scripts/uptime-check.mjs` + `.github/workflows/uptime.yml` | toutes les 15 min : exige HTTP 200 + JSON `status:"ok"` ; en cas d'échec, job rouge et webhook | secret `UPTIME_ALERT_WEBHOOK` (optionnel), variable `UPTIME_URL` (optionnel) |
+
+Ce que l'alerte ne contient **jamais** : corps de requête, en-tête, cookie,
+query string, IP, identifiant utilisateur. Elle porte `requestId`, méthode,
+chemin, statut, nom d'erreur et durée — assez pour corréler avec les logs du
+worker, inutile pour un attaquant.
+
+Diagnostic manuel :
+
+```bash
+curl -s https://optimus.carabin.workers.dev/api/health | jq
+npm run uptime:check              # échoue avec un code 1 si la prod ne répond pas
+```
+
+Sans webhook configuré, le dispositif reste utile : les 5xx sont journalisés et
+la sonde planifiée devient rouge dans GitHub Actions.
+
+⚠️ **Ordre de déploiement** (vérifié le 2026-11-12) : la production répond encore
+404 sur `/api/health`, la route n'étant pas publiée. Le cron `uptime.yml` doit
+être activé **après** le déploiement du Worker qui l'embarque ; sinon chaque
+exécution échouera — à juste titre, mais sans information utile.
+
+En local, la sonde se vérifie sans déployer :
+
+```bash
+npm run dev &
+curl -s http://127.0.0.1:8080/api/health | jq   # {"status":"ok",...}
+```
+
+### 5.2 GitHub security automation
+
 GitHub security automation provides:
 
 - CodeQL analysis for JavaScript/TypeScript;

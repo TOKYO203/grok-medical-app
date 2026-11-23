@@ -55,9 +55,11 @@ import { Route as TarifsRouteImport } from './routes/tarifs'
 import { Route as ValeursReferenceRouteImport } from './routes/valeurs-reference'
 import { Route as ValidationCliniqueRouteImport } from './routes/validation-clinique'
 import { Route as DevKitchenSinkRouteImport } from './routes/_dev.kitchen-sink'
+import { Route as ApiAdminLogoutRouteImport } from './routes/api.admin-logout'
 import { Route as ApiAdminVerifyRouteImport } from './routes/api.admin-verify'
 import { Route as ApiAiStreamRouteImport } from './routes/api.ai-stream'
 import { Route as ApiEventsRouteImport } from './routes/api.events'
+import { Route as ApiHealthRouteImport } from './routes/api.health'
 import { Route as ApiInstitutionLeadsRouteImport } from './routes/api.institution-leads'
 import { Route as CasCaseIdRouteImport } from './routes/cas.$caseId'
 import { Route as DemarcheIdRouteImport } from './routes/demarche.$id'
@@ -74,7 +76,9 @@ import { Route as ApiCheckoutLemonsqueezyRouteImport } from './routes/api.checko
 import { Route as ApiHealthCheckoutRouteImport } from './routes/api.health.checkout'
 import { Route as ApiLicensesActivateRouteImport } from './routes/api.licenses.activate'
 import { Route as ApiLicensesSessionRouteImport } from './routes/api.licenses.session'
+import { Route as ApiLicensesTrialTokenRouteImport } from './routes/api.licenses.trial-token'
 import { Route as ApiLicensesVerifyRouteImport } from './routes/api.licenses.verify'
+import { Route as ApiQuizAnswerRouteImport } from './routes/api.quiz.answer'
 import { Route as ApiWebhooksAriariRouteImport } from './routes/api.webhooks.ariari'
 import { Route as ApiWebhooksLemonsqueezyRouteImport } from './routes/api.webhooks.lemonsqueezy'
 import { Route as ContentTypeFileRouteImport } from './routes/content.$type.$file'
@@ -308,6 +312,11 @@ const DevKitchenSinkRoute = DevKitchenSinkRouteImport.update({
   path: '/kitchen-sink',
   getParentRoute: () => DevRoute,
 } as any)
+const ApiAdminLogoutRoute = ApiAdminLogoutRouteImport.update({
+  id: '/api/admin-logout',
+  path: '/api/admin-logout',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiAdminVerifyRoute = ApiAdminVerifyRouteImport.update({
   id: '/api/admin-verify',
   path: '/api/admin-verify',
@@ -321,6 +330,11 @@ const ApiAiStreamRoute = ApiAiStreamRouteImport.update({
 const ApiEventsRoute = ApiEventsRouteImport.update({
   id: '/api/events',
   path: '/api/events',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiHealthRoute = ApiHealthRouteImport.update({
+  id: '/api/health',
+  path: '/api/health',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiInstitutionLeadsRoute = ApiInstitutionLeadsRouteImport.update({
@@ -389,9 +403,9 @@ const ApiCheckoutLemonsqueezyRoute = ApiCheckoutLemonsqueezyRouteImport.update({
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiHealthCheckoutRoute = ApiHealthCheckoutRouteImport.update({
-  id: '/api/health/checkout',
-  path: '/api/health/checkout',
-  getParentRoute: () => rootRouteImport,
+  id: '/checkout',
+  path: '/checkout',
+  getParentRoute: () => ApiHealthRoute,
 } as any)
 const ApiLicensesActivateRoute = ApiLicensesActivateRouteImport.update({
   id: '/api/licenses/activate',
@@ -403,9 +417,19 @@ const ApiLicensesSessionRoute = ApiLicensesSessionRouteImport.update({
   path: '/api/licenses/session',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiLicensesTrialTokenRoute = ApiLicensesTrialTokenRouteImport.update({
+  id: '/api/licenses/trial-token',
+  path: '/api/licenses/trial-token',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiLicensesVerifyRoute = ApiLicensesVerifyRouteImport.update({
   id: '/api/licenses/verify',
   path: '/api/licenses/verify',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiQuizAnswerRoute = ApiQuizAnswerRouteImport.update({
+  id: '/api/quiz/answer',
+  path: '/api/quiz/answer',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiWebhooksAriariRoute = ApiWebhooksAriariRouteImport.update({
@@ -470,9 +494,11 @@ export interface FileRoutesByFullPath {
   '/valeurs-reference': typeof ValeursReferenceRoute
   '/validation-clinique': typeof ValidationCliniqueRoute
   '/kitchen-sink': typeof DevKitchenSinkRoute
+  '/api/admin-logout': typeof ApiAdminLogoutRoute
   '/api/admin-verify': typeof ApiAdminVerifyRoute
   '/api/ai-stream': typeof ApiAiStreamRoute
   '/api/events': typeof ApiEventsRoute
+  '/api/health': typeof ApiHealthRouteWithChildren
   '/api/institution-leads': typeof ApiInstitutionLeadsRoute
   '/cas/$caseId': typeof CasCaseIdRoute
   '/demarche/$id': typeof DemarcheIdRoute
@@ -489,7 +515,9 @@ export interface FileRoutesByFullPath {
   '/api/health/checkout': typeof ApiHealthCheckoutRoute
   '/api/licenses/activate': typeof ApiLicensesActivateRoute
   '/api/licenses/session': typeof ApiLicensesSessionRoute
+  '/api/licenses/trial-token': typeof ApiLicensesTrialTokenRoute
   '/api/licenses/verify': typeof ApiLicensesVerifyRoute
+  '/api/quiz/answer': typeof ApiQuizAnswerRoute
   '/api/webhooks/ariari': typeof ApiWebhooksAriariRoute
   '/api/webhooks/lemonsqueezy': typeof ApiWebhooksLemonsqueezyRoute
   '/content/$type/$file': typeof ContentTypeFileRoute
@@ -538,9 +566,11 @@ export interface FileRoutesByTo {
   '/valeurs-reference': typeof ValeursReferenceRoute
   '/validation-clinique': typeof ValidationCliniqueRoute
   '/kitchen-sink': typeof DevKitchenSinkRoute
+  '/api/admin-logout': typeof ApiAdminLogoutRoute
   '/api/admin-verify': typeof ApiAdminVerifyRoute
   '/api/ai-stream': typeof ApiAiStreamRoute
   '/api/events': typeof ApiEventsRoute
+  '/api/health': typeof ApiHealthRouteWithChildren
   '/api/institution-leads': typeof ApiInstitutionLeadsRoute
   '/cas/$caseId': typeof CasCaseIdRoute
   '/demarche/$id': typeof DemarcheIdRoute
@@ -557,7 +587,9 @@ export interface FileRoutesByTo {
   '/api/health/checkout': typeof ApiHealthCheckoutRoute
   '/api/licenses/activate': typeof ApiLicensesActivateRoute
   '/api/licenses/session': typeof ApiLicensesSessionRoute
+  '/api/licenses/trial-token': typeof ApiLicensesTrialTokenRoute
   '/api/licenses/verify': typeof ApiLicensesVerifyRoute
+  '/api/quiz/answer': typeof ApiQuizAnswerRoute
   '/api/webhooks/ariari': typeof ApiWebhooksAriariRoute
   '/api/webhooks/lemonsqueezy': typeof ApiWebhooksLemonsqueezyRoute
   '/content/$type/$file': typeof ContentTypeFileRoute
@@ -610,9 +642,11 @@ export interface FileRoutesById {
   '/valeurs-reference': typeof ValeursReferenceRoute
   '/validation-clinique': typeof ValidationCliniqueRoute
   '/_dev/kitchen-sink': typeof DevKitchenSinkRoute
+  '/api/admin-logout': typeof ApiAdminLogoutRoute
   '/api/admin-verify': typeof ApiAdminVerifyRoute
   '/api/ai-stream': typeof ApiAiStreamRoute
   '/api/events': typeof ApiEventsRoute
+  '/api/health': typeof ApiHealthRouteWithChildren
   '/api/institution-leads': typeof ApiInstitutionLeadsRoute
   '/cas/$caseId': typeof CasCaseIdRoute
   '/demarche/$id': typeof DemarcheIdRoute
@@ -629,7 +663,9 @@ export interface FileRoutesById {
   '/api/health/checkout': typeof ApiHealthCheckoutRoute
   '/api/licenses/activate': typeof ApiLicensesActivateRoute
   '/api/licenses/session': typeof ApiLicensesSessionRoute
+  '/api/licenses/trial-token': typeof ApiLicensesTrialTokenRoute
   '/api/licenses/verify': typeof ApiLicensesVerifyRoute
+  '/api/quiz/answer': typeof ApiQuizAnswerRoute
   '/api/webhooks/ariari': typeof ApiWebhooksAriariRoute
   '/api/webhooks/lemonsqueezy': typeof ApiWebhooksLemonsqueezyRoute
   '/content/$type/$file': typeof ContentTypeFileRoute
@@ -682,9 +718,11 @@ export interface FileRouteTypes {
     | '/valeurs-reference'
     | '/validation-clinique'
     | '/kitchen-sink'
+    | '/api/admin-logout'
     | '/api/admin-verify'
     | '/api/ai-stream'
     | '/api/events'
+    | '/api/health'
     | '/api/institution-leads'
     | '/cas/$caseId'
     | '/demarche/$id'
@@ -701,7 +739,9 @@ export interface FileRouteTypes {
     | '/api/health/checkout'
     | '/api/licenses/activate'
     | '/api/licenses/session'
+    | '/api/licenses/trial-token'
     | '/api/licenses/verify'
+    | '/api/quiz/answer'
     | '/api/webhooks/ariari'
     | '/api/webhooks/lemonsqueezy'
     | '/content/$type/$file'
@@ -750,9 +790,11 @@ export interface FileRouteTypes {
     | '/valeurs-reference'
     | '/validation-clinique'
     | '/kitchen-sink'
+    | '/api/admin-logout'
     | '/api/admin-verify'
     | '/api/ai-stream'
     | '/api/events'
+    | '/api/health'
     | '/api/institution-leads'
     | '/cas/$caseId'
     | '/demarche/$id'
@@ -769,7 +811,9 @@ export interface FileRouteTypes {
     | '/api/health/checkout'
     | '/api/licenses/activate'
     | '/api/licenses/session'
+    | '/api/licenses/trial-token'
     | '/api/licenses/verify'
+    | '/api/quiz/answer'
     | '/api/webhooks/ariari'
     | '/api/webhooks/lemonsqueezy'
     | '/content/$type/$file'
@@ -821,9 +865,11 @@ export interface FileRouteTypes {
     | '/valeurs-reference'
     | '/validation-clinique'
     | '/_dev/kitchen-sink'
+    | '/api/admin-logout'
     | '/api/admin-verify'
     | '/api/ai-stream'
     | '/api/events'
+    | '/api/health'
     | '/api/institution-leads'
     | '/cas/$caseId'
     | '/demarche/$id'
@@ -840,7 +886,9 @@ export interface FileRouteTypes {
     | '/api/health/checkout'
     | '/api/licenses/activate'
     | '/api/licenses/session'
+    | '/api/licenses/trial-token'
     | '/api/licenses/verify'
+    | '/api/quiz/answer'
     | '/api/webhooks/ariari'
     | '/api/webhooks/lemonsqueezy'
     | '/content/$type/$file'
@@ -892,18 +940,21 @@ export interface RootRouteChildren {
   TarifsRoute: typeof TarifsRoute
   ValeursReferenceRoute: typeof ValeursReferenceRoute
   ValidationCliniqueRoute: typeof ValidationCliniqueRoute
+  ApiAdminLogoutRoute: typeof ApiAdminLogoutRoute
   ApiAdminVerifyRoute: typeof ApiAdminVerifyRoute
   ApiAiStreamRoute: typeof ApiAiStreamRoute
   ApiEventsRoute: typeof ApiEventsRoute
+  ApiHealthRoute: typeof ApiHealthRouteWithChildren
   ApiInstitutionLeadsRoute: typeof ApiInstitutionLeadsRoute
   LearnDeckIdRoute: typeof LearnDeckIdRoute
   PathologieSlugRoute: typeof PathologieSlugRoute
   ApiCheckoutAriariRoute: typeof ApiCheckoutAriariRoute
   ApiCheckoutLemonsqueezyRoute: typeof ApiCheckoutLemonsqueezyRoute
-  ApiHealthCheckoutRoute: typeof ApiHealthCheckoutRoute
   ApiLicensesActivateRoute: typeof ApiLicensesActivateRoute
   ApiLicensesSessionRoute: typeof ApiLicensesSessionRoute
+  ApiLicensesTrialTokenRoute: typeof ApiLicensesTrialTokenRoute
   ApiLicensesVerifyRoute: typeof ApiLicensesVerifyRoute
+  ApiQuizAnswerRoute: typeof ApiQuizAnswerRoute
   ApiWebhooksAriariRoute: typeof ApiWebhooksAriariRoute
   ApiWebhooksLemonsqueezyRoute: typeof ApiWebhooksLemonsqueezyRoute
   ContentTypeFileRoute: typeof ContentTypeFileRoute
@@ -1233,6 +1284,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DevKitchenSinkRouteImport
       parentRoute: typeof DevRoute
     }
+    '/api/admin-logout': {
+      id: '/api/admin-logout'
+      path: '/api/admin-logout'
+      fullPath: '/api/admin-logout'
+      preLoaderRoute: typeof ApiAdminLogoutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/admin-verify': {
       id: '/api/admin-verify'
       path: '/api/admin-verify'
@@ -1252,6 +1310,13 @@ declare module '@tanstack/react-router' {
       path: '/api/events'
       fullPath: '/api/events'
       preLoaderRoute: typeof ApiEventsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/health': {
+      id: '/api/health'
+      path: '/api/health'
+      fullPath: '/api/health'
+      preLoaderRoute: typeof ApiHealthRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/institution-leads': {
@@ -1347,10 +1412,10 @@ declare module '@tanstack/react-router' {
     }
     '/api/health/checkout': {
       id: '/api/health/checkout'
-      path: '/api/health/checkout'
+      path: '/checkout'
       fullPath: '/api/health/checkout'
       preLoaderRoute: typeof ApiHealthCheckoutRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof ApiHealthRoute
     }
     '/api/licenses/activate': {
       id: '/api/licenses/activate'
@@ -1366,11 +1431,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiLicensesSessionRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/licenses/trial-token': {
+      id: '/api/licenses/trial-token'
+      path: '/api/licenses/trial-token'
+      fullPath: '/api/licenses/trial-token'
+      preLoaderRoute: typeof ApiLicensesTrialTokenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/licenses/verify': {
       id: '/api/licenses/verify'
       path: '/api/licenses/verify'
       fullPath: '/api/licenses/verify'
       preLoaderRoute: typeof ApiLicensesVerifyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/quiz/answer': {
+      id: '/api/quiz/answer'
+      path: '/api/quiz/answer'
+      fullPath: '/api/quiz/answer'
+      preLoaderRoute: typeof ApiQuizAnswerRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/webhooks/ariari': {
@@ -1479,6 +1558,18 @@ const ParcoursRouteWithChildren = ParcoursRoute._addFileChildren(
   ParcoursRouteChildren,
 )
 
+interface ApiHealthRouteChildren {
+  ApiHealthCheckoutRoute: typeof ApiHealthCheckoutRoute
+}
+
+const ApiHealthRouteChildren: ApiHealthRouteChildren = {
+  ApiHealthCheckoutRoute: ApiHealthCheckoutRoute,
+}
+
+const ApiHealthRouteWithChildren = ApiHealthRoute._addFileChildren(
+  ApiHealthRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   DevRoute: DevRouteWithChildren,
@@ -1525,18 +1616,21 @@ const rootRouteChildren: RootRouteChildren = {
   TarifsRoute: TarifsRoute,
   ValeursReferenceRoute: ValeursReferenceRoute,
   ValidationCliniqueRoute: ValidationCliniqueRoute,
+  ApiAdminLogoutRoute: ApiAdminLogoutRoute,
   ApiAdminVerifyRoute: ApiAdminVerifyRoute,
   ApiAiStreamRoute: ApiAiStreamRoute,
   ApiEventsRoute: ApiEventsRoute,
+  ApiHealthRoute: ApiHealthRouteWithChildren,
   ApiInstitutionLeadsRoute: ApiInstitutionLeadsRoute,
   LearnDeckIdRoute: LearnDeckIdRoute,
   PathologieSlugRoute: PathologieSlugRoute,
   ApiCheckoutAriariRoute: ApiCheckoutAriariRoute,
   ApiCheckoutLemonsqueezyRoute: ApiCheckoutLemonsqueezyRoute,
-  ApiHealthCheckoutRoute: ApiHealthCheckoutRoute,
   ApiLicensesActivateRoute: ApiLicensesActivateRoute,
   ApiLicensesSessionRoute: ApiLicensesSessionRoute,
+  ApiLicensesTrialTokenRoute: ApiLicensesTrialTokenRoute,
   ApiLicensesVerifyRoute: ApiLicensesVerifyRoute,
+  ApiQuizAnswerRoute: ApiQuizAnswerRoute,
   ApiWebhooksAriariRoute: ApiWebhooksAriariRoute,
   ApiWebhooksLemonsqueezyRoute: ApiWebhooksLemonsqueezyRoute,
   ContentTypeFileRoute: ContentTypeFileRoute,

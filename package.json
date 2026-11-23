@@ -20,6 +20,7 @@
     "db:migrate": "node scripts/migrate.mjs",
     "backup:db": "node scripts/backup-postgres.mjs backup",
     "backup:plan": "node scripts/backup-postgres.mjs plan",
+    "uptime:check": "node scripts/uptime-check.mjs",
     "db:prove-staging": "node scripts/run-staging-migration.mjs",
     "db:validate-staging": "node scripts/validate-staging-db.mjs",
     "license:issue": "node scripts/issue-activation-key.mjs",
