@@ -53,7 +53,13 @@ export default defineEventHandler(async (event) => {
   }
 
   const clientIp = getClientIp(event);
-  const subject = clientIp || `${optimusId}:${deviceId.toLowerCase()}`;
+  // Doctrine client-ip (src/lib/security/client-ip.server.ts) : sans IP de
+  // confiance, tous les appelants anonymes partagent UN SEUL bucket non
+  // forgeable (fail closed). L'ancien repli `${optimusId}:${deviceId}` etait
+  // entierement fourni par le client : une valeur inventee par requete offrait
+  // un nouveau quota de 8 tentatives, rendant le limiteur inoperant contre une
+  // enumeration de cles d'activation (audit 2026-11-23).
+  const subject = clientIp ?? "shared";
   try {
     const decision = await consumeRateLimit({
       scope: "license-activate",
