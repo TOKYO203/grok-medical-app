@@ -1,0 +1,38 @@
+{
+  "id": "A-04",
+  "level": "A",
+  "order": 4,
+  "title": "Décrire un ECG normal en 7 étapes",
+  "durationMin": 8,
+  "objectives": [
+    "Appliquer la méthode 7 étapes de manière systématique",
+    "Décrire un ECG normal sans oublier d'élément",
+    "Reconnaître la cohérence globale d'un ECG normal"
+  ],
+  "content": [
+    { "type": "text", "markdown": "Une lecture systématique **évite d'oublier** une anomalie. La méthode en 7 étapes est la plus répandue chez les urgentistes." },
+    { "type": "list", "ordered": true, "items": [
+      "**Rythme** : sinusal ? (onde P positive en DII, PR constant)",
+      "**Fréquence** : entre 60 et 100 bpm (FC = 300 / grands carreaux)",
+      "**Axe** : normal ? (DI et aVF positifs)",
+      "**Intervalles** : PR 120-200 ms, QRS < 120 ms, QT corrigé",
+      "**Onde P** : morphologie normale, amplitude < 2.5 mm en DII",
+      "**Segment ST et onde T** : ST iso-électrique, T positive en dérivations concordantes",
+      "**Conclusion** : « ECG normal » ou description des anomalies"
+    ]},
+    { "type": "callout", "tone": "danger", "title": "En pratique aux urgences", "markdown": "Ne **jamais** conclure « ECG normal » sans avoir fait les 7 étapes. Une anomalie isolée (QT long, PR allongé, sus-décalage millimétrique) peut changer la prise en charge et sauver une vie." },
+    { "type": "text", "markdown": "## Le piège de la conclusion hâtive\n\nUn ECG peut être « presque normal » avec un **QT à 500 ms** ou un **PR à 240 ms** qui transforment un patient stable en patient à risque. La systématique protège de ces oublis." }
+  ],
+  "keyPoints": [
+    "7 étapes : rythme → FC → axe → intervalles → P → ST-T → conclusion",
+    "Ne jamais conclure « normal » sans avoir tout vérifié",
+    "PR normal : 120-200 ms",
+    "QRS normal : < 120 ms",
+    "QT corrigé : homme < 440 ms, femme < 460 ms"
+  ],
+  "checkQuiz": [
+    { "question": "Dans la méthode 7 étapes, quelle étape vient immédiatement après la fréquence ?", "choices": ["L'axe", "Les intervalles", "L'onde P", "La conclusion"], "correct": 0, "explanation": "Ordre classique : rythme → fréquence → axe → intervalles → P → ST-T → conclusion." },
+    { "question": "Un PR mesuré à 220 ms chez un patient asymptomatique. Que faut-il retenir ?", "choices": ["C'est normal", "BAV du 1er degré", "WPW", "Il faut refaire l'ECG"], "correct": 1, "explanation": "PR > 200 ms = allongement du PR = BAV du 1er degré (à surveiller, souvent bénin si asymptomatique)." }
+  ],
+  "caseStudy": "ecg-1-2-idm-etalonnage"
+}

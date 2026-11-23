@@ -1,6 +1,10 @@
 import parcoursManifest from "@/content/data/ecg/parcours/_parcours.json";
 import levelAIndex from "@/content/data/ecg/parcours/A/_lecons.json";
 import lessonA01 from "@/content/data/ecg/parcours/A/A-01-papier.json";
+import lessonA02 from "@/content/data/ecg/parcours/A/A-02-derivations.json";
+import lessonA03 from "@/content/data/ecg/parcours/A/A-03-axe.json";
+import lessonA04 from "@/content/data/ecg/parcours/A/A-04-sept-etapes.json";
+import lessonA05 from "@/content/data/ecg/parcours/A/A-05-pieges.json";
 
 import type { Level, Lesson, LessonIndex, ParcoursManifest } from "./types";
 
@@ -16,6 +20,10 @@ const LEVEL_INDEX: Record<Level, LessonIndex | null> = {
 
 const LESSONS_BY_ID: Record<string, Lesson> = {
   "A-01": lessonA01 as unknown as Lesson,
+  "A-02": lessonA02 as unknown as Lesson,
+  "A-03": lessonA03 as unknown as Lesson,
+  "A-04": lessonA04 as unknown as Lesson,
+  "A-05": lessonA05 as unknown as Lesson,
 };
 
 export function getParcours(): ParcoursManifest {

@@ -1,0 +1,35 @@
+{
+  "id": "A-03",
+  "level": "A",
+  "order": 3,
+  "title": "L'axe du QRS en 3 minutes",
+  "durationMin": 5,
+  "objectives": [
+    "Déterminer l'axe du QRS avec la méthode DI/aVF",
+    "Reconnaître un axe normal, une déviation gauche et une déviation droite",
+    "Comprendre les conséquences cliniques d'un axe anormal"
+  ],
+  "content": [
+    { "type": "text", "markdown": "L'axe du QRS est la **direction moyenne** de la dépolarisation ventriculaire dans le plan frontal. Il s'exprime en degrés et se déduit facilement de 2 dérivations : **DI et aVF**." },
+    { "type": "table", "headers": ["Situation", "DI", "aVF", "Interprétation"], "rows": [
+      ["Normal", "Positif", "Positif", "Axe entre -30° et +110°"],
+      ["Déviation gauche", "Positif", "Négatif", "Axe entre -30° et -90°"],
+      ["Déviation droite", "Négatif", "Positif", "Axe entre +110° et +180°"],
+      ["Indéterminé", "Négatif", "Négatif", "« Nord-ouest » — rare, pathologique"]
+    ]},
+    { "type": "callout", "tone": "warning", "title": "En pratique aux urgences", "markdown": "Un axe normal **n'exclut rien**. Une déviation droite peut signer une **hypertrophie ventriculaire droite** (HVD) ou une embolie pulmonaire. Une déviation gauche peut signer un **hémibloc antérieur gauche** (HBAG). À interpréter avec le reste de l'ECG." },
+    { "type": "text", "markdown": "## La méthode en 3 secondes\n\n1. **DI et aVF positifs** → axe normal.\n2. **DI positif, aVF négatif** → suspicion de déviation gauche ; confirmer avec DII (si DII négatif, alors vraiment gauche).\n3. **DI négatif, aVF positif** → déviation droite." }
+  ],
+  "keyPoints": [
+    "Axe normal : entre -30° et +110°",
+    "Méthode rapide : DI et aVF (les 2 positifs = normal)",
+    "Déviation gauche : évoquer HBAG",
+    "Déviation droite : évoquer HVD ou EP",
+    "Toujours confirmer avec DII pour affiner"
+  ],
+  "checkQuiz": [
+    { "question": "Sur un ECG, DI est positif et aVF est négatif. Comment qualifier l'axe du QRS ?", "choices": ["Axe normal", "Déviation gauche", "Déviation droite", "Indéterminé"], "correct": 1, "explanation": "DI positif + aVF négatif = déviation gauche (à confirmer avec DII)." },
+    { "question": "Quelle est la borne basse de l'axe normal ?", "choices": ["0°", "-30°", "-90°", "+30°"], "correct": 1, "explanation": "L'axe normal va de -30° à +110° selon les recommandations." }
+  ],
+  "caseStudy": "normal-001"
+}

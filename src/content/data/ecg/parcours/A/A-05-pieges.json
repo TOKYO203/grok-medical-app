@@ -1,0 +1,37 @@
+{
+  "id": "A-05",
+  "level": "A",
+  "order": 5,
+  "title": "Pièges techniques : SNCF, malposition, étalonnage",
+  "durationMin": 6,
+  "objectives": [
+    "Reconnaître un parasitage secteur (SNCF)",
+    "Reconnaître une malposition des électrodes",
+    "Reconnaître une erreur de vitesse ou d'étalonnage",
+    "Savoir quand refaire l'ECG avant de conclure"
+  ],
+  "content": [
+    { "type": "text", "markdown": "Un ECG mal fait conduit à un **diagnostic faux**. Trois pièges sont fréquents aux urgences et se repèrent en 5 secondes." },
+    { "type": "table", "headers": ["Piège", "Signe sur le tracé", "Solution"], "rows": [
+      ["Parasitage 50 Hz (SNCF)", "Ligne épaisse et ondulée sur toutes les dérivations", "Vérifier les électrodes, éloigner les appareils électriques"],
+      ["Malposition des électrodes", "Onde P négative en DI, ou V1-V2 inversées", "Refaire l'ECG avec placement correct"],
+      ["Erreur de vitesse", "Complexes anormalement larges ou étroits", "Vérifier le réglage (25 vs 50 mm/s)"],
+      ["Erreur d'étalonnage", "Amplitude anormale (± 50 %)", "Vérifier le réglage (10 mm/mV)"]
+    ]},
+    { "type": "callout", "tone": "warning", "title": "En pratique aux urgences", "markdown": "Un **sus-décalage isolé en V1-V2** doit toujours faire chercher une **inversion des électrodes précordiales** (V1 ↔ V3, V2 ↔ V1). Un sus-décalage isolé en aVR peut signer une **occlusion du tronc commun** — à ne pas confondre avec un artefact." },
+    { "type": "text", "markdown": "## Les 3 vérifications avant de lire\n\n1. **Vitesse** : 25 mm/s standard (sinon diviser/multiplier les durées par 2)\n2. **Amplitude** : 10 mm/mV standard (sinon recalculer les amplitudes)\n3. **Placement** : P positive en DI **et** en aVF (si P négative en DI → inversion bras droit/gauche)" }
+  ],
+  "keyPoints": [
+    "Parasitage SNCF : ligne épaisse ondulée sur toutes les dérivations",
+    "Malposition : P négative en DI = inversion bras droit/gauche",
+    "V1-V2 inversées : aspect de sus-décalage trompeur",
+    "Vitesse 25 mm/s standard ; 50 mm/s double les durées",
+    "Amplitude 10 mm/mV standard",
+    "Toujours vérifier la technique avant de conclure"
+  ],
+  "checkQuiz": [
+    { "question": "Sur un ECG, toutes les dérivations montrent une ligne épaisse et ondulée. Quel est le diagnostic technique ?", "choices": ["Fibrillation ventriculaire", "Parasitage 50 Hz", "Torsades de pointes", "Bloc de branche"], "correct": 1, "explanation": "Ligne épaisse et régulière sur toutes les dérivations = parasitage secteur, à corriger en repositionnant les électrodes et éloignant les appareils." },
+    { "question": "Devant une onde P négative en DI, quelle hypothèse technique évoquer en priorité ?", "choices": ["Rythme ectopique auriculaire", "Inversion des électrodes des bras", "IDM latéral", "WPW"], "correct": 1, "explanation": "P négative en DI = inversion des électrodes bras droit/gauche (piège classique)." }
+  ],
+  "caseStudy": "ecg-1-3-sncf"
+}
