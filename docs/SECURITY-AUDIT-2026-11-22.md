@@ -24,7 +24,7 @@ du service worker, des en-têtes de sécurité et de la configuration CI.
    le cast SQL `$3::interval` en 500 brut. Désormais borné à [1 ; 1440] avec
    défaut 60 (server/api/surveys/[id]/responses.ts).
 
-## Faille 3 — corriGÉE (commit CSP 2026-11-22)
+## Faille 3 — CORRIGÉE (commit CSP 2026-11-22)
 3. ~~CSP : `script-src 'unsafe-inline'` en production~~ → **CORRIGÉ**.
    Solution retenue : allowlist par hash des scripts inline RÉELLEMENT rendus.
    Le middleware (server/middleware/security-headers.ts) lit le HTML de chaque
