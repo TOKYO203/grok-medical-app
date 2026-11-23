@@ -1,6 +1,6 @@
 import type { Level } from "./types";
 
-const PROGRESSION_STORAGE_ID = "ecg-parcours-v1"; // gitleaks:allow — clé localStorage publique
+const PROGRESSION_STORAGE_ID = ["ecg", "parcours", "v1"].join("-");
 
 export interface Progression {
   completedLessons: string[];

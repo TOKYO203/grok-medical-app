@@ -1,0 +1,8 @@
+# Findings historiques acceptés — faux positifs generic-api-key
+# La valeur est une clé localStorage publique (ecg-parcours-v1), pas un secret.
+# Ces fingerprints couvrent les commits dans la plage de scan 464ce086..HEAD
+# qui contenaient encore la ligne au moment du scan delta.
+
+dd5a90702ba5a31a56fd19a6cb6ba5b0eb2d72f7:src/lib/ecg/parcours/progression.ts:generic-api-key:3
+29ce272ff1b7c0ef5377485e04671440254dfb47:src/lib/ecg/parcours/progression.ts:generic-api-key:3
+cff62d9d78f726b8c25d01c356786320dbf82825:src/lib/ecg/parcours/progression.ts:generic-api-key:3
