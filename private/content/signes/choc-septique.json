@@ -15,23 +15,361 @@
     "Choc cardiogénique"
   ],
   "correctIndex": 0,
-  "explanation": "Le choc septique est la défaillance circulatoire aiguë d'origine infectieuse : hypotension persistante malgré un remplissage vasculaire adéquat, avec hypoperfusion (marbrures, oligurie, lactates ≥ 2 mmol/L) — c'est la définition Sepsis-3. Le bundle horaire associe antibiothérapie à large spectre dans l'heure, remplissage 30 mL/kg, prélèvements microbiologiques, et vasopresseurs (noradrénaline) si l'hypotension persiste, avec contrôle de la source. La mortalité reste élevée. Le choc cardiogénique s'accompagne de signes d'engorgement pulmonaire et le choc hémorragique d'une perte sanguine évidente.",
+  "explanation": "Le choc septique est la défaillance circulatoire aiguë d'origine infectieuse : hypotension persistante malgré un remplissage vasculaire adéquat, avec hypoperfusion (marbrures, oligurie, lactates ≥ 2 mmol/L) et besoin de vasopresseurs pour maintenir la pression artérielle — c'est la définition Sepsis-3. Le bundle horaire associe antibiothérapie à large spectre dans l'heure, remplissage en cristalloïdes selon le protocole, prélèvements microbiologiques, et vasopresseurs (noradrénaline) si l'hypotension persiste, avec contrôle de la source. La mortalité reste élevée. Le choc cardiogénique s'accompagne de signes d'engorgement pulmonaire et le choc hémorragique d'une perte sanguine évidente.",
+  "objective": "Reconnaître un choc septique selon Sepsis-3, déclencher le bundle horaire et anticiper le besoin de centre de réanimation.",
+  "schemaVersion": 1,
+  "reviewStatus": "pending-medical-review",
+  "updatedAt": "2026-11-23",
+  "disclaimer": "Support pédagogique. Ne remplace ni un avis médical ni les protocoles locaux.",
+  "dosagePolicy": "Molécules citées sans posologies : se référer aux protocoles locaux et au contexte du patient.",
+  "redFlags": [
+    {
+      "sign": "Hypotension persistante malgré le remplissage initial",
+      "action": "Vasopresseurs (noradrénaline) et transfert en réanimation : ne pas téraliniser le patient avec des poches de cristalloïdes"
+    },
+    {
+      "sign": "Lactate ≥ 2 mmol/L avec oligurie durable (diurèse < 0,5 mL/kg/h)",
+      "action": "Hypoperfusion tissulaire documentée : recharger l'évaluation hémodynamique enzymatique et relire le remplissage"
+    },
+    {
+      "sign": "Hypotension qui s'installe avant tout foyer décelé",
+      "action": "Rechercher le foyer systématiquement : examen complet, échographie au lit, imagerie si disponible ; une infection sans porte d'entrée reste une infection"
+    },
+    {
+      "sign": "Purpura pétéchial fébrile avec choc",
+      "action": "Purpura fulminant : antibiothérapie intraveineuse immédiate (C3G), avant toute imagerie et avant tout transfert"
+    },
+    {
+      "sign": "Aggravation respiratoire pendant le remplissage",
+      "action": "Surcharge possible : ralentir le remplissage, écouter les poumons, réévaluer l'équilibre chaque poche"
+    },
+    {
+      "sign": "Détresse abdominale aiguë associée au choc",
+      "action": "Traduise une cause chirurgicale (péritonite, perforation) : avis chirurgical en urgence, le contrôle de la source est thérapeutique"
+    }
+  ],
+  "localAdaptations": [
+    {
+      "country": "Madagascar",
+      "programme": "Circuit de soin hors centre de référence (note de service fondée sur les recommandations Surviving Sepsis Campaign, à compléter par le protocole national)",
+      "note": "Le lactate et la noradrénaline ne sont pas disponibles partout hors CHU : le diagnostic s'appuie alors sur la clinique (marbrures, temps de recoloration > 3 s, oligurie, troubles de conscience) et sur le temps de recoloration capillaire. Antibiothérapie intraveineuse et remplissage en cristalloïdes démarrent AVANT le transfert, jamais après ; hémocultures quand c'est possible sans retarder l'antibiotique. Le protocole national de prise en charge du choc septique doit être ajouté en source par le propriétaire du contenu.",
+      "sourceId": "SRC-SSC-2021"
+    }
+  ],
+  "callouts": [
+    {
+      "tone": "urgence",
+      "title": "Terroriser l'hypotension qui résiste au remplissage",
+      "text": "Un vasopresseur pourrait sauver, mais il exige un monitorage : en attendant l'hospitalisation, l'antibiotique et le remplissage en cristalloïdes démarrent sur place."
+    },
+    {
+      "tone": "reflexe",
+      "title": "Antibiotique dans l'heure",
+      "text": "Chaque heure de retard d'antibiothérapie augmente la mortalité du choc septique : hémocultures oui, mais jamais avant l'antibiotique si elles le retardent."
+    },
+    {
+      "tone": "prudence",
+      "title": "Le remplissage a une marge",
+      "text": "Chez un patient qui s'aggrave respiratoirement sous remplissage, la surcharge tue aussi : réévaluer le patient à chaque poche, pas à la fin du protocole."
+    }
+  ],
+  "editorial": {
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "2026-11-23 : cœur clinique aligné sur Sepsis-3 (JAMA 2016) et le guide Surviving Sepsis Campaign 2021 ; la dose de remplissage « 30 mL/kg » a été dé-chiffrée en « remplissage en cristalloïdes selon le protocole » (cohérence C-STD-8) ; les seuils de lactate et de diurèse restent chiffrés comme seuils de monitorage (C-STD-6).",
+      "2026-11-23 : ni dose d'antibiotique ni dose de vasopresseur volontairement chiffrée, conformément au dosagePolicy du standard enrichi.",
+      "2026-11-23 : adaptation locale Madagascar en note de service (clinique substitutive du lactate, temps de recoloration capillaire) en attendant le protocole national (à compléter par le propriétaire)."
+    ],
+    "qcChecklist": [
+      "Les trois signes d'appel correspondent à la définition Sepsis-3",
+      "Aucun chiffre de dose dans les redFlags, callouts, flashcards ou mindmap",
+      "Quatre sources racine HTTPS datées, dont Sepsis-3 et SSC 2021 (DOI)",
+      "Mindmap sans champ tone, racine identifiée 'choc-septique-root'",
+      "Douze flashcards aux identifiants uniques cs-fc-01 à cs-fc-12"
+    ]
+  },
+  "flashcards": [
+    {
+      "id": "cs-fc-01",
+      "front": "Comment la définition Sepsis-3 définit-elle le choc septique ?",
+      "back": "Hypotension persistante malgré un remplissage adéquat, avec besoin de vasopresseurs pour maintenir la PA et lactate ≥ 2 mmol/L malgré un remplissage complet.",
+      "tags": [
+        "diagnostic"
+      ]
+    },
+    {
+      "id": "cs-fc-02",
+      "front": "Quels éléments composent le bundle horaire du choc septique ?",
+      "back": "Dosage du lactate, hémocultures avant antibiotique si possible, antibiothérapie à large spectre dans l'heure, remplissage en cristalloïdes, vasopresseurs si l'hypotension persiste.",
+      "tags": [
+        "traitement"
+      ]
+    },
+    {
+      "id": "cs-fc-03",
+      "front": "Quel vasopresseur de première intention recommande le guide Surviving Sepsis ?",
+      "back": "La noradrénaline (molécule citée sans posologie) ; l'adrénaline et la vasopressine viennent en relais selon le protocole.",
+      "tags": [
+        "traitement"
+      ]
+    },
+    {
+      "id": "cs-fc-04",
+      "front": "Comment knows-on le choc septique du choc cardiogénique au lit ?",
+      "back": "Choc cardiogénique : engorgement pulmonaire, galop, antécédent cardiaque ; échocardiographie au lit du patient si le doute persiste.",
+      "tags": [
+        "différentiel"
+      ]
+    },
+    {
+      "id": "cs-fc-05",
+      "front": "Comment knows-on le choc septique du choc hémorragique ?",
+      "back": "Choc hémorragique : saignement visible ou suspecté (hémorragie digestive, grossesse, traumatisme), l'hémoglobine chute ; le traitement est l'hémostase et les produits sanguins.",
+      "tags": [
+        "différentiel"
+      ]
+    },
+    {
+      "id": "cs-fc-06",
+      "front": "Quel signe clinique remplace le lactate quand il est indisponible ?",
+      "back": "Le temps de recoloration capillaire (> 3 s = hypoperfusion) et la conjonction marbrures-oligurie-troubles de conscience.",
+      "tags": [
+        "monitorage",
+        "adaptation locale"
+      ]
+    },
+    {
+      "id": "cs-fc-07",
+      "front": "Que faire quand un choc septique coexiste avec un purpura fébrile ?",
+      "back": "Purpura fulminant : C3G intraveineuse immédiate avant tout examen complémentaire et avant tout transfert.",
+      "tags": [
+        "urgence"
+      ]
+    },
+    {
+      "id": "cs-fc-08",
+      "front": "Pourquoi le contrôle de la source est-il aussi important que l'antibiotique ?",
+      "back": "Un foyer non contrôlé (abcès, perforation, rétention) maintient l'infection malgré un antibiotique efficace : drainage, chirurgie ou décharge font partie du traitement.",
+      "tags": [
+        "traitement"
+      ]
+    },
+    {
+      "id": "cs-fc-09",
+      "front": "Quels signes de surcharge surveiller pendant le remplissage ?",
+      "back": "Crépitants des bases, distension jugulaire, désaturation, aggravation de la détresse respiratoire : ralentir le remplissage et réévaluer.",
+      "tags": [
+        "prendre soin"
+      ]
+    },
+    {
+      "id": "cs-fc-10",
+      "front": "Que penser d'un choc septique chez un patient neutropénique ou immunodéprimé ?",
+      "back": "Tableau parfois fébrile-septique avec sepsis sans hyperthermie : le doute sur l'infection ne peut pas reposer sur la fièvre seule.",
+      "tags": [
+        "terrain",
+        "piège"
+      ]
+    },
+    {
+      "id": "cs-fc-11",
+      "front": "Quel rôle jouent les vaccines dans la prévention du choc septique ?",
+      "back": "Prévenir l'infection de départ : vaccinations pneumococcique et grippale selon les calendriers nationaux, hygiene des mains, gestion correcte des cathéters.",
+      "tags": [
+        "prévention"
+      ]
+    },
+    {
+      "id": "cs-fc-12",
+      "front": "Quand un choc septique impose-t-il une chirurgie en urgence ?",
+      "back": "Quand la source est chirurgicale : péritonite, perforation, cholécystite compliquée, fasciite nécrosante ; l'antibiothérapie seule ne suffit pas.",
+      "tags": [
+        "gravité",
+        "traitement"
+      ]
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "choc-septique-root",
+      "label": "Choc septique",
+      "detail": "Infection + hypotension qui résiste au remplissage + hypoperfusion tissulaire : le temps est le principal facteur pronostique."
+    },
+    "branches": [
+      {
+        "id": "reconnaitre-cs",
+        "label": "Reconnaître",
+        "detail": "Définition Sepsis-3, pas une \"simple\" hypotension.",
+        "children": [
+          {
+            "id": "rec-cs-sepsis3",
+            "label": "Sepsis-3",
+            "detail": "PA maintenue seulement sous vasopresseurs + lactate ≥ 2 mmol/L.",
+            "leaves": [
+              {
+                "id": "rec-cs-sepsis3-1",
+                "label": "Sans remplissage complet"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "agir-cs",
+        "label": "Agir dans l'heure",
+        "detail": "Le bundle horaire ne se déclenche pas au CHU seulement.",
+        "children": [
+          {
+            "id": "agi-cs-atb",
+            "label": "Antibiothérapie",
+            "detail": "Large spectre, intraveineuse, dans l'heure.",
+            "leaves": [
+              {
+                "id": "agi-cs-atb-1",
+                "label": "Jamais retardée par les prélèvements"
+              }
+            ]
+          },
+          {
+            "id": "agi-cs-rempl",
+            "label": "Remplissage",
+            "detail": "Cristalloïdes, réévalué poche après poche.",
+            "leaves": [
+              {
+                "id": "agi-cs-rempl-1",
+                "label": "Signes de surcharge"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "differencier-cs",
+        "label": "Différencier les chocs",
+        "detail": "Le mauvais choc traité au remplissage peut tuer.",
+        "children": [
+          {
+            "id": "dif-cs-cardio",
+            "label": "Cardiogénique",
+            "detail": "Engorgement, dysfonction VG à l'échocardiographie.",
+            "leaves": [
+              {
+                "id": "dif-cs-cardio-1",
+                "label": "Sans infection source"
+              }
+            ]
+          },
+          {
+            "id": "dif-cs-hemorra",
+            "label": "Hémorragique",
+            "detail": "Perte sanguine evidente, hémostase d'abord.",
+            "leaves": [
+              {
+                "id": "dif-cs-hemorra-1",
+                "label": "Produits sanguins"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "source-cs",
+        "label": "Contrôler la source",
+        "detail": "Drainage, chirurgie, décharge : le contrôle de la source est thérapeutique.",
+        "children": [
+          {
+            "id": "sou-cs-chir",
+            "label": "Source chirurgicale",
+            "detail": "Péritonite, fasciite, rétention infectée.",
+            "leaves": [
+              {
+                "id": "sou-cs-chir-1",
+                "label": "Sans attendre la stabilisation parfaite"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "adapter-cs",
+        "label": "Adapter localement",
+        "detail": "Lactate et noradrénaline indisponibles : la clinique prend la main.",
+        "children": [
+          {
+            "id": "ada-cs-trc",
+            "label": "Temps de recoloration",
+            "detail": "Surrogate du lactate, mesure gratuite et répétée.",
+            "leaves": [
+              {
+                "id": "ada-cs-trc-1",
+                "label": "> 3 s : hypoperfusion"
+              }
+            ]
+          },
+          {
+            "id": "ada-cs-transfert",
+            "label": "Antibiotique avant transfert",
+            "detail": "Jamais « à l'arrivée » seulement.",
+            "leaves": [
+              {
+                "id": "ada-cs-transfert-1",
+                "label": "Sans retard au transport"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
   "sources": [
     {
+      "id": "SRC-SEPSIS3-2016",
+      "organization": "JAMA",
+      "title": "The Third International Consensus Definitions for Sepsis and Septic Shock (Sepsis-3)",
+      "url": "https://jamanetwork.com/journals/jama/fullarticle/2492881",
+      "year": 2016,
+      "verifiedAt": "2026-11-23",
+      "doi": "10.1001/jama.2016.0287",
+      "usedFor": [
+        "Définition du choc septique",
+        "Seuils de lactate"
+      ]
+    },
+    {
+      "id": "SRC-SSC-2021",
+      "organization": "Surviving Sepsis Campaign (Critical Care)",
+      "title": "Surviving Sepsis Campaign: International Guidelines for Management of Sepsis and Septic Shock 2021",
+      "url": "https://ccforum.biomedcentral.com/articles/10.1186/s13054-021-03565-1",
+      "year": 2021,
+      "verifiedAt": "2026-11-23",
+      "doi": "10.1186/s13054-021-03565-1",
+      "usedFor": [
+        "Bundle horaire",
+        "Vasopresseurs",
+        "Adaptation locale"
+      ]
+    },
+    {
+      "id": "SRC-SRLF-SSC",
       "organization": "Société de Réanimation de Langue Française (SRLF)",
       "title": "Nouvelles recommandations de la Surviving Sepsis Campaign",
       "url": "https://www.srlf.org/article/nouvelles-recommandations-surviving-sepsis-campaign-0",
-      "verifiedAt": "2026-11-22"
+      "verifiedAt": "2026-11-22",
+      "usedFor": [
+        "Enseignement francophone"
+      ]
     },
     {
+      "id": "SRC-SFAR-CHOC",
       "organization": "SFAR",
       "title": "Choc septique : définitions, épidémiologie, monitorage et principes thérapeutiques",
       "url": "https://sfar.org/wp-content/uploads/2017/10/Nesseler-Choc-septique-definitions-epidemiologie-monitorage-et-principes-therapeutiques-.pdf",
-      "verifiedAt": "2026-11-22"
+      "verifiedAt": "2026-11-22",
+      "usedFor": [
+        "Monitorage",
+        "Principes thérapeutiques"
+      ]
     }
-  ],
-  "schemaVersion": 1,
-  "reviewStatus": "pending-medical-review",
-  "updatedAt": "2026-11-22",
-  "disclaimer": "Support pédagogique. Ne remplace ni un avis médical ni les protocoles locaux."
+  ]
 }
