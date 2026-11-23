@@ -68,9 +68,15 @@ figée. Ajouter un changement de ce chiffre à la checklist de release.
 
 Pendant la migration Workers (PR #425/#426), DEUX chemins étaient
 modifiables en parallèle (Pages + workflow Workers) et les erreurs se
-sonta mélangées. Règle : la prod = Pages. Le workflow Deploy Worker est
-en manuel uniquement, réservé à un futur besoin (limite 64 MiB). Ne pas
-retoucher le chemin Pages tant qu'un déploiement n'a pas été validé.
+sont mélangées. Règle depuis le 2026-11-12 : **la prod = Worker `optimus`**
+(`https://optimus.carabin.workers.dev`), déployé automatiquement sur `main`.
+Le projet Pages `optimusmedical` est en pause et ne doit pas être réactivé.
+
+Corollaire vérifié le 2026-11-12 : `build:cloudflare` ne posait aucun drapeau
+Cloudflare et produisait un artefact **Vercel** que CI déclarait vert. Il
+délègue désormais à `build:worker`, et `assert-worker-stubs` exige
+`.output/server/wrangler.json` + un bundle client non vide : un artefact
+non-Worker ne peut plus passer.
 
 ### R7 — CI rouge = interdiction de merger
 
@@ -91,7 +97,8 @@ passe (mieux : le réparer).
 
 | Métrique | Valeur |
 | --- | --- |
-| Worker Pages | 23,63 MiB (885 fichiers) — limite 25 MiB |
+| Worker (prod) | 29,25 MiB, 1 313 fichiers — limite Workers 64 MiB (relevé 2026-11-12) |
+| Ancien build Pages | 23,63 MiB (885 fichiers) — limite 25 MiB (historique, Pages en pause) |
 | Budget JS client | plafond 2560 KiB (relever à chaque gros chantier contenu) |
 | Questions catalogue | 667 |
-| Commande de build Pages | `npm run build:cloudflare` (dashboard) |
+| Commande de build de publication | `npm run build:cloudflare` → délègue à `build:worker` (preset `cloudflare_module`) |

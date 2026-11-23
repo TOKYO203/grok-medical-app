@@ -129,11 +129,36 @@ test("le garde-fou est branché sur les scripts de build publiés", async () => 
   );
   const scripts = packageJson.scripts;
   assert.match(scripts["postbuild:cloud"], /assert-supabase-build\.mjs/);
+
+  // `build:cloudflare` peut déléguer (`npm run build:worker`) : on suit la
+  // délégation au lieu d'exiger une chaîne littérale, sinon le test interdirait
+  // la factorisation du chemin de publication.
+  const resolveChain = (name, seen = new Set()) => {
+    assert.equal(seen.has(name), false, `délégation circulaire : ${[...seen, name].join(" → ")}`);
+    seen.add(name);
+    const value = scripts[name];
+    assert.ok(value, `script ${name} absent`);
+    const delegated = /^npm run ([a-z:]+)$/.exec(value.trim());
+    return delegated ? resolveChain(delegated[1], seen) : value;
+  };
+
   for (const script of ["build", "build:netlify", "build:cloudflare"]) {
     assert.match(
-      scripts[script],
+      resolveChain(script),
       /postbuild:cloud/,
       `${script} doit exécuter le contrôle cloud : c'est la voie de publication`,
     );
   }
+
+  // Le chemin Worker doit poser les drapeaux que lisent les post-build, et les
+  // EXPORTER pour toute la chaîne : une affectation inline ne couvrirait que
+  // `vite build` et les garde-fous seraient ignorés en silence (défaut du
+  // 2026-11-12, où `build:cloudflare` produisait un artefact Vercel).
+  assert.match(scripts["build:worker"], /CF_WORKER=true/, "build:worker doit poser CF_WORKER");
+  assert.match(scripts["build:worker"], /CF_PAGES=1/, "build:worker doit poser CF_PAGES");
+  assert.match(
+    scripts["build:worker"],
+    /sh -c/,
+    "build:worker doit exporter les drapeaux pour toute la chaîne, pas seulement pour Vite",
+  );
 });
