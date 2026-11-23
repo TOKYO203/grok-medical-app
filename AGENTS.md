@@ -4,15 +4,37 @@
 - `docs/MISSION-INTERNATIONAL.md` — 53 items priorisés, plan 6 sessions
 - `docs/DECISIONS.md` — journal des décisions
 
-**Sessions 1–17 livrées** (business model Sessions 1 & 8, onboarding, UX navigation, crédibilité médicale, i18n, audit prod Top 5, QA auscultation, bugs accueil #4/#5, bugs secondaires #6–#13, progression, tests moteur ECG, examen blanc chronométré E44, accessibilité WCAG AA F46–F50, code-splitting des données G51, UX mobile D29–D38, changelog public et email institutionnel B19–B20) — suite : puis vagues d'améliorations 🟢 ci-dessous
+**État au 2026-11-12** — source de vérité : `docs/ETAT-PROJET-2026-11-12.md`,
+prochaines priorités : `docs/HANDOFF-NEXT-SESSION.md`, écarts de contenu :
+`docs/CONTENU-PREMIUM-ECARTS.md`.
 
-**Securite** : voir docs/SECURITY-AUDIT.md (apres Session 1)
+- **Production** : Worker `optimus` → https://optimus.carabin.workers.dev
+  (déploiement auto sur `main`, voir `docs/DEPLOIEMENT-CLOUDFLARE.md`). Le projet
+  Cloudflare Pages `optimusmedical` est **en pause** ; les sections « Pages » du
+  dépôt sont historiques.
+- **Contenu** (mesuré) : 236 fiches = **100 % des 236 items** du programme
+  Madagascar 2025, 1 848 sections, 659 sources, 3 429 flashcards ; 43 démarches
+  enrichies ; 79 decks / 817 QCM ; 46 cas cliniques ; 23 fiches ECG ;
+  13 lames d'histologie ; 5 cas d'imagerie ; 10 sons d'auscultation.
+- **Relecture médicale : 0 fiche validée** (236/236 `pending-medical-review`,
+  43/43 démarches sans `reviewStatus`, 0/5 imagerie et 0/13 histologie avec
+  `reviewedBy`). C'est le premier écart Premium, à ne jamais masquer dans la copy.
+- **Freemium** (`docs/MODEL-FREEMIUM.md`, validé le 2026-11-11) : 10 questions/jour
+  et explications verrouillées livrées. Restent : examen Premium complet,
+  statistiques par spécialité, cas vitrine hebdomadaire, quotas ECG/imagerie.
+- **Historique** : Sessions 1–17 (octobre 2026 : business model, onboarding, UX
+  navigation, crédibilité médicale, i18n, audit prod, QA auscultation,
+  progression, tests moteur ECG, examen blanc, accessibilité, code-splitting,
+  UX mobile, changelog) — détail dans `docs/DECISIONS.md` et les vagues 🟢 ci-dessous.
 
-**CI (incident 2026-10-17)** : si les 4 jobs réels (release-check, test, PostgreSQL smoke,
-dependency audit) échouent tous en ~2 s sans avoir tourné, c'est un démarrage de runner
-impossible (minutes Actions incluses épuisées ou plafond de dépense) — vérifier
-Settings → Billing GitHub AVANT de chercher une régression de code. Même logique
-Netlify/Vercel si les previews échouent en moins de ~30 s.
+**Securite** : voir `docs/SECURITY-AUDIT.md` et `docs/PENTEST-2026-11-09.md`
+(constats critiques corrigés et déployés le 2026-11-10 ; verrou Premium local assumé).
+
+**CI (incident 2026-10-17, note historique)** : si les jobs réels (release-check, test,
+PostgreSQL smoke, dependency audit) échouent tous en ~2 s sans avoir tourné, c'est un
+démarrage de runner impossible (minutes Actions incluses épuisées ou plafond de dépense)
+— vérifier Settings → Billing GitHub AVANT de chercher une régression de code. Même
+logique Netlify/Vercel si les previews échouent en moins de ~30 s.
 
 ---
 
