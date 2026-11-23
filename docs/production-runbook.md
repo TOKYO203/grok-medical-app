@@ -129,14 +129,52 @@ For incident support, ask for the request id shown by the client/platform and co
 
 ## 4. Database backup and recovery
 
-Production backups must be managed by the PostgreSQL provider with point-in-time recovery where available. In addition, the repository includes a disposable PostgreSQL backup/restore smoke workflow that:
+**Deux dispositifs distincts, à ne pas confondre :**
 
-1. applies Optimus migrations to an ephemeral PostgreSQL instance;
-2. creates a recovery probe;
-3. produces a `pg_dump` custom-format backup;
-4. destroys and recreates the database;
-5. restores with `pg_restore`;
-6. verifies both the recovery probe and `_migrations` history.
+| Dispositif | Ce qu'il fait | Ce qu'il ne fait pas |
+| --- | --- | --- |
+| `db-recovery.yml` (existant) | teste la **procédure** sur un PostgreSQL jetable | ne sauvegarde pas la production |
+| **`db-backup.yml`** (2026-11-12) | sauvegarde **réellement** les deux bases de production, puis restaure le dump dans un PostgreSQL jetable | ne remplace pas le PITR du fournisseur |
+
+### 4.1 Sauvegarde quotidienne de production (`db-backup.yml`)
+
+`scripts/backup-postgres.mjs` produit un `pg_dump` chiffré **en flux** (le dump
+n'existe jamais en clair sur le disque), avec empreinte SHA-256 et manifeste.
+
+Cibles (deux projets Supabase, cf. `docs/V1-READINESS.md` § P0-6) :
+
+- `DATABASE_URL` → base applicative (comptes, commandes, signalements, webhooks) ;
+- `SUPABASE_DB_URL` → projet Supabase client (profils, licences) — DSN
+  « session pooler » à récupérer dans le dashboard Supabase.
+
+Secrets GitHub Actions à créer (Settings → Secrets and variables → Actions) :
+
+| Secret | Rôle |
+| --- | --- |
+| `DATABASE_URL` | DSN de la base applicative |
+| `SUPABASE_DB_URL` | DSN du projet Supabase client |
+| `BACKUP_ENCRYPTION_KEY` | phrase de passe ≥ 32 caractères (stockée **aussi** hors GitHub, sinon les archives sont indéchiffrables) |
+
+Diagnostic sans secret, exécutable n'importe où :
+
+```bash
+npm run backup:plan
+```
+
+Objectifs de service :
+
+| Indicateur | Valeur |
+| --- | --- |
+| RPO (perte de données maximale) | **24 h** (cron quotidien à 02:17 UTC) |
+| RTO (temps de remise en service visé) | **2 h** (restauration vérifiée sur PostgreSQL jetable) |
+| Rétention des artefacts | 30 jours |
+| Vérification automatique | chaque exécution restaure le dump et exige `_migrations` non vide |
+
+Limite assumée à ce stade : les artefacts GitHub expirent et ne sont pas un
+stockage hors site. Étape suivante (non livrée) : copie chiffrée vers un bucket
+objet (R2/S3) avec rétention longue. Le PITR du fournisseur reste la première
+ligne de défense et doit être activé dans les deux projets Supabase (rétention
+≥ 7 jours).
 
 A production recovery must never be rehearsed against the live primary database.
 
@@ -149,6 +187,24 @@ pg_restore --no-owner --no-acl --exit-on-error --dbname="$RESTORE_DATABASE" opti
 ```
 
 After restoring, point a staging instance at the restored database and execute smoke tests before any traffic switch.
+
+Avec le dispositif `db-backup.yml`, la restauration manuelle part d'une archive
+chiffrée de l'artefact :
+
+```bash
+openssl enc -d -aes-256-cbc -pbkdf2 -pass env:BACKUP_ENCRYPTION_KEY \
+  -in app-<horodatage>.dump.enc -out optimus.dump
+pg_restore --no-owner --no-acl --exit-on-error --dbname="$RESTORE_DATABASE_URL" optimus.dump
+```
+
+### 4.2 Exercice de restauration trimestriel
+
+À faire tous les 90 jours, et à dater ici (une sauvegarde jamais restaurée n'est
+pas une sauvegarde) :
+
+- [ ] dernier exercice : _à dater_
+- [ ] procédure suivie de bout en bout depuis l'artefact chiffré le plus récent
+- [ ] écarts constatés consignés dans `docs/DECISIONS.md`
 
 ## 5. Security monitoring
 

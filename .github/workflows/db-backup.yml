@@ -1,0 +1,122 @@
+name: Production database backup
+
+# Phase 0 de docs/ROADMAP-PRODUIT-SERIEUX.md : sauvegarde quotidienne chiffrée
+# des deux bases de production, PUIS restauration réelle du dump dans un
+# PostgreSQL jetable. Une sauvegarde non restaurée n'existe pas.
+#
+# Secrets requis (Settings → Secrets and variables → Actions) :
+#   DATABASE_URL          DSN de la base applicative (PostgreSQL managé)
+#   SUPABASE_DB_URL       DSN « session pooler » du projet Supabase client
+#   BACKUP_ENCRYPTION_KEY phrase de passe de chiffrement (≥ 32 caractères)
+#
+# RPO visé : 24 h (cron quotidien). Rétention : 30 jours (artefacts).
+# Procédure de restauration manuelle : docs/production-runbook.md § 4.
+
+on:
+  schedule:
+    - cron: "17 2 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  backup:
+    name: Dump chiffré des deux bases
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
+      SUPABASE_DB_URL: ${{ secrets.SUPABASE_DB_URL }}
+      BACKUP_ENCRYPTION_KEY: ${{ secrets.BACKUP_ENCRYPTION_KEY }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: "22"
+
+      - name: Install PostgreSQL client
+        run: |
+          if ! command -v pg_dump >/dev/null 2>&1; then
+            sudo apt-get update
+            sudo apt-get install -y postgresql-client
+          fi
+
+      - name: Contrôle de configuration (sans secret)
+        run: node scripts/backup-postgres.mjs plan
+
+      - name: Sauvegarde chiffrée
+        run: node scripts/backup-postgres.mjs backup --out backups
+
+      - name: Publier la sauvegarde
+        uses: actions/upload-artifact@v4
+        with:
+          name: production-backup-${{ github.run_id }}
+          path: backups/
+          retention-days: 30
+          if-no-files-found: error
+
+  restore-verify:
+    name: Restauration réelle du dump
+    needs: backup
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      BACKUP_ENCRYPTION_KEY: ${{ secrets.BACKUP_ENCRYPTION_KEY }}
+      RESTORE_DATABASE_URL: postgresql://optimus:optimus@localhost:5432/restore_check
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: optimus
+          POSTGRES_PASSWORD: optimus
+          POSTGRES_DB: restore_check
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U optimus -d restore_check"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Install PostgreSQL client
+        run: |
+          if ! command -v pg_restore >/dev/null 2>&1; then
+            sudo apt-get update
+            sudo apt-get install -y postgresql-client
+          fi
+
+      - name: Récupérer la sauvegarde
+        uses: actions/download-artifact@v4
+        with:
+          pattern: production-backup-*
+          path: backups
+
+      - name: Déchiffrer et restaurer la base applicative
+        run: |
+          set -euo pipefail
+          file="$(find backups -name 'app-*.dump.enc' -type f | head -n 1)"
+          if [ -z "$file" ]; then
+            echo "Aucun dump applicatif trouvé dans l'artefact." >&2
+            exit 1
+          fi
+          openssl enc -d -aes-256-cbc -pbkdf2 -pass env:BACKUP_ENCRYPTION_KEY \
+            -in "$file" -out /tmp/app.dump
+          pg_restore --no-owner --no-acl --exit-on-error \
+            --dbname="$RESTORE_DATABASE_URL" /tmp/app.dump
+
+      - name: Vérifier le contenu restauré
+        run: |
+          set -euo pipefail
+          migrations="$(psql "$RESTORE_DATABASE_URL" -Atc "select count(*) from _migrations")"
+          if [ "$migrations" -lt 1 ]; then
+            echo "Restauration incohérente : _migrations est vide." >&2
+            exit 1
+          fi
+          echo "Restauration vérifiée : $migrations migration(s), schéma présent."
