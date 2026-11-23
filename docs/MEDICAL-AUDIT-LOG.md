@@ -10,6 +10,7 @@ Protocole : docs/MEDICAL-AUDIT-PROTOCOL.md
 | 2026-11-15 | calculators/scores (8 fichiers, 59 scores) | PASS_WITH_NOTES | 1 | Oui | audit IA ; relecture humaine en attente |
 | 2026-11-20 | decks (urgences, cardio, infectio, neuro) + valeurs-reference + ECG | PASS_WITH_NOTES | 4 | Oui (neuro-avc-l3 puis corrections residuelles decks.json issue #507, commit ef1742a) | audit IA ; relecture humaine en attente |
 | 2026-11-22 | decks pharmaco, tropical, semio, dermato, physio, anatomie (46 questions) | PASS_WITH_NOTES | 3 | Oui (commit 40990433) | audit IA ; relecture humaine en attente |
+| 2026-11-23 | application des 3 corrections de la 2e passe (tetanos-l4-6, avc-l2-7, vih-l3-10) | PASS_WITH_NOTES | 3 | Oui (push decks.json 2026-11-23) | audit IA ; relecture humaine en attente |
 
 ## Detail
 
@@ -63,3 +64,9 @@ Protocole : docs/MEDICAL-AUDIT-PROTOCOL.md
   2. avc-l2-7 : imagerie hyperaigue — l'examen de premiere ligne est le scanner (disponible, rapide, ecarte l'hemorragie avant thrombolyse), cohérent avec avc-l4-1 du meme deck ; reponse et explication a corriger (avant : IRM).
   3. vih-l3-10 : le stade 4 OMS se definit cliniquement, pas par les CD4 ; le seuil de 200 CD4/mm3 est le critere de sida (CDC) ; explication a nuancer.
 - Statut : PASS_WITH_NOTES ; relecture humaine toujours en attente (l'audit IA ne vaut pas validation medicale, protocole docs/MEDICAL-AUDIT-PROTOCOL.md).
+
+### 2026-11-23 - application des 3 corrections de la 2e passe sur decks.json
+- Corrections APPLIQUEES sur main (tetanos-l4-6 : explication = les benzodiazepines potentialisent/renforcent l'inhibition GABAergique, elles ne la « levent » pas ; avc-l2-7 : reponse = scanner cerebral en premiere ligne (disponible, rapide, ecarte l'hemorragie avant thrombolyse), IRM en seconde intention ; vih-l3-10 : explication nuancee = stade 4 OMS clinique, seuil 200 CD4/mm3 = critere de sida CDC).
+- Reponse et choix de avc-l2-7 remplaces ; autres decks inchanges (an-1, choc-l5-10 verifies identiques).
+- Verifications post-patch : JSON valide, 864 273 octets.
+- Reste a faire en local : `npm run release:check` et regeneration des signatures Premium des decks concernes ; relecture humaine toujours en attente (l'audit IA ne vaut pas validation medicale, protocole docs/MEDICAL-AUDIT-PROTOCOL.md).
