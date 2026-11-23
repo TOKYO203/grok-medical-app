@@ -78,7 +78,10 @@ export default async function adminGuardMiddleware(
   const pathname = event.url?.pathname ?? "/";
   if (
     !pathname.startsWith("/admin") ||
-    pathname.startsWith("/admin-login") ||
+    // « admin-login » est epargne dans son integralite : le prefixe nu
+    // laissait passer /admin-login-<suffixe>, suffixe qui ne correspond a
+    // aucune page publique et reste donc une surface /admin* sans garde.
+    (pathname === "/admin-login" || pathname.startsWith("/admin-login/")) ||
     pathname.startsWith("/api/")
   ) {
     return next();

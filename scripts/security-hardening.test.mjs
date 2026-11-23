@@ -22,7 +22,7 @@ const cdnHeaders = readFileSync(
  */
 const CSP_DIRECTIVES = [
   "default-src 'self'",
-  "script-src 'self' 'unsafe-inline'",
+  "script-src 'self'",
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: blob: https://images.unsplash.com",
   "font-src 'self' data:",
@@ -68,20 +68,43 @@ test("CSP : le middleware et le _headers CDN posent exactement la même politiqu
   }
 });
 
-test("CSP script-src : rétablissement incident 2026-11-20/21, 'unsafe-inline' temporaire, aucun domaine tiers", () => {
-  // Incident 2026-11-20/21 : page blanche prod (pages.dev + workers.dev) —
-  // l'allowlist par hash de #467 F1 bloquait les scripts d'hydratation inline
-  // de TanStack Start. 'unsafe-inline' est rétabli ; le hash du script de thème
-  // reste calculé et présent (cible du futur resserrement, cf. middleware).
-  // INTERDIT MAINTENU : aucun domaine tiers exécutable (grok.com notamment).
+test("CSP production : allowlist par hash des scripts inline réellement rendus (audit 2026-11-22)", () => {
+  // Fin de l'état temporaire post-incident 2026-11-20/21 : les hashes sont
+  // calculés sur le HTML rendu (thème + hydratation TanStack + tout inline).
   assert.match(headersSource, /scriptSrc\(\)/);
   assert.match(headersSource, /THEME_BOOT_HASH/);
-  assert.match(headersSource, /script-src 'self' 'unsafe-inline'/);
+  assert.match(headersSource, /inlineScriptHashes\(html\)/);
+  assert.match(headersSource, /buildCsp\(strictScriptDirective\(inlineScriptHashes\(html\)\)\)/);
+  assert.match(
+    headersSource,
+    /createHash\("sha256"\)\.update\(code, "utf8"\)\.digest\("base64"\)/,
+    "le hash se calcule sur les octets exacts du bloc inline",
+  );
+  // INTERDIT MAINTENU : aucun domaine tiers exécutable (grok.com notamment).
   assert.doesNotMatch(headersSource, /script-src[^\n]*https:\/\/grok\.com/);
-  assert.doesNotMatch(headersSource, /^\s*"script-src 'self' https:\/\//m);
+});
+
+test("CSP : repli 'unsafe-inline' UNIQUEMENT PAR RÉPONSE si la lecture du HTML échoue", () => {
+  // Disponibilité d'abord (incident 2026-11-20/21) : le repli est limité à la
+  // réponse en échec et logué ; il n'est jamais la politique par défaut.
+  assert.match(headersSource, /repli 'unsafe-inline' pour cette réponse/);
+  assert.match(headersSource, /console\.error\(/);
+  assert.match(
+    headersSource,
+    /buildCsp\(`script-src 'self' 'unsafe-inline' \$\{THEME_BOOT_HASH\}`\)/,
+  );
+});
+
+test("CSP développement : 'unsafe-inline' conservé hors production (Vite injecte ses scripts)", () => {
+  assert.match(headersSource, /if \(!isProduction\(\)\) \{/);
+  assert.match(headersSource, /return `script-src 'self' 'unsafe-inline' \$\{THEME_BOOT_HASH\}`;/);
+});
+
+test("CDN _headers : script-src strict, aucun 'unsafe-inline' (aucun HTML servi depuis ce dossier)", () => {
   const cdnCsp = cdnHeaders.match(/script-src ([^;\n]+)/);
   assert.ok(cdnCsp, "la CSP du _headers doit définir script-src");
-  assert.equal(cdnCsp[1].trim(), "'self' 'unsafe-inline'");
+  assert.equal(cdnCsp[1].trim(), "'self'");
+  assert.doesNotMatch(cdnHeaders, /script-src 'self' 'unsafe-inline'/);
 });
 
 test("CSP : le hash de THEME_BOOT_SCRIPT est calculé depuis la constante source (pas de valeur figée)", () => {
