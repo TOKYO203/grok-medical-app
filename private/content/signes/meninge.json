@@ -16,22 +16,288 @@
   ],
   "correctIndex": 1,
   "explanation": "Le syndrome méningé associe céphalées intenses, raideur de nuque (signe de Brudzinski), photophobie et vomissements ; fébrile, il traduit une méningite bactérienne ou virale. La ponction lombaire est l'examen clé après imagerie si nécessaire, et tout purpura fébrile avec syndrome méningé fait suspecter une méningococcémie : antibiothérapie immédiate (C3G IV) avant tout transfert, sans attendre la PL. La migraine est un diagnostic d'élimination sans fièvre ni raideur.",
+  "objective": "Reconnaître un syndrome méningé, y détecter les signes de gravité, savoir quand ponctionner et quand traiter sans attendre.",
+  "schemaVersion": 1,
+  "reviewStatus": "pending-medical-review",
+  "updatedAt": "2026-11-23",
+  "disclaimer": "Support pédagogique. Ne remplace ni un avis médical ni les protocoles locaux.",
+  "dosagePolicy": "Molécules citées sans posologies : se référer aux protocoles locaux et au contexte du patient.",
+  "redFlags": [
+    {
+      "sign": "Purpura pétéchial ou ecchymotique avec fièvre",
+      "action": "Méningococcémie probable : antibiothérapie intraveineuse immédiate (C3G), avant toute ponction lombaire et avant le transfert"
+    },
+    {
+      "sign": "Céphalée brutale, en coup de tonnerre, d'emblée maximale",
+      "action": "Hémorragie méningée suspectée : imagerie cérébrale en urgence, pas une méningite à traiter en première ligne"
+    },
+    {
+      "sign": "Trouble de la conscience, coma ou convulsions",
+      "action": "Autant que le syndrome méningé : protéger les voies aériennes, hospitalisation urgente, traiter en amont de la PL"
+    },
+    {
+      "sign": "Déficit neurologique focal ou papillœdème",
+      "action": "Suspicion d'hypertension intracrânienne : imagerie avant toute ponction lombaire"
+    },
+    {
+      "sign": "Choc : marbrures, extrémités froides, pression artérielle effondrée",
+      "action": "Remplissage vasculaire prudent, antibiothérapie immédiate, transfert en réanimation"
+    },
+    {
+      "sign": "Rhinorrhée claire ou écoulement post-traumatique",
+      "action": "Autant qu'une brèche ostéoméningée : imagerie, avis neurochirurgical, antibioprophylaxie selon le protocole"
+    }
+  ],
+  "localAdaptations": [
+    {
+      "country": "Madagascar",
+      "programme": "Circuit de soin hors centre urbain (note de service fondée sur les recommandations OMS, à compléter par le protocole national)",
+      "note": "La ponction lombaire et l'imagerie ne sont pas disponibles partout : dès la suspicion de méningite bactérienne, l'antibiothérapie pré-transfert (C3G intraveineuse) prime et ne doit jamais attendre la confirmation biologique. Tout purpura fébrile est évacué d'urgence. Le protocole national de prise en charge des méningites doit être ajouté en source par le propriétaire du contenu.",
+      "sourceId": "SRC-WHO-FS-MEN"
+    }
+  ],
+  "callouts": [
+    {
+      "tone": "urgence",
+      "title": "Purpura et fièvre : le temps est le pronostic",
+      "text": "Un purpura pétéchial qui s'associe à un syndrome méningé fébrile est une méningococcémie jusqu'à preuve du contraire : antibiothérapie intraveineuse immédiate, avant la ponction lombaire et avant le transfert."
+    },
+    {
+      "tone": "reflexe",
+      "title": "L'antibiothérapie passe avant la PL",
+      "text": "Dans une suspicion de méningite bactérienne avec retard probable de traitement, l'antibiotique intraveineux se donne en premier : la ponction lombaire ne doit jamais le repousser."
+    },
+    {
+      "tone": "prudence",
+      "title": "La PL a ses contre-indications",
+      "text": "Déficit focal, convulsions, trouble de la conscience, papillœdème : imagerie cérébrale avant la ponction lombaire, au risque d'engager le pronostic vital par un engagement."
+    }
+  ],
+  "editorial": {
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "2026-11-23 : cœur clinique aligné sur l'étiologie bactérienne aiguë et la démarche ponction lombaire/imagerie décrites par les sources racine (OMS, MSD, Ameli) ; aucun chiffre de fréquence par espèce non sourcé dans la fiche.",
+      "2026-11-23 : aucune posologie chiffrée volontairement, conformément au dosagePolicy du standard enrichi : molécule (C3G), voie et calendrier renvoyés au protocole national.",
+      "2026-11-23 : adaptation locale Madagascar rédigée en note de service basée sur les recommandations OMS en attendant l'ajout du protocole national de prise en charge des méningites (à compléter par le propriétaire)."
+    ],
+    "qcChecklist": [
+      "Les trois signes d'appel correspondent au syndrome méningé des sources racine",
+      "Aucun chiffre de dose dans les redFlags, callouts, flashcards ou mindmap",
+      "Sources racine au nombre de trois, HTTPS, datées",
+      "Mindmap sans champ tone, racine identifiée 'meninge-root'",
+      "Douze flashcards aux identifiants uniques fc-01 à fc-12"
+    ]
+  },
+  "flashcards": [
+    {
+      "id": "fc-01",
+      "front": "Quelle triade évoque un syndrome méningé fébrile ?",
+      "back": "Céphalées intenses, raideur de nuque, photophobie avec nausées ou vomissements ; fièvre associée la plupart du temps.",
+      "tags": ["diagnostic"]
+    },
+    {
+      "id": "fc-02",
+      "front": "Comment déclencher le signe de Kernig ?",
+      "back": "Flexion de la hanche à 90 degrés puis tentative d'extension du genou : douleur et résistance qui empêchent l'extension complète.",
+      "tags": ["examen"]
+    },
+    {
+      "id": "fc-03",
+      "front": "Comment déclencher le signe de Brudzinski ?",
+      "back": "Flexion passive de la nuque : flexion involontaire des hanches et des genoux du patient.",
+      "tags": ["examen"]
+    },
+    {
+      "id": "fc-04",
+      "front": "Purpura pétéchial avec fièvre et syndrome méningé : conduite immédiate ?",
+      "back": "Méningococcémie probable : antibiothérapie intraveineuse (C3G) immédiate, avant la ponction lombaire et avant tout transfert.",
+      "tags": ["urgence"]
+    },
+    {
+      "id": "fc-05",
+      "front": "Pourquoi l'antibiothérapie passe-t-elle avant la ponction lombaire ?",
+      "back": "Parce que chaque heure sans antibiotique aggrave le pronostic vital : la confirmation biologique ne doit jamais retarder le traitement.",
+      "tags": ["urgence", "traitement"]
+    },
+    {
+      "id": "fc-06",
+      "front": "Quand la ponction lombaire est-elle différée au profit d'une imagerie ?",
+      "back": "Déficit focal, convulsions, trouble de la conscience ou papillœdème : signes d'hypertension intracrânienne ou lésion focale à explorer avant de ponctionner.",
+      "tags": ["diagnostic", "sécurité"]
+    },
+    {
+      "id": "fc-07",
+      "front": "Quels signes de gravité chercher chez un patient avec syndrome méningé ?",
+      "back": "Trouble de la conscience, convulsions, déficit focal, choc, purpura extensif, détresse respiratoire : chacun impose une hospitalisation urgente.",
+      "tags": ["gravité"]
+    },
+    {
+      "id": "fc-08",
+      "front": "Chez le nourrisson et la personne âgée, comment se présente le syndrome méningé ?",
+      "back": "De façon atypique : hypotonie, refus du biberon, somnolence, agitation ou fièvre absente ; la raideur de nuque peut manquer.",
+      "tags": ["terrain", "piège"]
+    },
+    {
+      "id": "fc-09",
+      "front": "Céphalée brutale, en coup de tonnerre, sans fièvre : quelle hypothèse majeure ?",
+      "back": "Hémorragie méningée (rupture d'anévrisme) : imagerie cérébrale en urgence, pas la même prise en charge qu'une méningite infectieuse.",
+      "tags": ["diagnostic", "différentiel"]
+    },
+    {
+      "id": "fc-10",
+      "front": "Quel examen reste la clé du diagnostic étiologique d'une méningite ?",
+      "back": "La ponction lombaire : l'étude cellulaire, biochimique et microbiologique du liquide céphalo-rachidien distingue bactérienne, virale, tuberculeuse ou parasitaire.",
+      "tags": ["diagnostic"]
+    },
+    {
+      "id": "fc-11",
+      "front": "Quel adjuvant thérapeutique est associé à l'antibiotique dans la méningite bactérienne selon le protocole ?",
+      "back": "La corticothérapie (dexaméthasone), donnée en périphérie de la première dose d'antibiotique : molécule et indication citées sans dose, selon le protocole national.",
+      "tags": ["traitement"]
+    },
+    {
+      "id": "fc-12",
+      "front": "Pourquoi les méningites bactériennes invasives sont-elles notifiées ?",
+      "back": "Maladies à déclaration obligatoire selon les règles de chaque pays : elles déclenchent la recherche du cas via l'entourage et la chimioprophylaxie des contacts proches.",
+      "tags": ["prévention", "santé publique"]
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "meninge-root",
+      "label": "Syndrome méningé",
+      "detail": "Céphalées, raideur de nuque, photophobie : d'abord une méningite jusqu'à preuve du contraire, et une urgence vitale jusqu'à preuve de non-obstruction."
+    },
+    "branches": [
+      {
+        "id": "reconnaitre",
+        "label": "Reconnaître",
+        "detail": "Le syndrome méningé est un faisceau, pas un signe isolé.",
+        "children": [
+          {
+            "id": "rec-triade",
+            "label": "Triade fébrile",
+            "detail": "Céphalées, raideur de nuque, photophobie ; fièvre habituelle.",
+            "leaves": [{ "id": "rec-triade-1", "label": "Vomissements en jet" }]
+          },
+          {
+            "id": "rec-maneuvers",
+            "label": "Manœuvres",
+            "detail": "Kernig et Brudzinski : sensibilité moyenne, absence ne suffit pas à éliminer.",
+            "leaves": [{ "id": "rec-maneuvers-1", "label": "Examen complet" }]
+          }
+        ]
+      },
+      {
+        "id": "grader",
+        "label": "Évaluer la gravité",
+        "detail": "Chaque signe de gravité change l'ordre des actes, pas seulement le lieu de traitement.",
+        "children": [
+          {
+            "id": "gra-purpura",
+            "label": "Purpura fébrile",
+            "detail": "Méningococcémie probable : antibiothérapie avant tout.",
+            "leaves": [{ "id": "gra-purpura-1", "label": "Ne pas attendre la PL" }]
+          },
+          {
+            "id": "gra-neuro",
+            "label": "Coma, convulsions, déficit",
+            "detail": "Imagerie avant PL si hypertension intracrânienne suspectée.",
+            "leaves": [{ "id": "gra-neuro-1", "label": "Protéger les voies aériennes" }]
+          },
+          {
+            "id": "gra-choc",
+            "label": "Choc",
+            "detail": "Remplissage prudent, antibiothérapie immédiate, transfert en réanimation.",
+            "leaves": [{ "id": "gra-choc-1", "label": "Surveillance rapprochée" }]
+          }
+        ]
+      },
+      {
+        "id": "confirmer",
+        "label": "Confirmer",
+        "detail": "La ponction lombaire reste l'examen clé dès qu'elle est possible sans danger.",
+        "children": [
+          {
+            "id": "conf-pl",
+            "label": "Ponction lombaire",
+            "detail": "Cytologie, biochimie, microbiologie du liquide céphalo-rachidien.",
+            "leaves": [{ "id": "conf-pl-1", "label": "Après imagerie si signe de focal" }]
+          },
+          {
+            "id": "conf-bilan",
+            "label": "Bilan associé",
+            "detail": "Hémocultures avant antibiotique quand c'est possible sans retarder, glycémie, imagerie selon le tableau.",
+            "leaves": [{ "id": "conf-bilan-1", "label": "Hémocultures" }]
+          }
+        ]
+      },
+      {
+        "id": "traiter",
+        "label": "Traiter",
+        "detail": "En suspicion bactérienne : antibiotique intraveineux immédiat, corticothérapie adjuvante selon le protocole.",
+        "children": [
+          {
+            "id": "tra-atb",
+            "label": "Antibiothérapie",
+            "detail": "C3G intraveineuse sans attendre la confirmation ; molécule et durée selon protocole national.",
+            "leaves": [{ "id": "tra-atb-1", "label": "Avant le transfert" }]
+          },
+          {
+            "id": "tra-cortico",
+            "label": "Dexaméthasone",
+            "detail": "En périphérie de la première dose d'antibiotique, selon le protocole.",
+            "leaves": [{ "id": "tra-cortico-1", "label": "Pas de dose dans la fiche" }]
+          }
+        ]
+      },
+      {
+        "id": "prevenir",
+        "label": "Prévenir",
+        "detail": "Vaccinations et prophylaxie des contacts selon les programmes nationaux.",
+        "children": [
+          {
+            "id": "pre-vaccins",
+            "label": "Vaccinations",
+            "detail": "Méningocoque, pneumocoque, Haemophilus influenzae b : selon les calendriers de chaque pays.",
+            "leaves": [{ "id": "pre-vaccins-1", "label": "W135 chez le pèlerin" }]
+          },
+          {
+            "id": "pre-contacts",
+            "label": "Prophylaxie des contacts",
+            "detail": "Chimioprophylaxie des contacts proches et signalement selon les règles locales.",
+            "leaves": [{ "id": "pre-contacts-1", "label": "Déclaration obligatoire" }]
+          }
+        ]
+      }
+    ]
+  },
   "sources": [
     {
+      "id": "SRC-WHO-FS-MEN",
+      "organization": "Organisation mondiale de la Santé (OMS)",
+      "title": "Méningite — aide-mémoire",
+      "url": "https://www.who.int/news-room/fact-sheets/detail/meningitis",
+      "year": 2023,
+      "verifiedAt": "2026-11-23",
+      "usedFor": ["Étiologies et charge mondiale", "Signes cliniques", "Prévention et vaccination"]
+    },
+    {
+      "id": "SRC-MSD-MEN",
       "organization": "Manuel MSD (édition professionnelle)",
       "title": "Méningites bactériennes aiguës",
       "url": "https://www.msdmanuals.com/fr/professional/troubles-neurologiques/m%C3%A9ningite/m%C3%A9ningites-bact%C3%A9riennes-aigu%C3%ABs",
-      "verifiedAt": "2026-11-22"
+      "verifiedAt": "2026-11-22",
+      "usedFor": ["Démarche diagnostique", "Ponction lombaire et imagerie", "Traitement"]
     },
     {
+      "id": "SRC-AMELI-MEN",
       "organization": "Ameli (Assurance Maladie)",
       "title": "Méningite : symptômes, diagnostic et évolution",
       "url": "https://www.ameli.fr/assure/sante/themes/meningite-aigue/symptomes-diagnostic-evolution",
-      "verifiedAt": "2026-11-22"
+      "verifiedAt": "2026-11-22",
+      "usedFor": ["Signes cliniques", "Évolution"]
     }
-  ],
-  "schemaVersion": 1,
-  "reviewStatus": "pending-medical-review",
-  "updatedAt": "2026-11-22",
-  "disclaimer": "Support pédagogique. Ne remplace ni un avis médical ni les protocoles locaux."
+  ]
 }
