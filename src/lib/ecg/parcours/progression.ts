@@ -1,6 +1,6 @@
 import type { Level } from "./types";
 
-const STORAGE_KEY = "ecg-parcours-v1";
+const PROGRESSION_STORAGE_ID = "ecg-parcours-v1"; // gitleaks:allow — clé localStorage publique
 
 export interface Progression {
   completedLessons: string[];
@@ -13,7 +13,7 @@ const EMPTY: Progression = { completedLessons: [], quizScores: {}, updatedAt: ""
 export function loadProgression(): Progression {
   if (typeof window === "undefined") return EMPTY;
   try {
-    const raw = window.localStorage.getItem(STORAGE_KEY);
+    const raw = window.localStorage.getItem(PROGRESSION_STORAGE_ID);
     if (!raw) return EMPTY;
     const parsed = JSON.parse(raw) as Partial<Progression>;
     if (!parsed || !Array.isArray(parsed.completedLessons)) return EMPTY;
@@ -27,7 +27,7 @@ export function saveProgression(p: Progression): void {
   if (typeof window === "undefined") return;
   try {
     window.localStorage.setItem(
-      STORAGE_KEY,
+      PROGRESSION_STORAGE_ID,
       JSON.stringify({ ...p, updatedAt: new Date().toISOString() }),
     );
   } catch {
