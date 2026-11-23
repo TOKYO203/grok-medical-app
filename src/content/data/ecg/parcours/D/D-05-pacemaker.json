@@ -1,0 +1,17 @@
+{
+  "id": "D-05", "level": "D", "order": 5,
+  "title": "Pacemaker et QRS stimulé", "durationMin": 5,
+  "objectives": ["Reconnaître un rythme stimulé par pacemaker", "Comprendre les modes (VVI, DDD)", "Identifier une défaillance de pacemaker"],
+  "content": [
+    { "type": "text", "markdown": "Un **pacemaker** dépolarise le myocarde via une électrode. Le QRS qui en résulte est **large** (> 120 ms) car la dépolarisation ne passe pas par le réseau de His-Purkinje. Un **spike** précède souvent le QRS." },
+    { "type": "table", "headers": ["Mode", "Signification", "ECG"], "rows": [["VVI", "Stimule et détecte le ventricule", "Spike + QRS large sur bradycardie"], ["DDD", "Stimule/détecte oreillette ET ventricule", "Spike P puis spike QRS"], ["Dysfonction", "Échec de capture ou de détection", "Spikes sans QRS, ou QRS sans spike en bradycardie"]] },
+    { "type": "callout", "tone": "warning", "title": "En pratique aux urgences", "markdown": "**Suspecter une défaillance** devant : syncope, malaise, **spikes sans QRS** (échec de capture), **QRS spontanés sans spike** en bradycardie (échec de détection). **Défaillance + symptômes = hospitalisation + cardiologie**." },
+    { "type": "text", "markdown": "## Le piège du pacemaker masqué\n\nUn pacemaker peut être **masqué** par un rythme spontané plus rapide : il ne stimule pas (inhibé). À l'inverse, un pacemaker **dysfonctionnel** peut ne plus stimuler alors que la FC chute. **Toujours chercher les spikes** chez un patient porteur." }
+  ],
+  "keyPoints": ["QRS stimulé = large, souvent précédé d'un spike", "Mode VVI = ventricule seul, DDD = oreillette + ventricule", "Défaillance : spikes sans QRS ou QRS sans spikes en bradycardie", "Défaillance + symptômes = hospitalisation", "Toujours chercher les spikes chez un patient porteur"],
+  "checkQuiz": [
+    { "question": "Patient porteur de pacemaker, malaise. ECG : spikes réguliers sans QRS, FC spontanée 35 bpm. Diagnostic ?", "choices": ["Pacemaker fonctionnel", "Échec de capture", "BAV 3", "Rythme jonctionnel"], "correct": 1, "explanation": "Spikes sans QRS = échec de capture. Hospitalisation urgente." },
+    { "question": "Quel signe est typique d'un rythme stimulé ?", "choices": ["QRS fin précédé d'une P", "QRS large précédé d'un spike", "QRS large sans spike", "PR court"], "correct": 1, "explanation": "QRS stimulé = large + spike (artefact électrique fin)." }
+  ],
+  "caseStudy": "ecg-4-6-pacemaker-idm"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "D-04", "level": "D", "order": 4,
+  "title": "Brugada et repolarisation précoce", "durationMin": 6,
+  "objectives": ["Reconnaître un syndrome de Brugada type 1", "Distinguer Brugada et repolarisation précoce bénigne", "Comprendre le risque de mort subite"],
+  "content": [
+    { "type": "text", "markdown": "Le **syndrome de Brugada** est une canalopathie génétique à risque de **mort subite** chez un cœur apparemment sain. L'ECG est caractéristique mais **intermittent** — il peut être normal puis anormal." },
+    { "type": "table", "headers": ["Type", "Aspect V1-V2", "Risque"], "rows": [["Type 1", "Sus-décalage ST >= 2 mm, dôme (coved), T négative", "Élevé : mort subite"], ["Type 2", "Sus-décalage en selle >= 1 mm, T positive", "Modéré"], ["Type 3", "Sus-décalage < 1 mm en selle", "Faible"], ["Repolarisation précoce", "Sus-décalage concave, onde J proéminente", "Bénin"]] },
+    { "type": "callout", "tone": "danger", "title": "En pratique aux urgences", "markdown": "**Brugada type 1** = consultation cardiologique spécialisée, bilan familial (fratrie, enfants), discussion de **défibrillateur implantable (DAI)**. La fièvre peut révéler un Brugada latent = paracétamol systématique. **Repolarisation précoce** = bénin, aucun traitement." },
+    { "type": "text", "markdown": "## Le piège du Brugada intermittent\n\nLe Brugada peut être **latent** (ECG normal au repos) et se révéler lors de la fièvre, d'un repas copieux ou de certains médicaments. Devant un **malaise inexpliqué** chez un sujet jeune avec notion familiale de mort subite, rechercher par **des ECG répétés**." }
+  ],
+  "keyPoints": ["Brugada type 1 : sus-décalage coved >= 2 mm en V1-V2, T négative", "Brugada = risque de mort subite (canalopathie)", "Bilan familial indispensable", "Fièvre peut révéler un Brugada latent", "Repolarisation précoce = bénin"],
+  "checkQuiz": [
+    { "question": "Homme de 30 ans, malaise nocturne. V1-V2 : sus-décalage coved 2 mm + T négative. Diagnostic ?", "choices": ["SCA antérieur", "Syndrome de Brugada type 1", "Péricardite", "Repolarisation précoce"], "correct": 1, "explanation": "Coved >= 2 mm en V1-V2 + T négative chez un sujet jeune = Brugada type 1." },
+    { "question": "Risque principal du Brugada type 1 non traité ?", "choices": ["Insuffisance cardiaque", "Mort subite", "Embolie pulmonaire", "Péricardite récidivante"], "correct": 1, "explanation": "Brugada = canalopathie à risque de FV et mort subite." }
+  ],
+  "caseStudy": "ecg-5-14-brugada"
+}

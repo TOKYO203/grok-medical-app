@@ -1,0 +1,17 @@
+{
+  "id": "D-01", "level": "D", "order": 1,
+  "title": "Hyperkaliémie : l'ECG qui sauve", "durationMin": 7,
+  "objectives": ["Reconnaître les signes ECG par ordre de gravité", "Comprendre l'urgence de la prise en charge", "Identifier le risque d'arrêt cardiaque"],
+  "content": [
+    { "type": "text", "markdown": "L'**hyperkaliémie** (> 5.5 mmol/L) est une urgence vitale car elle peut provoquer un **arrêt cardiaque**. L'ECG évolue par paliers — chaque palier = un niveau de risque." },
+    { "type": "table", "headers": ["Kaliémie", "Signe ECG", "Gravité"], "rows": [["5.5-6.5", "T amples pointues base étroite", "Modéré"], ["6.5-7.5", "PR allongé, QRS large, P aplaties", "Élevé"], ["7.5-8.5", "Disparition des P, aspect sinusoïdal", "Très élevé"], [">= 8.5", "Asystolie / FV imminente", "Arrêt imminent"]] },
+    { "type": "callout", "tone": "danger", "title": "En pratique aux urgences", "markdown": "**1) Gluconate de calcium IV** (stabilise la membrane, effet immédiat), **2) insuline + glucose**, **3) salbutamol nébulisé**, **4) dialyse** si réfractaire. Ne JAMAIS attendre le labo si l'ECG est évocateur." },
+    { "type": "text", "markdown": "## Le piège de la T ample isolée\n\nUne **T ample** peut être banale (jeune sportif) ou signe d'hyperkaliémie. Ce qui distingue :\n- **Base étroite**, aspect **pointu symétrique** (en tente)\n- **Absence de miroir**\n- **Aplatissement progressif de P** associé" }
+  ],
+  "keyPoints": ["T amples pointues base étroite = premier signe", "QRS large + disparition des P = sévère", "Aspect sinusoïdal = arrêt imminent", "Gluconate de calcium IV en premier", "Ne jamais attendre le labo si l'ECG est évocateur"],
+  "checkQuiz": [
+    { "question": "Insuffisant rénal avec faiblesse musculaire, T pointues, PR 240, QRS 140. Première action ?", "choices": ["Attendre le bilan", "Gluconate de calcium IV", "Insuline seule", "Dialyse immédiate"], "correct": 1, "explanation": "ECG évocateur d'hyperkaliémie sévère = gluconate de calcium IV en premier." },
+    { "question": "Quel signe signe une hyperkaliémie menaçante à très court terme ?", "choices": ["Onde U", "Aspect sinusoïdal du QRS", "PR à 180 ms", "T plates"], "correct": 1, "explanation": "Aspect sinusoïdal = asystolie imminente." }
+  ],
+  "caseStudy": "ecg-5-3-hyperkaliemie"
+}

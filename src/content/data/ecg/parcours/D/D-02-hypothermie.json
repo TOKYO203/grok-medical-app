@@ -1,0 +1,17 @@
+{
+  "id": "D-02", "level": "D", "order": 2,
+  "title": "Hypothermie et onde de J", "durationMin": 5,
+  "objectives": ["Reconnaître l'onde de J (Osborn)", "Comprendre la progression ECG selon la température", "Identifier les situations à haut risque de FV"],
+  "content": [
+    { "type": "text", "markdown": "L'**hypothermie** (< 35 °C) provoque des modifications ECG caractéristiques, dont la plus célèbre est l'**onde de J** (ou onde d'Osborn) — une déflexion positive au point J." },
+    { "type": "table", "headers": ["Température", "Signe ECG"], "rows": [["35-32 °C", "Bradycardie sinusale, onde de J débutante"], ["32-28 °C", "Onde de J marquée, QT allongé, PR allongé"], ["< 28 °C", "Risque de FV, asystolie"], ["< 25 °C", "Arrêt cardiaque réfractaire"]] },
+    { "type": "callout", "tone": "warning", "title": "En pratique aux urgences", "markdown": "**« Nobody is dead until warm and dead »** — ne pas déclarer un patient décédé tant qu'il n'est pas réchauffé (surtout noyade en eau froide). Réchauffement **actif** (couverture chauffante, lavage gastrique, CEC si < 28 °C)." },
+    { "type": "text", "markdown": "## Onde de J : le signe classique\n\nL'onde de J est une déflexion positive à la jonction QRS-ST, plus visible en **V2-V5** et en **dérivations inférieures**. Elle peut être confondue avec un sus-décalage ST ischémique — d'où l'importance de **mesurer la température** devant un sus-décalage atypique." }
+  ],
+  "keyPoints": ["Onde de J (Osborn) = déflexion positive au point J", "Visible surtout en V2-V5 et inférieures", "Peut mimer un sus-décalage ST", "Mesurer la température devant tout sus-décalage atypique", "« Nobody is dead until warm and dead »"],
+  "checkQuiz": [
+    { "question": "Patient trouvé en extérieur par temps froid, déflexion positive au point J en V3-V4. Diagnostic ?", "choices": ["SCA ST+", "Onde de J de l'hypothermie", "Péricardite", "Brugada"], "correct": 1, "explanation": "Déflexion au point J + contexte de froid = onde de J (Osborn)." },
+    { "question": "Quelle est la règle en hypothermie sévère avec arrêt cardiaque ?", "choices": ["Réanimation max 10 min", "« Nobody is dead until warm and dead »", "Adrénaline toutes les 3 min", "Arrêt immédiat de la RCP"], "correct": 1, "explanation": "Réanimation jusqu'au réchauffement complet en hypothermie sévère." }
+  ],
+  "caseStudy": "ecg-5-2-hypothermie"
+}

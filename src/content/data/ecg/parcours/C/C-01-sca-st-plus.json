@@ -1,0 +1,17 @@
+{
+  "id": "C-01", "level": "C", "order": 1,
+  "title": "SCA ST+ : le diagnostic en 10 secondes", "durationMin": 8,
+  "objectives": ["Reconnaître un sus-décalage ST significatif", "Localiser le territoire atteint", "Identifier les équivalents ST+ (BBG nouveau, aVR isolé)", "Déclencher la reperfusion sans attendre la troponine"],
+  "content": [
+    { "type": "text", "markdown": "Le **SCA ST+** est une urgence absolue : chaque minute de retard à la reperfusion coûte 10 millions de cardiomyocytes. Le diagnostic est **électrocardiographique**, pas biologique — la troponine arrive trop tard." },
+    { "type": "table", "headers": ["Territoire", "Dérivations", "Artère"], "rows": [["Antérieur", "V1-V4", "IVA"], ["Latéral", "I, aVL, V5-V6", "Circonflexe"], ["Inférieur", "II, III, aVF", "CD"], ["Postérieur", "V7-V9 (sous-décalage V1-V3)", "Circonflexe"], ["Ventricule droit", "V4R", "CD proximale"]] },
+    { "type": "callout", "tone": "danger", "title": "En pratique aux urgences", "markdown": "**Sus-décalage >= 1 mm dans 2 dérivations contiguës** = ST+ jusqu'à preuve du contraire. **Ne JAMAIS attendre la troponine** pour appeler le cardiologue interventionnel. Objectif : reperfusion < 120 min." },
+    { "type": "text", "markdown": "## Les équivalents ST+ à ne pas manquer\n\n- **BBG nouveau** chez un patient douloureux = traiter comme ST+\n- **Sus-décalage isolé en aVR** >= 1 mm + sous-décalage diffus = tronc commun\n- **Sus-décalage V4R** = extension VD (PAS de nitrés, remplir !)" }
+  ],
+  "keyPoints": ["Sus-décalage >= 1 mm dans 2 dérivations contiguës = ST+", "Ne jamais attendre la troponine pour reperfuser", "aVR isolé + sous-décalage diffus = tronc commun", "V4R+ = extension VD, PAS de nitrés"],
+  "checkQuiz": [
+    { "question": "Un patient douloureux thoracique a un sus-décalage de 2 mm en V2 et V3. Quel territoire est atteint ?", "choices": ["Inférieur", "Latéral", "Antérieur", "Postérieur"], "correct": 2, "explanation": "V1-V4 = territoire antérieur (IVA)." },
+    { "question": "Sus-décalage en II, III, aVF + hypotension. Que chercher en priorité ?", "choices": ["Sus-décalage V4R", "Sus-décalage V7-V9", "Sous-décalage V5", "Onde Q en D1"], "correct": 0, "explanation": "IDM inférieur + hypotension = chercher extension VD (V4R). Pas de nitrés si V4R+." }
+  ],
+  "caseStudy": "ecg-1-2-idm-etalonnage"
+}

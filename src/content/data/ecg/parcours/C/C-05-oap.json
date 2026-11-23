@@ -1,0 +1,17 @@
+{
+  "id": "C-05", "level": "C", "order": 5,
+  "title": "OAP cardiogénique et ischémie silencieuse", "durationMin": 6,
+  "objectives": ["Reconnaître les signes ECG de l'OAP", "Comprendre le concept d'ischémie silencieuse", "Identifier les situations à haut risque chez le diabétique"],
+  "content": [
+    { "type": "text", "markdown": "L'**OAP cardiogénique** est une défaillance ventriculaire gauche aiguë. L'ECG peut révéler la cause (IDM, trouble du rythme) ou les signes d'hypertrophie sous-jacente." },
+    { "type": "table", "headers": ["Signe ECG", "Signification"], "rows": [["Tachycardie sinusale > 120", "Signe d'adaptation (OAP, choc)"], ["Hypertrophie VG (Sokolow > 35 mm)", "Cardiopathie sous-jacente"], ["Trouble du rythme (FA, TV)", "Cause déclenchante"], ["Sus-décalage ST", "IDM = cause immédiate"]] },
+    { "type": "callout", "tone": "warning", "title": "En pratique aux urgences", "markdown": "Un **OAP + sus-décalage ST** = IDM = reperfusion en urgence. Un **OAP + FA rapide** = cardioversion si instable. Un **OAP isolé** sans cause ECG = chercher valvulopathie, poussée hypertensive, sepsis." },
+    { "type": "text", "markdown": "## Ischémie silencieuse : le piège du diabétique\n\nChez le **diabétique** et le **sujet âgé**, l'ischémie peut ne pas être ressentie. L'ECG est alors **le seul signe d'alerte**. Devant un OAP inexpliqué chez un diabétique, **chercher systématiquement un SCA**." }
+  ],
+  "keyPoints": ["OAP + sus-décalage ST = IDM à reperfuser", "OAP + FA rapide = cardioversion si instable", "Ischémie silencieuse : piège du diabétique", "OAP inexpliqué = toujours chercher un SCA"],
+  "checkQuiz": [
+    { "question": "Diabétique 70 ans avec dyspnée aiguë, sous-décalage ST 1 mm en V5-V6, tachycardie 120. Hypothèse ?", "choices": ["OAP simple", "SCA ST− probable (ischémie silencieuse)", "Embolie pulmonaire", "Péricardite"], "correct": 1, "explanation": "OAP inexpliqué + sous-décalage ST chez un diabétique = SCA ST− (ischémie silencieuse)." },
+    { "question": "Quel critère ECG signe une hypertrophie VG chronique ?", "choices": ["Sokolow > 35 mm", "PR > 200 ms", "Onde Q en V5", "QT court"], "correct": 0, "explanation": "Sokolow-Lyon : S en V1 + R en V5/V6 > 35 mm = HVG." }
+  ],
+  "caseStudy": "ecg-3-3-fa-oap"
+}
