@@ -46,7 +46,9 @@
     "devx:full": "node scripts/devx/devx.mjs --full",
     "devx:chat": "node scripts/devx/devx.mjs --chat",
     "content:check": "node scripts/content-quality-check.mjs",
-    "postbuild:cfstubs": "node scripts/assert-worker-stubs.mjs"
+    "postbuild:cfstubs": "node scripts/assert-worker-stubs.mjs",
+    "prebuild": "node scripts/sync-content.mjs",
+    "predev": "node scripts/sync-content.mjs"
   },
   "dependencies": {
     "@ariary/pay": "^2.2.0",
