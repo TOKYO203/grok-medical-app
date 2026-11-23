@@ -36,6 +36,13 @@ function safeLimit(value: unknown): number {
   return Math.max(1, Math.min(Math.trunc(parsed), 100));
 }
 
+// Audit 2026-11-14 : les lectures PUBLIques projettent une liste explicite de
+// colonnes. `select *` renvoyait aussi `created_by` (identifiant d'éditeur
+// Better Auth) à tout visiteur anonyme — énumération d'identifiants internes
+// inutile pour le rendu et exploitable pour cibler des comptes.
+const PUBLIC_COLUMNS =
+  "id, slug, title, summary, body, authors, attachments, tags, specialties, visibility, status, published_at, created_at, updated_at";
+
 export default defineEventHandler(async (event) => {
   const method = getMethod(event).toUpperCase();
   const sql = await getSql();
@@ -47,7 +54,7 @@ export default defineEventHandler(async (event) => {
 
     if (tag) {
       return sql.query(
-        `select * from publications
+        `select ${PUBLIC_COLUMNS} from publications
          where status = 'published'
            and visibility = 'public'
            and $1 = any(tags)
@@ -58,7 +65,7 @@ export default defineEventHandler(async (event) => {
     }
 
     return sql.query(
-      `select * from publications
+      `select ${PUBLIC_COLUMNS} from publications
        where status = 'published' and visibility = 'public'
        order by published_at desc nulls last, created_at desc
        limit $1`,

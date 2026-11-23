@@ -6,7 +6,7 @@
   "subtitle": "Nosographie — infectiologie",
   "objective": "Devant une toux prolongée, une fièvre au long cours ou une opacité pulmonaire, confirmer la tuberculose par un examen microbiologique, traiter selon le profil de sensibilité et organiser le dépistage des contacts.",
   "language": "fr",
-  "updatedAt": "2026-10-18",
+  "updatedAt": "2026-11-22",
   "reviewStatus": "pending-medical-review",
   "curriculum": {
     "collection": "Nosographie — spécialité médicale",
@@ -38,14 +38,20 @@
       "Le schéma standard 2 mois de rifampicine-isoniazide-pyrazinamide-éthambutol puis 4 mois de rifampicine-isoniazide est présenté comme le schéma de référence. L'OMS propose aussi un schéma de 4 mois à la rifapentine et à la moxifloxacine chez certains patients : il est mentionné sans être détaillé, car sa mise en œuvre dépend des autorités nationales.",
       "Les posologies ne sont pas détaillées : elles dépendent du poids, de l'âge et du protocole national. Le lecteur doit se référer au guide du programme national.",
       "Aucune donnée malgache chiffrée n'est citée. Le rôle du Programme National de Lutte contre la Tuberculose est mentionné comme cadre de référence, sans inventer d'organisation locale.",
-      "La page de la Haute Autorité de santé n'était pas joignable depuis l'environnement de rédaction : les sources retenues sont l'OMS (fiche, rapport mondial 2025 et lignes directrices)."
+      "La page de la Haute Autorité de santé n'était pas joignable depuis l'environnement de rédaction : les sources retenues sont l'OMS (fiche, rapport mondial 2025 et lignes directrices).",
+      "Le 2026-11-22 alignement au cahier des charges commun : titres sans numérotation en dur, sources uniques en racine, redFlags, disclaimer et dosagePolicy au niveau racine, encadré « Contexte malgache » doublé d'un champ localAdaptations (PNLT), mindmap nettoyée du champ tone.",
+      "Les sources OMS restent datées du 2026-10-18 (vérifiées à la rédaction) ; aucune posologie d'antituberculeux n'est citée, conformément à la politique racine."
     ],
     "qcChecklist": [
       "Exactitude du schéma thérapeutique standard et de sa durée",
       "Distinction infection latente / maladie tuberculeuse",
       "Place de la confirmation microbiologique et du test de sensibilité",
       "Contrôle des effets indésirables majeurs des antituberculeux",
-      "Conformité au programme national et à la déclaration obligatoire"
+      "Conformité au programme national et à la déclaration obligatoire",
+      "Posologies non chiffrées (molécules et voies seules)",
+      "Drapeaux rouges structurés en tête (redFlags)",
+      "Sources racine datées (verifiedAt), aucune source imbriquée",
+      "Adaptation locale Madagascar en champ dédié"
     ]
   },
   "sections": [
@@ -68,20 +74,11 @@
           "title": "Le message central",
           "text": "Une toux de plus de deux semaines, une fièvre au long cours ou une opacité pulmonaire persistante doivent faire rechercher une tuberculose. Le diagnostic se confirme par un examen microbiologique, et le traitement doit être mené jusqu'au bout sous supervision."
         }
-      ],
-      "sources": [
-        {
-          "id": "SRC-WHO-TB-FS",
-          "organization": "Organisation mondiale de la Santé (OMS)",
-          "title": "Tuberculosis — fact sheet",
-          "year": 2026,
-          "url": "https://www.who.int/news-room/fact-sheets/detail/tuberculosis"
-        }
       ]
     },
     {
       "id": "generalites",
-      "title": "I. Généralités et physiopathologie",
+      "title": "Généralités et physiopathologie",
       "summary": "Primo-infection, latence et réactivation ; la contagiosité dépend de la forme pulmonaire.",
       "blocks": [
         {
@@ -109,27 +106,11 @@
           "title": "Immunodépression",
           "text": "L'infection par le VIH, les biothérapies, les corticoïdes au long cours, la dénutrition, le diabète et l'insuffisance rénale augmentent le risque de réactivation. Chez ces patients, la présentation peut être atypique et la dissémination plus fréquente."
         }
-      ],
-      "sources": [
-        {
-          "id": "SRC-WHO-TB-FS",
-          "organization": "Organisation mondiale de la Santé (OMS)",
-          "title": "Tuberculosis — fact sheet",
-          "year": 2026,
-          "url": "https://www.who.int/news-room/fact-sheets/detail/tuberculosis"
-        },
-        {
-          "id": "SRC-WHO-TB-REPORT-2025",
-          "organization": "Organisation mondiale de la Santé (OMS)",
-          "title": "Global Tuberculosis Report 2025",
-          "year": 2025,
-          "url": "https://www.who.int/teams/global-programme-on-tuberculosis-and-lung-health/tb-reports/global-tuberculosis-report-2025"
-        }
       ]
     },
     {
       "id": "diagnostic",
-      "title": "II. Démarche diagnostique",
+      "title": "Démarche diagnostique",
       "summary": "Clinique, radiographie et confirmation microbiologique avec test de sensibilité.",
       "blocks": [
         {
@@ -195,27 +176,11 @@
           "type": "paragraph",
           "text": "Les formes extrapulmonaires nécessitent des prélèvements ciblés (liquide pleural, liquide céphalorachidien, ganglion, urines, biopsie). La recherche d'une co-infection par le VIH est systématique dans les contextes de forte prévalence. Chez l'enfant, le diagnostic est souvent clinique et radiologique, car l'expectoration est difficile à recueillir."
         }
-      ],
-      "sources": [
-        {
-          "id": "SRC-WHO-TB-FS",
-          "organization": "Organisation mondiale de la Santé (OMS)",
-          "title": "Tuberculosis — fact sheet",
-          "year": 2026,
-          "url": "https://www.who.int/news-room/fact-sheets/detail/tuberculosis"
-        },
-        {
-          "id": "SRC-WHO-TB-MODULE4",
-          "organization": "Organisation mondiale de la Santé (OMS)",
-          "title": "WHO consolidated guidelines on tuberculosis — Module 4: treatment, drug-susceptible tuberculosis treatment",
-          "year": 2022,
-          "url": "https://www.who.int/publications/i/item/9789240048126"
-        }
       ]
     },
     {
       "id": "etiologie",
-      "title": "III. Synthèse étiologique et formes cliniques",
+      "title": "Synthèse étiologique et formes cliniques",
       "summary": "Une seule espèce en cause, mais des présentations très différentes selon le terrain.",
       "blocks": [
         {
@@ -238,27 +203,11 @@
           "title": "Résistance : y penser avant de conclure à un échec",
           "text": "Une mauvaise observance, une posologie inadaptée, une malabsorption ou une résistance peuvent expliquer un échec. Le test de sensibilité et l'entretien sur la prise des médicaments sont alors aussi importants que le changement de molécule."
         }
-      ],
-      "sources": [
-        {
-          "id": "SRC-WHO-TB-MODULE4",
-          "organization": "Organisation mondiale de la Santé (OMS)",
-          "title": "WHO consolidated guidelines on tuberculosis — Module 4: treatment, drug-susceptible tuberculosis treatment",
-          "year": 2022,
-          "url": "https://www.who.int/publications/i/item/9789240048126"
-        },
-        {
-          "id": "SRC-WHO-TB-REPORT-2025",
-          "organization": "Organisation mondiale de la Santé (OMS)",
-          "title": "Global Tuberculosis Report 2025",
-          "year": 2025,
-          "url": "https://www.who.int/teams/global-programme-on-tuberculosis-and-lung-health/tb-reports/global-tuberculosis-report-2025"
-        }
       ]
     },
     {
       "id": "traitement",
-      "title": "IV. Traitement, surveillance et prévention",
+      "title": "Traitement, surveillance et prévention",
       "summary": "Un traitement long, supervisé et adapté à la sensibilité ; une prévention qui repose sur le dépistage et le BCG.",
       "blocks": [
         {
@@ -292,27 +241,11 @@
           "title": "Contexte malgache",
           "text": "La prise en charge s'inscrit dans le cadre du Programme National de Lutte contre la Tuberculose, qui organise le dépistage, le traitement supervisé, la distribution des antituberculeux et le suivi des contacts. La vaccination par le BCG est recommandée à la naissance selon le calendrier national. Les protocoles nationaux et les recommandations du programme doivent primer sur les schémas internationaux présentés ici."
         }
-      ],
-      "sources": [
-        {
-          "id": "SRC-WHO-TB-MODULE4",
-          "organization": "Organisation mondiale de la Santé (OMS)",
-          "title": "WHO consolidated guidelines on tuberculosis — Module 4: treatment, drug-susceptible tuberculosis treatment",
-          "year": 2022,
-          "url": "https://www.who.int/publications/i/item/9789240048126"
-        },
-        {
-          "id": "SRC-WHO-TB-FS",
-          "organization": "Organisation mondiale de la Santé (OMS)",
-          "title": "Tuberculosis — fact sheet",
-          "year": 2026,
-          "url": "https://www.who.int/news-room/fact-sheets/detail/tuberculosis"
-        }
       ]
     },
     {
       "id": "prevention",
-      "title": "V. Prévention et santé publique",
+      "title": "Prévention et santé publique",
       "summary": "Dépistage des contacts, traitement de l'infection latente et vaccination.",
       "blocks": [
         {
@@ -334,22 +267,6 @@
           "tone": "retenir",
           "title": "La tuberculose ne se traite pas seul",
           "text": "L'adhésion au traitement est un enjeu collectif : un patient qui interrompt son traitement risque sa propre rechute et favorise l'émergence de résistances transmissibles à son entourage."
-        }
-      ],
-      "sources": [
-        {
-          "id": "SRC-WHO-TB-FS",
-          "organization": "Organisation mondiale de la Santé (OMS)",
-          "title": "Tuberculosis — fact sheet",
-          "year": 2026,
-          "url": "https://www.who.int/news-room/fact-sheets/detail/tuberculosis"
-        },
-        {
-          "id": "SRC-WHO-TB-REPORT-2025",
-          "organization": "Organisation mondiale de la Santé (OMS)",
-          "title": "Global Tuberculosis Report 2025",
-          "year": 2025,
-          "url": "https://www.who.int/teams/global-programme-on-tuberculosis-and-lung-health/tb-reports/global-tuberculosis-report-2025"
         }
       ]
     },
@@ -373,15 +290,6 @@
           "title": "La phrase de synthèse",
           "text": "La tuberculose se diagnostique par le laboratoire, se traite par la durée et se contrôle par le programme. Un patient qui va mieux au deuxième mois n'est pas guéri."
         }
-      ],
-      "sources": [
-        {
-          "id": "SRC-WHO-TB-MODULE4",
-          "organization": "Organisation mondiale de la Santé (OMS)",
-          "title": "WHO consolidated guidelines on tuberculosis — Module 4: treatment, drug-susceptible tuberculosis treatment",
-          "year": 2022,
-          "url": "https://www.who.int/publications/i/item/9789240048126"
-        }
       ]
     },
     {
@@ -400,29 +308,6 @@
             "OMS — Global Tuberculosis Report 2025.",
             "OMS — Lignes directrices consolidées sur la tuberculose, module 4 : traitement de la tuberculose sensible."
           ]
-        }
-      ],
-      "sources": [
-        {
-          "id": "SRC-WHO-TB-FS",
-          "organization": "Organisation mondiale de la Santé (OMS)",
-          "title": "Tuberculosis — fact sheet",
-          "year": 2026,
-          "url": "https://www.who.int/news-room/fact-sheets/detail/tuberculosis"
-        },
-        {
-          "id": "SRC-WHO-TB-REPORT-2025",
-          "organization": "Organisation mondiale de la Santé (OMS)",
-          "title": "Global Tuberculosis Report 2025",
-          "year": 2025,
-          "url": "https://www.who.int/teams/global-programme-on-tuberculosis-and-lung-health/tb-reports/global-tuberculosis-report-2025"
-        },
-        {
-          "id": "SRC-WHO-TB-MODULE4",
-          "organization": "Organisation mondiale de la Santé (OMS)",
-          "title": "WHO consolidated guidelines on tuberculosis — Module 4: treatment, drug-susceptible tuberculosis treatment",
-          "year": 2022,
-          "url": "https://www.who.int/publications/i/item/9789240048126"
         }
       ]
     }
@@ -588,7 +473,7 @@
   ],
   "mindmap": {
     "root": {
-      "id": "root",
+      "id": "tb-root",
       "label": "Tuberculose",
       "detail": "Suspecter devant une toux prolongée, confirmer par la microbiologie, traiter six mois sous supervision et dépister l'entourage."
     },
@@ -596,7 +481,6 @@
       {
         "id": "diagnostic",
         "label": "Diagnostiquer",
-        "tone": "reflexe",
         "detail": "Clinique, radiographie et confirmation microbiologique. Xpert MTB/RIF en première intention selon l'OMS.",
         "children": [
           {
@@ -683,7 +567,6 @@
       {
         "id": "traitement",
         "label": "Traiter",
-        "tone": "retenir",
         "detail": "2RHZE puis 4RH pour la forme sensible. Observance supervisée, surveillance hépatique et oculaire, interactions de la rifampicine.",
         "children": [
           {
@@ -729,7 +612,6 @@
       {
         "id": "urgence",
         "label": "Urgences",
-        "tone": "urgence",
         "detail": "Méningite, miliaire et immunodépression : traiter sans attendre la confirmation lorsque la suspicion est forte.",
         "children": [
           {
@@ -927,5 +809,41 @@
       ]
     }
   ],
-  "specialty": "Infectiologie"
+  "specialty": "Infectiologie",
+  "disclaimer": "Support pédagogique. Ne remplace ni un avis médical ni les protocoles locaux.",
+  "dosagePolicy": "Molécules citées sans posologies : se référer aux protocoles locaux et au contexte du patient.",
+  "redFlags": [
+    {
+      "sign": "Toux de plus de deux semaines avec fièvre, perte de poids et radiographie évocatrice",
+      "action": "Prélèvement microbiologique immédiat (Xpert MTB/RIF), déclaration obligatoire et enquête autour du cas"
+    },
+    {
+      "sign": "Céphalées, fièvre et troubles de la conscience chez un tuberculeux",
+      "action": "Tuberculose méningée suspectée : ponction lombaire urgente et traitement sans attendre la confirmation"
+    },
+    {
+      "sign": "Opacité interstitielle diffuse avec détresse respiratoire",
+      "action": "Miliaire : hospitalisation, traitement urgent, recherche d'une immunodépression"
+    },
+    {
+      "sign": "Tuberculose chez un patient immunodéprimé ou VIH-positif",
+      "action": "Traitement sans attendre, dépistage VIH systématique, prudence sur les interactions (rifampicine-antirétroviraux)"
+    },
+    {
+      "sign": "Échec du traitement, rechute ou contage avec un cas résistant",
+      "action": "Test de sensibilité immédiat, orientation vers un centre de référence, aucun ajustement improvisé"
+    },
+    {
+      "sign": "Hémoptysie abondante",
+      "action": "Réanimation, imagerie en urgence, gestion de l'hémoptysie, isolement respiratoire"
+    }
+  ],
+  "localAdaptations": [
+    {
+      "country": "Madagascar",
+      "programme": "Programme National de Lutte contre la Tuberculose (PNLT)",
+      "sourceId": "SRC-WHO-TB-REPORT-2025",
+      "note": "Points critiques en contexte : organisé en réseau de centres de diagnostic et de traitement (CDT) avec traitement directement observé et distribution gratuite des antituberculeux ; vaccination BCG à la naissance selon le calendrier national ; le guide du PNLT définit les schémas, la surveillance et le suivi des contacts et prime sur les recommandations internationales. Guide national détaillé non accessible en ligne au 2026-11-22 : schémas exacts et modalités à confirmer sur le protocole en vigueur."
+    }
+  ]
 }

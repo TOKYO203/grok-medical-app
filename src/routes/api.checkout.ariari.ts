@@ -7,6 +7,7 @@
  */
 import { createFileRoute } from "@tanstack/react-router";
 import { requireUserId, UnauthorizedError, IdentityUnavailableError } from "@/lib/auth/verify.server";
+import { rateLimitRequest, retryAfterSeconds } from "@/lib/security/rate-limit.server";
 import { createAriariPayment, isAriariConfigured } from "@/server/ariari/ariari.server";
 import { normalizePremiumOrderInput, orderAmount } from "@/content/purchase-order";
 import { z } from "zod";
@@ -21,6 +22,16 @@ export const Route = createFileRoute("/api/checkout/ariari")({
   server: {
     handlers: {
       POST: async ({ request }) => {
+        // 0. Quota — correctif audit 2026-11-20 : aligné sur l'homologue
+        // Lemon Squeezy (10/min) ; plus de création de paiements par rafale.
+        const rlDecision = await rateLimitRequest(request, "ariari-checkout", 10, 60_000);
+        if (!rlDecision.ok) {
+          return Response.json(
+            { ok: false, error: "rate_limited" },
+            { status: 429, headers: { "Retry-After": String(retryAfterSeconds(rlDecision)) } },
+          );
+        }
+
         // 1. Auth
         let userId: string;
         try {
@@ -32,8 +43,11 @@ export const Route = createFileRoute("/api/checkout/ariari")({
           if (error instanceof IdentityUnavailableError) {
             return Response.json({ ok: false, error: "identity_unavailable" }, { status: 503 });
           }
+          // Audit 2026-11-17 : message d'erreur d'identification loggue
+          // serveur, jamais renvoye brut au client.
+          console.error("[checkout/ariari] identite indisponible", error);
           return Response.json(
-            { ok: false, error: "auth_failed", message: error instanceof Error ? error.message : String(error) },
+            { ok: false, error: "auth_failed" },
             { status: 500 },
           );
         }
@@ -81,12 +95,12 @@ export const Route = createFileRoute("/api/checkout/ariari")({
             userId,
           });
         } catch (error) {
+          // Audit 2026-11-17 : le message brut du provider (URL, diagnostics
+          // internes) reste dans les logs serveur ; le client recoit une
+          // reponse stable, sans oracle d'information.
+          console.error("[checkout/ariari] creation de paiement impossible", error);
           return Response.json(
-            {
-              ok: false,
-              error: "ariari_failed",
-              message: error instanceof Error ? error.message : String(error),
-            },
+            { ok: false, error: "ariari_failed" },
             { status: 503 },
           );
         }

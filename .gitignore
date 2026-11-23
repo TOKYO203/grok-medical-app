@@ -13,9 +13,10 @@ out/
 .netlify/
 .vercel/
 
-# Environnement (.env* couvre .env, .env.local, .env.*.local et variantes)
+# Environnement (.env* couvre .env, .env.local, .env.production et variantes)
+# Plus d'exception : même .env.production (variables VITE_ publiques) vit dans
+# les variables CI/Cloudflare, plus rien n'est versionné.
 .env*
-!.env.production
 
 # Logs
 logs/
@@ -111,6 +112,11 @@ scripts/sanity-index.sh
 /private/content/cases/
 /private/content/diagnostics/
 /private/content/demarches/
+
+# Modèle freemium (chantier 1, 2026-11-11) : projections publiques générées
+# par scripts/sync-catalog-data.mjs (jamais committées — des copies versionnées
+# étaient restées brutes et fuyaient les grilles de correction).
+/public/data/
 public/data/decks.json
 public/data/cases.json
 public/data/diagnostics.json

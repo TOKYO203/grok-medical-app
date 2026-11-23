@@ -1,11 +1,30 @@
-# Déploiement Cloudflare — Worker `optimus-medical-prod`
+# Déploiement Cloudflare — Worker `optimus`
 
-**Depuis le 2026-11-10, la production est le Worker `optimus-medical-prod`**
-(déployé automatiquement par `.github/workflows/deploy-worker.yml` sur push
-vers `main`). Le projet Cloudflare Pages `optimusmedical` est **en pause** :
-il ne sert plus le trafic et son build git ne doit pas être réactivé. Les
-sections « Pages » ci-dessous sont conservées pour l'historique et pour la
-migration inverse éventuelle.
+**Depuis le 2026-11-12, la production est le Worker `optimus`, URL canonique
+unique : https://optimus.carabin.workers.dev** (déployé automatiquement par
+`.github/workflows/deploy-worker.yml` sur push vers `main` ; `BETTER_AUTH_URL`
+pointe sur cette même URL). L'ancien Worker doublon `optimus-medical-prod` a
+été mis à jour une dernière fois puis retiré du workflow (PR #495, #496) :
+**à supprimer dans le dashboard Cloudflare**. Le projet Cloudflare Pages
+`optimusmedical` est **en pause** : il ne sert plus le trafic et son build git
+ne doit pas être réactivé. Les sections « Pages » ci-dessous sont conservées
+pour l'historique et pour la migration inverse éventuelle.
+
+## Ménage du 2026-11-12 (résumé)
+
+- Incident 500 corrigé : le middleware `server/middleware/grok-pwa.ts`
+  importait dynamiquement des modules virtuels à chaque requête GET et faisait
+  échouer toutes les routes (PR #493).
+- Le sous-domaine workers.dev du compte est `carabin` : l'URL canonique est
+  `https://optimus.carabin.workers.dev` (l'ancienne `optimus.on.workers.dev`
+  n'a jamais existé). `workers_dev=true` est injecté dans le wrangler.json
+  généré (PR #494).
+- Un seul déploiement Worker désormais : la ligne
+  `--name optimus-medical-prod` a été retirée du workflow (PR #496).
+- À supprimer manuellement dans les dashboards (non scriptable via API) :
+  - Cloudflare : Worker `optimus-medical-prod` (doublon), projets Pages
+    `optimusmedical` et `grok-medical-app` (en pause).
+  - Netlify : site `cheerful-otter-56f2b3` (voir section « Vestige Netlify »).
 
 ## Réglages attendus dans le dashboard Cloudflare
 
@@ -117,11 +136,12 @@ n'expose aucune option de split serveur (schema vérifié dans les sources).
 1. GitHub → Settings → Secrets → Actions :
    - `CLOUDFLARE_API_TOKEN` (permissions **Workers Scripts : Edit**)
    - `CLOUDFLARE_ACCOUNT_ID`
-2. Workers → optimusmedical → Settings → Variables and Secrets : les variables
+2. Workers → optimus → Settings → Variables and Secrets : les variables
    runtime que le projet Pages avait (`DATABASE_URL`, `RESPONSE_SALT`,
    `RATE_LIMIT_SALT`, `LICENSE_JWT_SECRET`, …) — un Worker ne partage PAS
    l'environnement du projet Pages.
-3. URL : le Worker vit sur `optimusmedical.<account>.workers.dev` ; le domaine
+3. URL : le Worker `optimus` vit sur `https://optimus.carabin.workers.dev`
+   (sous-domaine workers.dev du compte : `carabin`). Le domaine
    `optimusmedical.pages.dev` ne peut PAS être attaché à un Worker. Prévoir le
    domaine custom (`optimus-medical.com`) ou rediriger.
 

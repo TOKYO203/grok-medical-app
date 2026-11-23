@@ -13,15 +13,16 @@ const cdnHeaders = readFileSync(
 );
 
 /**
- * Politique CSP de référence — pentest 2026-11-09 §3 (docs/PENTEST-2026-11-09.md).
- * Le middleware Nitro et le bloc /* de public/_headers doivent poser la
- * MÊME politique : un écart créerait deux comportements selon que la réponse
- * vient du CDN (statique) ou du worker (dynamique). Ce test verrouille le
- * miroir directive par directive.
+ * Politique CSP de référence — pentest 2026-11-09 §3 (docs/PENTEST-2026-11-09.md),
+ * durcie par l'audit #467 F1 (2026-11-19) : script-src par hash, aucun domaine
+ * tiers exécutable. Le middleware Nitro et le bloc /* de public/_headers doivent
+ * poser la MÊME politique : un écart créerait deux comportements selon que la
+ * réponse vient du CDN (statique) ou du worker (dynamique). Ce test verrouille
+ * le miroir directive par directive.
  */
 const CSP_DIRECTIVES = [
   "default-src 'self'",
-  "script-src 'self'",
+  "script-src 'self' 'unsafe-inline'",
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: blob: https://images.unsplash.com",
   "font-src 'self' data:",
@@ -65,6 +66,26 @@ test("CSP : le middleware et le _headers CDN posent exactement la même politiqu
       `public/_headers doit contenir « ${directive} »`,
     );
   }
+});
+
+test("CSP script-src : rétablissement incident 2026-11-20/21, 'unsafe-inline' temporaire, aucun domaine tiers", () => {
+  // Incident 2026-11-20/21 : page blanche prod (pages.dev + workers.dev) —
+  // l'allowlist par hash de #467 F1 bloquait les scripts d'hydratation inline
+  // de TanStack Start. 'unsafe-inline' est rétabli ; le hash du script de thème
+  // reste calculé et présent (cible du futur resserrement, cf. middleware).
+  // INTERDIT MAINTENU : aucun domaine tiers exécutable (grok.com notamment).
+  assert.match(headersSource, /scriptSrc\(\)/);
+  assert.match(headersSource, /THEME_BOOT_HASH/);
+  assert.match(headersSource, /script-src 'self' 'unsafe-inline'/);
+  assert.doesNotMatch(headersSource, /script-src[^\n]*https:\/\/grok\.com/);
+  assert.doesNotMatch(headersSource, /^\s*"script-src 'self' https:\/\//m);
+  const cdnCsp = cdnHeaders.match(/script-src ([^;\n]+)/);
+  assert.ok(cdnCsp, "la CSP du _headers doit définir script-src");
+  assert.equal(cdnCsp[1].trim(), "'self' 'unsafe-inline'");
+});
+
+test("CSP : le hash de THEME_BOOT_SCRIPT est calculé depuis la constante source (pas de valeur figée)", () => {
+  assert.match(headersSource, /createHash\("sha256"\)\.update\(THEME_BOOT_SCRIPT, "utf8"\)\.digest\("base64"\)/);
 });
 
 test("_headers CDN : baseline anti-clickjacking + HSTS sur /*, cache SW intact", () => {

@@ -830,3 +830,70 @@ une affectation de `VITE_AUTH_ENABLED` sur `process.env` dans le lanceur.
 - **Rivaux silencieux** : des COMPTEURS calculés depuis les lignes du classement (« N étudiants te devancent »), jamais d'identités — la compétition sans exposition.
 - **Classe des facultés** : somme des XP hebdo par faculté, agrégée côté client depuis le classement (top 200) — aucune donnée serveur supplémentaire.
 - **Délibérément absent de LB-2** : badges collectifs de promo et duels 1v1 (le moteur WebRTC src/lib/multiplayer/p2p.ts existe déjà pour la Phase 3).
+
+
+## 2026-11-21 — Sessions contenu : cahier des charges fiches + protocole agent
+
+| Date | ID | Décision | Motif | Auteur |
+|------|----|----------|-------|--------|
+| 2026-11-21 | C-STD-1 | Cahier des charges du contenu écrit (`docs/STANDARD-FICHES-COMPLET.md`) : plan standard, 9 gates, portée internationale (cœur OMS universel + protocoles nationaux en `localAdaptations[]`) | La consigne « NE PAS TOUCHER LE CONTENU » exigeait un cahier des charges précis ; il est fourni, le verrou est levé | Vibe |
+| 2026-11-21 | C-STD-2 | Fiche `paludisme.json` enrichie au standard complet : redFlags, disclaimer, dosagePolicy, encadré « Adaptation locale — Madagascar (PNLP) » (ASAQ 1re intention, AL 2e), 3 sources datées (PNLP 2013, Severe Malaria Observatory, Malaria Journal 2018 doi 10.1186/s12936-018-2440-0), posologies dé-chiffrées (2,4 mg/kg retirés) — commits `63dfe32` + `9d99bbb` | Prototype de référence du standard ; en attente de validation médicale | Vibe |
+| 2026-11-21 | C-STD-3 | Protocole de première connexion agent créé (`docs/AGENT-ONBOARDING.md`) et branché dans `AGENTS.md` (bloc MISSION ACTIVE + levée du verrou contenu) | Un agent qui arrive en début de session doit savoir quoi lire et quoi faire sans répéter les erreurs passées | Vibe |
+| 2026-11-21 | C-STD-4 | Fiches `signes` : alignement au standard confirmé comme tâche ouverte (minimum vital : schemaVersion, reviewStatus, updatedAt, verifiedAt, disclaimer, correction attribution « JNDES ») | Priorité aux items pathologies du référentiel | Vibe |
+
+## 2026-11-22 — Fiches : éclampsie alignée au standard (session contenu 2)
+
+| Date | ID | Décision | Motif | Auteur |
+|------|----|----------|-------|--------|
+| 2026-11-22 | C-STD-5 | Fiche `eclampsie.json` alignée au standard complet : redFlags (6), disclaimer + dosagePolicy, `localAdaptations` Madagascar (COE, diazépam en alternative, guide MSF), posologies chiffrées supprimées (sulfate de magnésium, diazépam), WikEM remplacé par les recommandations OMS 2011, tableau racine `callouts` supprimé (mémo surveillance intégré à la section Traitement), `verificationNotes` converties en tableau | Standard commun appliqué à la première urgence obstétricale | Vibe |
+| 2026-11-22 | C-STD-6 | Clarification de la règle « zéro posologie » : les seuils de monitorage (PA cible < 160/110 mmHg, réflexes, diurèse, fréquence respiratoire) ne sont pas des posologies et restent chiffrés | Le contrôle horaire du sulfate de magnésium a besoin de ses paramètres pour être cliniquement utile | Vibe |
+
+## 2026-11-22 — Fiches : hémorragies de la délivrance alignée au standard (session contenu 2)
+
+| Date | ID | Décision | Motif | Auteur |
+|------|----|----------|-------|--------|
+| 2026-11-22 | C-STD-7 | Fiche `hemorragies-delivrance.json` alignée au standard complet : restructuration 8 sections, redFlags (6), disclaimer + dosagePolicy, `localAdaptations` Madagascar (MSF, chaîne du froid, accès au sang), sources consolidées à la racine (OMS 2025 consolidée, MSF 8.2 et 8.3, essai WOMAN Lancet 2017), flashcards identifiées, mindmap nettoyée, ordinal du référentiel corrigé de 227 à 223 | Première cause de mortalité maternelle évitable : l'urgence vitale obstétricale arrive au standard du prototype Paludisme | Vibe |
+
+## 2026-11-22 — Fiches : état de choc aligné au standard (session contenu 2)
+
+| Date | ID | Décision | Motif | Auteur |
+|------|----|----------|-------|--------|
+| 2026-11-22 | C-STD-8 | Fiche `etat-de-choc.json` alignée au standard complet : sources déplacées des sections vers la racine, numérotation romaine retirée des titres, dose d'adrénaline IM dé-chiffrée (3 occurrences, C-STD-6), redFlags (6), disclaimer + dosagePolicy, `localAdaptations` Madagascar (urgences hors CHU, absence de lactate), section Références remplacée par fiches liées, coquilles corrigées (« la sous-remplissage », « se opère », « monitorise »), mindmap nettoyée du champ tone | Urgence transversale n°1 du référentiel (ordinal 48) : homogénéité des urgences vitales | Vibe |
+
+## 2026-11-22 — Fiches : polytraumatisme aligné au standard (session contenu 2)
+
+| Date | ID | Décision | Motif | Auteur |
+|------|----|----------|-------|--------|
+| 2026-11-22 | C-STD-9 | Fiche `polytraumatisme.json` alignée au standard complet : tableau racine `callouts` supprimé (doublon des encadrés de section), ordinal du référentiel corrigé de 7 à 182 selon le manifeste, redFlags (6), disclaimer + dosagePolicy, `localAdaptations` Madagascar (préhospitalier limité, scanner hors CHU, produits sanguins rares), source CRASH-2 (Lancet 2010, DOI) ajoutée, `verificationNotes` converties en tableau, corrections orthographiques (oxygénothérapie, réanimation, analgésie, « toute détérioration ») ; le manifeste `fiches.status` de `hemorragies-delivrance` passe de `planned` à `available` | Urgence chirurgicale majeure du référentiel : homogénéité des fiches urgence avec état de choc ; registre synchronisé avec le contenu réellement livré | Vibe |
+
+## 2026-11-22 — Fiches : tuberculose alignée au standard (session contenu 2)
+
+| Date | ID | Décision | Motif | Auteur |
+|------|----|----------|-------|--------|
+| 2026-11-22 | C-STD-10 | Fiche `tuberculose.json` alignée au standard complet : sources déplacées des sections vers la racine, numérotation romaine retirée des titres, redFlags (6), disclaimer + dosagePolicy, `localAdaptations` Madagascar (PNLT, CDT, BCG), mindmap nettoyée du champ tone et racine renommée `tb-root` | Item Infectiologie majeur (ordinal 42) : encadré « Contexte malgache » existant cristallisé en adaptation locale | Vibe |
+
+## 2026-11-22 — Fiches : VIH alignée au standard (session contenu 2)
+
+| Date | ID | Décision | Motif | Auteur |
+|------|----|----------|-------|--------|
+| 2026-11-22 | C-STD-11 | Fiche `vih.json` alignée au standard complet : sources des blocs supprimées (racine seule), tableau racine `callouts` dissous dans les sections (contenus spécifiques intégrés à Diagnostic et Histoire naturelle, doublons supprimés), redFlags (6), disclaimer + dosagePolicy, `localAdaptations` Madagascar (centres de traitement ambulatoire, PTME), corrections orthographiques (cryptococcose, PPE immédiate, VIH-2, lutte) | Item Infectiologie chronique (ordinal 47) : cohérence du triptyque tuberculose-VIH-paludisme | Vibe |
+
+## 2026-11-22 — Fiches `signes/` : minimum vital généralisé (session contenu 2)
+
+| Date | ID | Décision | Motif | Auteur |
+|------|----|----------|-------|--------|
+| 2026-11-22 | C-STD-12 | Les 110 fiches `private/content/signes/` alignées au minimum vital C-STD-4 : `schemaVersion: 1`, `reviewStatus: "pending-medical-review"`, `updatedAt` 2026-11-22, `verifiedAt` 2026-11-22 sur chaque source, `http://` élevé en `https://`, suppression de l'attribution « (JNDES) » dans les `organization` (ex. chvostek, trousseau), Normalisation Unicode sur toutes les chaînes. 9 commits thématiques `Fiches signes (lot N/10)` | Les fiches-cas n'atteindront pas le standard enrichi en une session ; un socle traçable (statut de revue, datation, provenance légale des sources, encodage NFC) est appliqué à 100 % du corpus en attendant leur montée individuelle au standard complet | Vibe |
+
+
+## 2026-11-23 — Fiche `signes` méninge : montée au standard enrichi, modèle additif (session contenu 2)
+
+| Date | ID | Décision | Motif | Auteur |
+|------|----|----------|-------|--------|
+| 2026-11-23 | C-STD-13 | Fiche `signes/meninge.json` enrichie au standard au moyen du modèle ADDITIF : le socle fiche-cas (id, category, disease, signs, clinicalCase, question, options, correctIndex, explanation) est conservé tel quel car le chargeur (`isSigneItem`) et le garde-fou CI l'exigent, et les champs du standard enrichi s'ajoutent à la racine : redFlags (6), callouts (urgence/reflexe/prudence), flashcards (12, ids uniques), mindmap sans champ tone et racine `meninge-root`, `localAdaptations` Madagascar (antibiothérapie pré-transfert, en attente du protocole national), dosagePolicy, editorial{} (verificationNotes datées, qcChecklist), sources racine complétées (OMS aide-mémoire ajouté, année + usedFor). Aucune posologie chiffrée. | Les fiches `signes` ne peuvent pas passer au format pathologies sans disparaître du catalogue ; l'enrichissement additif les aligne sur les 9 gates sans casser le chargement, en attendant un branchement UI des nouveaux champs | Vibe |
+
+
+## 2026-11-23 — Fiches `signes` : modèle additif étendu aux trois urgences transversales (session contenu 2)
+
+| Date | ID | Décision | Motif | Auteur |
+|------|----|----------|-------|--------|
+| 2026-11-23 | C-STD-14 | Extension du modèle additif C-STD-13 aux fiches `sdra.json`, `choc-septique.json` et `preeclampsie.json` : socle fiche-cas conservé, champs du standard enrichi ajoutés à la racine (redFlags 6, callouts avec ton urgence, 12 flashcards ids uniques, mindmap sans champ tone avec racine propre, localAdaptations Madagascar — soins critiques hors centre, antibiothérapie et traitement avant transfert —, dosagePolicy, editorial{} — notes datées, qcChecklist —, sources racine enrichies : définition de Berlin JAMA 2012 doi 10.1001/jama.2012.5669, Sepsis-3 JAMA 2016 doi 10.1001/jama.2016.0287, Surviving Sepsis Campaign 2021 doi 10.1186/s13054-021-03565-1, recommandations OMS en hypertension sévère de la grossesse 2018, kit OMS infections respiratoires aiguës sévères). Dose de remplissage « 30 mL/kg » dé-chiffrée (cohérence C-STD-8) ; seuils PaO2/FiO2, PA et lactate restent chiffrés comme critères diagnostiques/monitorage (C-STD-6). Corrections de relecture commitées à la suite de chaque fiche (orthographe, formulations). | Diagnostic, gravité et traitement des trois défaillances aiguës transversales (respiratoire, circulatoire, obstétricale) portés au même niveau que les urgences pathologies ; socle fiche-cas préservé pour le chargement de l'app | Vibe |

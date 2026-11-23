@@ -4,17 +4,18 @@
   "slug": "hemorragies-delivrance",
   "title": "Hémorragies de la délivrance",
   "subtitle": "Fiche de nosographie — gynécologie-obstétrique",
-  "objective": "Définir l'hémorragie du post-partum, appliquer la prévention de la délivrance dirigée à chaque accouchement, et conduire la prise en charge graduée de l'hémorragie : massage utérin, utérotoniques selon protocole, révision utérine, examen sous valve, gestes radiologiques et chirurgicaux, réanimation de l'hémorragie massive.",
+  "specialty": "Gynécologie-Obstétrique",
   "language": "fr",
-  "updatedAt": "2026-11-05",
+  "updatedAt": "2026-11-22",
   "reviewStatus": "pending-medical-review",
+  "objective": "Définir l'hémorragie du post-partum, appliquer la prévention de la délivrance dirigée à chaque accouchement, et conduire la prise en charge graduée de l'hémorragie : massage utérin, utérotoniques selon protocole, révision utérine, examen sous valve, gestes radiologiques et chirurgicaux, réanimation de l'hémorragie massive.",
   "curriculum": {
     "collection": "Nosographie — spécialité médicale",
     "chapterNumber": 52,
     "specialty": "Gynécologie-Obstétrique",
     "referential": {
       "programme": "madagascar-2025",
-      "ordinal": 227,
+      "ordinal": 223,
       "localNumber": 52,
       "sectionLabel": "Chirurgie spécialisée",
       "title": "Hémorragies de la délivrance",
@@ -27,73 +28,97 @@
   },
   "editorial": {
     "sourceDocument": null,
-    "reformulation": "Fiche rédigée sans document source fourni, à partir des lignes directrices consolidées de l'OMS sur la prévention, le diagnostic et le traitement de l'hémorragie du post-partum (édition consolidée). Texte entièrement reformulé.",
+    "reformulation": "Fiche rédigée sans document source fourni, à partir des lignes directrices consolidées de l'OMS sur la prévention, le diagnostic et le traitement de l'hémorragie du post-partum (édition consolidée). Texte entièrement reformulé. Mise à jour du 2026-11-22 : arrivée au cahier des charges commun (docs/STANDARD-FICHES-COMPLET.md) : plan standard, drapeaux rouges structurés en tête, disclaimer et politique de posologie au niveau racine, adaptation locale Madagascar, sources consolidées à la racine.",
     "reviewStatus": "pending-medical-review",
     "reviewedBy": null,
     "verificationNotes": [
       "Aucune posologie d'utérotonique n'est citée : l'OMS précise les molécules recommandées et les voies, les doses relèvent des protocoles institutionnels et de la fiche thérapeutique locale.",
       "La définition quantitative (pertes sanguines dépassant 500 mL après l'accouchement vaginal, ou 1000 mL après césarienne) et le concept d'hémorragie sévère sont explicites.",
       "La gradation thérapeutique est présentée comme simultanée et non strictement séquentielle : réanimation et hémostase avancent en parallèle.",
-      "La cause la plus fréquente — l'atonie utérine — et les quatre causes (tonus, tissu, traumatisme, thrombine) sont structurées par le rappel des 4T."
+      "La cause la plus fréquente — l'atonie utérine — et les quatre causes (tonus, tissu, traumatisme, thrombine) sont structurées par le rappel des 4T.",
+      "Le 2026-11-22 alignement au cahier des charges commun : restructuration selon le plan standard, redFlags, disclaimer et dosagePolicy au niveau racine, champ localAdaptations (Madagascar, guide MSF), sources déplacées des sections vers la racine de la fiche.",
+      "Le 2026-11-22 sources : guide consolidé OMS 2025 sur la prévention, le diagnostic et le traitement de l'hémorragie du post-partum (oxytocine en voie veineuse utérotonique de référence, alternatives, acide tranexamique précoce dans les 3 heures), guide MSF (chapitres 8.2 et 8.3) et essai WOMAN (Lancet 2017) ajoutés, liens vérifiés.",
+      "Le 2026-11-22 référentiel : ordinal corrigé de 227 à 223 pour correspondre au manifeste src/content/data/pathologies/_index.json."
     ],
     "qcChecklist": [
       "Définition et gravité",
       "Prévention systématique",
       "Prise en charge graduée sans posologie",
-      "Source officielle OMS citée"
+      "Source officielle OMS citée",
+      "Posologies non chiffrées (molécules et voies seules)",
+      "Drapeaux rouges structurés en tête (redFlags)",
+      "Sources racine datées (verifiedAt)",
+      "Adaptation locale Madagascar en encadré"
     ]
   },
   "sections": [
     {
-      "id": "definition",
-      "title": "Définition et épidémiologie",
+      "id": "introduction",
+      "title": "Introduction",
       "blocks": [
         {
           "type": "paragraph",
-          "content": "L'hémorragie du post-partum (HPP) est la perte sanguine génitale dépassant 500 mL dans les 24 heures suivant l'accouchement par voie basse (ou 1000 mL après césarienne) ; elle est dite sévère au-delà de 1000 mL ou devant des signes de choc. C'est la première cause de mortalité maternelle évitable dans le monde, et elle frappe surtout dans les contextes où la prévention de l'atonie et l'accès à la chirurgie et au sang sont limités."
+          "text": "L'hémorragie de la délivrance, ou hémorragie du post-partum, est la perte sanguine génitale anormalement abondante survenant à l'accouchement ou dans les suites immédiates. Elle est définie par des pertes dépassant 500 millilitres dans les 24 heures suivant un accouchement par voie basse, ou 1000 millilitres après une césarienne ; elle est dite sévère au-delà de 1000 millilitres ou dès l'apparition de signes de choc."
         },
         {
-          "type": "callout",
-          "tone": "retenir",
-          "content": "Les 4T : Tonus (atonie utérine, ~70-80 % des cas), Tissu (rétention placentaire, cotylédon resté, accreta), Traumatisme (lésions du tractus génital, rupture), Thrombine (coagulopathie, préexistante ou de consommation)."
-        }
-      ],
-      "sources": [
-        {
-          "id": "SRC-WHO-PPH-2023",
-          "organization": "OMS",
-          "title": "Consolidated guidelines for the prevention, diagnosis and treatment of postpartum haemorrhage",
-          "year": 2023
+          "type": "paragraph",
+          "text": "C'est la première cause de mortalité maternelle évitable dans le monde : la grande majorité des décès survient dans les quatre heures suivant l'accouchement, faute de prévention systématique, de réanimation et d'accès à la chirurgie et au sang. La prise en charge repose sur une gradation rigoureuse et simultanée : réanimation, utérotoniques, gestes mécaniques, puis chirurgie. Toutes les maternités doivent savoir l'appliquer, quel que soit leur niveau.",
+          "sources": [
+            "s1"
+          ]
         }
       ]
     },
     {
-      "id": "prevention",
-      "title": "Prévention",
+      "id": "generalites",
+      "title": "Définition, formes cliniques et physiopathologie",
       "blocks": [
         {
-          "type": "list",
-          "style": "numbered",
-          "items": [
-            "Identifier avant l'accouchement les facteurs de risque d'HPP (atonie : multiparité, grossesse multiple, hydramnios, travail prolongé ; hémorragie antérieure ; troubles de la coagulation ; placenta accreta suspecté).",
-            "Délivrance dirigée pour chaque accouchement : utérotonique prophylactique au moment adapté selon protocole, traction contrôlée du cordon, massage utérin.",
-            "Examen attentif du placenta et des voies génitales à chaque accouchement.",
-            "Surveillance rapprochée du tonus utérin et du saignement pendant les deux premières heures.",
-            "Accès organisé au sang, aux utérotoniques et à un chirurgien : la chaîne de survie se prépare avant la catastrophe, pas pendant."
+          "type": "paragraph",
+          "text": "L'hémorragie primaire survient dans les 24 heures suivant l'accouchement. L'hémorragie secondaire survient au-delà de 24 heures et jusqu'à six semaines, le plus souvent par rétention placentaire ou endométrite. Les pertes sont systématiquement sous-estimées à l'œil (jusqu'à 50 % selon les guides opérationnels) : peser les compresses et utiliser des sacs recueilliteurs gradués.",
+          "sources": [
+            "s2",
+            "s3"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Physiopathologie : après la délivrance, les fibres musculaires utérines se rétractent et compriment les vaisseaux du site d'implantation placentaire, ce qui assure l'hémostase naturelle de la plaie d'insertion. Toute cause entravant cette rétraction (atonie, rétention de tissu, lésion traumatique, trouble de la coagulation) laisse le saignement s'installer tant que la cause persiste.",
+          "sources": [
+            "s1",
+            "s2"
           ]
         },
         {
           "type": "callout",
-          "tone": "reflexe",
-          "content": "La délivrance dirigée est la mesure la plus efficace pour prévenir l'HPP : elle doit être systématique, traçable, et couplée à la surveillance du post-partum immédiat."
+          "tone": "urgence",
+          "title": "Saignement + maternité = urgence absolue",
+          "text": "Une hémorragie du post-partum peut tuer en moins d'une heure. Toute hémorragie abondante du post-partum déclenche le protocole : appel à l'aide, réanimation et recherche de la cause en parallèle, sans attendre l'estimation précise des pertes."
         }
-      ],
-      "sources": [
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "Causes : les 4 T",
+      "blocks": [
         {
-          "id": "SRC-WHO-PPH-2023",
-          "organization": "OMS",
-          "title": "Consolidated guidelines for the prevention, diagnosis and treatment of postpartum haemorrhage",
-          "year": 2023
+          "type": "list",
+          "items": [
+            "Tonus : atonie utérine, cause la plus fréquente (environ 70 à 80 % des cas) ; favorisée par la multiparité, la distension utérine (grossesse multiple, hydramnios, macrosomie), un travail prolongé, la césarienne.",
+            "Tissu : rétention placentaire (cotylédon oublié, placenta accreta, increta ou percreta), membranes incomplètes.",
+            "Traumatisme : lésions du tractus génital (déchirures cervicales, vaginales, périnéales), rupture utérine (surtout sur utérus cicatriciel), inversion utérine ; environ 20 % des cas.",
+            "Thrombine : coagulopathie préexistante (prééclampsie, syndrome HELLP, embolie amniotique, pathologie de l'hémostase) ou de consommation par l'hémorragie elle-même."
+          ],
+          "sources": [
+            "s2"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Chaque T correspond à un geste spécifique : traiter l'hémorragie sans identifier sa cause est l'erreur la plus fatale.",
+          "sources": [
+            "s2"
+          ]
         }
       ]
     },
@@ -103,20 +128,16 @@
       "blocks": [
         {
           "type": "paragraph",
-          "content": "Le diagnostic est visuel et clinique : saignement externe abondant, ou saignement interne masqué (utérus qui ne se rétracte pas, fundus qui monte, choc sans saignement extériorisé). L'évaluation de la gravité repose sur les constantes (pouls, tension, polypnée, coloration, diurèse), l'estimation des pertes (sacs gradués, pesée), et les signes de choc. La classification du choc hémorragique guide la réanimation."
+          "text": "Le diagnostic est clinique : saignement génital abondant après l'accouchement, utérus mal rétracté ou ascensionné (signe d'hémorragie masquée dans l'utérus ou l'abdomen), signes de choc (tachycardie, hypotension, pâleur, oligurie, troubles de la conscience). Documenter les pertes (sacs gradués, pesée), le tonus utérin sous la main, le contenu placentaire et l'état général. Le bilan d'urgence comprend groupe sanguin, numération formule, hémostase et fibrinogène : les résultats ne doivent jamais retarder le traitement.",
+          "sources": [
+            "s2"
+          ]
         },
         {
           "type": "callout",
-          "tone": "urgence",
-          "content": "Une patiente obstétricale jeune compense longtemps avant de s'effondrer : une tachycardie discrète avec saignement abondant est déjà un stade avancé. Ne pas se fier au « elle supporte bien »."
-        }
-      ],
-      "sources": [
-        {
-          "id": "SRC-WHO-PPH-2023",
-          "organization": "OMS",
-          "title": "Consolidated guidelines for the prevention, diagnosis and treatment of postpartum haemorrhage",
-          "year": 2023
+          "tone": "memo",
+          "title": "Gravité : la femme jeune trompe",
+          "text": "La parturiente jeune et saine compense longtemps : une tachycardie discrète avec un utérus mou et des pertes abondantes signe déjà une hémorragie évolutive. Ne pas attendre l'hypotension, qui est tardive."
         }
       ]
     },
@@ -125,313 +146,505 @@
       "title": "Prise en charge graduée",
       "blocks": [
         {
+          "type": "paragraph",
+          "text": "La surveillance systématique des deux premières heures du post-partum (tonus utérin et saignement à chaque évaluation) est le meilleur moyen de dépister tôt. Devant une hémorragie, réanimation et gestes obstétricaux se conduisent en parallèle, jamais en série.",
+          "sources": [
+            "s1"
+          ]
+        },
+        {
           "type": "list",
-          "style": "numbered",
           "items": [
-            "Appel à l'aide, évaluation simultanée : massage utérin immédiat, vidange vésicale, utérotonique selon protocole (les molécules et voies recommandées par l'OMS sont encadrées par les protocoles locaux ; aucune dose ici).",
-            "Réanimation parallèle : oxygène, deux voies veineuses, remplissage, commande de produits sanguins, monitorage, positionnement en décubitus latéral.",
-            "Recherche étiologique guidée par les 4T : utérus atone ? placenta complet ? lésions visibles du col, du vagin, du périnée ? coagulopathie ?",
-            "Gestes mécaniques : révision utérine (rétention), examen sous valve et suture des lésions, tamponnement utérin (ballon) pour l'atonie réfractaire.",
-            "Si persistance : embolisation artérielle si disponible, ligatures vasculaires, compression suturale de l'utérus, et en dernier recours hystérectomie d'hémostase — la vie de la mère prime sur l'utérus.",
-            "Corriger la coagulopathie au fur et à mesure, réchauffer, surveiller la diurèse ; la phase de stabilisation se poursuit en réanimation."
+            "Appel immédiat à l'aide : équipe, anesthésiste, chirurgien ; informer le bloc opératoire et le laboratoire.",
+            "Réanimation simultanée : oxygène, deux voies veineuses de gros calibre, remplissage vasculaire, commande de sang et de produits sanguins, sonde vésicale (vidange vésicale), monitorage.",
+            "Traitement de l'atonie : massage utérin immédiat et soutenu, puis utérotoniques. L'oxytocine en voie veineuse est l'utérotonique de référence OMS ; en son absence ou en cas d'échec : dérivés de l'ergot de seigle, association fixe oxytocine-ergométrine, ou prostaglandines dont le misoprostol sublingual. Molécules et voies selon le protocole national et le stock local.",
+            "Acide tranexamique en voie veineuse le plus tôt possible, dans les trois heures suivant la naissance, en complément du traitement usuel (recommandation OMS, fondée sur l'essai WOMAN).",
+            "Recherche systématique de la cause (4 T) en parallèle : révision utérine en cas de rétention, examen sous valve du col, du vagin et du périnée avec suture des lésions, réduction d'emblée d'une inversion utérine.",
+            "Atonie réfractaire : tamponnement utérin (ballon, ou méchage en l'absence de ballon) ; en cas d'échec, ligatures vasculaires, sutures de compression utérine, embolisation si disponible ; en dernier recours, hystérectomie d'hémostase : la vie de la mère prime sur l'utérus.",
+            "Correction continue de la coagulopathie (transfusion guidée par la clinique et le bilan), prévention de l'hypothermie, monitorage de la diurèse."
+          ],
+          "sources": [
+            "s1",
+            "s2",
+            "s4"
           ]
         },
         {
           "type": "callout",
-          "tone": "memo",
-          "content": "Tonus-Tissu-Trauma-Thrombine : chaque cause a son geste. Atonie : utérotoniques puis tamponnement. Rétention : révision. Lésion : suture. Coagulopathie : produits et correction."
-        }
-      ],
-      "sources": [
+          "tone": "urgence",
+          "title": "Séquence complète",
+          "text": "Appeler à l'aide → massage utérin + utérotoniques + acide tranexamique précoce + remplissage + commande de sang → chercher la cause (4 T : révision, examen sous valve) → tamponnement → chirurgie (ligatures, compression, embolisation, hystérectomie en dernier recours)."
+        },
         {
-          "id": "SRC-WHO-PPH-2023",
-          "organization": "OMS",
-          "title": "Consolidated guidelines for the prevention, diagnosis and treatment of postpartum haemorrhage",
-          "year": 2023
+          "type": "callout",
+          "tone": "memo",
+          "title": "Chaque T a son geste",
+          "text": "Atonie : massage et utérotoniques, puis tamponnement. Rétention : révision utérine. Lésion : examen sous valve et suture. Coagulopathie : produits sanguins et correction. Une hémorragie abondante qui persiste sans cause identifiée doit faire accélérer l'escalade, jamais l'attendre."
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "Adaptation locale — Madagascar (MSF, maternités périphériques)",
+          "text": "En contexte à ressources limitées, les points critiques sont la disponibilité des utérotoniques (chaîne du froid de l'oxytocine ; l'oxytocine thermostable est une alternative), des ballons de tamponnement, l'accès rapide au bloc opératoire, la rareté du sang et l'absence d'embolisation. Le tamponnement utérin et l'acide tranexamique précoce peuvent sauver des vies là où la chirurgie n'est pas immédiatement accessible ; anticiper l'évacuation vers un centre chirurgical tant que la patiente est encore stable."
         }
       ]
     },
     {
-      "id": "suivi",
-      "title": "Suites et pronostic",
+      "id": "prevention",
+      "title": "Prévention",
       "blocks": [
         {
           "type": "paragraph",
-          "content": "Après l'hémostase, la surveillance porte sur le risque de récidive (atonie persistante, cotylédon oublié), l'anémie, l'infection et les complications de la transfusion massive. Une HPP grave impose un débriefing d'équipe, une information claire sur les grossesses futures, et l'évaluation de l'accès au sang pour la suivante. Le pronostic dépend surtout de la rapidité du premier geste : la plupart des décès surviennent faute de gradation appliquée à temps."
-        }
-      ],
-      "sources": [
+          "text": "La prévention de l'hémorragie du post-partum est l'une des interventions les plus coût-efficaces de la santé maternelle : elle repose sur des gestes simples, applicables dans chaque maternité, du dispensaire au centre hospitalier.",
+          "sources": [
+            "s1"
+          ]
+        },
         {
-          "id": "SRC-WHO-PPH-2023",
-          "organization": "OMS",
-          "title": "Consolidated guidelines for the prevention, diagnosis and treatment of postpartum haemorrhage",
-          "year": 2023
+          "type": "list",
+          "items": [
+            "Identification prénatale des facteurs de risque (antécédent d'hémorragie du post-partum, multiparité, grossesse multiple, hydramnios, placenta accreta suspecté, anémie, troubles de l'hémostase) et anticipation de l'accès au sang.",
+            "Gestion active de la délivrance pour chaque accouchement : utérotonique prophylactique (l'oxytocine en est la molécule de référence OMS, par voie veineuse ou intramusculaire selon le protocole), traction contrôlée du cordon après les signes de décollement, massage utérin.",
+            "Examen du placenta et des membranes : vérifier la complétude.",
+            "Surveillance étroite des deux premières heures : tonus et saignement à chaque évaluation, vidange vésicale.",
+            "Organisation de l'aval : disponibilité permanente des utérotoniques, protocole d'hémorragie massive et de transfusion, lien avec un centre chirurgical."
+          ],
+          "sources": [
+            "s1"
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Réflexe prévention",
+          "text": "Chaque accouchement, sans exception : utérotonique prophylactique, traction contrôlée, massage utérin, surveillance des deux premières heures. La prophylaxie appliquée de façon tracée sauve plus de vies que le meilleur protocole curatif."
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion et suites",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Après le contrôle du saignement : surveiller le risque de récidive (utérus qui se réatone, cotylédon oublié, hématome en constitution), corriger l'anémie, prévenir la maladie thromboembolique si immobilité, informer la femme sur les grossesses futures (risque de récidive). Une hémorragie secondaire (au-delà de 24 heures) fait évoquer une rétention ou une endométrite : révision utérine et antibiothérapie selon protocole. Enfin, un débriefing d'équipe après une hémorragie grave améliore la prise en charge des épisodes suivants.",
+          "sources": [
+            "s3"
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "À retenir — 5 points",
+          "text": "1. Hémorragie du post-partum = plus de 500 mL voie basse ou 1000 mL césarienne dans les 24 heures, ou tout saignement avec signes de choc. 2. Cause la plus fréquente : l'atonie utérine ; raisonner en 4 T. 3. Réanimation et gestes obstétricaux en parallèle, jamais en série. 4. Oxytocine en voie veineuse de référence, acide tranexamique précoce dans les 3 heures, tamponnement puis chirurgie en gradation. 5. Prévention systématique : utérotonique prophylactique à chaque accouchement et surveillance des deux premières heures."
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références et fiches liées",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Fiche grossesse-hta — prééclampsie et syndrome HELLP (thrombine).",
+            "Fiche ruptures-uterines — traumatisme utérin, notamment sur utérus cicatriciel.",
+            "Fiche etat-de-choc — réanimation du choc hémorragique.",
+            "Fiche transfusion — produits sanguins et protocole d'hémorragie massive.",
+            "Fiche post-partum — surveillance du post-partum immédiat."
+          ]
         }
       ]
     }
   ],
   "mnemonics": [
     {
-      "text": "4T",
-      "expansion": "Tonus (atonie) — Tissu (rétention, accreta) — Traumatisme (lésions, rupture) — Thrombine (coagulopathie). Chaque T a son geste : utérotonique/tamponnement, révision, suture, correction.",
-      "label": "4T",
+      "id": "mn-4t",
+      "label": "Causes : les 4 T",
       "entries": [
         {
           "key": "T",
-          "term": "Tonus (atonie)"
+          "term": "Tonus : atonie utérine (environ 70-80 %)"
         },
         {
           "key": "T",
-          "term": "Tissu (rétention, accreta)"
+          "term": "Tissu : rétention placentaire, placenta accreta"
         },
         {
           "key": "T",
-          "term": "Traumatisme (lésions, rupture)"
+          "term": "Traumatisme : lésions, rupture, inversion utérine"
         },
         {
           "key": "T",
-          "term": "Thrombine (coagulopathie). Chaque T a son geste : utérotonique/tamponnement, révision, suture, correction."
+          "term": "Thrombine : coagulopathie"
         }
-      ],
-      "id": "mn-4t"
+      ]
+    },
+    {
+      "id": "mn-gradation-hpp",
+      "label": "Gradation thérapeutique de l'hémorragie du post-partum",
+      "entries": [
+        {
+          "key": "M",
+          "term": "Massage utérin"
+        },
+        {
+          "key": "U",
+          "term": "Utérotoniques (oxytocine en voie veineuse de référence)"
+        },
+        {
+          "key": "A",
+          "term": "Acide tranexamique précoce (dans les 3 heures)"
+        },
+        {
+          "key": "T",
+          "term": "Tamponnement utérin (ballon)"
+        },
+        {
+          "key": "C",
+          "term": "Chirurgie : ligatures, compression, hystérectomie en dernier recours"
+        }
+      ]
     }
   ],
   "flashcards": [
     {
-      "front": "Définition quantitative de l'hémorragie du post-partum ?",
-      "back": "Perte sanguine > 500 mL dans les 24 h après accouchement par voie basse, > 1000 mL après césarienne ; sévère > 1000 mL ou signes de choc."
+      "id": "fc-01",
+      "front": "Comment définit-on l'hémorragie du post-partum ?",
+      "back": "Pertes sanguines supérieures à 500 mL dans les 24 heures suivant un accouchement par voie basse, ou à 1000 mL après césarienne ; sévère au-delà de 1000 mL ou devant des signes de choc."
     },
     {
-      "front": "Première cause d'HPP ?",
-      "back": "L'atonie utérine, responsable d'environ 70 à 80 % des cas."
+      "id": "fc-02",
+      "front": "Quelle est la cause la plus fréquente d'hémorragie du post-partum ?",
+      "back": "L'atonie utérine, environ 70 à 80 % des cas : l'utérus ne se rétracte pas et les vaisseaux du site placentaire ne sont plus comprimés."
     },
     {
-      "front": "Les 4T des causes d'HPP ?",
-      "back": "Tonus (atonie), Tissu (rétention placentaire, accreta), Traumatisme (lésions du tractus, rupture), Thrombine (coagulopathie)."
+      "id": "fc-03",
+      "front": "Quelles sont les quatre causes d'hémorragie du post-partum (4 T) ?",
+      "back": "Tonus (atonie), Tissu (rétention placentaire, placenta accreta), Traumatisme (déchirures, rupture utérine, inversion), Thrombine (coagulopathie)."
     },
     {
-      "front": "Ensemble de mesures de la délivrance dirigée ?",
-      "back": "Utérotonique prophylactique au moment adapté, traction contrôlée du cordon après signes de décollement, massage utérin, surveillance du post-partum immédiat."
+      "id": "fc-04",
+      "front": "Que comprend la gestion active de la délivrance ?",
+      "back": "Utérotonique prophylactique (oxytocine de référence, voie selon protocole), traction contrôlée du cordon après signes de décollement, massage utérin, surveillance des deux premières heures."
     },
     {
-      "front": "Premiers gestes devant une HPP ?",
-      "back": "Appel à l'aide, massage utérin, vidange vésicale, utérotonique selon protocole, remplissage et commande de sang — tout en parallèle."
+      "id": "fc-05",
+      "front": "Comment savoir si la délivrance est complète ?",
+      "back": "Examen du placenta et des membranes : vérifier l'intégrité du placenta, l'absence de cotylédon manquant et la complétude des membranes."
     },
     {
-      "front": "Geste indiqué devant une rétention placentaire partielle (cotylédon) ?",
-      "back": "La révision utérine douce sous analgesie, suivie d'un utérotonique et de la surveillance du tonus."
+      "id": "fc-06",
+      "front": "Pourquoi l'estimation des pertes à l'œil est-elle trompeuse ?",
+      "back": "Les pertes sont jusqu'à 50 % sous-estimées : peser les compresses et utiliser des sacs recueilliteurs gradués (guide MSF)."
     },
     {
-      "front": "Option mécanique de l'atonie réfractaire aux utérotoniques ?",
-      "back": "Le tamponnement intra-utérin (ballon ou packing) ; en cas d'échec : embolisation ou ligatures, puis hystérectomie d'hémostase en dernier recours."
+      "id": "fc-07",
+      "front": "Quels signes font suspecter une hémorragie masquée ?",
+      "back": "Utérus ascensionné, mal rétracté ou de taille croissante, ou signes de choc disproportionnés au saignement extériorisé (hématome, hémopéritoine)."
     },
     {
-      "front": "Pourquoi la patiente obstétricale trompe-t-elle sur la gravité ?",
-      "back": "Jeune et saine, elle compense longtemps : une discrète tachycardie avec saignement abondant signe déjà un état de choc évolué."
+      "id": "fc-08",
+      "front": "Quels sont les premiers gestes devant une hémorragie du post-partum ?",
+      "back": "Appel à l'aide, massage utérin, utérotoniques, deux voies veineuses, remplissage, sonde vésicale, commande de sang, puis recherche de la cause — le tout en parallèle."
     },
     {
-      "front": "Signes d'hémorragie interne masquée du post-partum ?",
-      "back": "Utérus mou ou fundus qui monte, choc sans saignement extériorisé, hématome rétro-utérin ou sous-péritonéal."
+      "id": "fc-09",
+      "front": "Quel est le traitement de référence de l'atonie utérine ?",
+      "back": "Massage utérin soutenu puis utérotoniques : l'oxytocine en voie veineuse est la molécule de référence (OMS) ; alternatives selon protocole en cas d'indisponibilité ou d'échec."
     },
     {
-      "front": "Place de l'examen sous valve ?",
-      "back": "Explorer le col, le vagin et le périnée sous éclairage et valve : diagnostiquer et suturer les lésions traumatiques."
+      "id": "fc-10",
+      "front": "Quand administrer l'acide tranexamique ?",
+      "back": "Le plus tôt possible, dans les trois heures suivant la naissance, en voie veineuse, en complément du traitement usuel (recommandation OMS, essai WOMAN)."
     },
     {
-      "front": "Deux mesures organisationnelles qui sauvent des vies ?",
-      "back": "L'accès organisé au sang et aux utérotoniques avant l'accouchement, et la surveillance des deux premières heures du post-partum."
+      "id": "fc-11",
+      "front": "Que faire devant une atonie réfractaire aux utérotoniques ?",
+      "back": "Tamponnement utérin (ballon ou méchage), puis ligatures vasculaires, sutures de compression, embolisation si disponible, et hystérectomie d'hémostase en dernier recours."
     },
     {
-      "front": "Critère de sortie du protocole d'HPP ?",
-      "back": "Hémostase obtenue, saignement contrôlé, constantes stables, diurèse conservée, coagulation corrigée : la surveillance continue en secteurs."
+      "id": "fc-12",
+      "front": "Comment savoir si le saignement vient d'une lésion génitale ?",
+      "back": "Saignement persistant malgré un utérus bien rétracté : examiner le col, le vagin et le périnée sous valve et suturer toute lésion."
+    },
+    {
+      "id": "fc-13",
+      "front": "Comment reconnaître une coagulopathie (thrombine) ?",
+      "back": "Saignement diffus, non localisé, sans lésion visible ni atonie franche, avec hématomes et saignement aux points de ponction : bilan d'hémostase et transfusion de produits sanguins."
+    },
+    {
+      "id": "fc-14",
+      "front": "Qu'évoque une hémorragie survenant au-delà de 24 heures après l'accouchement ?",
+      "back": "Une hémorragie secondaire du postpartum, le plus souvent par rétention placentaire ou endométrite : révision utérine et antibiothérapie selon protocole."
+    },
+    {
+      "id": "fc-15",
+      "front": "Pourquoi la surveillance des deux premières heures est-elle capitale ?",
+      "back": "La majorité des hémorragies mortelles survient dans les premières heures : le dépistage précoce (tonus utérin, saignement) permet un traitement avant l'installation du choc."
+    },
+    {
+      "id": "fc-16",
+      "front": "Quelles sont les mesures d'après-coup après une hémorragie grave ?",
+      "back": "Correction de l'anémie, prévention thromboembolique si immobilité, surveillance de la récidive, information sur les grossesses futures, débriefing d'équipe."
     }
   ],
   "mindmap": {
     "root": {
-      "id": "h-morragies-de-la-d-livrance",
+      "id": "hpp-root",
       "label": "Hémorragies de la délivrance",
-      "detail": "Hémorragies de la délivrance : Définir, Prévenir, Causes : 4T, Agir, Suivre — synthèse du référentiel."
+      "detail": "Hémorragies de la délivrance : Définition, Causes (4 T), Diagnostic, Traitement gradué, Prévention — synthèse du référentiel."
     },
     "branches": [
       {
-        "id": "definir",
-        "label": "Définir",
-        "tone": "retenir",
-        "detail": "> 500 mL voie basse.",
+        "id": "hpp-b1",
+        "label": "Définition",
         "children": [
           {
-            "id": "severe",
-            "label": "Sévère",
-            "detail": "> 1000 mL ou choc.",
-            "leaves": [
-              {
-                "id": "d1",
-                "label": "Mortalité maternelle",
-                "detail": "Première cause évitable."
-              }
-            ]
+            "id": "hpp-b1-1",
+            "label": "Seuils"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "hpp-l1",
+            "label": "Plus de 500 mL voie basse, 1000 mL césarienne, dans les 24 h"
           },
           {
-            "id": "masquee",
-            "label": "Masquée",
-            "detail": "Saignement interne, fundus qui monte.",
-            "leaves": [
-              {
-                "id": "d2",
-                "label": "Choc",
-                "detail": "Compensation trompeuse."
-              }
-            ]
+            "id": "hpp-l2",
+            "label": "Sévère : plus de 1000 mL ou choc"
+          },
+          {
+            "id": "hpp-l3",
+            "label": "Secondaire : après 24 h, jusqu'à 6 semaines"
           }
-        ]
+        ],
+        "detail": "Définition : Seuils"
       },
       {
-        "id": "prevenir",
-        "label": "Prévenir",
-        "tone": "reflexe",
-        "detail": "Délivrance dirigée systématique.",
+        "id": "hpp-b2",
+        "label": "Causes : les 4 T",
         "children": [
           {
-            "id": "prophylaxie",
-            "label": "Utérotonique",
-            "detail": "Selon protocole, chaque accouchement.",
-            "leaves": [
-              {
-                "id": "p1",
-                "label": "Traction contrôlée",
-                "detail": "Après signes de décollement."
-              }
-            ]
+            "id": "hpp-b2-1",
+            "label": "Une cause, un geste"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "hpp-l4",
+            "label": "Atonie utérine : 70-80 % des cas"
           },
           {
-            "id": "risques",
-            "label": "Femmes à risque",
-            "detail": "Multipare, utérus distendu, accreta.",
-            "leaves": [
-              {
-                "id": "p2",
-                "label": "Sang préparé",
-                "detail": "Chaîne de survie avant l'hémorragie."
-              }
-            ]
+            "id": "hpp-l5",
+            "label": "Rétention placentaire, placenta accreta"
+          },
+          {
+            "id": "hpp-l6",
+            "label": "Déchirures, rupture utérine, inversion"
+          },
+          {
+            "id": "hpp-l7",
+            "label": "Coagulopathie : préexistante ou de consommation"
           }
-        ]
+        ],
+        "detail": "Causes : les 4 T — Une cause, un geste"
       },
       {
-        "id": "causes",
-        "label": "Causes : 4T",
-        "tone": "retenir",
-        "detail": "Tonus, Tissu, Trauma, Thrombine.",
+        "id": "hpp-b3",
+        "label": "Diagnostic",
         "children": [
           {
-            "id": "atonie",
-            "label": "Tonus",
-            "detail": "70-80 % des cas.",
-            "leaves": [
-              {
-                "id": "c1",
-                "label": "Massage + utérotonique",
-                "detail": "Première ligne."
-              }
-            ]
+            "id": "hpp-b3-1",
+            "label": "Clinique d'abord"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "hpp-l8",
+            "label": "Estimation des pertes : pesée, sacs gradués"
           },
           {
-            "id": "retention",
-            "label": "Tissu / Trauma",
-            "detail": "Révision, suture des lésions.",
-            "leaves": [
-              {
-                "id": "c2",
-                "label": "Thrombine",
-                "detail": "Coagulopathie corrigée."
-              }
-            ]
+            "id": "hpp-l9",
+            "label": "Tonus utérin sous la main"
+          },
+          {
+            "id": "hpp-l10",
+            "label": "Signes de choc : tachycardie, hypotension, oligurie"
+          },
+          {
+            "id": "hpp-l11",
+            "label": "Examen placentaire, bilan d'hémostase"
           }
-        ]
+        ],
+        "detail": "Diagnostic : Clinique d'abord"
       },
       {
-        "id": "agir",
-        "label": "Agir",
-        "tone": "urgence",
-        "detail": "Graduation simultanée.",
+        "id": "hpp-b4",
+        "label": "Traitement gradué",
         "children": [
           {
-            "id": "ligne1",
-            "label": "Massage, utérotonique, remplissage",
-            "detail": "En parallèle, pas en série.",
-            "leaves": [
-              {
-                "id": "a1",
-                "label": "Ballon",
-                "detail": "Atonie réfractaire."
-              }
-            ]
+            "id": "hpp-b4-1",
+            "label": "Réanimation et gestes en parallèle"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "hpp-l12",
+            "label": "Appel à l'aide immédiat"
           },
           {
-            "id": "chirurgie",
-            "label": "Embolisation, ligatures, hystérectomie",
-            "detail": "Dernier recours, la vie d'abord.",
-            "leaves": [
-              {
-                "id": "a2",
-                "label": "Transfusion",
-                "detail": "Massive guidée par la clinique."
-              }
-            ]
+            "id": "hpp-l13",
+            "label": "Massage, oxytocine en voie veineuse de référence"
+          },
+          {
+            "id": "hpp-l14",
+            "label": "Acide tranexamique dans les 3 heures"
+          },
+          {
+            "id": "hpp-l15",
+            "label": "Révision, examen sous valve, tamponnement"
+          },
+          {
+            "id": "hpp-l16",
+            "label": "Chirurgie : ligatures, compression, hystérectomie en dernier"
           }
-        ]
+        ],
+        "detail": "Traitement gradué : Réanimation et gestes en parallèle"
       },
       {
-        "id": "suivre",
-        "label": "Suivre",
-        "tone": "memo",
-        "detail": "Récidive, anémie, infection.",
+        "id": "hpp-b5",
+        "label": "Prévention",
         "children": [
           {
-            "id": "surveillance",
-            "label": "Ton, saignement, diurèse",
-            "detail": "Réanimation poursuivie.",
-            "leaves": [
-              {
-                "id": "s1",
-                "label": "Débriefing",
-                "detail": "Équipe informée, traçabilité."
-              }
-            ]
+            "id": "hpp-b5-1",
+            "label": "Chaque accouchement"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "hpp-l17",
+            "label": "Utérotonique prophylactique systématique"
           },
           {
-            "id": "futur",
-            "label": "Grossesse suivante",
-            "detail": "Risque accru, information écrite.",
-            "leaves": [
-              {
-                "id": "s2",
-                "label": "Accès au sang",
-                "detail": "Préparé pour la prochaine."
-              }
-            ]
+            "id": "hpp-l18",
+            "label": "Traction contrôlée du cordon + massage"
+          },
+          {
+            "id": "hpp-l19",
+            "label": "Examen complet du placenta"
+          },
+          {
+            "id": "hpp-l20",
+            "label": "Surveillance des 2 premières heures"
           }
-        ]
+        ],
+        "detail": "Prévention : Chaque accouchement"
       }
     ]
   },
   "sources": [
     {
-      "id": "SRC-WHO-PPH-2023",
-      "title": "WHO recommendations on the prevention, diagnosis and treatment of postpartum haemorrhage: consolidated guideline",
-      "citation": "Organisation mondiale de la Santé. WHO recommendations on the prevention, diagnosis and treatment of postpartum haemorrhage: consolidated guideline. Genève : OMS ; 2023. ISBN 978-92-4-011563-7.",
-      "organization": "Organisation mondiale de la Santé",
-      "year": 2023,
-      "url": "https://www.who.int/publications/i/item/9789240115637",
-      "verifiedAt": "2026-11-05",
+      "id": "s1",
+      "title": "Consolidated guidelines for the prevention, diagnosis and treatment of postpartum haemorrhage",
+      "citation": "Organisation mondiale de la Santé. Consolidated guidelines for the prevention, diagnosis and treatment of postpartum haemorrhage. Geneva : World Health Organization ; 2025.",
+      "organization": "Organisation mondiale de la Santé (OMS)",
+      "year": 2025,
+      "version": "Première édition, en partenariat avec FIGO et ICM",
+      "url": "https://www.who.int/publications/b/81071",
+      "verifiedAt": "2026-11-22",
       "usedFor": [
-        "Définition et gravité",
-        "Prévention de l'atonie",
-        "Prise en charge graduée",
-        "Gestes mécaniques et chirurgicaux",
-        "Réanimation"
-      ]
+        "Définition et seuils",
+        "Gestion active de la délivrance",
+        "Oxytocine en voie veineuse utérotonique de référence",
+        "Alternatives en l'absence d'oxytocine",
+        "Acide tranexamique précoce dans les 3 heures",
+        "Tamponnement et chirurgie graduée"
+      ],
+      "note": "Page de publication vérifiée le 2026-11-22 ; texte intégral en accès libre sur le site de l'OMS."
+    },
+    {
+      "id": "s2",
+      "title": "8.2 Hémorragie primaire du post-partum — Guide obstétrical MSF",
+      "citation": "Médecins Sans Frontières. Guide obstétrical 2023, chapitre 8.2 : Hémorragie primaire du post-partum.",
+      "organization": "Médecins Sans Frontières",
+      "year": 2023,
+      "version": "Guide obstétrical (édition en ligne)",
+      "url": "https://medicalguidelines.msf.org/fr/viewport/ONC/francais/8-2-hemorragie-primaire-du-post-partum-51417791.html",
+      "verifiedAt": "2026-11-22",
+      "usedFor": [
+        "Répartition des causes (traumatisme environ 20 %)",
+        "Sous-estimation des pertes (jusqu'à 50 %)",
+        "Prise en charge en contexte à ressources limitées",
+        "Surveillance des 2 premières heures"
+      ],
+      "note": "Lien vérifié le 2026-11-22 ; guide opérationnel de référence en contexte africain."
+    },
+    {
+      "id": "s3",
+      "title": "8.3 Hémorragie secondaire du postpartum — Guide obstétrical MSF",
+      "citation": "Médecins Sans Frontières. Guide obstétrical 2023, chapitre 8.3 : Hémorragie secondaire du postpartum (24 heures à 6 semaines).",
+      "organization": "Médecins Sans Frontières",
+      "year": 2023,
+      "version": "Guide obstétrical (édition en ligne)",
+      "url": "https://medicalguidelines.msf.org/fr/viewport/ONC/francais/8-3-hemorragie-secondaire-du-post-partum-51417803.html",
+      "verifiedAt": "2026-11-22",
+      "usedFor": [
+        "Hémorragie secondaire du postpartum",
+        "Rétention placentaire et endométrite"
+      ],
+      "note": "Lien vérifié le 2026-11-22."
+    },
+    {
+      "id": "s4",
+      "title": "Effet de l'acide tranexamique précoce sur la mortalité par hémorragie du post-partum — essai WOMAN",
+      "citation": "WOMAN Trial Collaborators. Effect of early tranexamic acid administration on mortality, hysterectomy, and other morbidities in women with post-partum haemorrhage (WOMAN) : an international, randomised, double-blind, placebo-controlled trial. The Lancet ; 2017.",
+      "organization": "The Lancet",
+      "year": 2017,
+      "version": "Essai clinique randomisé",
+      "url": "https://doi.org/10.1016/S0140-6736(17)30638-4",
+      "verifiedAt": "2026-11-22",
+      "usedFor": [
+        "Acide tranexamique précoce (dans les 3 heures)",
+        "Bénéfice sur la mortalité par hémorragie"
+      ],
+      "note": "DOI vérifié le 2026-11-22 ; l'essai WOMAN fonde la recommandation OMS sur l'acide tranexamique."
     }
   ],
-  "specialty": "Gynécologie-Obstétrique"
+  "disclaimer": "Support pédagogique. Ne remplace ni un avis médical ni les protocoles locaux.",
+  "dosagePolicy": "Molécules citées sans posologies : se référer aux protocoles locaux et au contexte du patient.",
+  "redFlags": [
+    {
+      "sign": "Pertes supérieures à 500 mL (voie basse) ou 1000 mL (césarienne)",
+      "action": "Protocole d'hémorragie du post-partum immédiat : appel à l'aide, réanimation et recherche de la cause en parallèle"
+    },
+    {
+      "sign": "Utérus mou, mal rétracté malgré massage et utérotoniques",
+      "action": "Atonie réfractaire : tamponnement utérin puis chirurgie, sans retarder l'escalade thérapeutique"
+    },
+    {
+      "sign": "Hypotension, pâleur, oligurie ou troubles de la conscience",
+      "action": "Choc installé : remplissage massif, produits sanguins, correction de la coagulopathie"
+    },
+    {
+      "sign": "Choc ou saignement croissant malgré un utérus bien contracté",
+      "action": "Lésion génitale, hématome ou rupture utérine : examen sous valve et exploration chirurgicale"
+    },
+    {
+      "sign": "Saignement diffus en nappes, hématomes, saignement aux points de ponction",
+      "action": "Coagulopathie de consommation : produits sanguins et correction de l'hémostase"
+    },
+    {
+      "sign": "Hémorragie survenant au-delà de 24 heures après l'accouchement",
+      "action": "Hémorragie secondaire : rétention ou endométrite — révision utérine et antibiothérapie selon protocole"
+    }
+  ],
+  "localAdaptations": [
+    {
+      "country": "Madagascar",
+      "programme": "Réseau de maternités — soins obstétricaux d'urgence (COE / SUR-CONE)",
+      "note": "Points critiques en contexte : disponibilité de l'oxytocine (chaîne du froid ; l'oxytocine thermostable est une solution pour les structures périphériques), des ballons de tamponnement, accès limité au sang et au bloc opératoire, absence d'embolisation. Le guide MSF sert de référence opérationnelle ; l'évacuation vers un centre chirurgical doit être anticipée. Protocole national détaillé non accessible en ligne au 2026-11-22 : schémas exacts et stocks de référence à confirmer sur le protocole en vigueur.",
+      "sourceId": "s2"
+    }
+  ]
 }

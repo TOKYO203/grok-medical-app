@@ -98,7 +98,10 @@ export const Route = createFileRoute("/api/health/checkout")({
         const lemon = readLemonCheckoutConfig(env);
         const database = await probeDatabase();
 
-        let rpcTest: { ok: boolean; error: string | null } = { ok: false, error: "not-tested" };
+        // Audit 2026-11-17 : le detail de l'echec RPC (message de driver, debug
+        // interne) reste dans les LOGS serveur - il n'est plus renvoye au client.
+        // Doctrine de la route : des booleens seulement, jamais d'infrastructure.
+        let rpcTest: { ok: boolean } = { ok: false };
         if (supabase && serviceKey) {
           try {
             const { createInternationalOrderRest } = await import("@/server/lemonsqueezy/checkout-rest.server");
@@ -106,11 +109,15 @@ export const Route = createFileRoute("/api/health/checkout")({
               identity: { userId: "00000000-0000-0000-0000-000000000000", email: "diag@test.local" },
               clientRequestId: crypto.randomUUID(),
             });
-            rpcTest = testResult.ok
-              ? { ok: true, error: null }
-              : { ok: false, error: (testResult as any).debug || testResult.reason || "unknown" };
+            if (testResult.ok) {
+              rpcTest = { ok: true };
+            } else {
+              console.error("[health/checkout] rpc test failed:", (testResult as any).debug ?? testResult.reason ?? "unknown");
+              rpcTest = { ok: false };
+            }
           } catch (e: any) {
-            rpcTest = { ok: false, error: "thrown:" + (e?.message || String(e)) };
+            console.error("[health/checkout] rpc test threw:", e?.message || String(e));
+            rpcTest = { ok: false };
           }
         }
 
@@ -139,9 +146,12 @@ export const Route = createFileRoute("/api/health/checkout")({
         };
 
         return json(report);
-        } catch (err) {
+        } catch (err: any) {
+          // Audit 2026-11-17 : plus AUCUN detail d'exception au client (message,
+          // nom, stack) - c'etait une divulgation d'informations internes
+          // (chemins, requetes SQL, variables) a tout appelant anonyme.
           console.error("[HEALTH-CRASH]", err);
-          return json({ error: true, message: String(err && err.message || err), name: err && err.name, stack: String(err && err.stack || "").split("\n").slice(0, 15) }, 500);
+          return json({ error: "health_check_unavailable" }, 500);
         }
       },
     },

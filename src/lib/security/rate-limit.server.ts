@@ -1,3 +1,4 @@
+import { createHash } from "node:crypto";
 import { clientIpSubject } from "./client-ip.server.ts";
 
 export type RateLimitResult = {
@@ -12,6 +13,29 @@ const buckets = new Map<string, Bucket>();
 const WINDOW_MS = 60_000;
 const MAX_REQ = 20;
 const MAX_BUCKETS = 10_000;
+
+// Audit 2026-11-16 : les sujets de quota (IP client, identifiants) ne doivent
+// jamais être stockés EN CLAIR dans Redis — un accès lecture au store partagé
+// (panneau Upstash, fuite de jeton) exposerait l'ensemble des adresses IP des
+// visiteurs. Même doctrine que server/lib/rate-limit.ts : clé pseudonymisée
+// par HMAC-like SHA-256 salé, sel OBLIGATOIRE en production (fail closed).
+const DEV_FALLBACK_SALT = "optimus-dev-rate-limit-salt";
+
+function rateLimitSalt(): string {
+  const configured = process.env.RATE_LIMIT_SALT?.trim();
+  if (configured) return configured;
+  if (process.env.NODE_ENV === "production") {
+    throw new Error("RATE_LIMIT_SALT must be configured in production");
+  }
+  return DEV_FALLBACK_SALT;
+}
+
+/** Pseudonymise un sujet avant stockage (mémoire ou Redis) : aucune PII. */
+function pseudonymizeSubject(subject: string): string {
+  return createHash("sha256")
+    .update(`${rateLimitSalt()}:${subject}`, "utf8")
+    .digest("hex");
+}
 
 function evict(now: number, incoming: number): void {
   for (const [key, bucket] of buckets) {
@@ -81,15 +105,16 @@ export async function rateLimitRequest(
   windowMs = WINDOW_MS,
 ): Promise<RateLimitResult> {
   const subject = clientIpSubject(request.headers);
-  const key = `optimus:ratelimit:${scope}:${subject}`;
+  const key = `optimus:ratelimit:${scope}:${pseudonymizeSubject(subject)}`;
   const upstash = await rateLimitUpstash(key, max, windowMs);
   if (upstash) return upstash;
   return rateLimitMemory(key, max, windowMs);
 }
 
-// Sync fallback pour admin-auth.server.ts
+// Sync fallback pour admin-auth.server.ts — la clé composée (scope + sujet)
+// est pseudonymisée elle aussi : aucune PII, même dans le seau mémoire.
 export function rateLimit(key: string, max = MAX_REQ, windowMs = WINDOW_MS): RateLimitResult {
-  return rateLimitMemory(key, max, windowMs);
+  return rateLimitMemory(`optimus:ratelimit:${pseudonymizeSubject(key)}`, max, windowMs);
 }
 
 export function retryAfterSeconds(result: RateLimitResult): number {

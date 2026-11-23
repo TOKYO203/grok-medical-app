@@ -21,6 +21,12 @@ import {
   verifyAdminSessionToken,
 } from "../src/lib/security/admin-auth.server.ts";
 
+/**
+ * Le garde DOIT être actif : server/middleware/admin-guard.ts doit exister
+ * sous son nom canonique. Un renommage en .disabled (diagnostic temporaire,
+ * cf. incident #478) fait désormais échouer la suite au lieu de passer
+ * silencieusement pendant que /admin* redevient public.
+ */
 const read = (path) => readFileSync(new URL(path, import.meta.url), "utf8");
 
 /** Source sans commentaires : les assertions négatives ne doivent pas tomber

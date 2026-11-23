@@ -1,6 +1,15 @@
 interface ObservabilityEvent {
-  url: URL;
+  url?: URL;
+  path?: string;
   req: { method: string; headers: Headers };
+}
+
+function eventPath(event: ObservabilityEvent): string {
+  try {
+    return event.path ?? event.url?.pathname ?? "/";
+  } catch {
+    return "/";
+  }
 }
 
 function withRequestId(response: Response, requestId: string): Response {
@@ -32,9 +41,14 @@ export default async function observabilityMiddleware(
   next: () => unknown | Promise<unknown>,
 ): Promise<unknown> {
   const startedAt = Date.now();
-  const requestId = event.req.headers.get("x-request-id")?.slice(0, 128) || crypto.randomUUID();
-  const method = event.req.method || "GET";
-  const path = event.url.pathname;
+  let requestId = "";
+  try {
+    requestId = event.req.headers.get("x-request-id")?.slice(0, 128) || crypto.randomUUID();
+  } catch {
+    requestId = "unknown";
+  }
+  const method = event.req?.method || "GET";
+  const path = eventPath(event);
   const isApi = path.startsWith("/api/") || path === "/api";
 
   try {
