@@ -1,0 +1,34 @@
+{
+  "id": "B-05",
+  "level": "B",
+  "order": 5,
+  "title": "Rythmes jonctionnels et d'échappement",
+  "durationMin": 5,
+  "objectives": [
+    "Reconnaître un rythme jonctionnel",
+    "Comprendre le concept de rythme d'échappement",
+    "Distinguer échappement jonctionnel et ventriculaire"
+  ],
+  "content": [
+    { "type": "text", "markdown": "Quand le **nœud sinusal défaille**, les étages inférieurs prennent le relais : c'est le **rythme d'échappement**. L'origine détermine la fréquence et la largeur du QRS." },
+    { "type": "table", "headers": ["Type", "Origine", "FC", "QRS"], "rows": [
+      ["Jonctionnel", "Nœud AV", "40-60 bpm", "Fin (< 120 ms)"],
+      ["Ventriculaire", "Ventricules", "20-40 bpm", "Large (≥ 120 ms)"],
+      ["Sinusal (normal)", "Nœud sinusal", "60-100 bpm", "Fin"]
+    ]},
+    { "type": "callout", "tone": "warning", "title": "En pratique aux urgences", "markdown": "Un rythme jonctionnel à 45 bpm chez un patient asymptomatique = surveillance. Un rythme ventriculaire d'échappement à 25 bpm = **urgence vitale** (risque d'asystolie). Toujours rechercher la cause du bloc : hyperkaliémie, médicament bradycardisant, ischémie." },
+    { "type": "text", "markdown": "## Comment les distinguer\n\n- **Jonctionnel** : onde P souvent **absente** ou **rétrograde** (négative en DII, après le QRS), QRS **fin**.\n- **Ventriculaire** : aucune P, QRS **large et bizarre**, FC très lente, pas de rapport P/QRS.\n- **BAV 3** : le tracé est la **combinaison** d'un rythme sinusal (P) et d'un échappement (QRS) indépendants." }
+  ],
+  "keyPoints": [
+    "Échappement jonctionnel : 40-60 bpm, QRS fin, pas de P ou P rétrograde",
+    "Échappement ventriculaire : 20-40 bpm, QRS large",
+    "Rythme ventriculaire lent = urgence vitale",
+    "Toujours chercher la cause du bloc : hyperkaliémie, médicament, ischémie",
+    "BAV 3 = P et QRS indépendants (dissociation)"
+  ],
+  "checkQuiz": [
+    { "question": "Un ECG montre un QRS fin à 50 bpm sans onde P visible. Quel est le diagnostic le plus probable ?", "choices": ["Rythme sinusal lent", "Rythme jonctionnel d'échappement", "Rythme ventriculaire d'échappement", "BAV 1er"], "correct": 1, "explanation": "QRS fin + FC 40-60 + absence de P = échappement jonctionnel (le nœud AV prend le relais)." },
+    { "question": "Quel élément ECG oriente vers un échappement ventriculaire plutôt que jonctionnel ?", "choices": ["QRS fin < 120 ms", "QRS large > 120 ms", "Onde P positive en DII", "PR constant"], "correct": 1, "explanation": "L'échappement ventriculaire produit un QRS large (≥ 120 ms) car la dépolarisation ne passe pas par le réseau de His-Purkinje." }
+  ],
+  "caseStudy": "ecg-2-5-bav3-verapamil"
+}

@@ -1,0 +1,36 @@
+{
+  "id": "B-03",
+  "level": "B",
+  "order": 3,
+  "title": "Blocs de branche : BBD et BBG",
+  "durationMin": 6,
+  "objectives": [
+    "Reconnaître un bloc de branche droit (BBD) et gauche (BBG)",
+    "Comprendre leur signification clinique",
+    "Distinguer bloc de branche complet et incomplet"
+  ],
+  "content": [
+    { "type": "text", "markdown": "Quand la conduction est bloquée dans une branche du faisceau de His, le ventricule correspondant est dépolarisé **plus tard**, ce qui **élargit le QRS** (> 120 ms) et donne un aspect caractéristique." },
+    { "type": "table", "headers": ["Critère", "BBD (bloc de branche droit)", "BBG (bloc de branche gauche)"], "rows": [
+      ["QRS", "Large > 120 ms", "Large > 120 ms"],
+      ["V1", "Aspect rsR' (oreilles de lapin)", "Aspect QS ou rS profond"],
+      ["V6", "Onde S large (> 40 ms)", "Onde R large, sans Q"],
+      ["Déviation axiale", "Souvent absente", "Souvent associée à HBAG"],
+      ["Signification", "Souvent isolé, jeune = normal", "Toujours pathologique (cardiopathie sous-jacente)"]
+    ]},
+    { "type": "callout", "tone": "warning", "title": "En pratique aux urgences", "markdown": "Un **BBG connu et stable** n'est pas une urgence. Un **BBG nouveau chez un patient douloureux thoracique** = équivalent de SCA ST+ → thrombolyse ou angioplastie. Un **BBD isolé chez un jeune** est souvent bénin." },
+    { "type": "text", "markdown": "## Hémiblocs : le détail qui change tout\n\n- **HBAG (hémibloc antérieur gauche)** : déviation axiale gauche, pas d'élargissement du QRS. Fréquent, souvent isolé.\n- **HBPG (hémibloc postérieur gauche)** : déviation axiale droite, plus rare, souvent associé à une cardiopathie." }
+  ],
+  "keyPoints": [
+    "BBD : rsR' en V1, S large en V6, QRS > 120 ms",
+    "BBG : QS en V1, R large en V6, QRS > 120 ms",
+    "BBD isolé chez un jeune = souvent bénin",
+    "BBG nouveau + douleur thoracique = SCA jusqu'à preuve du contraire",
+    "HBAG = déviation axiale gauche sans élargissement QRS"
+  ],
+  "checkQuiz": [
+    { "question": "Un ECG montre un QRS à 140 ms, un aspect rsR' en V1 et une onde S large en V6. Quel est le diagnostic ?", "choices": ["BBG", "BBD", "HBAG", "TV"], "correct": 1, "explanation": "rsR' en V1 + S large en V6 + QRS large = bloc de branche droit complet." },
+    { "question": "Un patient de 65 ans, douleur thoracique, ECG montre un BBG nouveau. Que faire ?", "choices": ["Rien, c'est un BBG", "Traiter comme un SCA ST+ (angioplastie)", "Faire un ECG dans 6h", "Donner de l'aspirine seulement"], "correct": 1, "explanation": "Un BBG nouveau chez un patient douloureux = équivalent SCA ST+, nécessite une reperfusion immédiate." }
+  ],
+  "caseStudy": "ecg-2-4-bav2-mobitz1"
+}

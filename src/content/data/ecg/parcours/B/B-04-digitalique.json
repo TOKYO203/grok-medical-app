@@ -1,0 +1,34 @@
+{
+  "id": "B-04",
+  "level": "B",
+  "order": 4,
+  "title": "Surdosage digitalique",
+  "durationMin": 6,
+  "objectives": [
+    "Reconnaître l'effet thérapeutique de la digoxine sur l'ECG",
+    "Identifier les signes de surdosage",
+    "Comprendre le risque vital du surdosage digitalique"
+  ],
+  "content": [
+    { "type": "text", "markdown": "La **digoxine** reste utilisée dans certaines cardiopathies (FA + insuffisance cardiaque). Sa marge thérapeutique est **étroite** : le surdosage est fréquent, surtout chez le sujet âgé et en cas d'insuffisance rénale." },
+    { "type": "table", "headers": ["Niveau", "Signe ECG"], "rows": [
+      ["Thérapeutique", "Sous-décalage ST en cupule (digitale), T aplatie, QT raccourci"],
+      ["Toxique", "BAV de tous types, ESA (extrasystoles auriculaires), bigéminisme"],
+      ["Grave", "TV bidirectionnelle, TV ventriculaire, asystolie"]
+    ]},
+    { "type": "callout", "tone": "danger", "title": "En pratique aux urgences", "markdown": "Toute **bradycardie inexpliquée** chez un patient sous digoxine doit faire évoquer un surdosage. Vérifier la digoxinémie (> 2 ng/mL = toxique). En cas de TV ou de BAV 3, **anticorps antidigoxine (Digifab)** en urgence si disponible." },
+    { "type": "text", "markdown": "## Le piège de la digitalique « thérapeutique »\n\nUn sous-décalage ST en cupule sans autre anomalie est un **effet attendu** de la digoxine, pas un surdosage. Ne pas confondre avec une ischémie : ici, le sous-décalage est **concave vers le haut, en cupule**, sans miroir." }
+  ],
+  "keyPoints": [
+    "Digoxine : marge thérapeutique étroite, risque de surdosage élevé",
+    "Effet thérapeutique : sous-décalage ST en cupule",
+    "Surdosage : BAV, ESA, bigéminisme",
+    "Grave : TV bidirectionnelle (signe quasi pathognomonique)",
+    "Antidote : anticorps antidigoxine (Digifab) si disponible"
+  ],
+  "checkQuiz": [
+    { "question": "Une patiente de 78 ans sous digoxine consulte pour nausées et bradycardie à 40 bpm. L'ECG montre un BAV 2 Mobitz I. Quelle est l'hypothèse principale ?", "choices": ["Effet thérapeutique normal", "Surdosage digitalique", "Infarctus du myocarde", "Hypokaliémie isolée"], "correct": 1, "explanation": "Nausées + bradycardie + BAV chez un patient sous digoxine = surdosage jusqu'à preuve du contraire (digoxinémie à doser en urgence)." },
+    { "question": "Quel signe ECG est quasi pathognomonique d'un surdosage digitalique sévère ?", "choices": ["Sous-décalage en cupule", "TV bidirectionnelle", "BBD complet", "PR à 240 ms"], "correct": 1, "explanation": "La TV bidirectionnelle (alternance de l'axe du QRS battement par battement) est quasi spécifique du surdosage digitalique grave." }
+  ],
+  "caseStudy": "ecg-2-1-digitalique"
+}
