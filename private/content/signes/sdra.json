@@ -15,23 +15,369 @@
     "Exacerbation de BPCO"
   ],
   "correctIndex": 1,
-  "explanation": "Le SDRA est une insuffisance respiratoire aiguë inflammatoire (critères de Berlin : début < 7 jours, infiltrats bilatéraux, PaO2/FiO2 ≤ 300, absence de cause cardiogénique) secondaire à une agression pulmonaire directe (pneumonie, inhalation) ou générale (sepsis, polytraumatisme). Le traitement associe ventilation protectrice (petits volumes courant), décubitus ventral et gestion de la cause. La distinction avec l'OAP cardiogénique (amélioration rapide sous diurétiques, BNP élevé, dysfonction VG) est fondamentale car le traitement diffère radicalement.",
+  "explanation": "Le SDRA est une insuffisance respiratoire aiguë inflammatoire (critères de Berlin : début < 7 jours, infiltrats bilatéraux, PaO2/FiO2 ≤ 300, absence de cause cardiogénique) secondaire à une agression pulmonaire directe (pneumonie, inhalation) ou générale (sepsis, polytraumatisme). Le traitement associe ventilation protectrice (volumes courants réduits), décubitus ventral et gestion de la cause. La distinction avec l'OAP cardiogénique (amélioration rapide sous diurétiques, BNP élevé, dysfonction VG) est fondamentale car le traitement diffère radicalement.",
+  "objective": "Reconnaître un SDRA par les critères de Berlin, l'opposer à un OAP cardiogénique et relier la prise en charge à la disponibilité locale en oxygène et en ventilation.",
+  "schemaVersion": 1,
+  "reviewStatus": "pending-medical-review",
+  "updatedAt": "2026-11-23",
+  "disclaimer": "Support pédagogique. Ne remplace ni un avis médical ni les protocoles locaux.",
+  "dosagePolicy": "Molécules citées sans posologies : se référer aux protocoles locaux et au contexte du patient.",
+  "redFlags": [
+    {
+      "sign": "Désaturation persistante malgré l'oxygénothérapie à haut débit",
+      "action": "Envisager l'intubation sans attendre l'épuisement complet : une induction tardive agggrave le pronostic"
+    },
+    {
+      "sign": "Détresse avec tirage, fréquence respiratoire élevée et épuisement",
+      "action": "Hospitalisation en secteur de réanimation ; ventilation non invasive ou intubation selon le tableau et les ressources"
+    },
+    {
+      "sign": "Aggravation brutale sous ventilation mécanique (hypoxémie + déséquilibre hémodynamique)",
+      "action": "Penser au pneumothorax de ventilation : échographie puis drainage avant tout autre geste"
+    },
+    {
+      "sign": "SDRA d'origine infectieuse avec hypotension ou oligurie",
+      "action": "Traiter la cause en parallèle : antibiothérapie et gestion du sepsis selon le protocole, sans attendre la stabilisation respiratoire"
+    },
+    {
+      "sign": "Détresse respiratoire apparue dans les heures qui suivent une transfusion",
+      "action": "Traduise une lésion pulmonaire aiguë post-transfusionnelle : arrêter la transfusion, informer, prise en charge en réanimation"
+    },
+    {
+      "sign": "Hypoxémie avec relief veineux jugulaire distendu et crépitants majoritairement aux bases",
+      "action": "Remettre en question le diagnostic : OAP cardiogénique ? échographie pulmonaire et cardiaque au lit du patient avant d'intuber à volumes élevés"
+    }
+  ],
+  "localAdaptations": [
+    {
+      "country": "Madagascar",
+      "programme": "Soins critiques hors centre de référence (note de service fondée sur le kit OMS « infections respiratoires aiguës sévères », à compléter par le protocole national)",
+      "note": "Les lits de réanimation équipés de ventilateurs sont concentrés dans quelques centres : la prévention (vaccination antigrippale et antipneumococcique selon les calendriers, antibiothérapie correcte des pneumonies) et le transfert précoce valent mieux qu'une attente prolongée. Oxygénothérapie à haut débit ou CPAP dès que disponibles ; char d'oxygène et fiabilité des bouteilles à vérifier avant transport. Le protocole national de prise en charge du SDRA doit être ajouté en source par le propriétaire du contenu.",
+      "sourceId": "SRC-WHO-SARI-KIT"
+    }
+  ],
+  "callouts": [
+    {
+      "tone": "urgence",
+      "title": "Terroriser le retard, pas l'intubation",
+      "text": "Chez un patient qui s'épuise sous oxygène, le meilleur moment pour intuber est avant la désaturation terminale ; une échographie pulmonaire aide à trancher entre SDRA et OAP."
+    },
+    {
+      "tone": "reflexe",
+      "title": "Imagerie bilatérale + hypoxémie : Berlin s'applique",
+      "text": "Deux versants à vérifier avant de conclure : début < 7 jours et absence de cause cardiogénique. Sans ces deux conditions, ce n'est pas un SDRA."
+    },
+    {
+      "tone": "prudence",
+      "title": "Toute aggravation brutale sous ventilateur est un pneumothorax jusqu'à preuve du contraire",
+      "text": "Échographie au lit, drainage si confirmé : chaque minute compte dans un poumon déjà lésé."
+    }
+  ],
+  "editorial": {
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "2026-11-23 : cœur clinique (critères de Berlin, causes directes et indirectes, antagonisme OAP cardiogénique) aligné sur la source root1 (Berlin JAMA 2012) et les deux sources éditoriales d'origine conservées.",
+      "2026-11-23 : aucun chiffre de volume ou de ventilateur volontairement chiffré (volumes courants réduits, PEEP et FiO2 renvoyés au protocole), conformément au dosagePolicy ; les seuils de PaO2/FiO2 restent chiffrés comme critères diagnostiques (C-STD-6).",
+      "2026-11-23 : adaptation locale Madagascar en note de service fondée sur le kit OMS « infections respiratoires aiguës sévères » en attendant le protocole national (à compléter par le propriétaire)."
+    ],
+    "qcChecklist": [
+      "Les trois signes d'appel correspondent aux critères de Berlin",
+      "Aucun chiffre de dose dans les redFlags, callouts, flashcards ou mindmap",
+      "Trois sources racine HTTPS datées, dont la définition de Berlin (DOI)",
+      "Mindmap sans champ tone, racine identifiée 'sdra-root'",
+      "Douze flashcards aux identifiants uniques sdra-fc-01 à sdra-fc-12"
+    ]
+  },
+  "flashcards": [
+    {
+      "id": "sdra-fc-01",
+      "front": "Quels sont les quatre critères de Berlin du SDRA ?",
+      "back": "Début < 7 jours, opacités bilatérales, PaO2/FiO2 ≤ 300, absence d'origine cardiogénique.",
+      "tags": [
+        "diagnostic"
+      ]
+    },
+    {
+      "id": "sdra-fc-02",
+      "front": "Comment classer un SDRA de gravité selon Berlin ?",
+      "back": "Léger : PaO2/FiO2 de 201 à 300 ; modéré : de 101 à 200 ; sévère : ≤ 100, avec PEEP ≥ 5 cmH2O (seuils de classification, pas de doses).",
+      "tags": [
+        "diagnostic"
+      ]
+    },
+    {
+      "id": "sdra-fc-03",
+      "front": "Citez trois causes pulmonaires directes de SDRA.",
+      "back": "Pneumonie, inhalation bronchique (gastrique, toxique), contusion thoracique, noyade.",
+      "tags": [
+        "étiologie"
+      ]
+    },
+    {
+      "id": "sdra-fc-04",
+      "front": "Citez trois causes indirectes (extrapulmonaires) de SDRA.",
+      "back": "Sepsis extrapulmonaire, polytraumatisme, pancréatite aiguë, transfusion massive.",
+      "tags": [
+        "étiologie"
+      ]
+    },
+    {
+      "id": "sdra-fc-05",
+      "front": "Quels arguments distinguent un SDRA d'un OAP cardiogénique ?",
+      "back": "Absence d'antécédent cardiaque known, BNP normal ou bas, échocardiographie sans dysfonction VG, absence d'amélioration rapide sous diurétiques.",
+      "tags": [
+        "différentiel"
+      ]
+    },
+    {
+      "id": "sdra-fc-06",
+      "front": "Quel est le principe de la ventilation protectrice dans le SDRA ?",
+      "back": "Volumes courants réduits et pression de plateau limitée : la ventilation mécanique ne doit pas aggraver la lésion alvéolaire qu'elle prend en charge.",
+      "tags": [
+        "traitement"
+      ]
+    },
+    {
+      "id": "sdra-fc-07",
+      "front": "Quand procède-t-on au décubitus ventral ?",
+      "back": "Dans les SDRA sévères, précocement et longuement, de façon programmée, parce qu'il améliore l'homogénéisation des zones pulmonaires et la survie.",
+      "tags": [
+        "traitement"
+      ]
+    },
+    {
+      "id": "sdra-fc-08",
+      "front": "Que penser d'une détresse brutale sous ventilation mécanique ?",
+      "back": "Pneumothorax de ventilation jusqu'à preuve du contraire : échographie au lit, drainage si confirmé.",
+      "tags": [
+        "complication",
+        "urgence"
+      ]
+    },
+    {
+      "id": "sdra-fc-09",
+      "front": "Que penser d'une détresse respiratoire survenue au décours d'une transfusion ?",
+      "back": "Lésion pulmonaire aiguë post-transfusionnelle (TRALI) : arrêter la transfusion, prise en charge en réanimation, signalement du \"don\" jusqu'au lieu d'où il vient.",
+      "tags": [
+        "complication"
+      ]
+    },
+    {
+      "id": "sdra-fc-10",
+      "front": "Quel examen est au centre du doute SDRA vs OAP cardiogénique ? ",
+      "back": "L'échocardiographie : elle documente la fonction ventriculaire gauche et signe ou élimine l'origine cardiogénique.",
+      "tags": [
+        "diagnostic"
+      ]
+    },
+    {
+      "id": "sdra-fc-11",
+      "front": "Quelle est la logique du positionnement du patient en SDRA ?",
+      "back": "Décubitus ventral en séances longues et programmées, et surélévation du buste : la distribution des zones aléolaires n'est ni symétrique ni passive.",
+      "tags": [
+        "prendre soin"
+      ]
+    },
+    {
+      "id": "sdra-fc-12",
+      "front": "Comment prévenir le SDRA à l'échelle de la population (portée internationale) ?",
+      "back": "Vaccinations pneumococcique et grippale selon les calendriers nationaux, antibiothérapie correcte et précoce des pneumonies, prévention du sepsis et de la transfusion massive inutile.",
+      "tags": [
+        "prévention",
+        "santé publique"
+      ]
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "sdra-root",
+      "label": "SDRA",
+      "detail": "Oxygène qui ne suffit plus, image blanche bilatérale : le poumon est lésé des deux côtés sans cause cardiaque."
+    },
+    "branches": [
+      {
+        "id": "reconnaitre-s",
+        "label": "Reconnaître",
+        "detail": "Critères de Berlin, à la lettre.",
+        "children": [
+          {
+            "id": "rec-s-berlin",
+            "label": "Début < 7 jours",
+            "detail": "Une insuffisance chronique n'est pas un SDRA.",
+            "leaves": [
+              {
+                "id": "rec-s-berlin-1",
+                "label": "Sans cause cardiogénique"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "differencier-s",
+        "label": "Distinguer",
+        "detail": "Le mauvais diagnostic désactive le traitement.",
+        "children": [
+          {
+            "id": "dif-s-oap",
+            "label": "vs OAP cardiogénique",
+            "detail": "Échocardiographie et BNP ; réponse aux diurétiques.",
+            "leaves": [
+              {
+                "id": "dif-s-oap-1",
+                "label": "Sans réponse aux diurétiques"
+              }
+            ]
+          },
+          {
+            "id": "dif-s-epc",
+            "label": "vs exacerbation BPCO",
+            "detail": "Terrain, courant expiratoire, PaO2/FiO2.",
+            "leaves": [
+              {
+                "id": "dif-s-epc-1",
+                "label": "Antécédent de BPCO"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "traiter-s",
+        "label": "Traiter",
+        "detail": "Effet respiratoire et effet étiologique en parallèle.",
+        "children": [
+          {
+            "id": "tra-s-ventil",
+            "label": "Ventilation protectrice",
+            "detail": "Volumes courants réduits, décubitus ventral programmé.",
+            "leaves": [
+              {
+                "id": "tra-s-ventil-1",
+                "label": "Aggraver le poumon lésé : jamais"
+              }
+            ]
+          },
+          {
+            "id": "tra-s-cause",
+            "label": "Cause sous-jacente",
+            "detail": "Antibiothérapie, drainage d'un foyer, arrêt d'un facteur iatrogène.",
+            "leaves": [
+              {
+                "id": "tra-s-cause-1",
+                "label": "Sans attendre le poumon"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "complications-s",
+        "label": "Complications",
+        "detail": "Le poumon ventilé peut se déchirer ; la transfusion peut l'agresser.",
+        "children": [
+          {
+            "id": "comp-s-ptx",
+            "label": "Pneumothorax de ventilation",
+            "detail": "Détresse brutale sous ventilateur.",
+            "leaves": [
+              {
+                "id": "comp-s-ptx-1",
+                "label": "Drainage"
+              }
+            ]
+          },
+          {
+            "id": "comp-s-trali",
+            "label": "TRALI",
+            "detail": "Effet respiratoire post-transfusionnel.",
+            "leaves": [
+              {
+                "id": "comp-s-trali-1",
+                "label": "Arrêt de la transfusion"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "adapter-s",
+        "label": "Adapter localement",
+        "detail": "Oxygène, lits de réanimation et transfert précoce structurent le pronostic.",
+        "children": [
+          {
+            "id": "ada-s-oxygene",
+            "label": "Non-disponibilité de l'oxygène",
+            "detail": "Vérifier char d'oxygène et court-circuit avant transport.",
+            "leaves": [
+              {
+                "id": "ada-s-oxygene-1",
+                "label": "Transfert précoce"
+              }
+            ]
+          },
+          {
+            "id": "ada-s-prevention",
+            "label": "Prévention",
+            "detail": "Vaccinations et antibiothérapie des pneumonies.",
+            "leaves": [
+              {
+                "id": "ada-s-prevention-1",
+                "label": "Sans SDRA, pas de lit de réanimation"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
   "sources": [
     {
+      "id": "SRC-BERLIN-2012",
+      "organization": "ARDS Definition Task Force (JAMA)",
+      "title": "Acute Respiratory Distress Syndrome: The Berlin Definition",
+      "url": "https://jamanetwork.com/journals/jama/fullarticle/1160659",
+      "year": 2012,
+      "verifiedAt": "2026-11-23",
+      "doi": "10.1001/jama.2012.5669",
+      "usedFor": [
+        "Critères diagnostiques",
+        "Classification de gravité"
+      ]
+    },
+    {
+      "id": "SRC-CEMIR-SDRA",
       "organization": "Collège des Enseignants de Médecine Intensive Réanimation (CeMIR)",
       "title": "Syndrome de détresse respiratoire aiguë",
       "url": "https://www.ce-mir.fr/iv212-syndrome-detresse-respiratoire-aigue",
-      "verifiedAt": "2026-11-22"
+      "verifiedAt": "2026-11-22",
+      "usedFor": [
+        "Prise en charge",
+        "Enseignement français de référence"
+      ]
     },
     {
+      "id": "SRC-RMR-SDRA",
       "organization": "Revue des Maladies Respiratoires (PubMed Central)",
       "title": "Diagnostic et traitement du syndrome de détresse respiratoire aiguë",
       "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8248466/",
-      "verifiedAt": "2026-11-22"
+      "verifiedAt": "2026-11-22",
+      "usedFor": [
+        "Traitement",
+        "Ventilatoire"
+      ]
+    },
+    {
+      "id": "SRC-WHO-SARI-KIT",
+      "organization": "Organisation mondiale de la Santé (OMS)",
+      "title": "Kit de soins cliniques des infections respiratoires aiguës sévères",
+      "url": "https://www.who.int/publications/i/item/9789241549424",
+      "verifiedAt": "2026-11-23",
+      "usedFor": [
+        "Adaptation locale",
+        "Ressources critiques limitées"
+      ]
     }
-  ],
-  "schemaVersion": 1,
-  "reviewStatus": "pending-medical-review",
-  "updatedAt": "2026-11-22",
-  "disclaimer": "Support pédagogique. Ne remplace ni un avis médical ni les protocoles locaux."
+  ]
 }
