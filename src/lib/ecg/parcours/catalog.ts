@@ -5,6 +5,12 @@ import lessonA02 from "@/content/data/ecg/parcours/A/A-02-derivations.json";
 import lessonA03 from "@/content/data/ecg/parcours/A/A-03-axe.json";
 import lessonA04 from "@/content/data/ecg/parcours/A/A-04-sept-etapes.json";
 import lessonA05 from "@/content/data/ecg/parcours/A/A-05-pieges.json";
+import levelBIndex from "@/content/data/ecg/parcours/B/_lecons.json";
+import lessonB01 from "@/content/data/ecg/parcours/B/B-01-sinusal.json";
+import lessonB02 from "@/content/data/ecg/parcours/B/B-02-bav.json";
+import lessonB03 from "@/content/data/ecg/parcours/B/B-03-blocs-branche.json";
+import lessonB04 from "@/content/data/ecg/parcours/B/B-04-digitalique.json";
+import lessonB05 from "@/content/data/ecg/parcours/B/B-05-jonctionnel.json";
 
 import type { Level, Lesson, LessonIndex, ParcoursManifest } from "./types";
 
@@ -12,7 +18,7 @@ import type { Level, Lesson, LessonIndex, ParcoursManifest } from "./types";
 // Chaque nouvelle PR (B, C, D, E) ajoutera son import + son entrée ici.
 const LEVEL_INDEX: Record<Level, LessonIndex | null> = {
   A: levelAIndex as unknown as LessonIndex,
-  B: null,
+  B: levelBIndex as unknown as LessonIndex,
   C: null,
   D: null,
   E: null,
@@ -24,6 +30,11 @@ const LESSONS_BY_ID: Record<string, Lesson> = {
   "A-03": lessonA03 as unknown as Lesson,
   "A-04": lessonA04 as unknown as Lesson,
   "A-05": lessonA05 as unknown as Lesson,
+  "B-01": lessonB01 as unknown as Lesson,
+  "B-02": lessonB02 as unknown as Lesson,
+  "B-03": lessonB03 as unknown as Lesson,
+  "B-04": lessonB04 as unknown as Lesson,
+  "B-05": lessonB05 as unknown as Lesson,
 };
 
 export function getParcours(): ParcoursManifest {

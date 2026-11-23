@@ -1,0 +1,36 @@
+{
+  "id": "B-02",
+  "level": "B",
+  "order": 2,
+  "title": "Blocs auriculo-ventriculaires (BAV)",
+  "durationMin": 8,
+  "objectives": [
+    "Distinguer les 4 types de BAV",
+    "Comprendre le mécanisme et la gravité de chaque type",
+    "Reconnaître un BAV complet sur ECG",
+    "Identifier les situations nécessitant un pacemaker"
+  ],
+  "content": [
+    { "type": "text", "markdown": "Les BAV sont des **troubles de conduction** entre l'oreillette et le ventricule. Ils sont classés en 3 degrés (1er, 2e, 3e), le 2e se divisant en Mobitz I et Mobitz II." },
+    { "type": "table", "headers": ["Type", "PR", "QRS", "Rapport P/QRS", "Gravité"], "rows": [
+      ["BAV 1er", "> 200 ms", "Normal", "1:1", "Bénin, surveillance"],
+      ["BAV 2 Mobitz I", "S'allonge progressivement", "Normal", "N:1 (blocage d'1 QRS)", "Souvent bénin, vagal"],
+      ["BAV 2 Mobitz II", "Constant", "Normal ou large", "Variable (2:1, 3:1...)", "Risque de BAV 3, pacemaker"],
+      ["BAV 3 (complet)", "Dissocié", "Large (échappement)", "Aucun (P et QRS indépendants)", "Urgence, pacemaker"]
+    ]},
+    { "type": "callout", "tone": "danger", "title": "En pratique aux urgences", "markdown": "**Mobitz II et BAV 3 sont des urgences.** Un patient avec BAV 3 à 30 bpm peut faire un œdème aigu du poumon, un choc ou une syncope. Le traitement est **l'atropine** en attendant le pacemaker. Ne JAMAIS donner d'atropine en Mobitz II (risque d'aggravation)." },
+    { "type": "text", "markdown": "## Reconnaître le Mobitz I vs Mobitz II\n\n- **Mobitz I (Wenckebach)** : le PR s'allonge progressivement jusqu'à un QRS bloqué, puis reprise. Cycle **régulier et prévisible**.\n- **Mobitz II** : le PR reste **constant**, puis un QRS est brutalement bloqué (souvent 2:1). **Imprévisible** → risque de BAV 3." }
+  ],
+  "keyPoints": [
+    "BAV 1er : PR > 200 ms, aucun QRS bloqué, souvent bénin",
+    "Mobitz I : PR s'allonge → 1 QRS bloqué → reprise",
+    "Mobitz II : PR constant, QRS bloqué imprévisible → pacemaker",
+    "BAV 3 : P et QRS indépendants, échappement, urgence absolue",
+    "NE PAS donner d'atropine en Mobitz II (aggrave)"
+  ],
+  "checkQuiz": [
+    { "question": "Un ECG montre un PR qui s'allonge progressivement sur 4 cycles, puis un QRS bloqué. Quel est le diagnostic ?", "choices": ["BAV 1er", "BAV 2 Mobitz I", "BAV 2 Mobitz II", "BAV 3"], "correct": 1, "explanation": "Allongement progressif du PR jusqu'au blocage = Mobitz I (Wenckebach), typiquement vagal et bénin." },
+    { "question": "Devant un BAV complet symptomatique (FC 30 bpm, hypotension), que faire en première intention ?", "choices": ["Bêtabloquant", "Atropine", "Amiodarone", "Rien, surveiller"], "correct": 1, "explanation": "L'atropine (0,5 mg IV) est le premier geste en attendant le pacemaker externe ou interne. En Mobitz II seul, elle est contre-indiquée." }
+  ],
+  "caseStudy": "ecg-2-3-bav2-mobitz2"
+}

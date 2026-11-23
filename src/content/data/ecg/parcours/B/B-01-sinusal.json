@@ -1,0 +1,44 @@
+{
+  "id": "B-01",
+  "level": "B",
+  "order": 1,
+  "title": "Rythme sinusal et ses variantes",
+  "durationMin": 6,
+  "objectives": [
+    "Reconnaître un rythme sinusal normal",
+    "Identifier une bradycardie et une tachycardie sinusales",
+    "Reconnaître l'arythmie sinusale respiratoire (bénigne)",
+    "Distinguer les pauses sinusales des blocs sino-auriculaires"
+  ],
+  "content": [
+    { "type": "text", "markdown": "Le **rythme sinusal** est le rythme normal, initié par le nœud sinusal. Il repose sur trois critères : une **onde P positive en DII**, un **PR constant**, et une **fréquence entre 60 et 100 bpm**." },
+    { "type": "table", "headers": ["Variante", "Fréquence", "Signification"], "rows": [
+      ["Bradycardie sinusale", "< 60 bpm", "Souvent physiologique (sportif, sommeil), à surveiller si symptômes"],
+      ["Tachycardie sinusale", "> 100 bpm", "Réaction (fièvre, douleur, anémie, hyperthyroïdie), jamais « primitive »"],
+      ["Arythmie sinusale", "Variable (respiratoire)", "Variation cyclique du R-R avec la respiration, bénigne"],
+      ["Pause sinusale", "Absence de P > 2 s", "Le nœud sinusal « rate » un cycle, sans rapport avec le PR"],
+      ["Bloc sino-auriculaire", "Absence de P puis reprise", "Le signal est bloqué avant l'oreillette, souvent dégénératif"]
+    ]},
+    { "type": "callout", "tone": "warning", "title": "En pratique aux urgences", "markdown": "Une **tachycardie sinusale à 140 bpm** n'est JAMAIS un diagnostic — c'est un symptôme. Toujours chercher : fièvre, douleur, déshydratation, saignement occulte, anémie, hyperthyroïdie, embolie pulmonaire." },
+    { "type": "text", "markdown": "## Reconnaître les 3 critères du sinusal\n\n1. **Onde P positive en DII** (et en aVF)\n2. **PR constant** d'un cycle à l'autre\n3. **Chaque P est suivie d'un QRS** (rapport 1:1)" },
+    { "type": "list", "ordered": true, "items": [
+      "Chercher une onde P avant chaque QRS",
+      "Vérifier la positivité de P en DII",
+      "Mesurer le PR (normal 120-200 ms)",
+      "Mesurer le R-R moyen (FC = 300 / grands carreaux)",
+      "Vérifier la régularité (variation < 10% = régulier)"
+    ]}
+  ],
+  "keyPoints": [
+    "Rythme sinusal : P positive en DII + PR constant + FC 60-100",
+    "Bradycardie sinusale souvent physiologique si asymptomatique",
+    "Tachycardie sinusale = symptôme, pas diagnostic — toujours chercher la cause",
+    "Arythmie sinusale respiratoire = bénigne, pas de traitement",
+    "Pause sinusale < 3 s asymptomatique = simple surveillance"
+  ],
+  "checkQuiz": [
+    { "question": "Un ECG montre une onde P positive en DII, un PR à 160 ms constant, et une FC à 55 bpm. Quel est le diagnostic ?", "choices": ["Bradycardie sinusale", "Bloc sino-auriculaire", "Rythme jonctionnel", "BAV du 1er degré"], "correct": 0, "explanation": "Tous les critères du sinusal sont réunis (P positive DII, PR constant), seule la fréquence est basse (< 60 bpm) → bradycardie sinusale." },
+    { "question": "Une patiente de 28 ans consulte pour palpitations avec FC à 130 bpm, P visibles et régulières. Que faut-il faire en premier ?", "choices": ["Donner un bêtabloquant", "Chercher une cause (fièvre, anémie, déshydratation)", "Cardioverter", "Rien, c'est bénin"], "correct": 1, "explanation": "Une tachycardie sinusale est un symptôme : il faut d'abord chercher la cause avant tout traitement." }
+  ],
+  "caseStudy": "normal-001"
+}
