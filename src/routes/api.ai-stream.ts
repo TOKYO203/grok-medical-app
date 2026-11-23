@@ -110,7 +110,10 @@ export const Route = createFileRoute("/api/ai-stream")({
               cachePut(key, full);
               controller.enqueue(encoder.encode("data: [DONE]\n\n"));
             } catch (e: unknown) {
-              const msg = e instanceof Error ? e.message : String(e);
+              console.error("[ai-stream] provider stream failed", e);
+              // Correctif audit 2026-11-20 : le message brut du fournisseur IA n'est plus
+              // exposé au client (fuite d'information : diagnostics amont). Message stable.
+              const msg = "Génération temporairement indisponible. Réessayez.";
               controller.enqueue(
                 encoder.encode(`data: ${JSON.stringify({ error: msg })}\n\n`),
               );

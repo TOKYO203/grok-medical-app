@@ -9,6 +9,16 @@ import {
 const HASH_BYTES = 32;
 const MAX_BODY_BYTES = 4 * 1024;
 
+// Audit 2026-11-16 : la vérification PBKDF2 devient fail closed sur la FORME
+// du hash stocké. Avant, elle acceptait n'importe quel nombre d'itérations
+// (`iterations < 1` seul refusé) et n'importe quel algo — y compris SHA-1 —
+// dès lors que la ligne `admin_config` était malformée ou dégradée : un hash
+// écrit avec 1 itération aurait été validé sans bruit. Désormais : algo limité
+// à SHA-256/384/512 et plancher d'itérations aligné sur OWASP (≥ 100 000, le
+// générateur `scripts/set-admin-password.mjs` écrit 210 000).
+const MIN_PBKDF2_ITERATIONS = 100_000;
+const ALLOWED_PBKDF2_HASHES: ReadonlySet<string> = new Set(["sha256", "sha384", "sha512"]);
+
 /**
  * Admin password check. Two independent limits, both fail closed:
  *   - attempts are throttled on the TRUSTED client IP (a forged
@@ -56,13 +66,14 @@ async function verifyPassword(password: string, stored: string): Promise<boolean
   const parts = stored.split("$");
   if (parts.length !== 5) return false;
   const algo = parts[0];
-  const hashName = parts[1];
+  const hashName = parts[1].toLowerCase();
   const iterStr = parts[2];
   const saltB64 = parts[3];
   const hashB64 = parts[4];
   if (algo !== "pbkdf2") return false;
+  if (!ALLOWED_PBKDF2_HASHES.has(hashName)) return false;
   const iterations = parseInt(iterStr, 10);
-  if (!Number.isFinite(iterations) || iterations < 1) return false;
+  if (!Number.isFinite(iterations) || iterations < MIN_PBKDF2_ITERATIONS) return false;
 
   try {
     const salt = b64ToBytes(saltB64);
@@ -71,7 +82,7 @@ async function verifyPassword(password: string, stored: string): Promise<boolean
       "raw", enc.encode(password), "PBKDF2", false, ["deriveBits"],
     );
     const bits = await crypto.subtle.deriveBits(
-      { name: "PBKDF2", salt: salt as BufferSource, iterations, hash: (((hashName.toLowerCase() === "sha256") ? "SHA-256" : (hashName.toLowerCase() === "sha384") ? "SHA-384" : (hashName.toLowerCase() === "sha512") ? "SHA-512" : (hashName.toLowerCase() === "sha1") ? "SHA-1" : hashName) as AlgorithmIdentifier) },
+      { name: "PBKDF2", salt: salt as BufferSource, iterations, hash: `SHA-${hashName.slice(3)}` },
       key, HASH_BYTES * 8,
     );
     const computed = bytesToB64(new Uint8Array(bits));
@@ -152,12 +163,16 @@ export const Route = createFileRoute("/api/admin-verify")({
         // le serveur ; le garde /admin* (server/middleware/admin-guard.ts)
         // refuse les pages back-office en 403 sans cookie valide. Le jeton est
         // un HMAC horodaté dérivé du secret — jamais le mot de passe.
+        // Audit 2026-11-14 : le cookie de session admin n'est posé QUE lorsque
+        // le mot de passe est validé.
         const headers: Record<string, string> = {
           "Content-Type": "application/json",
           "Cache-Control": "no-store",
         };
-        const sessionToken = signAdminSessionToken();
-        if (sessionToken) headers["Set-Cookie"] = adminSessionCookie(sessionToken);
+        if (valid) {
+          const sessionToken = signAdminSessionToken();
+          if (sessionToken) headers["Set-Cookie"] = adminSessionCookie(sessionToken);
+        }
 
         return new Response(JSON.stringify({ valid }), {
           status: 200,

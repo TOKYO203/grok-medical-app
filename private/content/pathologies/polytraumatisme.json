@@ -5,7 +5,7 @@
   "title": "Polytraumatisme : définition et prise en charge précoce",
   "specialty": "Urgences",
   "language": "fr",
-  "updatedAt": "2026-11-01",
+  "updatedAt": "2026-11-22",
   "reviewStatus": "pending-medical-review",
   "objective": "Maîtriser la définition et la prise en charge précoce du polytraumatisé : association de lésions traumatiques dont au moins une engage le pronostic vital ; démarche ABCDE préhospitalière et intrahospitalière, bilan lésionnel par scanner corps entier, lutte contre l'hypothermie, l'acidose et la coagulopathie (triade létale), traitements urgents spécifiques (pneumothorax compressif, hémorragie, rachis, crâne), et orientation vers un centre de traumatologie.",
   "curriculum": {
@@ -14,7 +14,7 @@
     "specialty": "Urgences",
     "referential": {
       "programme": "madagascar-2025",
-      "ordinal": 7,
+      "ordinal": 182,
       "localNumber": 7,
       "sectionLabel": "Chirurgie spécialisée",
       "title": "Polytraumatisme : définition et prise en charge précoce",
@@ -29,7 +29,11 @@
     "reviewStatus": "pending-medical-review",
     "reviewedBy": null,
     "reformulation": "Fiche consacrée au polytraumatisme : patient victime de plusieurs lésions traumatiques, dont au moins une menace le pronostic vital (crânien, thoracique, abdominal vasculaire, rachidien, brûlures associées) ; prise en charge précoce : gestes de sauvetage et bilan simultanés, démarche ABCDE (Airway avec contrôle du rachis, Breathing, Circulation avec lutte contre l'hémorragie, Disability : Glasgow, pupilles, Exposure avec prévention de l'hypothermie) ; hémorragie : pression directe, garrot, remplissage prudent, acide tranexamique, transfusion ; à l'hôpital : scanner corps entier si stable, laparotomie ou chirurgie d'hémostase en urgence si instable ; triade létale : hypothermie, acidose, coagulopathie ; lésions à ne pas manquer : pneumothorax compressif, tamponnade, rachis instable, hématome intracrânien, lésion aortique ; prévention : sécurité routière, casque, ceinture.",
-    "verificationNotes": "Contenu aligné sur les sources d'anesthésie-réanimation et d'urgences françaises : démarche ABCDE, triade létale, acide tranexamique, scanner corps entier.",
+    "verificationNotes": [
+      "Contenu aligné sur les sources d'anesthésie-réanimation et d'urgences françaises : démarche ABCDE, triade létale, acide tranexamique, scanner corps entier.",
+      "Le 2026-11-22 alignement au cahier des charges commun : tableau racine callouts supprimé (doublon des encadrés de section), redFlags, disclaimer et dosagePolicy au niveau racine, champ localAdaptations (Madagascar, préhospitalier et accessibilité du scanner), ordinal du référentiel corrigé de 7 à 182 selon le manifeste.",
+      "Le 2026-11-22 sources : essai CRASH-2 (Lancet 2010, DOI 10.1016/S0140-6736(10)60835-5) ajouté pour l'acide tranexamique précoce et la transfusion équilibrée."
+    ],
     "qcChecklist": [
       "8 sections requises présentes",
       "Sources citées dans le diagnostic et le traitement",
@@ -37,7 +41,11 @@
       "4 mnémoniques",
       "16 cartes de révision",
       "Carte mentale complète",
-      "Articulation avec les fiches existantes sans duplication"
+      "Articulation avec les fiches existantes sans duplication",
+      "Posologies non chiffrées (molécules et voies seules)",
+      "Drapeaux rouges structurés en tête (redFlags)",
+      "Sources racine datées (verifiedAt), aucune source imbriquée",
+      "Adaptation locale Madagascar en champ dédié"
     ]
   },
   "sections": [
@@ -75,7 +83,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Évaluation initiale : démarche ABCDE en résolution des problèmes, dans l'ordre : Airway (liberté des voies aériennes avec protection du rachis), Breathing (ventilation, oxygenothérapie, drainage d'un pneumothorax), Circulation (arrêt de l'hémorragie, remplissage), Disability (Glasgow, pupilles), Exposure (dénudement complet avec prévention de l'hypothermie) ; tout détérioration impose de revenir à l'étape A.",
+          "text": "Évaluation initiale : démarche ABCDE en résolution des problèmes, dans l'ordre : Airway (liberté des voies aériennes avec protection du rachis), Breathing (ventilation, oxygénothérapie, drainage d'un pneumothorax), Circulation (arrêt de l'hémorragie, remplissage), Disability (Glasgow, pupilles), Exposure (dénudement complet avec prévention de l'hypothermie) ; toute détérioration impose de revenir à l'étape A.",
           "sources": [
             "s1",
             "s3"
@@ -149,7 +157,7 @@
           "type": "callout",
           "tone": "retenir",
           "title": "À retenir",
-          "text": "Polytrauma : plusieurs lésions, dont au moins une menace vitale.ABCDE et hémostase d'abord.Scanner corps entier si stable, FAST et chirurgie si instable.Triade létale : hypothermie, acidose, coagulopathie.Damage control : stopper l'hémorragie, réchauffer, réanimer."
+          "text": "Polytraumatisme : plusieurs lésions, dont au moins une menace vitale.ABCDE et hémostase d'abord.Scanner corps entier si stable, FAST et chirurgie si instable.Triade létale : hypothermie, acidose, coagulopathie.Damage control : stopper l'hémorragie, réchauffer, réanimer."
         }
       ]
     },
@@ -167,7 +175,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Stratégie de damage control : chez le patient instable ou en coagulopathie : chirurgie d'hémostase minimale (packing, clampage), correction de la triade létale (réchauffement, correction de l'acidose et de la coagulopathie, calcium), reanimation en soins intensifs, puis chirurgie orthopédique différée ; lésions spécifiques : craniotomie pour hématome compressif, thoracotomie de sauvetage exceptionnelle, laparotomie d'hémostase, embolisation artérielle (rate, rein, bassin) ; le patient crânien : éviter l'hypoxie et l'hypotension (chaque épisode aggrave le pronostic neurologique) ; prévention : ulcère de stress, thrombose (bas résiduel puis anticoagulation), antibiothérapie si plaie souillée, kinésithérapie, nutrition précoce.",
+          "text": "Stratégie de damage control : chez le patient instable ou en coagulopathie : chirurgie d'hémostase minimale (packing, clampage), correction de la triade létale (réchauffement, correction de l'acidose et de la coagulopathie, calcium), réanimation en soins intensifs, puis chirurgie orthopédique différée ; lésions spécifiques : craniotomie pour hématome compressif, thoracotomie de sauvetage exceptionnelle, laparotomie d'hémostase, embolisation artérielle (rate, rein, bassin) ; le patient crânien : éviter l'hypoxie et l'hypotension (chaque épisode aggrave le pronostic neurologique) ; prévention : ulcère de stress, thrombose (bas résiduel puis anticoagulation), antibiothérapie si plaie souillée, kinésithérapie, nutrition précoce.",
           "sources": [
             "s2",
             "s3"
@@ -219,38 +227,6 @@
           ]
         }
       ]
-    }
-  ],
-  "callouts": [
-    {
-      "id": "c1",
-      "tone": "urgence",
-      "title": "Glasgow inférieur ou égal à 8 : intuber",
-      "text": "Traumatisé crânien grave : oxygénation et intubation avec protection du rachis ; chaque épisode d'hypoxie ou d'hypotension aggrave le pronostic neurologique."
-    },
-    {
-      "id": "c2",
-      "tone": "urgence",
-      "title": "Choc hémorragique",
-      "text": "Pression directe, garrot si membres, acide tranexamique, produits sanguins précoces ; scanner seulement si stabilité, sinon écho FAST et chirurgie d'hémostase sans délai."
-    },
-    {
-      "id": "c3",
-      "tone": "reflexe",
-      "title": "Réflexe clinique",
-      "text": "ABCDE dans l'ordre, revenir à A si aggravation : voies aériennes et rachis, ventilation et drainage, circulation et hémostase, Glasgow et pupilles, dénudement sans oublier l'hypothermie."
-    },
-    {
-      "id": "c4",
-      "tone": "retenir",
-      "title": "À retenir",
-      "text": "Polytrauma : plusieurs lésions, dont au moins une menace vitale.ABCDE et hémostase d'abord.Scanner corps entier si stable, FAST et chirurgie si instable.Triade létale : hypothermie, acidose, coagulopathie.Damage control : stopper l'hémorragie, réchauffer, réanimer."
-    },
-    {
-      "id": "c5",
-      "tone": "memo",
-      "title": "Triade létale",
-      "text": "H (Hypothermie) + A (Acidose) + C (Coagulopathie) : chaque élément aggrave les autres et mène à l'hémorragie incontrôlable : réchauffer, ventiler, transfuser équilibré, calcium."
     }
   ],
   "mnemonics": [
@@ -357,12 +333,12 @@
     {
       "id": "f3",
       "front": "Que signifie l'étape A ?",
-      "back": "Liberté des voies aériennes avec immobilisation du rachis cervical : libération, aspiration, canule, oxygenothérapie, intubation en séquence rapide avec manipulation du rachis protégée si Glasgow inférieur ou égal à 8."
+      "back": "Liberté des voies aériennes avec immobilisation du rachis cervical : libération, aspiration, canule, oxygénothérapie, intubation en séquence rapide avec manipulation du rachis protégée si Glasgow inférieur ou égal à 8."
     },
     {
       "id": "f4",
       "front": "Quels gestes de sauvetage à l'étape B et C ?",
-      "back": "B : drainage d'un pneumothorax compressif, oxygenothérapie, exclusion d'une tamponnade ; C : arrêt de l'hémorragie (pression directe, garrot), remplissage prudent, acide tranexamique, transfusion."
+      "back": "B : drainage d'un pneumothorax compressif, oxygénothérapie, exclusion d'une tamponnade ; C : arrêt de l'hémorragie (pression directe, garrot), remplissage prudent, acide tranexamique, transfusion."
     },
     {
       "id": "f5",
@@ -392,7 +368,7 @@
     {
       "id": "f10",
       "front": "Quelles lésions thoraciques urgentes à ne pas manquer ?",
-      "back": "Pneumothorax compressif (drainage immédiat, avant la radio), volet thoracique (analgesie, ventilation), tamponnade (péricardocentèse, chirurgie), lésion traumatique de l'aorte (scanner, chirurgie ou endoprothèse)."
+      "back": "Pneumothorax compressif (drainage immédiat, avant la radio), volet thoracique (analgésie, ventilation), tamponnade (péricardocentèse, chirurgie), lésion traumatique de l'aorte (scanner, chirurgie ou endoprothèse)."
     },
     {
       "id": "f11",
@@ -422,7 +398,7 @@
     {
       "id": "f16",
       "front": "Quelles mesures générales de réanimation secondaire ?",
-      "back": "Nutrition précoce, prévention thromboembolique, prévention des escarres, kinésithérapie, analgesie, antibiothérapie si plaie souillée, suivi psychologique, réévaluation lésionnelle répétée."
+      "back": "Nutrition précoce, prévention thromboembolique, prévention des escarres, kinésithérapie, analgésie, antibiothérapie si plaie souillée, suivi psychologique, réévaluation lésionnelle répétée."
     }
   ],
   "mindmap": {
@@ -621,6 +597,57 @@
         "hémorragie"
       ],
       "verifiedAt": "2026-11-01"
+    },
+    {
+      "id": "s4",
+      "title": "CRASH-2",
+      "citation": "CRASH-2 Collaborators — Effects of tranexamic acid on death, vascular occlusive events, and blood transfusion in trauma patients (CRASH-2). The Lancet 2010;376(9734):23-32.",
+      "organization": "London School of Hygiene & Tropical Medicine",
+      "year": 2010,
+      "version": "essai clinique randomisé",
+      "url": "https://doi.org/10.1016/S0140-6736(10)60835-5",
+      "verifiedAt": "2026-11-22",
+      "usedFor": [
+        "Acide tranexamique précoce (dans les 3 heures)",
+        "Transfusion équilibrée et réduction de la mortalité hémorragique"
+      ],
+      "note": "DOI vérifié le 2026-11-22 ; essai fondateur de la recommandation d'acide tranexamique du choc hémorragique trauma."
+    }
+  ],
+  "disclaimer": "Support pédagogique. Ne remplace ni un avis médical ni les protocoles locaux.",
+  "dosagePolicy": "Molécules citées sans posologies : se référer aux protocoles locaux et au contexte du patient.",
+  "redFlags": [
+    {
+      "sign": "Glasgow inférieur ou égal à 8 ou anisocorie récente",
+      "action": "Intubation avec protection du rachis, scanner crânien précoce"
+    },
+    {
+      "sign": "Détresse respiratoire ou absence de murmures d'un côté",
+      "action": "Pneumothorax compressif présumé : drainage immédiat, avant la radiographie"
+    },
+    {
+      "sign": "Hypotension persistante malgré le remplissage",
+      "action": "Choc hémorragique : écho FAST au lit et chirurgie d'hémostase sans attendre le scanner"
+    },
+    {
+      "sign": "Hémorragie extériorisée massive",
+      "action": "Pression directe ou garrot, acide tranexamique dans les 3 premières heures, commande de produits sanguins"
+    },
+    {
+      "sign": "Déformation rachidienne ou déficit neurologique nouveau",
+      "action": "Immobilisation stricte du rachis, imagerie en urgence"
+    },
+    {
+      "sign": "Hypothermie ou saignement diffus en nappes",
+      "action": "Triade létale installée : réchauffement, produits sanguins équilibrés, calcium"
+    }
+  ],
+  "localAdaptations": [
+    {
+      "country": "Madagascar",
+      "programme": "Services d'urgences chirurgicales — CHU et structures de référence",
+      "sourceId": "s3",
+      "note": "Points critiques en contexte : secours médicalisés préhospitaliers limités, transport par tout-venant fréquent (garrot improvisé possible : lien large au-dessus de la plaie, noté avec l'heure ; immobilisation rachidienne à défaut d'attelles rigides) ; scanner corps entier limité aux CHU (hors CHU, s'appuyer sur échographie FAST, radiographies standard et orientation précoce) ; produits sanguins rares (remplissage prudent et orientation sans attendre). Protocole national de prise en charge du polytraumatisé non accessible en ligne au 2026-11-22 : à confirmer sur le protocole en vigueur."
     }
   ]
 }
