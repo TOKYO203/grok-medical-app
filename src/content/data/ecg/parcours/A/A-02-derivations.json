@@ -1,0 +1,44 @@
+{
+  "id": "A-02",
+  "level": "A",
+  "order": 2,
+  "title": "Les 12 dérivations et leurs territoires",
+  "durationMin": 7,
+  "objectives": [
+    "Nommer les 12 dérivations standard",
+    "Situer les 6 dérivations frontales et 6 précordiales",
+    "Associer chaque groupe à un territoire cardiaque",
+    "Choisir les dérivations additionnelles selon le contexte clinique"
+  ],
+  "content": [
+    { "type": "text", "markdown": "L'ECG 12 dérivations explore le cœur sous **2 angles complémentaires** : un plan frontal (6 dérivations des membres) et un plan horizontal (6 dérivations précordiales). Chaque dérivation « regarde » un territoire particulier du myocarde." },
+    { "type": "table", "headers": ["Dérivations", "Plan", "Territoire exploré"], "rows": [
+      ["I, aVL", "Frontal", "Latéral haut (paroi latérale haute)"],
+      ["II, III, aVF", "Frontal", "Inférieur (paroi inférieure)"],
+      ["V1, V2", "Horizontal", "Septal (septum interventriculaire)"],
+      ["V3, V4", "Horizontal", "Antérieur (paroi antérieure)"],
+      ["V5, V6", "Horizontal", "Latéral bas (paroi latérale basse)"],
+      ["aVR", "Frontal", "Cavité (regard global inverse)"]
+    ]},
+    { "type": "callout", "tone": "warning", "title": "En pratique aux urgences", "markdown": "Devant un **IDM inférieur** (sus-décalage en II, III, aVF), ajouter **V4R** pour chercher une extension au ventricule droit (hypotension, nécessité de remplissage). Devant un **IDM postérieur** (sous-décalage en V1-V3), ajouter **V7-V9**." },
+    { "type": "text", "markdown": "## Le piège des territoires non couverts\n\nCertaines zones ne sont pas explorées par les 12 dérivations standard : ventricule droit, paroi postérieure. Il faut savoir demander des dérivations additionnelles avant de conclure à un ECG « normal »." },
+    { "type": "list", "ordered": true, "items": [
+      "Repérer les 6 dérivations des membres (I, II, III, aVR, aVL, aVF)",
+      "Repérer les 6 précordiales (V1 à V6)",
+      "Rattacher chaque dérivation à son territoire",
+      "Vérifier si des dérivations additionnelles sont utiles (V4R, V7-V9)"
+    ]}
+  ],
+  "keyPoints": [
+    "6 dérivations frontales (membres) + 6 précordiales (V1-V6)",
+    "II, III, aVF → territoire inférieur",
+    "I, aVL, V5, V6 → territoire latéral",
+    "V1-V4 → territoire antérieur/septal",
+    "Penser V4R (IDM inférieur) et V7-V9 (IDM postérieur)"
+  ],
+  "checkQuiz": [
+    { "question": "Quel groupe de dérivations explore la paroi inférieure du cœur ?", "choices": ["I, aVL, V5-V6", "II, III, aVF", "V1-V3", "V4R, V7-V9"], "correct": 1, "explanation": "II, III et aVF regardent la face inférieure du ventricule gauche." },
+    { "question": "Devant un sus-décalage en II, III et aVF, quelle dérivation additionnelle faut-il demander en priorité ?", "choices": ["V7-V9", "V1-V2", "V4R", "aVR"], "correct": 2, "explanation": "V4R explore le ventricule droit, à la recherche d'une extension droite de l'IDM inférieur." }
+  ],
+  "caseStudy": "ecg-1-5-malposition"
+}
