@@ -1,27 +1,46 @@
 import { createFileRoute, Link, Outlet, useRouterState } from "@tanstack/react-router";
 import { Activity, ChevronRight } from "lucide-react";
+import { useEffect, useState } from "react";
 import { Page, Shell, PageHeader } from "@/components/shell";
 import { listEcg } from "@/lib/ecg/catalog";
 import { getParcours } from "@/lib/ecg/parcours/catalog";
 import { EcgMonitor } from "@/components/ecg/EcgMonitor";
 import { ExamenModeEcg } from "@/components/ecg/ExamenModeEcg";
 import { LevelCard } from "@/components/ecg/parcours/LevelCard";
-import { isUnlockAllActive, setUnlockAll } from "@/lib/ecg/parcours/progression";
-import { useEffect, useState } from "react";
+import {
+  isUnlockAllActive,
+  setUnlockAll,
+} from "@/lib/ecg/parcours/progression";
 
 export const Route = createFileRoute("/ecg")({
   component: EcgLibraryPage,
 });
 
+/**
+ * Parent : décide si on affiche l'enfant (/ecg/$id) ou le hub.
+ * Aucun hook ici → pas de violation rules-of-hooks.
+ */
 function EcgLibraryPage() {
-  const pathname = useRouterState({ select: (state) => state.location.pathname });
+  const pathname = useRouterState({
+    select: (state) => state.location.pathname,
+  });
 
   if (pathname !== "/ecg" && pathname !== "/ecg/") {
     return <Outlet />;
   }
 
+  return <EcgHub />;
+}
+
+/**
+ * Enfant : contient TOUS les hooks (useState, useEffect).
+ * Monté uniquement quand on est bien sur /ecg → hooks toujours appelés
+ * dans le même ordre.
+ */
+function EcgHub() {
   const cases = listEcg();
   const parcours = getParcours();
+
   const [unlockAll, setUnlockAllState] = useState(false);
   const [mounted, setMounted] = useState(false);
 
@@ -38,13 +57,16 @@ function EcgLibraryPage() {
 
   return (
     <Shell title="ECG">
-      <Page className="mx-auto max-w-2xl" header={
-        <PageHeader
-          kicker="Parcours d'apprentissage"
-          title="Apprendre l'ECG de A à Z"
-          description="5 niveaux progressifs, de la lecture du papier à l'interprétation des urgences."
-        />
-      }>
+      <Page
+        className="mx-auto max-w-2xl"
+        header={
+          <PageHeader
+            kicker="Parcours d'apprentissage"
+            title="Apprendre l'ECG de A à Z"
+            description="5 niveaux progressifs, de la lecture du papier à l'interprétation des urgences."
+          />
+        }
+      >
         <div className="space-y-3">
           {parcours.levels.map((level) => (
             <LevelCard key={level.id} level={level} />
@@ -76,7 +98,9 @@ function EcgLibraryPage() {
             Accès direct aux {cases.length} cas sans parcours guidé.
           </p>
           <EcgMonitor bpm={75} autoStart />
-          <div className="mt-4"><ExamenModeEcg /></div>
+          <div className="mt-4">
+            <ExamenModeEcg />
+          </div>
           <div className="mt-4 space-y-2">
             {cases.map((c) => (
               <Link
@@ -87,7 +111,9 @@ function EcgLibraryPage() {
               >
                 <div>
                   <p className="text-sm font-medium">{c.title}</p>
-                  <p className="text-xs text-subtle">{c.difficulty} · {c.rhythm}</p>
+                  <p className="text-xs text-subtle">
+                    {c.difficulty} · {c.rhythm}
+                  </p>
                 </div>
                 <ChevronRight size={16} className="text-subtle" />
               </Link>
