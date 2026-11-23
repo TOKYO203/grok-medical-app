@@ -6,6 +6,8 @@ import { getParcours } from "@/lib/ecg/parcours/catalog";
 import { EcgMonitor } from "@/components/ecg/EcgMonitor";
 import { ExamenModeEcg } from "@/components/ecg/ExamenModeEcg";
 import { LevelCard } from "@/components/ecg/parcours/LevelCard";
+import { isUnlockAllActive, setUnlockAll } from "@/lib/ecg/parcours/progression";
+import { useEffect, useState } from "react";
 
 export const Route = createFileRoute("/ecg")({
   component: EcgLibraryPage,
@@ -20,6 +22,19 @@ function EcgLibraryPage() {
 
   const cases = listEcg();
   const parcours = getParcours();
+  const [unlockAll, setUnlockAllState] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setUnlockAllState(isUnlockAllActive());
+    setMounted(true);
+  }, []);
+
+  function toggleUnlockAll() {
+    const next = !unlockAll;
+    setUnlockAll(next);
+    setUnlockAllState(next);
+  }
 
   return (
     <Shell title="ECG">
@@ -36,7 +51,24 @@ function EcgLibraryPage() {
           ))}
         </div>
 
-        <div className="mt-10 border-t border-subtle pt-6">
+        <div className="mt-6 flex items-center justify-between rounded-lg border border-subtle px-3 py-2 text-sm">
+          <span className="text-subtle">Mode révision libre</span>
+          {mounted && (
+            <button
+              type="button"
+              onClick={toggleUnlockAll}
+              className={`rounded-md px-3 py-1 text-xs font-medium transition ${
+                unlockAll
+                  ? "bg-amber-500 text-white"
+                  : "bg-muted text-subtle hover:bg-subtle"
+              }`}
+            >
+              {unlockAll ? "Désactiver" : "Tout déverrouiller"}
+            </button>
+          )}
+        </div>
+
+        <div className="mt-6 border-t border-subtle pt-6">
           <h2 className="mb-1 flex items-center gap-2 text-lg font-semibold">
             <Activity size={18} /> Mode examen libre
           </h2>
