@@ -883,3 +883,10 @@ une affectation de `VITE_AUTH_ENABLED` sur `process.env` dans le lanceur.
 | Date | ID | Décision | Motif | Auteur |
 |------|----|----------|-------|--------|
 | 2026-11-22 | C-STD-12 | Les 110 fiches `private/content/signes/` alignées au minimum vital C-STD-4 : `schemaVersion: 1`, `reviewStatus: "pending-medical-review"`, `updatedAt` 2026-11-22, `verifiedAt` 2026-11-22 sur chaque source, `http://` élevé en `https://`, suppression de l'attribution « (JNDES) » dans les `organization` (ex. chvostek, trousseau), Normalisation Unicode sur toutes les chaînes. 9 commits thématiques `Fiches signes (lot N/10)` | Les fiches-cas n'atteindront pas le standard enrichi en une session ; un socle traçable (statut de revue, datation, provenance légale des sources, encodage NFC) est appliqué à 100 % du corpus en attendant leur montée individuelle au standard complet | Vibe |
+
+
+## 2026-11-23 — Fiche `signes` méninge : montée au standard enrichi, modèle additif (session contenu 2)
+
+| Date | ID | Décision | Motif | Auteur |
+|------|----|----------|-------|--------|
+| 2026-11-23 | C-STD-13 | Fiche `signes/meninge.json` enrichie au standard au moyen du modèle ADDITIF : le socle fiche-cas (id, category, disease, signs, clinicalCase, question, options, correctIndex, explanation) est conservé tel quel car le chargeur (`isSigneItem`) et le garde-fou CI l'exigent, et les champs du standard enrichi s'ajoutent à la racine : redFlags (6), callouts (urgence/reflexe/prudence), flashcards (12, ids uniques), mindmap sans champ tone et racine `meninge-root`, `localAdaptations` Madagascar (antibiothérapie pré-transfert, en attente du protocole national), dosagePolicy, editorial{} (verificationNotes datées, qcChecklist), sources racine complétées (OMS aide-mémoire ajouté, année + usedFor). Aucune posologie chiffrée. | Les fiches `signes` ne peuvent pas passer au format pathologies sans disparaître du catalogue ; l'enrichissement additif les aligne sur les 9 gates sans casser le chargement, en attendant un branchement UI des nouveaux champs | Vibe |
