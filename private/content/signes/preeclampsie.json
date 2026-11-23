@@ -16,22 +16,344 @@
   ],
   "correctIndex": 1,
   "explanation": "La pré-éclampsie associe après 20 SA une hypertension et une protéinurie, le plus souvent chez la primipare : la vasculopathie placentaire expose à l'éclampsie (crises convulsives), au HELLP (cytolyse, hémolyse, plaquettes basses) et à l'hématome rétroplacentaire. Les signes de gravité — céphalées, phosphènes, barre épigastrique, ROT vifs, oligurie — imposent l'hospitalisation immédiate, l'antihypertenseur (labétalol, nicardipine), le sulfate de magnésium pour prévenir l'éclampsie, et la décision d'extraction fœtale selon le terme. Le traitement définitif est l'accouchement.",
+  "objective": "Détecter une pré-éclampsie et ses signes de gravité, savoir quand prévenir l'éclampsie et quand la grossesse doit s'interrompre.",
+  "schemaVersion": 1,
+  "reviewStatus": "pending-medical-review",
+  "updatedAt": "2026-11-23",
+  "disclaimer": "Support pédagogique. Ne remplace ni un avis médical ni les protocoles locaux.",
+  "dosagePolicy": "Molécules citées sans posologies : se référer aux protocoles locaux et au contexte du patient.",
+  "redFlags": [
+    {
+      "sign": "Pression artérielle ≥ 160/110 mmHg (à deux reprises)",
+      "action": "Pré-éclampsie sévère : antihypertenseur intraveineux selon le protocole, hospitalisation, surveillance maternelle et fœtale rapprochée"
+    },
+    {
+      "sign": "Céphalées persistantes ou phosphènes",
+      "action": "Traduise une irritabilité cérébrale : ni sédatif d'attente ni attente à domicile, hospitalisation immédiate et prévention de l'éclampsie"
+    },
+    {
+      "sign": "Barre épigastrique",
+      "action": "Traduit la distension hépatique de la pré-éclampsie sévère : risque imminent d'éclampsie ou de HELLP"
+    },
+    {
+      "sign": "ROT polycinétiques ou veilhe généralisé",
+      "action": "Traduit la sur-excitation neuromusculaire : sulfate de magnésium selon le protocole, plus pratique prophylactique révisée"
+    },
+    {
+      "sign": "Hémorragie génitale avec utérus « boisé », matité diffuse",
+      "action": "Suggestif d'un hématome rétroplacentaire : urgence obstétricale absolue, décision d'extraction immédiate"
+    },
+    {
+      "sign": "Dyspnée de repos, désaturation, cytolyses à double chiffre",
+      "action": "Traduit un œdème pulmonaire (surcharge) ou un HELLP : réanimation, bilan hépatique et plaquettes d'urgence"
+    }
+  ],
+  "localAdaptations": [
+    {
+      "country": "Madagascar",
+      "programme": "Circuit d'urgence obstétricale hors centre de référence (note de service fondée sur les recommandations OMS en hypertension sévère de la grossesse, à compléter par le protocole national)",
+      "note": "Réseau COE : toute femme enceinte avec PA ≥ 160/110 ou signes de gravité part en maternité avec chirurgie disponible le plus tôt possible ; l'antihypertenseur intraveineux et le sulfate de magnésium (molécules citées sans posologie) se donnent AVANT le transfert, comme une étape pré-hospitalière de sauvetage. Protéinurie évaluée à la bandelette ; la mesure des 24 h est difficile et ne doit pas retarder la décision. Le protocole national de prise en charge de la pré-éclampsie doit être ajouté en source par le propriétaire du contenu.",
+      "sourceId": "SRC-WHO-HTN-2018"
+    }
+  ],
+  "callouts": [
+    {
+      "tone": "urgence",
+      "title": "PA ≥ 160/110 : c'est une pré-éclampsie sévère",
+      "text": "Antihypertenseur intraveineux immédiat selon le protocole, plus pratique prophylactique révisée sulfate de magnésium et hospitalisation : le risque n'est pas l'HTA elle-même, mais l'éclampsie et l'hémorragie qu'elle précipite."
+    },
+    {
+      "tone": "reflexe",
+      "title": "Toute céphalée persistante ou barre épigastrique d'une femme enceinte est pré-éclampsie jusqu'à preuve du contraire",
+      "text": "Chez la femme enceinte après 20 SA, ces douleurs ne sont pas « banalités » : mesure de PA, protéinurie, bilan, hospitalisation."
+    },
+    {
+      "tone": "prudence",
+      "title": "Terroriser le retard, pas l'accouchement",
+      "text": "La décision d'extraction se prend selon le terme, mais la mère est d'abord stabilisée : un fort ne règle pas une éclampsie ; un retard la déclenche."
+    }
+  ],
+  "editorial": {
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "2026-11-23 : cœur clinique (critères après 20 SA, signes de gravité, éclampsie-HELLP-HRP) aligné sur l'RPC CNGOF 2023 conservée et les recommandations OMS en hypertension sévère de la grossesse (2018) ajoutées.",
+      "2026-11-23 : ni dose d'antihypertenseur ni dose de sulfate de magnésium volontairement chiffrée, conformément au dosagePolicy ; PA ≥ 160/110 remain chiffrée comme seuil de gravité (C-STD-6).",
+      "2026-11-23 : adaptation locale Madagascar (COE, traitement avant transfert, proténurie à la bandelette) en note de service en attendant le protocole national (à compléter par le propriétaire)."
+    ],
+    "qcChecklist": [
+      "Les trois signes d'appel correspondent aux critères de pré-éclampsie après 20 SA",
+      "Aucun chiffre de dose dans les redFlags, callouts, flashcards ou mindmap",
+      "Trois sources racine HTTPS datées, dont les recommandations OMS 2018",
+      "Mindmap sans champ tone, racine identifiée 'preeclampsie-root'",
+      "Douze flashcards aux identifiants uniques pe-fc-01 à pe-fc-12"
+    ]
+  },
+  "flashcards": [
+    {
+      "id": "pe-fc-01",
+      "front": "Quand la pré-éclampsie peut-elle survenir sur le terme ?",
+      "back": "À partir de 20 SA seulement : avant, on parle d'HTA chronique ou de grossesse molaire.",
+      "tags": [
+        "diagnostic"
+      ]
+    },
+    {
+      "id": "pe-fc-02",
+      "front": "Quels critères définissent la pré-éclampsie après 20 SA ?",
+      "back": "HTA (≥ 140/90 mmHg à deux reprises) + protéinurie ± atteinte d'organe (thrombopénie, cytolyse, insuffisance rénale, œdème pulmonaire, signes neurologiques).",
+      "tags": [
+        "diagnostic"
+      ]
+    },
+    {
+      "id": "pe-fc-03",
+      "front": "Quels seuils de PA définissent la pré-éclampsie sévère ?",
+      "back": "PA ≥ 160/110 mmHg à deux reprises, ou pré-éclampsie avec signes de gravité quel que soit le chiffre exact.",
+      "tags": [
+        "gravité"
+      ]
+    },
+    {
+      "id": "pe-fc-04",
+      "front": "Comment reconnaître la barre épigastrique et qu'y soupçonner ?",
+      "back": "Douleur sous-costale droite diffuse avec nausées : distension hépatique de la pré-éclampsie sévère, à faire examiner d'urgence.",
+      "tags": [
+        "gravité"
+      ]
+    },
+    {
+      "id": "pe-fc-05",
+      "front": "Citez quatre signes de gravité de la pré-éclampsie.",
+      "back": "PA ≥ 160/110, céphalées/phoscènes, barre épigastrique, ROT polycinétiques, oligurie, œdème pulmonaire, thrombopénie ou cytolyse.",
+      "tags": [
+        "gravité"
+      ]
+    },
+    {
+      "id": "pe-fc-06",
+      "front": "Quel traitement prévient l'éclampsie ?",
+      "back": "Le sulfate de magnésium (molécule citée sans posologie), administré selon le protocole quand il y a des signes de gravité, pendant et après le travail.",
+      "tags": [
+        "traitement"
+      ]
+    },
+    {
+      "id": "pe-fc-07",
+      "front": "Quels antihypertenseurs sont cités dans cette fiche ? ",
+      "back": "Labétalol et nicardipine (molécules citées sans posologie), administrés selon le protocole pour ramener la PA sous les seuils de urgence.",
+      "tags": [
+        "traitement"
+      ]
+    },
+    {
+      "id": "pe-fc-08",
+      "front": "Comment knows-on la triade HELLP ?",
+      "back": "Hémolyse, cytolyse hépatique (transaminases élevées), thrombopénie : pronostic maternel et fœtal grave, décision obstétricale rapide.",
+      "tags": [
+        "complication"
+      ]
+    },
+    {
+      "id": "pe-fc-09",
+      "front": "Que penser d'une hémorragie génitale avec utérus « boisé » et douleurs diffuses ?",
+      "back": "Hématome rétroplacentaire : urgence obstétricale absolue, le fœtus peut mourir en quelques minutes.",
+      "tags": [
+        "complication",
+        "urgence"
+      ]
+    },
+    {
+      "id": "pe-fc-10",
+      "front": "Quel est le seul traitement curatif de la pré-éclampsie ?",
+      "back": "L'interruption de la grossesse (accouchement) : le traitement médical ne fait que gagner du temps et prévenir les convulsions.",
+      "tags": [
+        "traitement"
+      ]
+    },
+    {
+      "id": "pe-fc-11",
+      "front": "Que faire quand le sulfate de magnésium n'est pas disponible ?",
+      "back": "Transfert immédiat vers une maternité équipée : le risque éclamptique ne s'improvise pas ; en attendant, calme, obscurité, surveillance rapprochée des réflexes et de la conscience.",
+      "tags": [
+        "adaptation locale"
+      ]
+    },
+    {
+      "id": "pe-fc-12",
+      "front": "Que surveiller après l'accouchement chez une patiente prééclamptique ?",
+      "back": "L'éclampsie peut survenir en post-partum (jusqu'à plusieurs jours) : sulfate de magnésium et surveillance de PA, diurèse et conscience perdurent après la naissance.",
+      "tags": [
+        "post-partum"
+      ]
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "preeclampsie-root",
+      "label": "Pré-éclampsie",
+      "detail": "HTA + protéinurie après 20 SA : le placenta est malade ; seule l'extraction guérit, le reste gagne du temps."
+    },
+    "branches": [
+      {
+        "id": "reconnaitre-pe",
+        "label": "Reconnaître",
+        "detail": "Deux critères qui ne pardonnent pas l'imprésionisme.",
+        "children": [
+          {
+            "id": "rec-pe-hta",
+            "label": "HTA ≥ 140/90",
+            "detail": "Deux mesures à distance ; après 20 SA seulement.",
+            "leaves": [
+              {
+                "id": "rec-pe-hta-1",
+                "label": "Jamais une prise isolée"
+              }
+            ]
+          },
+          {
+            "id": "rec-pe-prot",
+            "label": "Protéinurie",
+            "detail": "Bandelette au cabinet ; les 24 h ne retardent jamais la décision.",
+            "leaves": [
+              {
+                "id": "rec-pe-prot-1",
+                "label": "Sans attendre les urines de 24 h"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "grader-pe",
+        "label": "Évaluer la gravité",
+        "detail": "PA ≥ 160/110 ou un seul signe de gravité suffit.",
+        "children": [
+          {
+            "id": "gra-pe-neuro",
+            "label": "Signes neurologiques",
+            "detail": "Céphalées, phoscènes, ROT vifs : risque éclamptique.",
+            "leaves": [
+              {
+                "id": "gra-pe-neuro-1",
+                "label": "Sans attendre la convulsion"
+              }
+            ]
+          },
+          {
+            "id": "gra-pe-hepato",
+            "label": "Signes hépatiques",
+            "detail": "Barre épigastrique, cytolyse, HELLP en approche.",
+            "leaves": [
+              {
+                "id": "gra-pe-hepato-1",
+                "label": "Sans examiner le foie pour s'y fier"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "traiter-pe",
+        "label": "Traiter",
+        "detail": "Stabiliser la mère, intercepter l'éclampsie, choisir le terme.",
+        "children": [
+          {
+            "id": "tra-pe-hta",
+            "label": "Antihypertenseurs",
+            "detail": "Labétalol, nicardipine, molécules citées sans dose.",
+            "leaves": [
+              {
+                "id": "tra-pe-hta-1",
+                "label": "Sans chute d'égoût fœtal"
+              }
+            ]
+          },
+          {
+            "id": "tra-pe-mag",
+            "label": "Sulfate de magnésium",
+            "detail": "Prévention de l'éclampsie, d'abord selon le protocole.",
+            "leaves": [
+              {
+                "id": "tra-pe-mag-1",
+                "label": "Sans examiner le champ pour dormir"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "differencier-pe",
+        "label": "Différencier",
+        "detail": "L'HTA chronique préexiste à 20 SA ; le diabète gestationnel ne fait pas d'HTA.",
+        "children": [
+          {
+            "id": "dif-pe-hta-chr",
+            "label": "HTA chronique",
+            "detail": "Connue avant 20 SA, persiste après l'accouchement.",
+            "leaves": [
+              {
+                "id": "dif-pe-hta-chr-1",
+                "label": "Sans protéinurie de novo"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "adapter-pe",
+        "label": "Adapter localement",
+        "detail": "Réseau COE et traitement avant transfert sauvent des vies.",
+        "children": [
+          {
+            "id": "ada-pe-coe",
+            "label": "COE",
+            "detail": "PA ≥ 160/110 ou un signe de gravité : transfert immédiat.",
+            "leaves": [
+              {
+                "id": "ada-pe-coe-1",
+                "label": "Sans attendre le lendemain"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
   "sources": [
     {
+      "id": "SRC-WHO-HTN-2018",
+      "organization": "Organisation mondiale de la Santé (OMS)",
+      "title": "WHO recommendations: Drug treatment for severe hypertension in pregnancy",
+      "url": "https://www.who.int/publications/i/item/9789241550383",
+      "year": 2018,
+      "verifiedAt": "2026-11-23",
+      "usedFor": [
+        "Traitement de l'HTA sévère",
+        "Adaptation locale"
+      ]
+    },
+    {
+      "id": "SRC-CNGOF-PE-2023",
       "organization": "CNGOF (RPC 2023)",
       "title": "Recommandations pour la pratique clinique 2023 — Prééclampsie",
       "url": "https://www.reseau-naissance.fr/medias/2023/12/RPC-GNGOF-PE-moderee-N.Winer-compresse.pdf",
-      "verifiedAt": "2026-11-22"
+      "verifiedAt": "2026-11-22",
+      "usedFor": [
+        "Critères diagnostiques",
+        "Signes de gravité"
+      ]
     },
     {
+      "id": "SRC-RECOMED-PE",
       "organization": "RecoMédicales",
       "title": "Recommandations sur la Pré-éclampsie 2024",
       "url": "https://recomedicales.fr/recommandations/pre-eclampsie/",
-      "verifiedAt": "2026-11-22"
+      "verifiedAt": "2026-11-22",
+      "usedFor": [
+        "Prise en charge",
+        "Suivi"
+      ]
     }
-  ],
-  "schemaVersion": 1,
-  "reviewStatus": "pending-medical-review",
-  "updatedAt": "2026-11-22",
-  "disclaimer": "Support pédagogique. Ne remplace ni un avis médical ni les protocoles locaux."
+  ]
 }
