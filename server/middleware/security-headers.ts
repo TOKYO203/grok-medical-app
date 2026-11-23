@@ -22,22 +22,33 @@ interface SecurityHeaderEvent {
  */
 const THEME_BOOT_HASH = `sha256-${createHash("sha256").update(THEME_BOOT_SCRIPT, "utf8").digest("base64")}`;
 
+function isProduction(): boolean {
+  return process.env.NODE_ENV === "production" || process.env.VERCEL === "1" || process.env.CF_PAGES === "1";
+}
+
 /**
- * INCIDENT 2026-11-20/21 — page blanche en production (pages.dev + workers.dev).
- * Le durcissement #467 F1 posait script-src 'self' <hash de THEME_BOOT_SCRIPT>,
- * or TanStack Start émet AUSSI des scripts inline (données d'hydratation du
- * router). Bloqués, l'application ne s'hydrate jamais et reste figée sur le
- * rendu serveur (splash « Connexion à Optimus… », écran perçu comme vide).
- * Rétablissement temporaire de 'unsafe-inline' (état antérieur au 19/11, ayant
- * toujours fonctionné). TODO : recalculer l'allowlist par hash sur le HTML
- * construit réel (thème + scripts de données TanStack), puis retirer de nouveau
- * 'unsafe-inline'. Le THEME_BOOT_HASH est conservé dans la politique — ignoré
- * par les navigateurs tant que 'unsafe-inline' est présent, mais il documente
- * la cible du futur resserrement et reste vérifié par les tests.
+ * INCIDENT 2026-11-20/21, RÉSOLU (audit 2026-11-22) : l'allowlist figée de
+ * #467 F1 ignorait les scripts d'hydratation inline émis par TanStack Start
+ * (page blanche en prod), d'où un 'unsafe-inline' temporaire. La faille XSS
+ * correspondante est fermée : pour chaque document HTML rendu en production,
+ * hardenResponse calcule les hashes SHA-256 des blocs <script> inline
+ * RÉELLEMENT présents dans le HTML servi (thème + hydratation + tout inline
+ * futur) et pose script-src 'self' <hashes> — plus aucun 'unsafe-inline' en
+ * production. En cas d'échec de lecture du HTML, le repli reste limité à LA
+ * réponse en cause (disponibilité d'abord), avec log.
+ *
+ *   - Baseline hors HTML (JSON, redirections) : strict, seul le script de
+ *     thème épinglé par son hash est permis ;
+ *   - Développement : Vite injecte ses propres scripts inline, mode
+ *     permissif conservé hors production.
  */
 function scriptSrc(): string {
-  return `script-src 'self' 'unsafe-inline' ${THEME_BOOT_HASH}`;
+  if (!isProduction()) {
+    return `script-src 'self' 'unsafe-inline' ${THEME_BOOT_HASH}`;
+  }
+  return `script-src 'self' ${THEME_BOOT_HASH}`;
 }
+
 
 /**
  * Baseline CSP posée sur toutes les réponses. Miroir EXACT du bloc `/*` de
@@ -79,7 +90,27 @@ const BASE_SECURITY_HEADERS: Readonly<Record<string, string>> = {
   "x-permitted-cross-domain-policies": "none",
 };
 
-function hardenResponse(response: Response, event: SecurityHeaderEvent): Response {
+// Blocs <script> inline (sans attribut src). Le texte intérieur est capturé
+// EXACTEMENT : le hash CSP se calcule sur les octets tels qu'ils seront servis.
+const INLINE_SCRIPT_TAG = /<script\b(?![^>]*\bsrc=)[^>]*>([\s\S]*?)<\/script>/gi;
+
+/** Hashes SHA-256 des scripts inline d'un document HTML rendu. */
+export function inlineScriptHashes(html: string): string[] {
+  const hashes = new Set<string>();
+  for (const match of html.matchAll(INLINE_SCRIPT_TAG)) {
+    const code = match[1] ?? "";
+    if (!code.trim()) continue;
+    hashes.add(`sha256-${createHash("sha256").update(code, "utf8").digest("base64")}`);
+  }
+  return [...hashes];
+}
+
+function strictScriptDirective(hashes: string[]): string {
+  const unique = [...new Set([THEME_BOOT_HASH, ...hashes])];
+  return `script-src 'self' ${unique.join(" ")}`.trim();
+}
+
+async function hardenResponse(response: Response, event: SecurityHeaderEvent): Promise<Response> {
   const headers = new Headers(response.headers);
   for (const [name, value] of Object.entries(BASE_SECURITY_HEADERS)) {
     if (!headers.has(name)) headers.set(name, value);
@@ -91,12 +122,44 @@ function hardenResponse(response: Response, event: SecurityHeaderEvent): Respons
     headers.set("strict-transport-security", "max-age=31536000; includeSubDomains");
   }
 
+  // Production + document HTML : allowlist par hash des scripts inline réels
+  // (thème, hydratation TanStack Start, tout inline futur).
+  if (isProduction() && response.body !== null) {
+    const contentType = headers.get("content-type") ?? "";
+    if (contentType.includes("text/html")) {
+      try {
+        const html = await response.text();
+        headers.set(
+          "content-security-policy",
+          buildCsp(strictScriptDirective(inlineScriptHashes(html))),
+        );
+        return new Response(html, {
+          status: response.status,
+          statusText: response.statusText,
+          headers,
+        });
+      } catch (error) {
+        // Repli de disponibilité : UNIQUEMENT pour cette réponse (leçon de
+        // l'incident 2026-11-20/21). L'erreur reste visible dans les logs.
+        console.error(
+          "[security-headers] lecture du HTML impossible (repli 'unsafe-inline' pour cette réponse)",
+          error,
+        );
+        headers.set(
+          "content-security-policy",
+          buildCsp(`script-src 'self' 'unsafe-inline' ${THEME_BOOT_HASH}`),
+        );
+      }
+    }
+  }
+
   return new Response(response.body, {
     status: response.status,
     statusText: response.statusText,
     headers,
   });
 }
+
 
 /**
  * Baseline response hardening for all Nitro responses.
@@ -113,5 +176,5 @@ export default async function securityHeadersMiddleware(
   next: () => unknown | Promise<unknown>,
 ): Promise<unknown> {
   const result = await next();
-  return result instanceof Response ? hardenResponse(result, event) : result;
+  return result instanceof Response ? await hardenResponse(result, event) : result;
 }

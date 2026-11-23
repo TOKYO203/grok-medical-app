@@ -18,19 +18,24 @@ du service worker, des en-têtes de sécurité et de la configuration CI.
 1. **Contournement de préfixe du garde admin** (faible, defense-in-depth) :
    `pathname.startsWith("/admin-login")`épargnait aussi `/admin-login-<suffixe>`,
    surface `/admin*` sans garde. Corrigé en correspondance exacte
-   (`/admin-login` + `/admin-login/`).`
+   (`/admin-login` + `/admin-login/`).
 2. **Analyse non bornée de `RECENT_WINDOW_MINUTES`** (faible, robustesse) :
    une valeur non numérique portait `recentWindow` à `NaN` et faisait échouer
-   le cast SQL `$3::interval` en 500 brut. Désormais borné a [1 ; 1440] avec
+   le cast SQL `$3::interval` en 500 brut. Désormais borné à [1 ; 1440] avec
    défaut 60 (server/api/surveys/[id]/responses.ts).
 
-## Faille connue non corrigée ici (plan d'action)
-3. **CSP : `script-src 'unsafe-inline'` en production**
-   (server/middleware/security-headers.ts + public/_headers).
-   Régression assumée après l'incident du 2026-11-20/21 (page blanche : TanStack
-   Start émet des scripts inline d'hydratation hors THEME_BOOT_SCRIPT).
-   Solution ciblée : CSP par nonce — générer un nonce par requête dans le
-   middleware, l'exposer au rendu (head) et faire porter le nonce par les
-   scripts inline émis par TanStack (ou basculer les données d'hydratation hors
-   scripts inline), puis retirer `'unsafe-inline'` des deux politiques (CDN et
-   worker) et vérifier par un test de smoke e2e.
+## Faille 3 — corriGÉE (commit CSP 2026-11-22)
+3. ~~CSP : `script-src 'unsafe-inline'` en production~~ → **CORRIGÉ**.
+   Solution retenue : allowlist par hash des scripts inline RÉELLEMENT rendus.
+   Le middleware (server/middleware/security-headers.ts) lit le HTML de chaque
+   réponse `text/html` en production, calcule `sha256-<code>` de chaque bloc
+   `<script>` inline (thème + hydratation TanStack Start + tout inline futur)
+   et remplace `script-src` par `'self' <hashes>` — plus aucun
+   'unsafe-inline' en production sur les documents. `public/_headers` passe
+   aussi à `script-src 'self'` (aucun HTML ni script inline servi par le CDN).
+   Filet de sûreté : l'échec de lecture du HTML réintroduit 'unsafe-inline'
+   UNIQUEMENT pour la réponse en cause, avec log — jamais de page blanche
+   généralisée (leçon de l'incident 2026-11-20/21). Le développement local
+   conserve 'unsafe-inline' (Vite injecte ses propres scripts inline). Une
+   vérification post-mise-en-prod (smoke e2e + console) reste recommandée.
+   `scripts/security-hardening.test.mjs` verrouille le nouveau contrat.
