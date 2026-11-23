@@ -91,3 +91,14 @@ regexes = ['''postgres(ql)?://optimus:optimus@localhost(:[0-9]+)?/''']
 description = "Clé anonyme Supabase (JWT role=anon, publique par conception) dans .env.production"
 regexTarget = "line"
 regexes = ['''(?i)VITE_SUPABASE_ANON_KEY\s*=\s*["']?eyJ''']
+
+# ── Exception 4 ─────────────────────────────────────────────────────────────
+# `src/lib/ecg/parcours/progression.ts` : "ecg-parcours-v1" est la clé
+# publique du localStorage (aucun secret). Le mot "ID" adjacent déclenche
+# `generic-api-key` par entropie de la valeur. Allowlist ciblée sur la règle
+# uniquement, avec regex exacte sur la ligne.
+[[allowlists]]
+description = "Clé localStorage publique du parcours ECG (pas un secret)"
+targetRules = ["generic-api-key"]
+regexTarget = "line"
+regexes = ['''PROGRESSION_STORAGE_ID\s*=\s*"ecg-parcours-v1"''']
