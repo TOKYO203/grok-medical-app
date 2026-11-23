@@ -25,11 +25,11 @@
   "redFlags": [
     {
       "sign": "Hypotension persistante malgré le remplissage initial",
-      "action": "Vasopresseurs (noradrénaline) et transfert en réanimation : ne pas téraliniser le patient avec des poches de cristalloïdes"
+      "action": "Vasopresseurs (noradrénaline) et transfert en réanimation : ne pas épuiser la réserve hémodynamique avec des poches de cristalloïdes répétées"
     },
     {
       "sign": "Lactate ≥ 2 mmol/L avec oligurie durable (diurèse < 0,5 mL/kg/h)",
-      "action": "Hypoperfusion tissulaire documentée : recharger l'évaluation hémodynamique enzymatique et relire le remplissage"
+      "action": "Hypoperfusion tissulaire documentée : réévaluer l'équilibre hémodynamique et reconsidérer le remplissage"
     },
     {
       "sign": "Hypotension qui s'installe avant tout foyer décelé",
@@ -45,7 +45,7 @@
     },
     {
       "sign": "Détresse abdominale aiguë associée au choc",
-      "action": "Traduise une cause chirurgicale (péritonite, perforation) : avis chirurgical en urgence, le contrôle de la source est thérapeutique"
+      "action": "Traduit une cause chirurgicale (péritonite, perforation) : avis chirurgical en urgence, le contrôle de la source est thérapeutique"
     }
   ],
   "localAdaptations": [
@@ -59,7 +59,7 @@
   "callouts": [
     {
       "tone": "urgence",
-      "title": "Terroriser l'hypotension qui résiste au remplissage",
+      "title": "Traiter l'hypotension qui résiste au remplissage",
       "text": "Un vasopresseur pourrait sauver, mais il exige un monitorage : en attendant l'hospitalisation, l'antibiotique et le remplissage en cristalloïdes démarrent sur place."
     },
     {
@@ -116,7 +116,7 @@
     },
     {
       "id": "cs-fc-04",
-      "front": "Comment knows-on le choc septique du choc cardiogénique au lit ?",
+      "front": "Comment distingue-t-on le choc septique du choc cardiogénique au lit ?",
       "back": "Choc cardiogénique : engorgement pulmonaire, galop, antécédent cardiaque ; échocardiographie au lit du patient si le doute persiste.",
       "tags": [
         "différentiel"
@@ -124,7 +124,7 @@
     },
     {
       "id": "cs-fc-05",
-      "front": "Comment knows-on le choc septique du choc hémorragique ?",
+      "front": "Comment distingue-t-on le choc septique du choc hémorragique ?",
       "back": "Choc hémorragique : saignement visible ou suspecté (hémorragie digestive, grossesse, traumatisme), l'hémoglobine chute ; le traitement est l'hémostase et les produits sanguins.",
       "tags": [
         "différentiel"
@@ -175,7 +175,7 @@
     {
       "id": "cs-fc-11",
       "front": "Quel rôle jouent les vaccines dans la prévention du choc septique ?",
-      "back": "Prévenir l'infection de départ : vaccinations pneumococcique et grippale selon les calendriers nationaux, hygiene des mains, gestion correcte des cathéters.",
+      "back": "Prévenir l'infection de départ : vaccinations pneumococcique et grippale selon les calendriers nationaux, hygiène des mains, gestion correcte des cathéters.",
       "tags": [
         "prévention"
       ]
@@ -263,7 +263,7 @@
           {
             "id": "dif-cs-hemorra",
             "label": "Hémorragique",
-            "detail": "Perte sanguine evidente, hémostase d'abord.",
+            "detail": "Perte sanguine évidente, hémostase d'abord.",
             "leaves": [
               {
                 "id": "dif-cs-hemorra-1",
