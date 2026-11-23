@@ -79,7 +79,12 @@ test("CSP script-src : rétablissement incident 2026-11-20/21, 'unsafe-inline' t
   assert.match(headersSource, /script-src 'self' 'unsafe-inline'/);
   assert.doesNotMatch(headersSource, /script-src[^\n]*https:\/\/grok\.com/);
   assert.doesNotMatch(headersSource, /^\s*"script-src 'self' https:\/\//m);
-  const cdnCsp = cdnHeaders.match(/script-src ([^;\n]+)/);
+  // Ignore les lignes de commentaire (#) : on ne garde que les directives réelles.
+  const cdnDirectivesOnly = cdnHeaders
+    .split("\n")
+    .filter((line) => !line.trim().startsWith("#"))
+    .join("\n");
+  const cdnCsp = cdnDirectivesOnly.match(/script-src ([^;\n]+)/);
   assert.ok(cdnCsp, "la CSP du _headers doit définir script-src");
   assert.equal(cdnCsp[1].trim(), "'self' 'unsafe-inline'");
 });

@@ -1,0 +1,70 @@
+{
+  "id": "A-01",
+  "level": "A",
+  "order": 1,
+  "title": "Le papier ECG : grille et calibration",
+  "durationMin": 6,
+  "objectives": [
+    "Décoder la grille millimétrée d'un tracé ECG",
+    "Vérifier la vitesse d'enregistrement et l'amplitude",
+    "Calculer une fréquence cardiaque à partir d'un R-R",
+    "Identifier un piège de calibration avant d'interpréter"
+  ],
+  "content": [
+    {
+      "type": "text",
+      "markdown": "Avant toute interprétation, l'ECG doit être lu sur un **papier calibré**. Un tracé mal calibré conduit à des diagnostics faux : une erreur de vitesse peut faire croire à un QRS élargi, une erreur d'amplitude peut simuler une hypertrophie."
+    },
+    {
+      "type": "table",
+      "headers": ["Repère sur le papier", "Durée (25 mm/s)", "Amplitude"],
+      "rows": [
+        ["1 petit carreau (1 mm)", "0.04 s (40 ms)", "0.1 mV"],
+        ["1 grand carreau (5 mm)", "0.20 s (200 ms)", "0.5 mV"],
+        ["5 grands carreaux", "1.00 s", "—"],
+        ["25 petits carreaux", "1.00 s", "—"]
+      ]
+    },
+    {
+      "type": "callout",
+      "tone": "warning",
+      "title": "En pratique aux urgences",
+      "markdown": "**Toujours vérifier en haut ou en bas du tracé** : `25 mm/s` (vitesse standard) et `10 mm/mV` (amplitude standard). Un tracé à 50 mm/s double toutes les largeurs → une durée mesurée doit être divisée par 2. Un tracé à 12,5 mm/s les divise par 2 → multiplier par 2."
+    },
+    {
+      "type": "text",
+      "markdown": "## Calcul rapide de la fréquence cardiaque\n\nSur un papier à 25 mm/s, la formule suivante s'applique si le rythme est régulier :\n\n**FC = 300 / nombre de grands carreaux entre 2 R**\n\nPar exemple, un R-R de 4 grands carreaux → 300 / 4 = **75 bpm**."
+    },
+    {
+      "type": "list",
+      "ordered": true,
+      "items": [
+        "Vérifier la vitesse (25 vs 50 mm/s) et l'amplitude (10 mm/mV)",
+        "Repérer un R-R sur plusieurs cycles pour estimer la régularité",
+        "Choisir la méthode de calcul : 300 / grands carreaux (régulier) ou nombre de QRS × 6 sur 10 s (irrégulier)",
+        "Noter la FC et la régularité dans la description avant de poursuivre"
+      ]
+    }
+  ],
+  "keyPoints": [
+    "1 petit carreau = 0.04 s ; 1 grand carreau = 0.20 s (à 25 mm/s)",
+    "Toujours vérifier vitesse et amplitude en début de lecture",
+    "FC = 300 / nombre de grands carreaux entre 2 R (rythme régulier)",
+    "Rythme irrégulier : compter les QRS sur 10 s et multiplier par 6"
+  ],
+  "checkQuiz": [
+    {
+      "question": "Sur un papier à 25 mm/s, un R-R de 4 grands carreaux correspond à quelle fréquence cardiaque ?",
+      "choices": ["60 bpm", "75 bpm", "100 bpm", "150 bpm"],
+      "correct": 1,
+      "explanation": "300 / 4 = 75 bpm. Formule : FC = 300 / nombre de grands carreaux entre 2 R."
+    },
+    {
+      "question": "Un tracé est enregistré à 50 mm/s. Un intervalle PR mesuré sur le papier fait 8 petits carreaux. Quelle est sa durée réelle ?",
+      "choices": ["160 ms", "320 ms", "80 ms", "640 ms"],
+      "correct": 0,
+      "explanation": "8 petits carreaux = 8 × 0.04 s = 0.32 s sur le papier. À 50 mm/s, diviser par 2 → 0.16 s = 160 ms."
+    }
+  ],
+  "caseStudy": "ecg-1-1-vitesse"
+}
