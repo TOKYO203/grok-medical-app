@@ -29,7 +29,7 @@
     },
     {
       "sign": "Céphalées persistantes ou phosphènes",
-      "action": "Traduise une irritabilité cérébrale : ni sédatif d'attente ni attente à domicile, hospitalisation immédiate et prévention de l'éclampsie"
+      "action": "Traduit une irritabilité cérébrale : ni attente à domicile ni sédatif improvisé, hospitalisation immédiate et prévention de l'éclampsie"
     },
     {
       "sign": "Barre épigastrique",
@@ -37,7 +37,7 @@
     },
     {
       "sign": "ROT polycinétiques ou veilhe généralisé",
-      "action": "Traduit la sur-excitation neuromusculaire : sulfate de magnésium selon le protocole, plus pratique prophylactique révisée"
+      "action": "Traduit la sur-excitation neuromusculaire : sulfate de magnésium selon le protocole et surveillance rapprochée des réflexes et de la conscience"
     },
     {
       "sign": "Hémorragie génitale avec utérus « boisé », matité diffuse",
@@ -60,7 +60,7 @@
     {
       "tone": "urgence",
       "title": "PA ≥ 160/110 : c'est une pré-éclampsie sévère",
-      "text": "Antihypertenseur intraveineux immédiat selon le protocole, plus pratique prophylactique révisée sulfate de magnésium et hospitalisation : le risque n'est pas l'HTA elle-même, mais l'éclampsie et l'hémorragie qu'elle précipite."
+      "text": "Antihypertenseur intraveineux immédiat selon le protocole, sulfate de magnésium et hospitalisation : le risque n'est pas l'HTA elle-même, mais l'éclampsie et l'hémorragie qu'elle précipite."
     },
     {
       "tone": "reflexe",
@@ -69,8 +69,8 @@
     },
     {
       "tone": "prudence",
-      "title": "Terroriser le retard, pas l'accouchement",
-      "text": "La décision d'extraction se prend selon le terme, mais la mère est d'abord stabilisée : un fort ne règle pas une éclampsie ; un retard la déclenche."
+      "title": "Le retard tue plus que la prudence",
+      "text": "La décision d'extraction se prend selon le terme, mais la mère est d'abord stabilisée : un accouchement précipité ne règle pas une éclampsie, un retard la déclenche."
     }
   ],
   "editorial": {
@@ -78,8 +78,8 @@
     "reviewedBy": null,
     "verificationNotes": [
       "2026-11-23 : cœur clinique (critères après 20 SA, signes de gravité, éclampsie-HELLP-HRP) aligné sur l'RPC CNGOF 2023 conservée et les recommandations OMS en hypertension sévère de la grossesse (2018) ajoutées.",
-      "2026-11-23 : ni dose d'antihypertenseur ni dose de sulfate de magnésium volontairement chiffrée, conformément au dosagePolicy ; PA ≥ 160/110 remain chiffrée comme seuil de gravité (C-STD-6).",
-      "2026-11-23 : adaptation locale Madagascar (COE, traitement avant transfert, proténurie à la bandelette) en note de service en attendant le protocole national (à compléter par le propriétaire)."
+      "2026-11-23 : ni dose d'antihypertenseur ni dose de sulfate de magnésium volontairement chiffrée, conformément au dosagePolicy ; PA ≥ 160/110 reste chiffrée comme seuil de gravité (C-STD-6).",
+      "2026-11-23 : adaptation locale Madagascar (COE, traitement avant transfert, protéinurie à la bandelette) en note de service en attendant le protocole national (à compléter par le propriétaire)."
     ],
     "qcChecklist": [
       "Les trois signes d'appel correspondent aux critères de pré-éclampsie après 20 SA",
@@ -140,8 +140,8 @@
     },
     {
       "id": "pe-fc-07",
-      "front": "Quels antihypertenseurs sont cités dans cette fiche ? ",
-      "back": "Labétalol et nicardipine (molécules citées sans posologie), administrés selon le protocole pour ramener la PA sous les seuils de urgence.",
+      "front": "Quels antihypertenseurs sont cités dans cette fiche ?",
+      "back": "Labétalol et nicardipine (molécules citées sans posologie), administrés selon le protocole pour ramener la pression artérielle sous les seuils de gravité.",
       "tags": [
         "traitement"
       ]
@@ -182,7 +182,7 @@
     {
       "id": "pe-fc-12",
       "front": "Que surveiller après l'accouchement chez une patiente prééclamptique ?",
-      "back": "L'éclampsie peut survenir en post-partum (jusqu'à plusieurs jours) : sulfate de magnésium et surveillance de PA, diurèse et conscience perdurent après la naissance.",
+      "back": "L'éclampsie peut survenir en post-partum (jusqu'à plusieurs jours) : sulfate de magnésium et surveillance de PA, diurèse et conscience se poursuit après la naissance.",
       "tags": [
         "post-partum"
       ]
@@ -198,7 +198,7 @@
       {
         "id": "reconnaitre-pe",
         "label": "Reconnaître",
-        "detail": "Deux critères qui ne pardonnent pas l'imprésionisme.",
+        "detail": "Deux critères qui ne pardonnent pas l'à-peu-près.",
         "children": [
           {
             "id": "rec-pe-hta",
@@ -247,7 +247,7 @@
             "leaves": [
               {
                 "id": "gra-pe-hepato-1",
-                "label": "Sans examiner le foie pour s'y fier"
+                "label": "Bilan hépatique et plaquettes d'urgence"
               }
             ]
           }
@@ -265,18 +265,18 @@
             "leaves": [
               {
                 "id": "tra-pe-hta-1",
-                "label": "Sans chute d'égoût fœtal"
+                "label": "Sans souffrance fœtale"
               }
             ]
           },
           {
             "id": "tra-pe-mag",
             "label": "Sulfate de magnésium",
-            "detail": "Prévention de l'éclampsie, d'abord selon le protocole.",
+            "detail": "Prévention de l'éclampsie, administration selon le protocole.",
             "leaves": [
               {
                 "id": "tra-pe-mag-1",
-                "label": "Sans examiner le champ pour dormir"
+                "label": "Sans se laisser distraire du monitorage"
               }
             ]
           }
