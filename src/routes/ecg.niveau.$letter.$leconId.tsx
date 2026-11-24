@@ -5,6 +5,7 @@ import { getLesson, listLevelLessons, isLevel } from "@/lib/ecg/parcours/catalog
 import { LessonContent } from "@/components/ecg/parcours/LessonContent";
 import { CheckQuiz } from "@/components/ecg/parcours/CheckQuiz";
 import { markLessonComplete } from "@/lib/ecg/parcours/progression";
+import { Certificate } from "@/components/ecg/parcours/Certificate";
 
 export const Route = createFileRoute("/ecg/niveau/$letter/$leconId")({
   component: LessonPage,
@@ -59,7 +60,17 @@ function LessonPage() {
         </div>
 
         <div className="mt-6">
-          <CheckQuiz questions={lesson.checkQuiz} onComplete={handleQuizComplete} />
+          <CheckQuiz
+          questions={lesson.checkQuiz}
+          onComplete={handleQuizComplete}
+        />
+
+        {lesson.isExam && lesson.passThreshold && (
+          <Certificate
+            lessonId={lesson.id}
+            passThreshold={lesson.passThreshold}
+          />
+        )}
         </div>
 
         {lesson.caseStudy && (

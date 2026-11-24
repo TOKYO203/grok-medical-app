@@ -55,4 +55,7 @@ export interface Lesson {
   keyPoints: string[];
   checkQuiz: CheckQuizQuestion[];
   caseStudy?: string;
+  // Niveau E : flag d'examen final + seuil de réussite personnalisé
+  isExam?: boolean;
+  passThreshold?: number;
 }
