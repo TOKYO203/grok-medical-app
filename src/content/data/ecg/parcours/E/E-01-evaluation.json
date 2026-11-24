@@ -1,0 +1,258 @@
+{
+  "id": "E-01",
+  "level": "E",
+  "order": 1,
+  "title": "Examen final : évaluation du parcours",
+  "durationMin": 20,
+  "isExam": true,
+  "passThreshold": 80,
+  "objectives": [
+    "Valider les acquis des niveaux A à D",
+    "Démontrer la maîtrise de l'interprétation ECG en situation clinique",
+    "Identifier les pièges classiques (artefacts, équivalents ST+, urgences)"
+  ],
+  "content": [
+    {
+      "type": "text",
+      "markdown": "Bienvenue dans l'**examen final** du parcours ECG. 20 questions couvrant les 4 niveaux (fondamentaux, rythme/conduction, ischémie/arythmies, anomalies systémiques)."
+    },
+    {
+      "type": "callout",
+      "tone": "info",
+      "title": "Règles",
+      "markdown": "Seuil de réussite : **80%** (16/20). Vous pouvez refaire l'examen autant de fois que nécessaire. Les explications s'affichent après validation."
+    },
+    {
+      "type": "text",
+      "markdown": "## Ce qui est évalué\n\n- Reconnaissance des tracés classiques\n- Pièges techniques (BBG nouveau, flutter 2:1, Onde de J)\n- Urgences (SCA, TV, hyperkaliémie, BAV 3)\n- Choix thérapeutique (atropine vs gluconate, choc vs amiodarone)"
+    }
+  ],
+  "keyPoints": [
+    "20 questions couvrant les 4 niveaux",
+    "Seuil de réussite : 80% (16/20)",
+    "Refaisable à volonté",
+    "Certificat délivré à la réussite"
+  ],
+  "checkQuiz": [
+    {
+      "question": "Sur un papier à 25 mm/s, un R-R de 4 grands carreaux donne quelle FC ?",
+      "choices": [
+        "60 bpm",
+        "75 bpm",
+        "100 bpm",
+        "150 bpm"
+      ],
+      "correct": 1,
+      "explanation": "FC = 300 / 4 = 75 bpm."
+    },
+    {
+      "question": "Quelles dérivations explorent la paroi inférieure ?",
+      "choices": [
+        "I, aVL, V5-V6",
+        "II, III, aVF",
+        "V1-V3",
+        "V4R, V7-V9"
+      ],
+      "correct": 1,
+      "explanation": "II, III, aVF = territoire inférieur."
+    },
+    {
+      "question": "DI positif et aVF négatif. Axe QRS ?",
+      "choices": [
+        "Normal",
+        "Déviation gauche",
+        "Déviation droite",
+        "Indéterminé"
+      ],
+      "correct": 1,
+      "explanation": "DI+, aVF− = déviation gauche."
+    },
+    {
+      "question": "P négative en DI. Quelle erreur technique ?",
+      "choices": [
+        "Vitesse 50 mm/s",
+        "Inversion électrodes bras",
+        "Malposition V1-V2",
+        "Parasitage SNCF"
+      ],
+      "correct": 1,
+      "explanation": "P négative en DI = inversion bras."
+    },
+    {
+      "question": "PR qui s'allonge sur 4 cycles puis un QRS bloqué. Diagnostic ?",
+      "choices": [
+        "BAV 1er",
+        "BAV 2 Mobitz I",
+        "BAV 2 Mobitz II",
+        "BAV 3"
+      ],
+      "correct": 1,
+      "explanation": "Mobitz I (Wenckebach)."
+    },
+    {
+      "question": "Quasi pathognomonique du surdosage digitalique grave ?",
+      "choices": [
+        "Sous-décalage en cupule",
+        "TV bidirectionnelle",
+        "BBD complet",
+        "PR 240 ms"
+      ],
+      "correct": 1,
+      "explanation": "TV bidirectionnelle."
+    },
+    {
+      "question": "BAV complet symptomatique (FC 30, hypotension). Traitement ?",
+      "choices": [
+        "Bêtabloquant",
+        "Atropine",
+        "Amiodarone",
+        "Rien"
+      ],
+      "correct": 1,
+      "explanation": "Atropine 0.5 mg IV (pas en Mobitz II seul)."
+    },
+    {
+      "question": "Critère ECG du BBD complet ?",
+      "choices": [
+        "rsR' en V1 + S large V6",
+        "QS en V1 + R large V6",
+        "PR allongé",
+        "Onde Q en V5"
+      ],
+      "correct": 0,
+      "explanation": "rsR' V1 + S V6 + QRS large."
+    },
+    {
+      "question": "Sus-décalage 2 mm en V2-V3. Territoire ?",
+      "choices": [
+        "Inférieur",
+        "Latéral",
+        "Antérieur",
+        "Postérieur"
+      ],
+      "correct": 2,
+      "explanation": "V1-V4 = antérieur (IVA)."
+    },
+    {
+      "question": "FC 150 bpm régulière, dents de scie en II/III/aVF. Diagnostic ?",
+      "choices": [
+        "Tachycardie sinusale",
+        "Flutter 2:1",
+        "FA rapide",
+        "TV"
+      ],
+      "correct": 1,
+      "explanation": "Flutter avec bloc 2:1."
+    },
+    {
+      "question": "Tachycardie QRS large, hypotension 85/50. Première action ?",
+      "choices": [
+        "Amiodarone IV",
+        "Choc électrique",
+        "Bêtabloquant",
+        "Attendre"
+      ],
+      "correct": 1,
+      "explanation": "Instabilité → choc électrique immédiat."
+    },
+    {
+      "question": "FA + OAP + hypotension 80/50. Première action ?",
+      "choices": [
+        "Bêtabloquant IV",
+        "Cardioversion électrique urgente",
+        "Anticoagulation seule",
+        "Amiodarone"
+      ],
+      "correct": 1,
+      "explanation": "FA + instabilité = cardioversion urgente."
+    },
+    {
+      "question": "Insuffisant rénal, T pointues, PR 240, QRS 140. Première action ?",
+      "choices": [
+        "Attendre labo",
+        "Gluconate de calcium IV",
+        "Insuline seule",
+        "Dialyse"
+      ],
+      "correct": 1,
+      "explanation": "Gluconate de calcium IV en premier."
+    },
+    {
+      "question": "Déflexion positive au point J en V3-V4 chez patient en hypothermie :",
+      "choices": [
+        "SCA ST+",
+        "Onde de J (Osborn)",
+        "Péricardite",
+        "Brugada"
+      ],
+      "correct": 1,
+      "explanation": "Onde de J (Osborn)."
+    },
+    {
+      "question": "Sus-décalage diffus concave V2-V6 + sous-décalage PR + douleur en décubitus :",
+      "choices": [
+        "SCA ST+",
+        "Péricardite stade I",
+        "Tamponnade",
+        "Embolie"
+      ],
+      "correct": 1,
+      "explanation": "Péricardite stade I."
+    },
+    {
+      "question": "Sus-décalage coved ≥ 2 mm en V1-V2 + T négative chez homme de 30 ans :",
+      "choices": [
+        "SCA antérieur",
+        "Brugada type 1",
+        "Péricardite",
+        "Repolarisation précoce"
+      ],
+      "correct": 1,
+      "explanation": "Brugada type 1."
+    },
+    {
+      "question": "Spikes réguliers sans QRS chez porteur de pacemaker :",
+      "choices": [
+        "Fonctionnement normal",
+        "Échec de capture",
+        "BAV 3",
+        "Rythme jonctionnel"
+      ],
+      "correct": 1,
+      "explanation": "Échec de capture."
+    },
+    {
+      "question": "Patient douloureux thoracique + BBG nouveau. Que faire ?",
+      "choices": [
+        "Rien",
+        "Traiter comme SCA ST+ (angioplastie)",
+        "ECG dans 6h",
+        "Aspirine seule"
+      ],
+      "correct": 1,
+      "explanation": "Équivalent SCA ST+, reperfusion."
+    },
+    {
+      "question": "Traitement spécifique des torsades de pointes ?",
+      "choices": [
+        "Amiodarone",
+        "Sulfate de magnésium 2g IV",
+        "Atropine",
+        "Adrénaline"
+      ],
+      "correct": 1,
+      "explanation": "Sulfate de magnésium IV."
+    },
+    {
+      "question": "Règle en hypothermie sévère avec arrêt cardiaque ?",
+      "choices": [
+        "RCP max 10 min",
+        "« Nobody is dead until warm and dead »",
+        "Adrénaline toutes les 3 min",
+        "Arrêt RCP"
+      ],
+      "correct": 1,
+      "explanation": "Réanimation jusqu'au réchauffement."
+    }
+  ]
+}
