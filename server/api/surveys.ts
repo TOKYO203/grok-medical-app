@@ -8,6 +8,7 @@ import {
 import { z } from "zod";
 import { getSql } from "@/lib/db";
 import { applyRateLimitHeaders, consumeRateLimit } from "../lib/rate-limit";
+import { getClientIp } from "../lib/client-ip";
 import { apiAuthFailure, requireContentEditor } from "../lib/route-auth";
 
 const questionSchema = z.object({
@@ -49,6 +50,30 @@ export default defineEventHandler(async (event) => {
   const method = getMethod(event).toUpperCase();
 
   if (method === "GET") {
+    // Audit 2026-11-24 : la lecture publique n'existait que pour les sondages
+    // publiés + fenêtres temporelles, mais elle frappait la base sans AUCUNE
+    // limite : un script anonyme pouvait rafraîchir /api/surveys à cadence
+    // industrielle et monopoliser le pool SQL. Même doctrine que les écritures :
+    // quota sur l'IP de confiance, fallback « shared » non forgeable, 503 si
+    // le limiteur est indisponible (RATE_LIMIT_SALT manquant en production).
+    try {
+      const decision = await consumeRateLimit({
+        scope: "survey-list",
+        subject: getClientIp(event) || "shared",
+        limit: 60,
+        windowSeconds: 60,
+      });
+      applyRateLimitHeaders(event, decision);
+      if (!decision.allowed) {
+        setResponseStatus(event, 429);
+        return { error: "rate_limited" };
+      }
+    } catch (error) {
+      console.error("[surveys] rate limiter unavailable", error);
+      setResponseStatus(event, 503);
+      return { error: "survey_service_unavailable" };
+    }
+
     const sql = await getSql();
     const q = getQuery(event) as Record<string, string>;
     const limit = safeLimit(q.limit);
