@@ -111,6 +111,30 @@ export const Route = createFileRoute("/api/admin-verify")({
   server: {
     handlers: {
       POST: async ({ request }) => {
+        // Audit 2026-11-24 : protection anti-CSRF de « login CSRF ». Sans
+        // vérification d'origine, un site tiers pouvait soumettre le mot de
+        // passe admin à la place du visiteur (ou l'inviter à se « connecter »
+        // sur son propre compteur de tentatives). On refuse toute requête qui
+        // déclare une Origin d'un autre hôte que le `Host` servi. Une requête
+        // sans Origin (curl, service-to-service) reste acceptée : les non-
+        // navigateurs n'ont pas d'origine et sont déjà throttlés sur l'IP.
+        const origin = request.headers.get("origin");
+        if (origin) {
+          const host = request.headers.get("host") ?? "";
+          let sameOrigin = false;
+          try {
+            sameOrigin = new URL(origin).host === host;
+          } catch {
+            sameOrigin = false;
+          }
+          if (!sameOrigin) {
+            return new Response(JSON.stringify({ valid: false }), {
+              status: 403,
+              headers: { "Content-Type": "application/json", "Cache-Control": "no-store" },
+            });
+          }
+        }
+
         // Throttle before doing any work. Unparseable/oversized bodies and wrong
         // guesses all consume the same budget, so the endpoint cannot be used as
         // an unthrottled oracle.
