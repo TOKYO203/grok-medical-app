@@ -199,20 +199,20 @@ const graceSbp = (sbp: number): number =>
               : 0;
 const graceCreat = (mgdl: number): number =>
   mgdl < 0.4
-    ? 2
+    ? 1
     : mgdl < 0.8
-      ? 5
+      ? 4
       : mgdl < 1.2
-        ? 8
+        ? 7
         : mgdl < 1.6
-          ? 11
+          ? 10
           : mgdl < 2
-            ? 14
+            ? 13
             : mgdl < 4
-              ? 23
-              : 31;
+              ? 21
+              : 28;
 const graceKillip = (k: number): number =>
-  k === 1 ? 0 : k === 2 ? 21 : k === 3 ? 43 : k === 4 ? 64 : 0;
+  k === 1 ? 0 : k === 2 ? 20 : k === 3 ? 39 : k === 4 ? 59 : 0;
 
 /** Mortalité hospitalière (%) du nomogramme simplifié GRACE. */
 function graceMortality(points: number): number {
@@ -281,21 +281,21 @@ const grace: Calculator = {
       label: "Arrêt cardiaque à l'admission",
       type: "boolean",
       default: false,
-      help: "43 points",
+      help: "39 points",
     },
     {
       id: "stDeviation",
       label: "Déviation du segment ST",
       type: "boolean",
       default: false,
-      help: "30 points",
+      help: "28 points",
     },
     {
       id: "enzymes",
       label: "Enzymes cardiaques élevées",
       type: "boolean",
       default: false,
-      help: "15 points",
+      help: "14 points",
     },
   ],
   compute: (i): CalculatorResult => {
@@ -306,9 +306,9 @@ const grace: Calculator = {
       graceSbp(num(i.pas)) +
       graceCreat(creatMgdl) +
       graceKillip(num(i.killip)) +
-      (bool(i.arrest) ? 43 : 0) +
-      (bool(i.stDeviation) ? 30 : 0) +
-      (bool(i.enzymes) ? 15 : 0);
+      (bool(i.arrest) ? 39 : 0) +
+      (bool(i.stDeviation) ? 28 : 0) +
+      (bool(i.enzymes) ? 14 : 0);
 
     const mortality = graceMortality(points);
     const severity: CalculatorResult["severity"] =
