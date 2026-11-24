@@ -1,0 +1,17 @@
+{
+  "id": "C-02", "level": "C", "order": 2,
+  "title": "SCA ST− et angor instable", "durationMin": 7,
+  "objectives": ["Reconnaître un sous-décalage ST ischémique", "Distinguer SCA ST− et angor stable", "Comprendre la stratégie invasive selon le risque"],
+  "content": [
+    { "type": "text", "markdown": "Le **SCA ST−** regroupe l'angor instable et le **NSTEMI**. La distinction avec l'angor stable se fait sur la **clinique** (douleur au repos, crescendo), pas sur l'ECG." },
+    { "type": "table", "headers": ["Type", "ECG", "Troponine", "Stratégie"], "rows": [["Angor stable", "Normal", "Normale", "Consultation"], ["Angor instable", "Sous-décalage transitoire", "Normale", "Hospitalisation"], ["NSTEMI", "Sous-décalage persistant", "Élevée", "Coronarographie 24-72h"], ["SCA ST+", "Sus-décalage", "Élevée tardive", "Reperfusion immédiate"]] },
+    { "type": "callout", "tone": "warning", "title": "En pratique aux urgences", "markdown": "**Sous-décalage ST >= 1 mm dans 2 dérivations contiguës** avec douleur = SCA ST−. Sous-décalage **descendant** = plus spécifique. Toujours corréler clinique + troponine." },
+    { "type": "text", "markdown": "## Le piège des T hyperaiguës\n\nAvant le sous-décalage, on peut voir des **T amples, pointues, symétriques** (T hyperaiguës) : signe très précoce d'ischémie. À ne pas confondre avec les T de l'hyperkaliémie (base étroite en tente)." }
+  ],
+  "keyPoints": ["Sous-décalage ST >= 1 mm = SCA ST−", "Sous-décalage descendant = plus spécifique", "NSTEMI : coronarographie 24-72h", "T hyperaiguës = signe très précoce"],
+  "checkQuiz": [
+    { "question": "Sous-décalage ST 1,5 mm horizontal en V4-V5 + douleur au repos. Diagnostic ?", "choices": ["Angor stable", "SCA ST− (NSTEMI à confirmer)", "SCA ST+", "Péricardite"], "correct": 1, "explanation": "Sous-décalage + douleur repos = SCA ST−, à confirmer par troponine." },
+    { "question": "Quel signe très précoce d'ischémie précède le sous-décalage ?", "choices": ["Onde Q", "T hyperaiguë", "Onde U", "PR allongé"], "correct": 1, "explanation": "T hyperaiguës = premières minutes de l'ischémie." }
+  ],
+  "caseStudy": "ecg-3-1-riva"
+}

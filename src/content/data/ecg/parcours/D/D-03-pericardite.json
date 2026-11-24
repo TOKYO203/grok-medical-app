@@ -1,0 +1,17 @@
+{
+  "id": "D-03", "level": "D", "order": 3,
+  "title": "Péricardite et tamponnade", "durationMin": 6,
+  "objectives": ["Reconnaître les 4 stades ECG de la péricardite", "Distinguer péricardite et SCA", "Reconnaître les signes de tamponnade"],
+  "content": [
+    { "type": "text", "markdown": "La **péricardite aiguë** est une inflammation du péricarde. Son ECG évolue en **4 stades**, à ne pas confondre avec un SCA ST+ (piège classique)." },
+    { "type": "table", "headers": ["Stade", "Signe ECG"], "rows": [["I (heures)", "Sus-décalage ST diffus concave, sous-décalage PR"], ["II (jours)", "Normalisation du ST, T plates"], ["III (semaines)", "T inversées diffuses"], ["IV (mois)", "Normalisation ou séquelles"]] },
+    { "type": "callout", "tone": "danger", "title": "En pratique aux urgences", "markdown": "**Péricardite vs SCA ST+** : dans la péricardite, sus-décalage **diffus** concave + **sous-décalage PR** + **pas de miroir**. Dans le SCA, sus-décalage **localisé** convexe + **miroir**. **Tamponnade** : tachycardie, hypotension, turgescence jugulaire + **microvoltage** + **alternance électrique**." },
+    { "type": "text", "markdown": "## Le piège du sus-décalage diffus\n\nUn sus-décalage **diffus** = **péricardite** jusqu'à preuve du contraire. Un sus-décalage **localisé** avec miroir = **SCA ST+**. Traitements opposés : AINS + colchicine vs reperfusion." }
+  ],
+  "keyPoints": ["Péricardite : sus-décalage diffus concave + sous-décalage PR", "4 stades : sus-décalage, normalisation, T inversées, séquelles", "Pas de miroir dans la péricardite", "Tamponnade : microvoltage + alternance électrique", "Péricardite = AINS + colchicine"],
+  "checkQuiz": [
+    { "question": "Patient jeune, douleur majorée en décubitus, sus-décalage diffus concave V2-V6 + sous-décalage PR. Diagnostic ?", "choices": ["SCA ST+", "Péricardite aiguë", "Tamponnade", "Embolie pulmonaire"], "correct": 1, "explanation": "Sus-décalage diffus concave + sous-décalage PR + douleur en décubitus = péricardite stade I." },
+    { "question": "Quel signe ECG oriente vers une tamponnade ?", "choices": ["Sus-décalage diffus", "Microvoltage et alternance électrique", "BBG", "Onde Q"], "correct": 1, "explanation": "Microvoltage + alternance électrique = épanchement compressif." }
+  ],
+  "caseStudy": "ecg-5-1-pericardite"
+}

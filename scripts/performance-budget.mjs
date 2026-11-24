@@ -30,7 +30,12 @@ export const PERFORMANCE_BUDGET = Object.freeze({
   // sélecteur ajoutent ~1,2 KiB compilées ; la feuille était au plafond exact.
   // Mesure CI : 121,2 KiB. Marge volontairement faible (~6,8 KiB), même
   // philosophie que les relevés précédents.
-  maxStylesheetBytes: 128 * 1024,
+  // Relevé 128 → 144 KiB (Parcours ECG pédagogique A→D). Les composants
+  // LessonContent (text/callout/table/list), CheckQuiz (feedback vert/rouge)
+  // et LevelCard (badges, verrou) ajoutent leurs utilitaires Tailwind au
+  // chunk partagé. Mesure locale auth ON : 134,5 KiB. Marge volontairement
+  // faible (~9,5 KiB), même philosophie que les relevés précédents.
+  maxStylesheetBytes: 144 * 1024,
   // Plafond global : relevé 1536 → 1664 KiB (chantier « Calculateurs ») puis
   // 1664 → 1704 KiB après le moteur ECG multi-cycles (chunk EcgMonitor ≈ 54 KiB)
   // et le moniteur auscultation — total mesuré 1677,4 KiB. Marge volontairement

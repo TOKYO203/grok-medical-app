@@ -11,6 +11,18 @@ import lessonB02 from "@/content/data/ecg/parcours/B/B-02-bav.json";
 import lessonB03 from "@/content/data/ecg/parcours/B/B-03-blocs-branche.json";
 import lessonB04 from "@/content/data/ecg/parcours/B/B-04-digitalique.json";
 import lessonB05 from "@/content/data/ecg/parcours/B/B-05-jonctionnel.json";
+import levelCIndex from "@/content/data/ecg/parcours/C/_lecons.json";
+import lessonC01 from "@/content/data/ecg/parcours/C/C-01-sca-st-plus.json";
+import lessonC02 from "@/content/data/ecg/parcours/C/C-02-sca-st-moins.json";
+import lessonC03 from "@/content/data/ecg/parcours/C/C-03-fa-flutter.json";
+import lessonC04 from "@/content/data/ecg/parcours/C/C-04-tv-torsades.json";
+import lessonC05 from "@/content/data/ecg/parcours/C/C-05-oap.json";
+import levelDIndex from "@/content/data/ecg/parcours/D/_lecons.json";
+import lessonD01 from "@/content/data/ecg/parcours/D/D-01-hyperkaliemie.json";
+import lessonD02 from "@/content/data/ecg/parcours/D/D-02-hypothermie.json";
+import lessonD03 from "@/content/data/ecg/parcours/D/D-03-pericardite.json";
+import lessonD04 from "@/content/data/ecg/parcours/D/D-04-brugada.json";
+import lessonD05 from "@/content/data/ecg/parcours/D/D-05-pacemaker.json";
 
 import type { Level, Lesson, LessonIndex, ParcoursManifest } from "./types";
 
@@ -19,8 +31,8 @@ import type { Level, Lesson, LessonIndex, ParcoursManifest } from "./types";
 const LEVEL_INDEX: Record<Level, LessonIndex | null> = {
   A: levelAIndex as unknown as LessonIndex,
   B: levelBIndex as unknown as LessonIndex,
-  C: null,
-  D: null,
+  C: levelCIndex as unknown as LessonIndex,
+  D: levelDIndex as unknown as LessonIndex,
   E: null,
 };
 
@@ -35,6 +47,16 @@ const LESSONS_BY_ID: Record<string, Lesson> = {
   "B-03": lessonB03 as unknown as Lesson,
   "B-04": lessonB04 as unknown as Lesson,
   "B-05": lessonB05 as unknown as Lesson,
+  "C-01": lessonC01 as unknown as Lesson,
+  "C-02": lessonC02 as unknown as Lesson,
+  "C-03": lessonC03 as unknown as Lesson,
+  "C-04": lessonC04 as unknown as Lesson,
+  "C-05": lessonC05 as unknown as Lesson,
+  "D-01": lessonD01 as unknown as Lesson,
+  "D-02": lessonD02 as unknown as Lesson,
+  "D-03": lessonD03 as unknown as Lesson,
+  "D-04": lessonD04 as unknown as Lesson,
+  "D-05": lessonD05 as unknown as Lesson,
 };
 
 export function getParcours(): ParcoursManifest {

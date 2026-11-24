@@ -1,0 +1,17 @@
+{
+  "id": "C-03", "level": "C", "order": 3,
+  "title": "Fibrillation atriale et flutter", "durationMin": 7,
+  "objectives": ["Reconnaître une FA (irrégulière, sans P)", "Reconnaître un flutter (dents de scie)", "Identifier les formes à haut risque"],
+  "content": [
+    { "type": "text", "markdown": "La **FA** et le **flutter** sont les deux arythmies supraventriculaires les plus fréquentes aux urgences. Risque **embolique** majeur (AVC) dans les deux cas." },
+    { "type": "table", "headers": ["Critère", "FA", "Flutter"], "rows": [["Rythme", "Irrégulier", "Régulier"], ["Onde P", "Absente", "Dents de scie (II/III/aVF)"], ["FC", "Variable", "2:1 = 150 bpm"], ["Risque embolique", "Élevé", "Élevé"], ["Traitement aigu", "Contrôle FC", "Contrôle FC ou cardioversion"]] },
+    { "type": "callout", "tone": "danger", "title": "En pratique aux urgences", "markdown": "**FA + OAP** ou **FA + hypotension** = **cardioversion électrique en urgence**. Sinon contrôle FC d'abord. Le **flutter 2:1 à 150 bpm** est souvent pris à tort pour une tachycardie sinusale." },
+    { "type": "text", "markdown": "## Le piège du flutter 2:1\n\nUn flutter avec bloc 2:1 donne une FC à **150 bpm** souvent parfaitement régulière. Sans chercher les **dents de scie en II, III, aVF** ou en V1, on peut le confondre avec une tachycardie sinusale." }
+  ],
+  "keyPoints": ["FA : irrégulière, pas de P", "Flutter : dents de scie en II/III/aVF", "Flutter 2:1 = FC 150 bpm (piège classique)", "FA + OAP ou hypotension = cardioversion urgente"],
+  "checkQuiz": [
+    { "question": "FC à 150 bpm régulière, sans P visible, dents de scie en II. Diagnostic ?", "choices": ["Tachycardie sinusale", "Flutter atrial 2:1", "FA rapide", "TV"], "correct": 1, "explanation": "FC régulière à 150 + dents de scie en II = flutter avec bloc 2:1." },
+    { "question": "FA + OAP + hypotension à 80/50. Première action ?", "choices": ["Bêtabloquant IV", "Cardioversion électrique urgente", "Anticoagulation seule", "Amiodarone"], "correct": 1, "explanation": "FA + instabilité = cardioversion électrique urgente." }
+  ],
+  "caseStudy": "ecg-3-2-flutter-2-1"
+}
