@@ -37,11 +37,11 @@ import { tanstackStartCookies } from "better-auth/tanstack-start";
 import { getCookie } from "@tanstack/react-start/server";
 import { randomBytes } from "node:crypto";
 import { Pool } from "pg";
-import { ensureDbReady, getPglite } from "../db";
+import { ensureDbReady, getPglite, getSql } from "../db";
 import { emailAndPasswordEnabled } from "./email-password";
 import { GATE_PROVIDER_ID, gateIdentitySessions } from "./gate-session.server";
 import { GROK_PROVIDERS } from "./providers";
-import { pgliteDialect } from "./pglite-dialect";
+import { pgliteDialect, sqlClientDialect } from "./pglite-dialect";
 import {
   GROK_ISSUER_DEFAULT,
   PREVIEW_ALLOWED_HOSTS,
@@ -200,8 +200,31 @@ const grokUserInfoUrl = `${issuerBase}/api/auth/oauth2/userinfo`;
 // SAME DB as app data, including email/password users. Both use the Better Auth
 // schema from `migrations/auth/0001_auth.sql`, copied into `migrations/` when
 // the app turns sign-in on.
+//
+// ⚠️ Cloudflare Workers : `pg` (node-postgres) exige `net.Socket`, absent de
+// workerd — le module y est aliasé sur un stub qui lève à la première connexion
+// ("[pg-stub] … not available on Cloudflare Pages"). Better Auth doit donc
+// passer par le MÊME driver que les données applicatives (`postgres`/porsager,
+// via `cloudflare:sockets`, cf. `getSql()`) dès qu'on tourne sur workerd ; les
+// runtimes Node (Vercel/Netlify, dev local, smoke CI) gardent `pg`.
+const onWorkerd =
+  typeof (globalThis as { WebSocketPair?: unknown }).WebSocketPair !== "undefined";
+
 const database = databaseUrl
-  ? new Pool({ connectionString: databaseUrl })
+  ? onWorkerd
+    ? {
+        dialect: sqlClientDialect(async () => {
+          const sql = await getSql();
+          return {
+            query: async <T = Record<string, unknown>>(
+              text: string,
+              params: unknown[] = [],
+            ) => ({ rows: await sql.query<T>(text, params) }),
+          };
+        }),
+        type: "postgres" as const,
+      }
+    : new Pool({ connectionString: databaseUrl })
   : { dialect: pgliteDialect(() => getPglite()), type: "postgres" as const };
 
 /** Session token cookie name — also read by the live-preview popup completion page. */
