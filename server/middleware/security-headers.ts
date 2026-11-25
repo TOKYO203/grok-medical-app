@@ -51,7 +51,9 @@ function scriptSrc(): string {
  *   - `style-src 'unsafe-inline'` : les styles injectés par le runtime restent
  *     fonctionnels (PWA, graphiques) — resserrable après inventaire.
  *   - `connect-src` : Supabase (REST + Realtime wss) et l'API LemonSqueezy.
- *   - `img-src` : images.unsplash.com (photo de fond de l'écran de connexion).
+ *   - `img-src` : images.unsplash.com (fond de l'écran de connexion) et
+ *     Wikimedia Commons/…upload.wikimedia.org (vignettes Labo visuel, imagerie,
+ *     histologie, auscultation — Special:FilePath redirige vers upload).
  */
 const CONTENT_SECURITY_POLICY = [
   "default-src 'self'",
@@ -59,7 +61,7 @@ const CONTENT_SECURITY_POLICY = [
   "style-src 'self' 'unsafe-inline'",
   // images.unsplash.com : photo de fond de l'écran de connexion (AuthScreen).
   // CDN d'images passif, aucune exécution de code : acceptable en img-src.
-  "img-src 'self' data: blob: https://images.unsplash.com",
+  "img-src 'self' data: blob: https://images.unsplash.com https://commons.wikimedia.org https://upload.wikimedia.org",
   "font-src 'self' data:",
   "connect-src 'self' https://*.supabase.co wss://*.supabase.co https://api.lemonsqueezy.com",
   "worker-src 'self'",
