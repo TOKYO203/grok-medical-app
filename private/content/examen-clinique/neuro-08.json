@@ -1,0 +1,130 @@
+{
+  "id": "neuro-08",
+  "system": "NEURO",
+  "order": 8,
+  "title": "Coordination : cérébellum et Romberg",
+  "durationMin": 8,
+  "objectives": [
+    "Dérouler les 4 épreuves de coordination de base.",
+    "Reconnaître le syndrome cérébelleux statique et cinétique.",
+    "Distinguer ataxie cérébelleuse et ataxie proprioceptive.",
+    "Reconnaître le trio de Charcot."
+  ],
+  "content": [
+    {
+      "type": "text",
+      "markdown": "Testez la coordination **uniquement si la force est suffisante** : un membre trop faible paraît « maladroit » sans que le cérébellum soit en cause._POSITION"
+    },
+    {
+      "type": "list",
+      "ordered": true,
+      "items": [
+        "**Doigt-nez** : le patient touche son nez puis votre doigt ; chercher le **tremblement d intention** (s amplifie à l approche de la cible) et la dysmétrie (dépasse ou s arrête avant).",
+        "**Talon-genou** : glisser le talon le long du tibia opposé ; chercher l ataxie du membre inférieur et la déviation.",
+        "**Diadochocinésie** : pronosupination rapide des avant-bras, tape-tape ; une lenteur asynchrone et irrégulière = dysdiadococinésie.",
+        "**Marche et station** : marche en éventail, élargie ; debout pieds joints, puis **yeux fermés** (Romberg)."
+      ]
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Élément",
+        "Ataxie cérébelleuse",
+        "Ataxie proprioceptive"
+      ],
+      "rows": [
+        [
+          "Debout, yeux ouverts",
+          "Chancelant",
+          "Stable"
+        ],
+        [
+          "Debout, yeux fermés (Romberg)",
+          "Peu de changement",
+          "Chute (Romberg positif)"
+        ],
+        [
+          "Autres signes",
+          "Nystagmus, dysarthrie scandée, tremblement d intention",
+          "Vibration et proprioception altérées"
+        ]
+      ]
+    },
+    {
+      "type": "callout",
+      "tone": "success",
+      "title": "Trio de Charcot",
+      "markdown": "**Tremblement d intention + nystagmus + dysarthrie scandée** : la triade du syndrome cérébelleux. La dysarthrie se teste d un seul mot : demandez une phrase longue ; l élocution devient lente et saccadée, « scannée »."
+    },
+    {
+      "type": "callout",
+      "tone": "info",
+      "title": "Ne pas étiqueter trop vite",
+      "markdown": "Un patient titubant est d abord **intoxiqué** et **hypoglycémique** jusqu à preuve du contraire : glycémie au lit du patient, anamnèse médicamenteuse, avant de conclure au cérébellum."
+    }
+  ],
+  "keyPoints": [
+    "Doigt-nez, talon-genou, diadochocinésie, marche : la coordination se teste si la force le permet.",
+    "Tremblement d intention + dysmétrie = atteinte cinétique (cérébelleuse).",
+    "Romberg positif = défaut proprioceptif ou vestibulaire ; le cérébelleux chancelle les yeux ouverts.",
+    "Trio de Charcot : tremblement d intention, nystagmus, dysarthrie scandée.",
+    "Titubation : éliminer d abord l hypoglycémie et l intoxication."
+  ],
+  "checkQuiz": [
+    {
+      "question": "Un tremblement qui s amplifie à l approche de la cible =",
+      "choices": [
+        "tremblement de repos",
+        "tremblement d intention (cérébelleux)",
+        "tremblement postural",
+        "fasciculations"
+      ],
+      "correct": 1,
+      "explanation": "Le tremblement d intention traverse le mouvement ; le tremblement de repos (extra-pyramidal) s éteint au mouvement."
+    },
+    {
+      "question": "Romberg positif désigne…",
+      "choices": [
+        "la chute à l ouverture des yeux",
+        "la chute aux yeux fermés seulement",
+        "l impossibilité de se tenir debout quoi qu il arrive",
+        "une déviation de la marche en éventail"
+      ],
+      "correct": 1,
+      "explanation": "Debout pieds joints, stable les yeux ouverts, chute les yeux fermés : l information proprioceptive (ou vestibulaire) manque."
+    },
+    {
+      "question": "La dysdiadococinésie est le défaut de…",
+      "choices": [
+        "la marche pieds joints",
+        "les mouvements alternés rapides (pronosupination)",
+        "le toucher du nez",
+        "la sensibilité vibratoire"
+      ],
+      "correct": 1,
+      "explanation": "Les mouvements alternés deviennent lents, irréguliers, découpés : c est un des signes cinétiques du cérébellum."
+    },
+    {
+      "question": "Le trio de Charcot associe…",
+      "choices": [
+        "tremblement d intention, nystagmus, dysarthrie scandée",
+        "raideur de nuque, Kernig, Brudzinski",
+        "trémulations, sudation, mydriase",
+        "hypertonie spatiale, hyporéflexie, Babinski"
+      ],
+      "correct": 0,
+      "explanation": "C est la triade classique du syndrome cérébelleux."
+    },
+    {
+      "question": "Patient titubant, haleine confuse : votre premier geste ?",
+      "choices": [
+        "Tester la dysdiadococinésie",
+        "Glycémie au lit du patient et anamnèse des toxiques",
+        "Réflexe achilléen",
+        "Fond d œil"
+      ],
+      "correct": 1,
+      "explanation": "L intoxication et l hypoglycémie miment l ataxie : on les élimine avant d incriminer le cérébellum."
+    }
+  ]
+}

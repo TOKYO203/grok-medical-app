@@ -1,0 +1,141 @@
+{
+  "id": "neuro-07",
+  "system": "NEURO",
+  "order": 7,
+  "title": "Sensibilité : modes et topographie",
+  "durationMin": 10,
+  "objectives": [
+    "Tester les 4 modes de sensibilité avec le bon instrument.",
+    "Localiser un trouble grâce aux dermatomes clés.",
+    "Reconnaître les grandes distributions du déficit sensitif.",
+    "Interpréter une dissociation thermo-algésique."
+  ],
+  "content": [
+    {
+      "type": "text",
+      "markdown": "Les yeux du patient fermés, on compare secteur par secteur. Quatre modes, quatre outils :"
+    },
+    {
+      "type": "list",
+      "items": [
+        "**Tactile épicritique** : bout de coton, toucher léger.",
+        "**Thermo-algésique** : piqûre douce (épingle non côtoyable... : légère, jamais blessante), tube froid et chaud — la thermo ne se teste pas sur la seule piqûre.",
+        "**Sensibilité profonde (proprioception)** : mobiliser la dernière phalange du gros orteil (« en haut ou en bas ? ») — le signe le plus utile du membre inférieur.",
+        "**Vibration** : diapason 128 Hz sur les malléoles et sur le sternum (témoin)."
+      ]
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Dermatome",
+        "Repère"
+      ],
+      "rows": [
+        [
+          "C6",
+          "Pouce"
+        ],
+        [
+          "C8",
+          "5e doigt (auriculaire)"
+        ],
+        [
+          "T4",
+          "Sous le mamelon"
+        ],
+        [
+          "T10",
+          "Ombilic"
+        ],
+        [
+          "L4",
+          "Face interne du genou"
+        ],
+        [
+          "S1",
+          "Bord latéral du pied"
+        ]
+      ]
+    },
+    {
+      "type": "text",
+      "markdown": "**Les distributions qui font le diagnostic** : une déficite en **gants-chaussettes** = neuropathie périphérique distale (diabète, alcool, carence) ; en **ruban médaillé** = radiculopathie (racine) ; **suspendue aux membres supérieurs** avec conservation du tactile = syringomyélie (dissociation thermo-algésique) ; **hémi-corporelle** nette = atteinte centrale ; **d un seul tronc** = nerf périphérique. La limite exacte se dessine en remontant ou en descendant à partir de la zone la moins sensible."
+    },
+    {
+      "type": "callout",
+      "tone": "warning",
+      "title": "Pertes invisibles mais dangereuses",
+      "markdown": "Une **perte de la proprioception des membres inférieurs** fait chuter : Romberg positif, marche élargie et regard au sol. Chez un sujet diabétique, testez-la systématiquement : c est un critère conducteur de santé publique que beaucoup d examens oublient."
+    },
+    {
+      "type": "callout",
+      "tone": "info",
+      "title": "Limites atypiques",
+      "markdown": "Une hypoesthésie aux limites qui ne suivent aucun dermatome ni territoire nerveux mérite une deuxième évaluation avec attention bienveillante, sans tomber dans l accusation : notez la description objective. Réévaluer plutôt que trancher."
+    }
+  ],
+  "keyPoints": [
+    "4 modes : tactile, thermo-algésique, proprioception, vibration — comparaison symétrique.",
+    "Repères : C6 pouce, C8 auriculaire, T4 mamelon, T10 ombilic, L4 genou interne, S1 bord du pied.",
+    "Gants-chaussettes = polyneuropathie ; ruban médaillé = radiculopathie ; hémicorporel = central.",
+    "Dissociation thermo-algésique suspendue = syringomyélie (faisceaux spinothalamiens croisés).",
+    "Perte de la proprioception : Romberg positif et risque de chute — toujours testée."
+  ],
+  "checkQuiz": [
+    {
+      "question": "Une hypoesthésie thermo-algésique suspendue aux mains avec tactile conservé évoque…",
+      "choices": [
+        "une neuropathie diabétique",
+        "une syringomyélie",
+        "un AVC sylvien",
+        "une radiculopathie C6"
+      ],
+      "correct": 1,
+      "explanation": "Les fibres spinothalamiens se croisent dans la moelle et descendent : une lésion centrale (canal épendymaire) suspend la thermo-algésie en épargnant la colonne postérieure (tactile)."
+    },
+    {
+      "question": "Le dermatome T10 correspond au repère…",
+      "choices": [
+        "mamelon",
+        "ombilic",
+        "genou interne",
+        "bord latéral du pied"
+      ],
+      "correct": 1,
+      "explanation": "T4 au mamelon, T10 à l ombilic : deux repères transférables du thorax à l abdomen."
+    },
+    {
+      "question": "Une hypoesthésie en gants-chaussettes évoque…",
+      "choices": [
+        "une atteinte médullaire",
+        "une polyneuropathie distale",
+        "un tronc lésé unique",
+        "une lésion corticale"
+      ],
+      "correct": 1,
+      "explanation": "Les fibres les plus longues souffrent d abord : distale, symétrique, en gants-chaussettes."
+    },
+    {
+      "question": "Le diapason 128 Hz sur les malléoles teste…",
+      "choices": [
+        "la sensibilité thermo-algésique",
+        "la vibration (sensibilité profonde)",
+        "le tactile épicritique",
+        "le réflexe cornéen"
+      ],
+      "correct": 1,
+      "explanation": "Modalité de la sensibilité profonde, précieuse pour dépister la neuropathie distale et prévenir le tomber du patient."
+    },
+    {
+      "question": "Romberg positif (chute aux yeux fermés seulement) =",
+      "choices": [
+        "atteinte cérébelleuse pure",
+        "perte proprioceptive ou vestibulaire",
+        "syndrome pyramidal",
+        "aphasie de Wernicke"
+      ],
+      "correct": 1,
+      "explanation": "Yeux fermés, l information visuelle ne compense plus la proprioception : si la proprioception (ou le vestibule) manque, le patient tombe. Le cérébelleux tombe même yeux ouverts."
+    }
+  ]
+}
