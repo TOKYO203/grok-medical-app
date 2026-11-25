@@ -28,6 +28,40 @@ export function adminSecretMatches(candidate: string): boolean {
   return timingSafeEqual(a, b);
 }
 
+/** Cookie header de la requête serveur courante, ou `null`. */
+async function requestCookieHeader(): Promise<string | null> {
+  try {
+    const mod = await import("@tanstack/react-start/server");
+    const headers = mod.getRequest?.()?.headers;
+    return headers?.get?.("cookie") ?? null;
+  } catch {
+    return null;
+  }
+}
+
+function readCookie(cookieHeader: string | null, name: string): string | null {
+  if (!cookieHeader) return null;
+  for (const part of cookieHeader.split(";")) {
+    const separator = part.indexOf("=");
+    if (separator === -1) continue;
+    if (part.slice(0, separator).trim() !== name) continue;
+    return part.slice(separator + 1).trim() || null;
+  }
+  return null;
+}
+
+/**
+ * Audit sécurité 2026-11-25 : un appel serveur peut s'authentifier via la
+ * session admin (cookie HttpOnly posé par /api/admin-verify) plutôt que via le
+ * mot de passe en clair. C'est la voie privilégiée : après la connexion, le
+ * navigateur ne manipule plus jamais le secret.
+ */
+export async function hasValidAdminSession(): Promise<boolean> {
+  return verifyAdminSessionToken(
+    readCookie(await requestCookieHeader(), ADMIN_SESSION_COOKIE),
+  );
+}
+
 /** Consume one attempt from the caller's budget. Throws when exhausted. */
 export async function enforceAdminAttempt(
   scope: string,
@@ -43,7 +77,8 @@ export async function enforceAdminAttempt(
   }
   const decision = rateLimit(`${scope}:${clientIpSubject(headers)}`, limit, windowMs);
   if (!decision.ok) {
-    throw new Error("Trop de tentatives d'authentification. Réessayez plus tard.");
+    throw new Error("Trop de tentatives d'authentification. Réessayez pl
+us tard.");
   }
 }
 
@@ -58,6 +93,8 @@ export async function requireAdminKey(
   windowMs = 60_000,
 ): Promise<void> {
   await enforceAdminAttempt(scope, limit, windowMs);
+  // 1) session serveur (cookie HttpOnly), 2) repli : mot de passe fourni.
+  if (await hasValidAdminSession()) return;
   if (!adminSecretMatches(adminKey)) {
     throw new Error("Forbidden: admin key invalid");
   }
@@ -96,7 +133,8 @@ function toBase64Url(bytes: Uint8Array): string {
 function fromBase64Url(value: string): Uint8Array | null {
   try {
     const normalized = value.replace(/-/g, "+").replace(/_/g, "/");
-    const padded = normalized.padEnd(Math.ceil(normalized.length / 4) * 4, "=");
+    co
+nst padded = normalized.padEnd(Math.ceil(normalized.length / 4) * 4, "=");
     const binary = atob(padded);
     const out = new Uint8Array(binary.length);
     for (let i = 0; i < binary.length; i++) out[i] = binary.charCodeAt(i);
@@ -145,7 +183,8 @@ export function verifyAdminSessionToken(
 
 /** Attribut Set-Cookie de session (HttpOnly, Secure, SameSite=Lax, 7 j). */
 export function adminSessionCookie(token: string): string {
-  return `${ADMIN_SESSION_COOKIE}=${token}; Path=/; Max-Age=${ADMIN_SESSION_TTL_SECONDS}; SameSite=Lax; HttpOnly; Secure`;
+  return `${ADMIN_SESSION_COOKIE}=${token}; Path=/; Max-Age=${ADMIN_SESSION_TTL_SECONDS}; SameSite=Lax; HttpOnly; Secure`
+;
 }
 
 /** Attribut Set-Cookie d'effacement de la session admin. */
