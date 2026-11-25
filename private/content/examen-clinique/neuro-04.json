@@ -1,0 +1,176 @@
+{
+  "id": "neuro-04",
+  "system": "NEURO",
+  "order": 4,
+  "title": "Les paires crâniennes, de I à XII",
+  "durationMin": 12,
+  "objectives": [
+    "Connaître le test rapide de chaque paire crânienne et son signe d alerte principal.",
+    "Différencier atteinte centrale et périphérique du nerf facial.",
+    "Reconnaître l urgence du III compressif (mydriase unilatérale).",
+    "Adapter l examen : complet si point d appel, cible sinon."
+  ],
+  "content": [
+    {
+      "type": "text",
+      "markdown": "Douze paires, cinq minutes si le geste est connu. En pratique : testez l ensemble uniquement si un point d appel l justifie ; sinon, ciblez II, III-IV-VI, V, VII, VIII et XII. Toujours **comparer les deux côtés** et reporter une atteinte latéralisée."
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Paire",
+        "Nerf",
+        "Test rapide",
+        "Signe d alerte"
+      ],
+      "rows": [
+        [
+          "I",
+          "Olfactif",
+          "Reconnaître une odeur (café, savon), narine par narine, sans irritant",
+          "Anosmie : traumatisme (lame criblée), tumeur du lobe frontal"
+        ],
+        [
+          "II",
+          "Optique",
+          "Acuité à distance, champs au doigt par confrontation, fond d œil",
+          "Hémianopsie latérale homonyme : lésion rétrochiasmatique"
+        ],
+        [
+          "III",
+          "Oculomoteur commun",
+          "Ptosis, mydriase, adduction et élévation du globe",
+          "Mydriase + ptosis + trouble de vigilance : III COMPRESSIF"
+        ],
+        [
+          "IV",
+          "Trochléaire",
+          "Descente du regard vers le bas et en dedans",
+          "Diplopie verticale, en descendant les escaliers"
+        ],
+        [
+          "V",
+          "Tri jumeau (trijumeau)",
+          "Sensibilité du visage en 3 territoires, mastication, réflexe cornéen",
+          "Hypoesthésie territoriale, abstinence du réflexe cornéen"
+        ],
+        [
+          "VI",
+          "Moteur oculaire externe",
+          "Abduction du regard",
+          "Diplopie maximale à distance, strabisme convergent"
+        ],
+        [
+          "VII",
+          "Facial",
+          "Mimique : froncer les sourcils, serrer les paupières, sourire, souffler",
+          "Front épargné = CENTRAL ; hémiface entier = PÉRIPHÉRIQUE"
+        ],
+        [
+          "VIII",
+          "Vestibulocochléaire",
+          "Suivre un chuchotement ou frotter les doigts près de chaque oreille",
+          "Surdité asymétrique : imagerie (neurinome à éliminer)"
+        ],
+        [
+          "IX-X",
+          "Glosso-palatin / pneumogastrique",
+          "Voile au « aaa », phonation, déglutition",
+          "Déviation du voile, dysphonie, fausses routes"
+        ],
+        [
+          "XI",
+          "Accessoire",
+          "Rotation de la tête contre résistance (SCM), haussement d épaules (trapèzes)",
+          "Amyotrophie,астhenie unilatérale"
+        ],
+        [
+          "XII",
+          "Hypoglosse",
+          "Protrusion de la langue",
+          "La langue dévie VERS la lésion"
+        ]
+      ]
+    },
+    {
+      "type": "callout",
+      "tone": "warning",
+      "title": "Mémo facial",
+      "markdown": "Le frontal est doublement innervé : dans une atteinte **centrale**, le front bouge encore (le sourire reste dissymétrique). Dans une atteinte **périphérique** (paralysie du nerf facial), tout l hémiface est immobile, front compris, et l œil ne ferme plus."
+    },
+    {
+      "type": "callout",
+      "tone": "danger",
+      "title": "III compressif : l urgence de l urgence",
+      "markdown": "Mydriase unilatérale avec ptosis et chute de vigilance : engagement possible. Ne pas perde le temps : appelez, imagé. (À distinguer de l atteinte ischémique du III, où la pupille reste épargnée longtemps.)"
+    },
+    {
+      "type": "text",
+      "markdown": "Astuce du fond d œil (paire II) : dilatation non nécessaire pour dépister un œdème papillaire — cadre net → papille rose ; brouillée → œdème ou hémorragie. À l anamnèse, la diplopie monoculaire (persiste avec un œil fermé) est optique ou réfractive : elle n est PAS neurologique centrale."
+    }
+  ],
+  "keyPoints": [
+    "Ordre fixe I à XII ; pratique : II, III-IV-VI, V, VII, VIII, IX-X, XII au minimum.",
+    "Facial : front épargné = central ; hémiface entier = périphérique.",
+    "Mydriase unilatérale + ptosis + vigilance altérée = III compressif, urgence.",
+    "Langue déviée du côté lésié (XII) ; diplopie monoculaire = trouble optique, pas cérébral.",
+    "Hémianopsie latérale homonyme → lésion rétrochiasmatique."
+  ],
+  "checkQuiz": [
+    {
+      "question": "Facial avec front épargné : il s agit d une atteinte…",
+      "choices": [
+        "périphérique",
+        "centrale",
+        "du nerf tri jumeau",
+        "du XII"
+      ],
+      "correct": 1,
+      "explanation": "Le frontal est doublement innervé : un front qui bouge encore oriente vers une atteinte centrale (projection supranucléaire)."
+    },
+    {
+      "question": "La langue (paire XII) dévie…",
+      "choices": [
+        "vers la lésion",
+        "à l opposé de la lésion",
+        "vers le haut à la prononciation",
+        "jamais"
+      ],
+      "correct": 0,
+      "explanation": "La langue se déplace du côté lésé : les muscles linguaux d un côté faiblissent, le côté sain pousse la langue du côté malade."
+    },
+    {
+      "question": "Mydriase unilatérale + ptosis + somnolence : que faites-vous ?",
+      "choices": [
+        "Je surveille à domicile",
+        "Je soupçonne une fatigue",
+        "Urgence : appui et imagerie (III compressif)",
+        "Je commence par tester la sensibilité du visage"
+      ],
+      "correct": 2,
+      "explanation": "Triade de l engagement : le III se comprime le premier dans l incisure ; imagerie et avis immédiats."
+    },
+    {
+      "question": "Une hémianopsie latérale homonyme suggère…",
+      "choices": [
+        "une lésion rétrochiasmatique",
+        "une atteinte de la cornée",
+        "une paralysie du III",
+        "un trouble métabolique"
+      ],
+      "correct": 0,
+      "explanation": "Champ perdu du même côté des deux yeux : après le chiasma, les fibres des demis-champs restent ensemble jusqu au cortex occipital."
+    },
+    {
+      "question": "Le réflexe cornéen met en jeu…",
+      "choices": [
+        "les nerfs II et III",
+        "les nerfs V et VII",
+        "les nerfs VIII et IX",
+        "le nerf X seul"
+      ],
+      "correct": 1,
+      "explanation": "Voie afférente V (sensibilité cornéenne), voie efférente VII (clignement des deux paupières)."
+    }
+  ]
+}
