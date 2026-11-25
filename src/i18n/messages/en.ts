@@ -24,6 +24,7 @@ export const en: MessageCatalog = {
   "nav.auscultation": "Auscultation",
   "nav.signes": "Signs & Syndromes",
   "nav.mockExam": "Mock exam",
+  "nav.clinicalExam": "Clinical examination",
   "nav.calculators": "Calculators",
   "nav.valeursReference": "Reference values",
   "nav.leaderboard": "Leaderboard",

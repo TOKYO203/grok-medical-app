@@ -18,6 +18,7 @@ import {
   Library,
   RotateCcw,
   FlaskConical,
+  PersonStanding,
   ScanLine,
   Stethoscope,
   Trophy,
@@ -73,6 +74,7 @@ export const EXPLORE_GROUPS = [
       // doit plus être le dernier item du tiroir.
       { to: "/signes", labelKey: "nav.signes", icon: Brain },
       { to: "/ecg", labelKey: "nav.ecgCases", icon: Activity },
+      { to: "/examen-clinique", labelKey: "nav.clinicalExam", icon: PersonStanding },
       { to: "/imagerie", labelKey: "nav.imagerie", icon: ScanLine },
       { to: "/histologie", labelKey: "nav.histologie", icon: Microscope },
       { to: "/demo-ecg", labelKey: "nav.animatedEcg", icon: HeartPulse },

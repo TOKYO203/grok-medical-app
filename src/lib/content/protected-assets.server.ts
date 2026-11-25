@@ -45,7 +45,8 @@ export type ProtectedFamily =
   | "decks"
   | "cases"
   | "diagnostics"
-  | "demarches";
+  | "demarches"
+  | "examen-clinique";
 
 /**
  * Glob Vite des actifs privés. Chemins absolus (préfixe `/`) = relatifs à la
@@ -82,6 +83,10 @@ const FAMILY_GLOBS: Record<ProtectedFamily, Record<string, RawLoader>> = {
     query: "?raw",
     import: "default",
   }) as unknown as Record<string, RawLoader>,
+  examen-clinique: import.meta.glob("/private/content/examen-clinique/*.json", {
+    query: "?raw",
+    import: "default",
+  }) as unknown as Record<string, RawLoader>,
 };
 
 /** Garde-fou : un actif de contenu ne doit jamais peser plus que du texte. */
@@ -107,7 +112,8 @@ export function isProtectedFamily(value: string): value is ProtectedFamily {
     value === "decks" ||
     value === "cases" ||
     value === "diagnostics" ||
-    value === "demarches"
+    value === "demarches" ||
+    value === "examen-clinique"
   );
 }
 

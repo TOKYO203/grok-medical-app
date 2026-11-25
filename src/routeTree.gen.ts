@@ -35,6 +35,7 @@ import { Route as DemoEcgRouteImport } from './routes/demo-ecg'
 import { Route as DonneesRouteImport } from './routes/donnees'
 import { Route as EcgRouteImport } from './routes/ecg'
 import { Route as ExamenRouteImport } from './routes/examen'
+import { Route as ExamenCliniqueRouteImport } from './routes/examen-clinique'
 import { Route as HistologieRouteImport } from './routes/histologie'
 import { Route as ImagerieRouteImport } from './routes/imagerie'
 import { Route as ImportRouteImport } from './routes/import'
@@ -206,6 +207,11 @@ const EcgRoute = EcgRouteImport.update({
 const ExamenRoute = ExamenRouteImport.update({
   id: '/examen',
   path: '/examen',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ExamenCliniqueRoute = ExamenCliniqueRouteImport.update({
+  id: '/examen-clinique',
+  path: '/examen-clinique',
   getParentRoute: () => rootRouteImport,
 } as any)
 const HistologieRoute = HistologieRouteImport.update({
@@ -450,6 +456,7 @@ export interface FileRoutesByFullPath {
   '/donnees': typeof DonneesRoute
   '/ecg': typeof EcgRouteWithChildren
   '/examen': typeof ExamenRoute
+  '/examen-clinique': typeof ExamenCliniqueRoute
   '/histologie': typeof HistologieRouteWithChildren
   '/imagerie': typeof ImagerieRouteWithChildren
   '/import': typeof ImportRoute
@@ -520,6 +527,7 @@ export interface FileRoutesByTo {
   '/donnees': typeof DonneesRoute
   '/ecg': typeof EcgRouteWithChildren
   '/examen': typeof ExamenRoute
+  '/examen-clinique': typeof ExamenCliniqueRoute
   '/import': typeof ImportRoute
   '/institutionnel': typeof InstitutionnelRoute
   '/login': typeof LoginRoute
@@ -590,6 +598,7 @@ export interface FileRoutesById {
   '/donnees': typeof DonneesRoute
   '/ecg': typeof EcgRouteWithChildren
   '/examen': typeof ExamenRoute
+  '/examen-clinique': typeof ExamenCliniqueRoute
   '/histologie': typeof HistologieRouteWithChildren
   '/imagerie': typeof ImagerieRouteWithChildren
   '/import': typeof ImportRoute
@@ -662,6 +671,7 @@ export interface FileRouteTypes {
     | '/donnees'
     | '/ecg'
     | '/examen'
+    | '/examen-clinique'
     | '/histologie'
     | '/imagerie'
     | '/import'
@@ -732,6 +742,7 @@ export interface FileRouteTypes {
     | '/donnees'
     | '/ecg'
     | '/examen'
+    | '/examen-clinique'
     | '/import'
     | '/institutionnel'
     | '/login'
@@ -801,6 +812,7 @@ export interface FileRouteTypes {
     | '/donnees'
     | '/ecg'
     | '/examen'
+    | '/examen-clinique'
     | '/histologie'
     | '/imagerie'
     | '/import'
@@ -873,6 +885,7 @@ export interface RootRouteChildren {
   DonneesRoute: typeof DonneesRoute
   EcgRoute: typeof EcgRouteWithChildren
   ExamenRoute: typeof ExamenRoute
+  ExamenCliniqueRoute: typeof ExamenCliniqueRoute
   HistologieRoute: typeof HistologieRouteWithChildren
   ImagerieRoute: typeof ImagerieRouteWithChildren
   ImportRoute: typeof ImportRoute
@@ -1091,6 +1104,13 @@ declare module '@tanstack/react-router' {
       path: '/examen'
       fullPath: '/examen'
       preLoaderRoute: typeof ExamenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/examen-clinique': {
+      id: '/examen-clinique'
+      path: '/examen-clinique'
+      fullPath: '/examen-clinique'
+      preLoaderRoute: typeof ExamenCliniqueRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/histologie': {
@@ -1506,6 +1526,7 @@ const rootRouteChildren: RootRouteChildren = {
   DonneesRoute: DonneesRoute,
   EcgRoute: EcgRouteWithChildren,
   ExamenRoute: ExamenRoute,
+  ExamenCliniqueRoute: ExamenCliniqueRoute,
   HistologieRoute: HistologieRouteWithChildren,
   ImagerieRoute: ImagerieRouteWithChildren,
   ImportRoute: ImportRoute,
