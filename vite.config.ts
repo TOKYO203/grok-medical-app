@@ -168,12 +168,13 @@ function authPopupPlugin(): Plugin {
  *  • pglite  : n'est atteint que si DATABASE_URL est absent (or la prod CF
  *    l'exige — le driver réel est `postgres` ci-dessous) ;
  *  • pg      : node-postgres exige net.Socket, absent de workerd — toute
- *    utilisation réelle échoue déjà ; seule consommatrice : Better Auth
- *    (VITE_AUTH_ENABLED=false en prod) ;
- *  • better-auth : Supabase est l'identité de prod ; Better Auth est le
- *    repli legacy, jamais appelé quand l'auth est désactivée.
+ *    utilisation réelle échoue déjà.
  * ⚠️ NE PAS stubber `postgres` (porsager) : c'est le driver DB de prod
  * (cloudflare:sockets). Le stubber casserait chaque requête SQL.
+ *
+ * better-auth n'est stubé QUE si l'auth est désactivée : le stub SSR renvoie
+ * 404 sur toutes les routes, donc avec VITE_AUTH_ENABLED=true il doit laisser
+ * passer le VRAI module (sinon /api/auth/* répond 404 body vide en prod).
  *
  * Trois couches d'application, car le bundle Nitro ne traverse pas
  * toujours le resolver Vite : (1) resolve.alias, (2) cfStubPlugin via
@@ -183,13 +184,45 @@ function authPopupPlugin(): Plugin {
 const stubCloudflare =
   !!process.env.CF_PAGES || process.env.STUB_CLOUDFLARE === "true";
 
+/** Auth active au build (le workflow de déploiement pose "true"). */
+const authEnabledAtBuild = process.env.VITE_AUTH_ENABLED === "true";
+
+/** Modules better-auth stubés quand — et seulement quand — l'auth est off. */
+const AUTH_STUB_MODULES = [
+  "better-auth",
+  "better-auth/plugins",
+  "better-auth/tanstack-start",
+  "better-auth/react",
+  "better-auth/api",
+  "better-auth/cookies",
+  "better-auth/oauth2",
+  "@better-auth/core",
+  "@better-auth/kysely-adapter",
+] as const;
+
 const CF_STUB_ALIASES: { find: RegExp; replacement: string }[] = [
   { find: /^@electric-sql\/pglite$/, replacement: "src/lib/db/pglite-stub.ts" },
   { find: /^pg$/, replacement: "src/lib/db/pg-stub.ts" },
-  { find: /^better-auth$/, replacement: "src/lib/auth/stub-ssr.ts" },
-  { find: /^better-auth\//, replacement: "src/lib/auth/stub-ssr.ts" },
-  { find: /^@better-auth\//, replacement: "src/lib/auth/stub-ssr.ts" },
+  ...(authEnabledAtBuild
+    ? []
+    : [
+        { find: /^better-auth$/, replacement: "src/lib/auth/stub-ssr.ts" },
+        { find: /^better-auth\//, replacement: "src/lib/auth/stub-ssr.ts" },
+        { find: /^@better-auth\//, replacement: "src/lib/auth/stub-ssr.ts" },
+      ]),
 ];
+
+/** Couche 3/3 : les mêmes alias, sous la forme attendue par nitro({ alias }). */
+function cfNitroAliases(): Record<string, string> {
+  const alias: Record<string, string> = {
+    "@electric-sql/pglite": resolvePath(process.cwd(), "src/lib/db/pglite-stub.ts"),
+  };
+  if (!authEnabledAtBuild) {
+    const stub = resolvePath(process.cwd(), "src/lib/auth/stub-ssr.ts");
+    for (const module of AUTH_STUB_MODULES) alias[module] = stub;
+  }
+  return alias;
+}
 
 function cfStubPlugin(): Plugin {
   return {
@@ -256,20 +289,7 @@ export default defineConfig(withServerEnv(({ command, isPreview }) => ({
             // traverse pas toujours le resolver Vite — alias au niveau Nitro.
             // Clés exactes (pas de "pg" : le matching par préfixe de Nitro
             // pourrait avaler "pglite"). cfStubPlugin gère pg strictement.
-            alias: stubCloudflare
-              ? Object.fromEntries([
-                  ["@electric-sql/pglite", resolvePath(process.cwd(), "src/lib/db/pglite-stub.ts")],
-                  ["better-auth", resolvePath(process.cwd(), "src/lib/auth/stub-ssr.ts")],
-                  ["better-auth/plugins", resolvePath(process.cwd(), "src/lib/auth/stub-ssr.ts")],
-                  ["better-auth/tanstack-start", resolvePath(process.cwd(), "src/lib/auth/stub-ssr.ts")],
-                  ["better-auth/react", resolvePath(process.cwd(), "src/lib/auth/stub-ssr.ts")],
-                  ["better-auth/api", resolvePath(process.cwd(), "src/lib/auth/stub-ssr.ts")],
-                  ["better-auth/cookies", resolvePath(process.cwd(), "src/lib/auth/stub-ssr.ts")],
-                  ["better-auth/oauth2", resolvePath(process.cwd(), "src/lib/auth/stub-ssr.ts")],
-                  ["@better-auth/core", resolvePath(process.cwd(), "src/lib/auth/stub-ssr.ts")],
-                  ["@better-auth/kysely-adapter", resolvePath(process.cwd(), "src/lib/auth/stub-ssr.ts")],
-                ])
-              : undefined,
+            alias: stubCloudflare ? cfNitroAliases() : undefined,
             // Rolldown can otherwise split TanStack Start's SSR facade into a
             // circular pair and emit an undefined `ssr_exports` binding.
             inlineDynamicImports: true,

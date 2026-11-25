@@ -914,3 +914,8 @@ une affectation de `VITE_AUTH_ENABLED` sur `process.env` dans le lanceur.
 **Commits.** fondation + wiring → `179ec64` ; leçons 1-5 → puis leçons 6-10 → puis deux passes de relecture orthographique → `final` EXC-1.
 
 **Volume.** 10 leçons NEURO (1 publique + 9 premium), 54 questions de contrôle + examen final de 15 questions (seuil 80 %).
+## 2026-11-25 — Fix auth Worker : alias better-auth conditionnels
+
+| Date | ID | Décision | Motif |
+|------|-----|---------|--------|
+| 2026-11-25 | — | Les alias better-auth de `vite.config.ts` (`resolve.alias`, `cfStubPlugin`, `nitro({ alias })`) ne s'appliquent plus que si `VITE_AUTH_ENABLED !== "true"` ; `@electric-sql/pglite` et `pg` restent toujours stubés | `build:worker` force `CF_PAGES=1`, donc le stub SSR s'appliquait inconditionnellement et `/api/auth/*` répondait 404 body vide en prod malgré `VITE_AUTH_ENABLED=true`. `assert-worker-stubs.mjs` contrôle désormais l'inverse (stub better-auth absent, module réel bundlé) au lieu de refuser le build |

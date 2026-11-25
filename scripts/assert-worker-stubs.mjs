@@ -27,12 +27,11 @@ if (!isCloudflare) {
 const isWorkerMode = process.env.CF_WORKER === "true";
 const LIMIT_MIB = isWorkerMode ? 64 : 25;
 
-if (process.env.VITE_AUTH_ENABLED === "true") {
-  console.error(
-    "[assert-worker-stubs] VITE_AUTH_ENABLED=true : les stubs better-auth sont INCOMPATIBLES avec l'auth active — la connexion serait cassée. Décider : stubs OU auth, pas les deux.",
-  );
-  process.exit(1);
-}
+// Avec VITE_AUTH_ENABLED=true, `vite.config.ts` n'applique PLUS les alias
+// better-auth : le VRAI module doit être bundlé et le stub être ABSENT. Le
+// contrôle devient donc inversé, plus un refus catégorique (les deux étaient
+// inconciliables tant que l'alias Nitro stubait inconditionnellement).
+const authEnabled = process.env.VITE_AUTH_ENABLED === "true";
 
 /** Parcourt un répertoire récursivement : { files: [path], bytes }. */
 async function walk(dir, base = dir) {
@@ -119,13 +118,35 @@ for (const [marker, label] of markers) {
     failed = true;
   }
 }
-// better-auth : avec VITE_AUTH_ENABLED=false, le module n'est parfois pas
-// importé du tout par le graphe serveur (contrôlé plus haut) — dans ce cas le
-// stub n'y figure pas non plus et il n'y a RIEN à stubber. Exiger le marqueur
-// était un faux positif qui faisait échouer des builds sains. Le marqueur ne
-// reste fatal que si le VRAI module better-auth est détecté dans le bundle.
-if (!code.includes("[stub] kysely")) {
-  const realPresent = /better-auth|BetterAuth/.test(code);
+// better-auth : marqueur du stub SSR (`[stub] kysely` n'existe que dans
+// src/lib/auth/stub-ssr.ts).
+const AUTH_STUB_MARKER = "[stub] kysely";
+const stubPresent = code.includes(AUTH_STUB_MARKER);
+const realPresent = /better-auth|BetterAuth/.test(code);
+
+if (authEnabled) {
+  // Le stub répond `new Response(null, { status: 404 })` sur toutes les routes
+  // /api/auth/* : sa présence avec l'auth active est le bug de prod (get-session
+  // → 404 body vide). Fatal.
+  if (stubPresent) {
+    console.error(
+      "[assert-worker-stubs] stub better-auth PRÉSENT dans le worker alors que VITE_AUTH_ENABLED=true : /api/auth/* renverrait 404. Les alias better-auth de vite.config.ts doivent rester conditionnels (resolve.alias + cfStubPlugin + nitro({ alias })).",
+    );
+    failed = true;
+  } else {
+    console.log(
+      `[assert-worker-stubs] auth active : stub better-auth absent du worker${realPresent ? " (better-auth réel bundlé)" : " — vérifier que better-auth est bien bundlé"} .`,
+    );
+    if (!realPresent) {
+      console.warn(
+        "[assert-worker-stubs] better-auth introuvable dans le bundle avec VITE_AUTH_ENABLED=true : la connexion risque d'être indisponible au runtime.",
+      );
+    }
+  }
+} else if (!stubPresent) {
+  // Auth désactivée : le module n'est parfois pas importé du tout par le graphe
+  // serveur — dans ce cas le stub n'y figure pas non plus et il n'y a RIEN à
+  // stubber. Exiger le marqueur serait un faux positif (builds sains rejetés).
   console.warn(`[assert-worker-stubs] stub better-auth absent du worker${realPresent ? " (le vrai module y figure : les alias de stubs ne s'appliquent pas au bundle Nitro — voir resolve.alias + cfStubPlugin + nitro({ alias }) dans vite.config.ts)" : " (VITE_AUTH_ENABLED=false : module non importé, rien à stubber)"}. Non bloquant : auth désactivée au runtime, la taille du worker reste le garde-fou réel.`);
 }
 if (mib >= LIMIT_MIB) {
