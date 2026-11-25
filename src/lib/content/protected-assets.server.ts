@@ -83,7 +83,7 @@ const FAMILY_GLOBS: Record<ProtectedFamily, Record<string, RawLoader>> = {
     query: "?raw",
     import: "default",
   }) as unknown as Record<string, RawLoader>,
-  examen-clinique: import.meta.glob("/private/content/examen-clinique/*.json", {
+  "examen-clinique": import.meta.glob("/private/content/examen-clinique/*.json", {
     query: "?raw",
     import: "default",
   }) as unknown as Record<string, RawLoader>,
