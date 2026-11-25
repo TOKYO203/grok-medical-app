@@ -55,6 +55,7 @@ import { Route as TarifsRouteImport } from './routes/tarifs'
 import { Route as ValeursReferenceRouteImport } from './routes/valeurs-reference'
 import { Route as ValidationCliniqueRouteImport } from './routes/validation-clinique'
 import { Route as DevKitchenSinkRouteImport } from './routes/_dev.kitchen-sink'
+import { Route as ApiAdminLogoutRouteImport } from './routes/api.admin-logout'
 import { Route as ApiAdminVerifyRouteImport } from './routes/api.admin-verify'
 import { Route as ApiAiStreamRouteImport } from './routes/api.ai-stream'
 import { Route as ApiEventsRouteImport } from './routes/api.events'
@@ -69,15 +70,20 @@ import { Route as ImagerieCaseIdRouteImport } from './routes/imagerie.$caseId'
 import { Route as LearnDeckIdRouteImport } from './routes/learn.$deckId'
 import { Route as ParcoursDeckIdRouteImport } from './routes/parcours.$deckId'
 import { Route as PathologieSlugRouteImport } from './routes/pathologie.$slug'
+import { Route as ApiAuthSplatRouteImport } from './routes/api.auth.$'
 import { Route as ApiCheckoutAriariRouteImport } from './routes/api.checkout.ariari'
 import { Route as ApiCheckoutLemonsqueezyRouteImport } from './routes/api.checkout.lemonsqueezy'
 import { Route as ApiHealthCheckoutRouteImport } from './routes/api.health.checkout'
 import { Route as ApiLicensesActivateRouteImport } from './routes/api.licenses.activate'
 import { Route as ApiLicensesSessionRouteImport } from './routes/api.licenses.session'
+import { Route as ApiLicensesTrialTokenRouteImport } from './routes/api.licenses.trial-token'
 import { Route as ApiLicensesVerifyRouteImport } from './routes/api.licenses.verify'
+import { Route as ApiQuizAnswerRouteImport } from './routes/api.quiz.answer'
 import { Route as ApiWebhooksAriariRouteImport } from './routes/api.webhooks.ariari'
 import { Route as ApiWebhooksLemonsqueezyRouteImport } from './routes/api.webhooks.lemonsqueezy'
 import { Route as ContentTypeFileRouteImport } from './routes/content.$type.$file'
+import { Route as EcgNiveauLetterRouteImport } from './routes/ecg.niveau.$letter'
+import { Route as EcgNiveauLetterLeconIdRouteImport } from './routes/ecg.niveau.$letter.$leconId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -308,6 +314,11 @@ const DevKitchenSinkRoute = DevKitchenSinkRouteImport.update({
   path: '/kitchen-sink',
   getParentRoute: () => DevRoute,
 } as any)
+const ApiAdminLogoutRoute = ApiAdminLogoutRouteImport.update({
+  id: '/api/admin-logout',
+  path: '/api/admin-logout',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiAdminVerifyRoute = ApiAdminVerifyRouteImport.update({
   id: '/api/admin-verify',
   path: '/api/admin-verify',
@@ -378,6 +389,11 @@ const PathologieSlugRoute = PathologieSlugRouteImport.update({
   path: '/pathologie/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiAuthSplatRoute = ApiAuthSplatRouteImport.update({
+  id: '/api/auth/$',
+  path: '/api/auth/$',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiCheckoutAriariRoute = ApiCheckoutAriariRouteImport.update({
   id: '/api/checkout/ariari',
   path: '/api/checkout/ariari',
@@ -403,9 +419,19 @@ const ApiLicensesSessionRoute = ApiLicensesSessionRouteImport.update({
   path: '/api/licenses/session',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiLicensesTrialTokenRoute = ApiLicensesTrialTokenRouteImport.update({
+  id: '/api/licenses/trial-token',
+  path: '/api/licenses/trial-token',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiLicensesVerifyRoute = ApiLicensesVerifyRouteImport.update({
   id: '/api/licenses/verify',
   path: '/api/licenses/verify',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiQuizAnswerRoute = ApiQuizAnswerRouteImport.update({
+  id: '/api/quiz/answer',
+  path: '/api/quiz/answer',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiWebhooksAriariRoute = ApiWebhooksAriariRouteImport.update({
@@ -422,6 +448,16 @@ const ContentTypeFileRoute = ContentTypeFileRouteImport.update({
   id: '/content/$type/$file',
   path: '/content/$type/$file',
   getParentRoute: () => rootRouteImport,
+} as any)
+const EcgNiveauLetterRoute = EcgNiveauLetterRouteImport.update({
+  id: '/niveau/$letter',
+  path: '/niveau/$letter',
+  getParentRoute: () => EcgRoute,
+} as any)
+const EcgNiveauLetterLeconIdRoute = EcgNiveauLetterLeconIdRouteImport.update({
+  id: '/$leconId',
+  path: '/$leconId',
+  getParentRoute: () => EcgNiveauLetterRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
@@ -470,6 +506,7 @@ export interface FileRoutesByFullPath {
   '/valeurs-reference': typeof ValeursReferenceRoute
   '/validation-clinique': typeof ValidationCliniqueRoute
   '/kitchen-sink': typeof DevKitchenSinkRoute
+  '/api/admin-logout': typeof ApiAdminLogoutRoute
   '/api/admin-verify': typeof ApiAdminVerifyRoute
   '/api/ai-stream': typeof ApiAiStreamRoute
   '/api/events': typeof ApiEventsRoute
@@ -484,15 +521,20 @@ export interface FileRoutesByFullPath {
   '/pathologie/$slug': typeof PathologieSlugRoute
   '/histologie/': typeof HistologieIndexRoute
   '/imagerie/': typeof ImagerieIndexRoute
+  '/api/auth/$': typeof ApiAuthSplatRoute
   '/api/checkout/ariari': typeof ApiCheckoutAriariRoute
   '/api/checkout/lemonsqueezy': typeof ApiCheckoutLemonsqueezyRoute
   '/api/health/checkout': typeof ApiHealthCheckoutRoute
   '/api/licenses/activate': typeof ApiLicensesActivateRoute
   '/api/licenses/session': typeof ApiLicensesSessionRoute
+  '/api/licenses/trial-token': typeof ApiLicensesTrialTokenRoute
   '/api/licenses/verify': typeof ApiLicensesVerifyRoute
+  '/api/quiz/answer': typeof ApiQuizAnswerRoute
   '/api/webhooks/ariari': typeof ApiWebhooksAriariRoute
   '/api/webhooks/lemonsqueezy': typeof ApiWebhooksLemonsqueezyRoute
   '/content/$type/$file': typeof ContentTypeFileRoute
+  '/ecg/niveau/$letter': typeof EcgNiveauLetterRouteWithChildren
+  '/ecg/niveau/$letter/$leconId': typeof EcgNiveauLetterLeconIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -538,6 +580,7 @@ export interface FileRoutesByTo {
   '/valeurs-reference': typeof ValeursReferenceRoute
   '/validation-clinique': typeof ValidationCliniqueRoute
   '/kitchen-sink': typeof DevKitchenSinkRoute
+  '/api/admin-logout': typeof ApiAdminLogoutRoute
   '/api/admin-verify': typeof ApiAdminVerifyRoute
   '/api/ai-stream': typeof ApiAiStreamRoute
   '/api/events': typeof ApiEventsRoute
@@ -552,15 +595,20 @@ export interface FileRoutesByTo {
   '/pathologie/$slug': typeof PathologieSlugRoute
   '/histologie': typeof HistologieIndexRoute
   '/imagerie': typeof ImagerieIndexRoute
+  '/api/auth/$': typeof ApiAuthSplatRoute
   '/api/checkout/ariari': typeof ApiCheckoutAriariRoute
   '/api/checkout/lemonsqueezy': typeof ApiCheckoutLemonsqueezyRoute
   '/api/health/checkout': typeof ApiHealthCheckoutRoute
   '/api/licenses/activate': typeof ApiLicensesActivateRoute
   '/api/licenses/session': typeof ApiLicensesSessionRoute
+  '/api/licenses/trial-token': typeof ApiLicensesTrialTokenRoute
   '/api/licenses/verify': typeof ApiLicensesVerifyRoute
+  '/api/quiz/answer': typeof ApiQuizAnswerRoute
   '/api/webhooks/ariari': typeof ApiWebhooksAriariRoute
   '/api/webhooks/lemonsqueezy': typeof ApiWebhooksLemonsqueezyRoute
   '/content/$type/$file': typeof ContentTypeFileRoute
+  '/ecg/niveau/$letter': typeof EcgNiveauLetterRouteWithChildren
+  '/ecg/niveau/$letter/$leconId': typeof EcgNiveauLetterLeconIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -610,6 +658,7 @@ export interface FileRoutesById {
   '/valeurs-reference': typeof ValeursReferenceRoute
   '/validation-clinique': typeof ValidationCliniqueRoute
   '/_dev/kitchen-sink': typeof DevKitchenSinkRoute
+  '/api/admin-logout': typeof ApiAdminLogoutRoute
   '/api/admin-verify': typeof ApiAdminVerifyRoute
   '/api/ai-stream': typeof ApiAiStreamRoute
   '/api/events': typeof ApiEventsRoute
@@ -624,15 +673,20 @@ export interface FileRoutesById {
   '/pathologie/$slug': typeof PathologieSlugRoute
   '/histologie/': typeof HistologieIndexRoute
   '/imagerie/': typeof ImagerieIndexRoute
+  '/api/auth/$': typeof ApiAuthSplatRoute
   '/api/checkout/ariari': typeof ApiCheckoutAriariRoute
   '/api/checkout/lemonsqueezy': typeof ApiCheckoutLemonsqueezyRoute
   '/api/health/checkout': typeof ApiHealthCheckoutRoute
   '/api/licenses/activate': typeof ApiLicensesActivateRoute
   '/api/licenses/session': typeof ApiLicensesSessionRoute
+  '/api/licenses/trial-token': typeof ApiLicensesTrialTokenRoute
   '/api/licenses/verify': typeof ApiLicensesVerifyRoute
+  '/api/quiz/answer': typeof ApiQuizAnswerRoute
   '/api/webhooks/ariari': typeof ApiWebhooksAriariRoute
   '/api/webhooks/lemonsqueezy': typeof ApiWebhooksLemonsqueezyRoute
   '/content/$type/$file': typeof ContentTypeFileRoute
+  '/ecg/niveau/$letter': typeof EcgNiveauLetterRouteWithChildren
+  '/ecg/niveau/$letter/$leconId': typeof EcgNiveauLetterLeconIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -682,6 +736,7 @@ export interface FileRouteTypes {
     | '/valeurs-reference'
     | '/validation-clinique'
     | '/kitchen-sink'
+    | '/api/admin-logout'
     | '/api/admin-verify'
     | '/api/ai-stream'
     | '/api/events'
@@ -696,15 +751,20 @@ export interface FileRouteTypes {
     | '/pathologie/$slug'
     | '/histologie/'
     | '/imagerie/'
+    | '/api/auth/$'
     | '/api/checkout/ariari'
     | '/api/checkout/lemonsqueezy'
     | '/api/health/checkout'
     | '/api/licenses/activate'
     | '/api/licenses/session'
+    | '/api/licenses/trial-token'
     | '/api/licenses/verify'
+    | '/api/quiz/answer'
     | '/api/webhooks/ariari'
     | '/api/webhooks/lemonsqueezy'
     | '/content/$type/$file'
+    | '/ecg/niveau/$letter'
+    | '/ecg/niveau/$letter/$leconId'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -750,6 +810,7 @@ export interface FileRouteTypes {
     | '/valeurs-reference'
     | '/validation-clinique'
     | '/kitchen-sink'
+    | '/api/admin-logout'
     | '/api/admin-verify'
     | '/api/ai-stream'
     | '/api/events'
@@ -764,15 +825,20 @@ export interface FileRouteTypes {
     | '/pathologie/$slug'
     | '/histologie'
     | '/imagerie'
+    | '/api/auth/$'
     | '/api/checkout/ariari'
     | '/api/checkout/lemonsqueezy'
     | '/api/health/checkout'
     | '/api/licenses/activate'
     | '/api/licenses/session'
+    | '/api/licenses/trial-token'
     | '/api/licenses/verify'
+    | '/api/quiz/answer'
     | '/api/webhooks/ariari'
     | '/api/webhooks/lemonsqueezy'
     | '/content/$type/$file'
+    | '/ecg/niveau/$letter'
+    | '/ecg/niveau/$letter/$leconId'
   id:
     | '__root__'
     | '/'
@@ -821,6 +887,7 @@ export interface FileRouteTypes {
     | '/valeurs-reference'
     | '/validation-clinique'
     | '/_dev/kitchen-sink'
+    | '/api/admin-logout'
     | '/api/admin-verify'
     | '/api/ai-stream'
     | '/api/events'
@@ -835,15 +902,20 @@ export interface FileRouteTypes {
     | '/pathologie/$slug'
     | '/histologie/'
     | '/imagerie/'
+    | '/api/auth/$'
     | '/api/checkout/ariari'
     | '/api/checkout/lemonsqueezy'
     | '/api/health/checkout'
     | '/api/licenses/activate'
     | '/api/licenses/session'
+    | '/api/licenses/trial-token'
     | '/api/licenses/verify'
+    | '/api/quiz/answer'
     | '/api/webhooks/ariari'
     | '/api/webhooks/lemonsqueezy'
     | '/content/$type/$file'
+    | '/ecg/niveau/$letter'
+    | '/ecg/niveau/$letter/$leconId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -892,18 +964,22 @@ export interface RootRouteChildren {
   TarifsRoute: typeof TarifsRoute
   ValeursReferenceRoute: typeof ValeursReferenceRoute
   ValidationCliniqueRoute: typeof ValidationCliniqueRoute
+  ApiAdminLogoutRoute: typeof ApiAdminLogoutRoute
   ApiAdminVerifyRoute: typeof ApiAdminVerifyRoute
   ApiAiStreamRoute: typeof ApiAiStreamRoute
   ApiEventsRoute: typeof ApiEventsRoute
   ApiInstitutionLeadsRoute: typeof ApiInstitutionLeadsRoute
   LearnDeckIdRoute: typeof LearnDeckIdRoute
   PathologieSlugRoute: typeof PathologieSlugRoute
+  ApiAuthSplatRoute: typeof ApiAuthSplatRoute
   ApiCheckoutAriariRoute: typeof ApiCheckoutAriariRoute
   ApiCheckoutLemonsqueezyRoute: typeof ApiCheckoutLemonsqueezyRoute
   ApiHealthCheckoutRoute: typeof ApiHealthCheckoutRoute
   ApiLicensesActivateRoute: typeof ApiLicensesActivateRoute
   ApiLicensesSessionRoute: typeof ApiLicensesSessionRoute
+  ApiLicensesTrialTokenRoute: typeof ApiLicensesTrialTokenRoute
   ApiLicensesVerifyRoute: typeof ApiLicensesVerifyRoute
+  ApiQuizAnswerRoute: typeof ApiQuizAnswerRoute
   ApiWebhooksAriariRoute: typeof ApiWebhooksAriariRoute
   ApiWebhooksLemonsqueezyRoute: typeof ApiWebhooksLemonsqueezyRoute
   ContentTypeFileRoute: typeof ContentTypeFileRoute
@@ -1233,6 +1309,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DevKitchenSinkRouteImport
       parentRoute: typeof DevRoute
     }
+    '/api/admin-logout': {
+      id: '/api/admin-logout'
+      path: '/api/admin-logout'
+      fullPath: '/api/admin-logout'
+      preLoaderRoute: typeof ApiAdminLogoutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/admin-verify': {
       id: '/api/admin-verify'
       path: '/api/admin-verify'
@@ -1331,6 +1414,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PathologieSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/auth/$': {
+      id: '/api/auth/$'
+      path: '/api/auth/$'
+      fullPath: '/api/auth/$'
+      preLoaderRoute: typeof ApiAuthSplatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/checkout/ariari': {
       id: '/api/checkout/ariari'
       path: '/api/checkout/ariari'
@@ -1366,11 +1456,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiLicensesSessionRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/licenses/trial-token': {
+      id: '/api/licenses/trial-token'
+      path: '/api/licenses/trial-token'
+      fullPath: '/api/licenses/trial-token'
+      preLoaderRoute: typeof ApiLicensesTrialTokenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/licenses/verify': {
       id: '/api/licenses/verify'
       path: '/api/licenses/verify'
       fullPath: '/api/licenses/verify'
       preLoaderRoute: typeof ApiLicensesVerifyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/quiz/answer': {
+      id: '/api/quiz/answer'
+      path: '/api/quiz/answer'
+      fullPath: '/api/quiz/answer'
+      preLoaderRoute: typeof ApiQuizAnswerRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/webhooks/ariari': {
@@ -1393,6 +1497,20 @@ declare module '@tanstack/react-router' {
       fullPath: '/content/$type/$file'
       preLoaderRoute: typeof ContentTypeFileRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/ecg/niveau/$letter': {
+      id: '/ecg/niveau/$letter'
+      path: '/niveau/$letter'
+      fullPath: '/ecg/niveau/$letter'
+      preLoaderRoute: typeof EcgNiveauLetterRouteImport
+      parentRoute: typeof EcgRoute
+    }
+    '/ecg/niveau/$letter/$leconId': {
+      id: '/ecg/niveau/$letter/$leconId'
+      path: '/$leconId'
+      fullPath: '/ecg/niveau/$letter/$leconId'
+      preLoaderRoute: typeof EcgNiveauLetterLeconIdRouteImport
+      parentRoute: typeof EcgNiveauLetterRoute
     }
   }
 }
@@ -1429,12 +1547,26 @@ const DemarcheRouteWithChildren = DemarcheRoute._addFileChildren(
   DemarcheRouteChildren,
 )
 
+interface EcgNiveauLetterRouteChildren {
+  EcgNiveauLetterLeconIdRoute: typeof EcgNiveauLetterLeconIdRoute
+}
+
+const EcgNiveauLetterRouteChildren: EcgNiveauLetterRouteChildren = {
+  EcgNiveauLetterLeconIdRoute: EcgNiveauLetterLeconIdRoute,
+}
+
+const EcgNiveauLetterRouteWithChildren = EcgNiveauLetterRoute._addFileChildren(
+  EcgNiveauLetterRouteChildren,
+)
+
 interface EcgRouteChildren {
   EcgIdRoute: typeof EcgIdRoute
+  EcgNiveauLetterRoute: typeof EcgNiveauLetterRouteWithChildren
 }
 
 const EcgRouteChildren: EcgRouteChildren = {
   EcgIdRoute: EcgIdRoute,
+  EcgNiveauLetterRoute: EcgNiveauLetterRouteWithChildren,
 }
 
 const EcgRouteWithChildren = EcgRoute._addFileChildren(EcgRouteChildren)
@@ -1525,18 +1657,22 @@ const rootRouteChildren: RootRouteChildren = {
   TarifsRoute: TarifsRoute,
   ValeursReferenceRoute: ValeursReferenceRoute,
   ValidationCliniqueRoute: ValidationCliniqueRoute,
+  ApiAdminLogoutRoute: ApiAdminLogoutRoute,
   ApiAdminVerifyRoute: ApiAdminVerifyRoute,
   ApiAiStreamRoute: ApiAiStreamRoute,
   ApiEventsRoute: ApiEventsRoute,
   ApiInstitutionLeadsRoute: ApiInstitutionLeadsRoute,
   LearnDeckIdRoute: LearnDeckIdRoute,
   PathologieSlugRoute: PathologieSlugRoute,
+  ApiAuthSplatRoute: ApiAuthSplatRoute,
   ApiCheckoutAriariRoute: ApiCheckoutAriariRoute,
   ApiCheckoutLemonsqueezyRoute: ApiCheckoutLemonsqueezyRoute,
   ApiHealthCheckoutRoute: ApiHealthCheckoutRoute,
   ApiLicensesActivateRoute: ApiLicensesActivateRoute,
   ApiLicensesSessionRoute: ApiLicensesSessionRoute,
+  ApiLicensesTrialTokenRoute: ApiLicensesTrialTokenRoute,
   ApiLicensesVerifyRoute: ApiLicensesVerifyRoute,
+  ApiQuizAnswerRoute: ApiQuizAnswerRoute,
   ApiWebhooksAriariRoute: ApiWebhooksAriariRoute,
   ApiWebhooksLemonsqueezyRoute: ApiWebhooksLemonsqueezyRoute,
   ContentTypeFileRoute: ContentTypeFileRoute,
