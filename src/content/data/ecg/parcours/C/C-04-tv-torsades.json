@@ -1,17 +1,91 @@
 {
-  "id": "C-04", "level": "C", "order": 4,
-  "title": "Tachycardies ventriculaires et torsades", "durationMin": 8,
-  "objectives": ["Reconnaître une TV (QRS large, régulière)", "Distinguer TV et TSV avec aberration", "Reconnaître une torsade de pointes", "Comprendre la stratégie thérapeutique urgente"],
-  "content": [
-    { "type": "text", "markdown": "Une **tachycardie à QRS large** est une **TV jusqu'à preuve du contraire**. La distinction avec une TSV avec aberration (BBD) est difficile mais cruciale : le traitement diffère." },
-    { "type": "table", "headers": ["Critère", "TV", "TSV avec BBD"], "rows": [["QRS", "Large (> 120 ms)", "Large (BBD)"], ["Régularité", "Régulière (sauf TV polymorphe)", "Régulière"], ["Dissociation AV", "Présente", "Absente"], ["Tolérance", "Souvent mauvaise", "Variable"]] },
-    { "type": "callout", "tone": "danger", "title": "En pratique aux urgences", "markdown": "**Toute tachycardie à QRS large est une TV jusqu'à preuve du contraire.** Si instable (hypotension, douleur, OAP) = **choc électrique immédiat**. Si stable = amiodarone IV, prêt à choquer. Les torsades de pointes (TV polymorphe sur QT long) se traitent par **sulfate de magnésium**." },
-    { "type": "text", "markdown": "## Torsades de pointes : le piège du QT long\n\nLa **torsade de pointes** est une TV polymorphe sur **QT long** (QT corrigé > 500 ms). Favorisée par : hypokaliémie, hypomagnésémie, médicaments (amiodarone, antipsychotiques, macrolides). Traitement : **sulfate de magnésium 2g IV** + correction des troubles ioniques." }
+  "id": "C-04",
+  "level": "C",
+  "order": 4,
+  "title": "Tachycardies ventriculaires et torsades",
+  "durationMin": 8,
+  "objectives": [
+    "Reconnaître une TV (QRS large, régulière)",
+    "Distinguer TV et TSV avec aberration",
+    "Reconnaître une torsade de pointes",
+    "Comprendre la stratégie thérapeutique urgente"
   ],
-  "keyPoints": ["Tachycardie à QRS large = TV jusqu'à preuve du contraire", "Instable = choc électrique immédiat", "Stable = amiodarone IV, prêt à choquer", "Torsades = TV polymorphe sur QT long", "Torsades = sulfate de magnésium 2g IV"],
+  "content": [
+    {
+      "type": "text",
+      "markdown": "Une **tachycardie à QRS large** est une **TV jusqu'à preuve du contraire**. La distinction avec une TSV avec aberration (BBD) est difficile mais cruciale : le traitement diffère."
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Critère",
+        "TV",
+        "TSV avec BBD"
+      ],
+      "rows": [
+        [
+          "QRS",
+          "Large (> 120 ms)",
+          "Large (BBD)"
+        ],
+        [
+          "Régularité",
+          "Régulière (sauf TV polymorphe)",
+          "Régulière"
+        ],
+        [
+          "Dissociation AV",
+          "Présente",
+          "Absente"
+        ],
+        [
+          "Tolérance",
+          "Souvent mauvaise",
+          "Variable"
+        ]
+      ]
+    },
+    {
+      "type": "callout",
+      "tone": "danger",
+      "title": "En pratique aux urgences",
+      "markdown": "**Toute tachycardie à QRS large est une TV jusqu'à preuve du contraire.** Si instable (hypotension, douleur, OAP) = **choc électrique immédiat**. Si stable = amiodarone IV, prêt à choquer. Les torsades de pointes (TV polymorphe sur QT long) se traitent par **sulfate de magnésium**."
+    },
+    {
+      "type": "text",
+      "markdown": "## Torsades de pointes : le piège du QT long\n\nLa **torsade de pointes** est une TV polymorphe sur **QT long** (QT corrigé > 500 ms). Favorisée par : hypokaliémie, hypomagnésémie, médicaments (amiodarone, antipsychotiques, macrolides). Traitement : **sulfate de magnésium IV** (selon protocole) + correction des troubles ioniques."
+    }
+  ],
+  "keyPoints": [
+    "Tachycardie à QRS large = TV jusqu'à preuve du contraire",
+    "Instable = choc électrique immédiat",
+    "Stable = amiodarone IV, prêt à choquer",
+    "Torsades = TV polymorphe sur QT long",
+    "Torsades = sulfate de magnésium IV (selon protocole)"
+  ],
   "checkQuiz": [
-    { "question": "Tachycardie régulière à QRS large à 180 bpm, hypotension à 85/50. Première action ?", "choices": ["Amiodarone IV", "Choc électrique immédiat", "Bêtabloquant", "Attendre et refaire l'ECG"], "correct": 1, "explanation": "Tachycardie à QRS large + instabilité = choc électrique immédiat." },
-    { "question": "Quel traitement est spécifique des torsades de pointes ?", "choices": ["Amiodarone", "Sulfate de magnésium 2g IV", "Atropine", "Adrénaline"], "correct": 1, "explanation": "Torsades de pointes = sulfate de magnésium IV." }
+    {
+      "question": "Tachycardie régulière à QRS large à 180 bpm, hypotension à 85/50. Première action ?",
+      "choices": [
+        "Amiodarone IV",
+        "Choc électrique immédiat",
+        "Bêtabloquant",
+        "Attendre et refaire l'ECG"
+      ],
+      "correct": 1,
+      "explanation": "Tachycardie à QRS large + instabilité = choc électrique immédiat."
+    },
+    {
+      "question": "Quel traitement est spécifique des torsades de pointes ?",
+      "choices": [
+        "Amiodarone",
+        "Sulfate de magnésium IV",
+        "Atropine",
+        "Adrénaline"
+      ],
+      "correct": 1,
+      "explanation": "Torsades de pointes = sulfate de magnésium IV."
+    }
   ],
   "caseStudy": "ecg-3-7-tv"
 }
