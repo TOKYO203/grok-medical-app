@@ -34,12 +34,12 @@ import type { ContentBlock, Lesson } from "@/lib/examen-clinique/types";
  *
  * Modèle ECG : une route plate, la leçon choisie via le paramètre ?lesson=,
  * une progression locale (localStorage) et un déblocage progressif
- * (leçon N ouverte quand la leçon N-1 atteint 80 %).
+ * (leçon N'ouverte quand la leçon N-1 atteint 80 %).
  *
  * Le verrou PREMIUM est SERVER-side : la leçon 1 est un actif public
  * (public/content/examen-clinique/neuro-01.json), les leçons 2 à 10 vivent dans
  * private/content/examen-clinique/ et ne sortent que contre un jeton de
- * contenu — sans licence, aucun octet de leçon n arrive dans le navigateur,
+ * contenu — sans licence, aucun octet de leçon n'arrive dans le navigateur,
  * la page affiche le bandeau ContentLocked.
  */
 export const Route = createFileRoute("/examen-clinique")({
@@ -106,7 +106,7 @@ function LessonList({ onToggleUnlockAll }: { onToggleUnlockAll: () => void }) {
           <div className="h-full rounded-full bg-primary" style={{ width: pct + "%" }} />
         </div>
         <p className="mt-2 text-xs text-subtle">
-          La leçon suivante s ouvre quand la précédente est validée à au moins {getUnlockThreshold()} %.
+          La leçon suivante s'ouvre quand la précédente est validée à au moins {getUnlockThreshold()} %.
         </p>
       </div>
 
@@ -123,7 +123,7 @@ function LessonList({ onToggleUnlockAll }: { onToggleUnlockAll: () => void }) {
                   <p className="text-sm font-medium">{meta.order}. {meta.title}</p>
                   <p className="mt-0.5 text-xs text-subtle">{meta.durationMin} min · {badge}</p>
                 </div>
-                <span className="text-xs text-subtle">Validez la leçon {meta.order - 1} d abord</span>
+                <span className="text-xs text-subtle">Validez la leçon {meta.order - 1} d'abord</span>
               </li>
             );
           }
@@ -213,7 +213,7 @@ function LessonView({ id, onDone }: { id: string; onDone: () => void }) {
     return (
       <div className="optimus-card mt-4 p-6 text-center" data-examen-lesson="missing">
         <p className="font-display text-lg">Leçon en préparation</p>
-        <p className="mt-2 text-sm text-muted">Cette leçon n est pas encore publiée.</p>
+        <p className="mt-2 text-sm text-muted">Cette leçon n'est pas encore publiée.</p>
       </div>
     );
   }

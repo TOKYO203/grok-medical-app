@@ -8,7 +8,7 @@
 //     contenu par le garde commun /content/$type/$file (famille
 //     "examen-clinique").
 //
-// ⚠️ Aucun JSON de leçon n est importé statiquement : rien du contenu premium
+// ⚠️ Aucun JSON de leçon n'est importé statiquement : rien du contenu premium
 // ne doit entrer dans le bundle client (scripts/bundle-content.test.mjs).
 
 import { fetchWithAuth } from "@/lib/auth/session";
@@ -21,15 +21,15 @@ export const NEURO_SYSTEM: SystemMeta = {
   title: "Neurologie",
   subtitle: "Du GCS aux réflexes",
   description:
-    "Le système d examen le plus redouté des étudiants, déroulé en 10 leçons guidées : un ordre, des gestes précis, un vocabulaire reproductible.",
+    "Le système d'examen le plus redouté des étudiants, déroulé en 10 leçons guidées : un ordre, des gestes précis, un vocabulaire reproductible.",
   objective:
-    "Dérouler un examen neurologique complet, orienté et reproductible — et décrire ce qu on voit avec le bon vocabulaire.",
+    "Dérouler un examen neurologique complet, orienté et reproductible — et décrire ce qu'on voit avec le bon vocabulaire.",
   estimatedMin: 108,
 };
 
 /** Ordre éditorial NEURO : leçon 1 publique, 2-9 thématiques, 10 examen final. */
 export const NEURO_LESSONS: LessonMeta[] = [
-  { id: "neuro-01", system: "NEURO", order: 1, title: "Les 9 temps de l examen neurologique", durationMin: 8, isFree: true },
+  { id: "neuro-01", system: "NEURO", order: 1, title: "Les 9 temps de l'examen neurologique", durationMin: 8, isFree: true },
   { id: "neuro-02", system: "NEURO", order: 2, title: "Conscience : le GCS en pratique", durationMin: 10 },
   { id: "neuro-03", system: "NEURO", order: 3, title: "Langage : dépister une aphasie en 3 minutes", durationMin: 10 },
   { id: "neuro-04", system: "NEURO", order: 4, title: "Les paires crâniennes, de I à XII", durationMin: 12 },
@@ -41,7 +41,7 @@ export const NEURO_LESSONS: LessonMeta[] = [
   { id: "neuro-10", system: "NEURO", order: 10, title: "Examen final — Neurologie", durationMin: 20, isExam: true, passThreshold: 80 },
 ];
 
-/** Id de la leçon d ordre N-1 (règle de déblocage progressif). */
+/** Id de la leçon d'ordre N-1 (règle de déblocage progressif). */
 export function previousLessonId(order: number): string | undefined {
   const previous = NEURO_LESSONS.find((lesson) => lesson.order === order - 1);
   return previous === undefined ? undefined : previous.id;
@@ -112,7 +112,7 @@ function cache(id: string, value: LessonLoad): LessonLoad {
 
 /**
  * Charge une leçon : leçon 1 en actif public (simple fetch), les autres sous
- * jeton (fetchWithAuth). Ne lève jamais : la page affiche l état.
+ * jeton (fetchWithAuth). Ne lève jamais : la page affiche l'état.
  */
 export async function loadLesson(id: string): Promise<LessonLoad> {
   const cached = lessonCache.get(id);

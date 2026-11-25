@@ -88,10 +88,10 @@ export function setUnlockAll(active: boolean): void {
 }
 
 /**
- * La leçon d ordre N est débloquée si :
- *  - c est la leçon 1 (toujours accessible) ;
+ * La leçon d'ordre N'est débloquée si :
+ *  - c'est la leçon 1 (toujours accessible) ;
  *  - le mode « tout déverrouiller » est actif ;
- *  - la leçon d ordre N-1 est validée avec au moins UNLOCK_THRESHOLD_PCT.
+ *  - la leçon d'ordre N-1 est validée avec au moins UNLOCK_THRESHOLD_PCT.
  */
 export function isLessonUnlocked(order: number, previousLessonId: string | undefined): boolean {
   if (order <= 1) return true;

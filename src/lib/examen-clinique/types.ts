@@ -23,7 +23,7 @@ export interface LessonMeta {
   isFree?: boolean;
   /** Dernière leçon : examen final noté avec seuil de réussite. */
   isExam?: boolean;
-  /** Seuil (%) de réussite de l examen final. */
+  /** Seuil (%) de réussite de l'examen final. */
   passThreshold?: number;
 }
 
