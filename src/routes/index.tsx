@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import { useEffect, useMemo } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Calculator, ChevronRight, ClipboardCheck, Flame, Lock, Sparkles, Upload, Zap, Activity, Brain, Stethoscope, ScanLine, FlaskConical, Microscope } from "lucide-react";
+import { Calculator, ChevronRight, ClipboardCheck, Flame, Lock, Sparkles, Upload, Zap, Activity, Brain, Stethoscope, ScanLine, FlaskConical, Microscope, PersonStanding } from "lucide-react";
 import { Onboarding } from "@/components/onboarding";
 import { DeckIcon } from "@/components/deck-icon";
 import PwaInstallCard from "@/components/pwa-install-card";
@@ -371,6 +371,12 @@ function Dashboard() {
             detail={t("dash.interpretation")}
           />
           <QuickAction
+            to="/examen-clinique"
+            icon={<PersonStanding className="size-5" />}
+            label={t("nav.clinicalExam")}
+            detail={t("dash.clinicalExamDetail")}
+          />
+          <QuickAction
             to="/imagerie"
             icon={<ScanLine className="size-5" />}
             label={t("nav.imagerie")}
@@ -558,7 +564,7 @@ function QuickAction({
   signesState,
   soonLabel,
 }: {
-  to: "/revue" | "/ecg" | "/auscultation" | "/cas" | "/examen" | "/calculateurs" | "/classement" | "/signes" | "/imagerie" | "/histologie" | "/valeurs-reference";
+  to: "/revue" | "/ecg" | "/auscultation" | "/cas" | "/examen" | "/examen-clinique" | "/calculateurs" | "/classement" | "/signes" | "/imagerie" | "/histologie" | "/valeurs-reference";
   icon: ReactNode;
   label: string;
   detail: string;

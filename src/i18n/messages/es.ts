@@ -25,6 +25,7 @@ export const es: MessageCatalog = {
   "nav.signes": "Signos y Síndromes",
   "nav.mockExam": "Examen de prueba",
   "nav.clinicalExam": "Exploración clínica",
+  "dash.clinicalExamDetail": "Recorrido guiado · 10 lecciones",
   "nav.calculators": "Calculadoras",
   "nav.valeursReference": "Valores de referencia",
   "nav.leaderboard": "Clasificación",
