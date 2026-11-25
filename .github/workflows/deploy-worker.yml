@@ -27,6 +27,7 @@ jobs:
       - name: Build Worker
         run: npm run build:worker
         env:
+          VITE_AUTH_ENABLED: "true"
           VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
           VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
       - name: Clean stale wrangler redirections
