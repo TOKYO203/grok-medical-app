@@ -1,5 +1,11 @@
 /**
- * Kysely dialect for Better Auth over the app's embedded PGLite instance.
+ * Kysely dialects for Better Auth over a plain `query(text, params)` SQL client.
+ *
+ *  • `pgliteDialect` — preview / no `DATABASE_URL`: the embedded PGLite instance.
+ *  • `sqlClientDialect` — Cloudflare Workers: the app's own `getSql()` client
+ *    (`postgres`/porsager), because `pg` (node-postgres) needs `net.Socket`,
+ *    which workerd does not have.
+ *
  * Lazy: resolves `getClient` on first connection so migrations can finish first.
  */
 import type { PGlite } from "@electric-sql/pglite";
@@ -18,27 +24,40 @@ import {
   type TransactionSettings,
 } from "kysely";
 
-type Client = PGlite;
+/** Minimal SQL surface both PGlite and the app's `getSql()` client expose. */
+export interface QueryClient {
+  query<T = Record<string, unknown>>(
+    text: string,
+    params?: unknown[],
+  ): Promise<{ rows: T[]; affectedRows?: number }>;
+}
 
 /** Factory used by `auth/server.ts`: `pgliteDialect(() => getPglite())`. */
 export function pgliteDialect(
-  getClient: () => Promise<Client> | Client,
+  getClient: () => Promise<PGlite> | PGlite,
+): Dialect {
+  return sqlClientDialect(getClient);
+}
+
+/** Same dialect over any `QueryClient` — used for Workers (`postgres`/porsager). */
+export function sqlClientDialect(
+  getClient: () => Promise<QueryClient> | QueryClient,
 ): Dialect {
   return {
     createAdapter: () => new PostgresAdapter(),
-    createDriver: () => new LazyPGliteDriver(getClient),
+    createDriver: () => new LazyQueryClientDriver(getClient),
     createQueryCompiler: (): QueryCompiler => new PostgresQueryCompiler(),
     createIntrospector: (db: Kysely<unknown>): DatabaseIntrospector =>
       new PostgresIntrospector(db),
   };
 }
 
-class LazyPGliteDriver implements Driver {
-  private client: Client | undefined;
-  private connection: PGliteConnection | undefined;
-  private queue: Array<(con: PGliteConnection) => void> = [];
+class LazyQueryClientDriver implements Driver {
+  private client: QueryClient | undefined;
+  private connection: QueryClientConnection | undefined;
+  private queue: Array<(con: QueryClientConnection) => void> = [];
 
-  constructor(private readonly getClient: () => Promise<Client> | Client) {}
+  constructor(private readonly getClient: () => Promise<QueryClient> | QueryClient) {}
 
   async init(): Promise<void> {
     this.client = await this.getClient();
@@ -53,7 +72,7 @@ class LazyPGliteDriver implements Driver {
         this.queue.push(resolve);
       });
     }
-    this.connection = new PGliteConnection(this.client);
+    this.connection = new QueryClientConnection(this.client);
     return this.connection;
   }
 
@@ -73,7 +92,7 @@ class LazyPGliteDriver implements Driver {
     conn: DatabaseConnection,
     settings: TransactionSettings,
   ): Promise<void> {
-    const c = conn as PGliteConnection;
+    const c = conn as QueryClientConnection;
     if (settings.isolationLevel) {
       await c.executeQuery(
         CompiledQuery.raw(
@@ -86,11 +105,11 @@ class LazyPGliteDriver implements Driver {
   }
 
   async commitTransaction(conn: DatabaseConnection): Promise<void> {
-    await (conn as PGliteConnection).executeQuery(CompiledQuery.raw("commit"));
+    await (conn as QueryClientConnection).executeQuery(CompiledQuery.raw("commit"));
   }
 
   async rollbackTransaction(conn: DatabaseConnection): Promise<void> {
-    await (conn as PGliteConnection).executeQuery(
+    await (conn as QueryClientConnection).executeQuery(
       CompiledQuery.raw("rollback"),
     );
   }
@@ -105,8 +124,8 @@ class LazyPGliteDriver implements Driver {
   }
 }
 
-class PGliteConnection implements DatabaseConnection {
-  constructor(private readonly client: Client) {}
+class QueryClientConnection implements DatabaseConnection {
+  constructor(private readonly client: QueryClient) {}
 
   async executeQuery<O>(compiledQuery: CompiledQuery): Promise<QueryResult<O>> {
     const result = await this.client.query(compiledQuery.sql, [
