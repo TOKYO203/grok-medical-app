@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState, useSyncExternalStore } from "react";
-import { CheckCircle2, ChevronRight, Lock } from "lucide-react";
+import { AlertTriangle, CheckCircle2, ChevronRight, Info, Lock, ShieldAlert } from "lucide-react";
 import { Shell } from "@/components/shell";
 import { ContentLocked } from "@/components/premium/content-locked";
 import { buttonVariants } from "@/components/ui/button-variants";
@@ -266,9 +266,12 @@ function LessonReader({ lesson }: { lesson: Lesson }) {
 
       <div className="optimus-card mt-6 p-5" data-examen-key-points>
         <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-subtle">À retenir</p>
-        <ul className="mt-2 space-y-1">
+        <ul className="mt-3 space-y-2">
           {lesson.keyPoints.map((point, i) => (
-            <li key={i} className="text-sm leading-relaxed">· {point}</li>
+            <li key={i} className="flex items-start gap-2 text-sm leading-relaxed">
+              <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden />
+              <span><Emphasis text={point} /></span>
+            </li>
           ))}
         </ul>
       </div>
@@ -355,9 +358,44 @@ function Emphasis({ text }: { text: string }) {
   );
 }
 
+/** Texte découpé en paragraphes aérés sur les lignes vides : moins de bloc
+ * compact, plus lisible sur mobile. */
+function Paragraphs({ text }: { text: string }) {
+  const paragraphs = text.split("\n\n").filter((p) => p.trim().length > 0);
+  return (
+    <div className="space-y-3">
+      {paragraphs.map((paragraph, i) => (
+        <p key={i} className="text-sm leading-relaxed"><Emphasis text={paragraph.replace(/\n/g, " ")} /></p>
+      ))}
+    </div>
+  );
+}
+
+function CalloutIcon({ tone }: { tone: "info" | "warning" | "danger" | "success" }) {
+  if (tone === "danger") return <ShieldAlert className="size-4 shrink-0" aria-hidden />;
+  if (tone === "warning") return <AlertTriangle className="size-4 shrink-0" aria-hidden />;
+  if (tone === "success") return <CheckCircle2 className="size-4 shrink-0" aria-hidden />;
+  return <Info className="size-4 shrink-0" aria-hidden />;
+}
+
 function ContentBlockView({ block }: { block: ContentBlock }) {
   if (block.type === "text") {
-    return <p className="text-sm leading-relaxed"><Emphasis text={block.markdown} /></p>;
+    return <Paragraphs text={block.markdown} />;
+  }
+  if (block.type === "steps") {
+    return (
+      <div className="grid gap-2 sm:grid-cols-2" data-examen-steps>
+        {block.items.map((item, i) => (
+          <div key={i} className="optimus-card p-4">
+            <div className="flex items-center gap-2">
+              <span className="flex size-7 shrink-0 items-center justify-center rounded-full bg-primary-soft font-display text-sm font-semibold text-primary">{item.n}</span>
+              <p className="text-sm font-semibold">{item.title}</p>
+            </div>
+            <p className="mt-2 text-sm leading-relaxed text-muted"><Emphasis text={item.text} /></p>
+          </div>
+        ))}
+      </div>
+    );
   }
   if (block.type === "callout") {
     const colors: Record<string, string> = {
@@ -374,7 +412,10 @@ function ContentBlockView({ block }: { block: ContentBlock }) {
         data-examen-callout={block.tone}
       >
         {block.title ? (
-          <p className="text-sm font-semibold" style={{ color }}>{block.title}</p>
+          <p className="flex items-center gap-2 text-sm font-semibold" style={{ color }}>
+            <CalloutIcon tone={block.tone} />
+            {block.title}
+          </p>
         ) : null}
         <p className="text-sm leading-relaxed"><Emphasis text={block.markdown} /></p>
       </div>

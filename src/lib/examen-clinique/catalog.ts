@@ -64,6 +64,7 @@ function isContentBlock(value: unknown): boolean {
     block.type === "callout" ||
     block.type === "table" ||
     block.type === "list" ||
+    block.type === "steps" ||
     block.type === "image"
   );
 }

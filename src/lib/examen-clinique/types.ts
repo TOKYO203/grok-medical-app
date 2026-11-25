@@ -32,6 +32,7 @@ export type ContentBlock =
   | { type: "callout"; tone: "info" | "warning" | "danger" | "success"; title?: string; markdown: string }
   | { type: "table"; headers: string[]; rows: string[][] }
   | { type: "list"; ordered?: boolean; items: string[] }
+  | { type: "steps"; items: { n: string; title: string; text: string }[] }
   | { type: "image"; src: string; caption?: string; alt?: string };
 
 export interface CheckQuizQuestion {
