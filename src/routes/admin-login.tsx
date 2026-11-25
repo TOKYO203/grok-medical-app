@@ -12,6 +12,17 @@ const STORAGE_KEY = "optimus.admin.session.v2";
 const LEGACY_KEY = "optimus.admin.key";
 const TTL_MS = 7 * 24 * 60 * 60 * 1000;
 
+/**
+ * Audit sécurité 2026-11-25 : le mot de passe admin n'est PLUS stocké dans
+ * localStorage. Auparavant, la fonction setAdminKey persistait le secret en
+ * clair, lisible par n'importe quel script s'exécutant sur la page (XSS,
+ * extension compromise). La session réelle vit désormais dans le cookie
+ * HttpOnly posé par /api/admin-verify ; localStorage ne garde qu'un marqueur
+ * opaque. Les server functions admin acceptent la session cookie
+ * (voir `requireAdminKey` / `hasValidAdminSession`).
+ */
+const CLIENT_SESSION_MARKER = "server-session-v2";
+
 export type AdminSession = {
   token: string;
   createdAt: number;
@@ -58,7 +69,8 @@ export function getAdminSessionState(): AdminSessionState {
   return "none";
 }
 
-export function getAdminKey(): string {
+export functio
+n getAdminKey(): string {
   if (typeof window === "undefined") return "";
   const state = getAdminSessionState();
   if (state !== "valid") return "";
@@ -66,11 +78,14 @@ export function getAdminKey(): string {
   return s?.token ?? "";
 }
 
-export function setAdminKey(key: string): void {
+export function setAdminKey(key?: string): void {
   if (typeof window === "undefined") return;
+  // L'argument historique (le mot de passe) est volontairement ignoré : seul
+  // le marqueur opaque est persisté.
+  void key;
   const now = Date.now();
   const session: AdminSession = {
-    token: key,
+    token: CLIENT_SESSION_MARKER,
     createdAt: now,
     expiresAt: now + TTL_MS,
   };
@@ -116,14 +131,19 @@ function AdminLoginPage() {
         return;
       }
       // The response is intentionally just `{ valid }` — it must not echo
-      // anything about the configured secret.
+      // anything about the co
+nfigured secret.
       const data = (await res.json()) as { valid?: boolean };
       if (data.valid !== true) {
         setError(true);
         setLoading(false);
         return;
       }
-      setAdminKey(key.trim());
+      // Le mot de passe VALIDÉ n'est plus persisté : /api/admin-verify vient
+      // de poser le cookie de session HttpOnly. Vider aussi le champ pour que
+      // le secret ne traîne pas dans le state React.
+      setAdminKey();
+      setKey("");
       nav({ to: "/admin" });
     } catch {
       setError(true);
@@ -165,12 +185,12 @@ function AdminLoginPage() {
             </p>
           ) : null}
 
-          <Button className="mt-4 w-full" onClick={submit} disabled={loading}>
+          <Button className="mt-4 w-full" onClick={() => void submit()} disabled={loading}>
             {loading ? "Vérification…" : "Accéder"}
           </Button>
 
           <p className="mt-4 text-center text-[11px] text-subtle">
-            Stocké localement sur cet appareil
+            Session sécurisée par cookie HttpOnly sur cet appareil
           </p>
         </div>
       </Page>
