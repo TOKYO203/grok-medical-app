@@ -897,3 +897,20 @@ une affectation de `VITE_AUTH_ENABLED` sur `process.env` dans le lanceur.
 | Date | ID | Décision | Motif | Auteur |
 |------|----|----------|-------|--------|
 | 2026-11-23 | C-STD-14 | Extension du modèle additif C-STD-13 aux fiches `sdra.json`, `choc-septique.json` et `preeclampsie.json` : socle fiche-cas conservé, champs du standard enrichi ajoutés à la racine (redFlags 6, callouts avec ton urgence, 12 flashcards ids uniques, mindmap sans champ tone avec racine propre, localAdaptations Madagascar — soins critiques hors centre, antibiothérapie et traitement avant transfert —, dosagePolicy, editorial{} — notes datées, qcChecklist —, sources racine enrichies : définition de Berlin JAMA 2012 doi 10.1001/jama.2012.5669, Sepsis-3 JAMA 2016 doi 10.1001/jama.2016.0287, Surviving Sepsis Campaign 2021 doi 10.1186/s13054-021-03565-1, recommandations OMS en hypertension sévère de la grossesse 2018, kit OMS infections respiratoires aiguës sévères). Dose de remplissage « 30 mL/kg » dé-chiffrée (cohérence C-STD-8) ; seuils PaO2/FiO2, PA et lactate restent chiffrés comme critères diagnostiques/monitorage (C-STD-6). Corrections de relecture commitées à la suite de chaque fiche (orthographe, formulations). | Diagnostic, gravité et traitement des trois défaillances aiguës transversales (respiratoire, circulatoire, obstétricale) portés au même niveau que les urgences pathologies ; socle fiche-cas préservé pour le chargement de l'app | Vibe |
+
+## EXC-1 — Module « Examen clinique » : fondation phase 1 Neurologie (2026-11-25)
+
+**Décision.** Création du module de parcours guidé « Examen clinique », calqué sur le modèle ECG (route plate + progression localStorage + déblocage progressif), phase 1 : NEURO uniquement.
+
+**Règles.**
+1. Route unique plate `/examen-clinique` (`src/routes/examen-clinique.tsx`), leçon choisie via le paramètre `?lesson=` (validateSearch) — pas d'arborescence de routes et donc pas de sous-routes générées.
+2. Leçon 1 (`neuro-01`) = actif PUBLIC `public/content/examen-clinique/neuro-01.json` (vitrine gratuite). Leçons 2 à 10 = `private/content/examen-clinique/*.json`, servies sous jeton de contenu par le garde commun `/content/$type/$file`.
+3. Nouvelle famille protégée `examen-clinique` ajoutée à `ProtectedFamily`, `FAMILY_GLOBS` et `isProtectedFamily` (`src/lib/content/protected-assets.server.ts`). Elle n'est NI groupée (`GROUPED_FAMILIES`), NI notée serveur (`SERVER_SCORED_FAMILIES`) : les leçons sont servies tel quel, la correction du quiz est locale ( Navigateur), comme pour les leçons ECG.
+4. Aucun JSON de leçon importé statiquement dans le bundle client : catalogue de navigation inline TS (`src/lib/examen-clinique/catalog.ts`), chargement réseau à la demande (règle `scripts/bundle-content.test.mjs`).
+5. Progression local (`progression.ts`) : clef `examen-clinique-v1`, déblocage de la leçon N si la leçon N-1 est validée à 80 %, drapeau `examen-clinique-unlock-all` (démo/formation). Le verrou PREMIUM reste serveur.
+6. Wiring : entrée nav `nav.clinicalExam` (icône `PersonStanding`) après `/ecg` dans le groupe `train` + clé i18n dans les 4 catalogues (fr/en/es/pt) + enregistrement manuel de la route dans `routeTree.gen.ts` (fichier généré versionné, décision B18).
+7. Contenu médical : aucune posologie ni seuil de monitorage ; seuls les scores pédagogiques intrinsèques (GCS 3-15, MRC 0-5, gradation des ROT, dermatomes, seuil d'examen 80 %) sont chiffrés.
+
+**Commits.** fondation + wiring → `179ec64` ; leçons 1-5 → puis leçons 6-10 → puis deux passes de relecture orthographique → `final` EXC-1.
+
+**Volume.** 10 leçons NEURO (1 publique + 9 premium), 54 questions de contrôle + examen final de 15 questions (seuil 80 %).
