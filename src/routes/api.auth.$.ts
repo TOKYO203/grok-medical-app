@@ -22,7 +22,26 @@ function debugJson(request: Request, error: unknown): Response {
   });
 }
 
+function jsonRes(payload: unknown, status = 200): Response {
+  return new Response(JSON.stringify(payload), {
+    status,
+    headers: { "content-type": "application/json" },
+  });
+}
+
 function handleAuth(request: Request): Promise<Response> | Response {
+  const pathname = new URL(request.url).pathname;
+  if (pathname.endsWith("/__ping")) return jsonRes({ route: "live", build: 3 });
+  if (pathname.endsWith("/__diag")) {
+    try {
+      const auth = getAuth();
+      return jsonRes({ created: true, handlerType: typeof auth.handler, lastError: lastAuthError() });
+    } catch (e) {
+      const message = e instanceof Error ? `${e.name}: ${e.message}` : String(e);
+      const stack = e instanceof Error ? (e.stack ?? "").split("\n").slice(0, 5).join(" | ") : "";
+      return jsonRes({ created: false, message, stack }, 500);
+    }
+  }
   try {
     const out = getAuth().handler(request);
     if (out instanceof Promise) {
