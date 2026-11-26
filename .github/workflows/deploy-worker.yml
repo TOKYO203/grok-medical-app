@@ -78,3 +78,10 @@ jobs:
           GROK_AUTH_CLIENT_ID: ${{ secrets.GROK_AUTH_CLIENT_ID }}
           GROK_AUTH_CLIENT_SECRET: ${{ secrets.GROK_AUTH_CLIENT_SECRET }}
           BETTER_AUTH_SECRET: ${{ secrets.BETTER_AUTH_SECRET }}
+
+      # Le 2026-11-12, la prod renvoyait des 500 `unhandled` et une chaîne
+      # `health_check_unavailable` absentes du dépôt : le Worker déployé ne
+      # correspondait pas à `main` et rien ne le signalait. Ce contrôle rend un
+      # déploiement divergent rouge immédiatement.
+      - name: Verify production health
+        run: node scripts/prod-verify.mjs --base https://optimus.carabin.workers.dev --attempts 6 --delay 10

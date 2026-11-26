@@ -12,7 +12,7 @@
  * échoue LOCALEMENT avec un message actionnable avant le rejet plateforme.
  */
 import { readFile, readdir, stat } from "node:fs/promises";
-import { join } from "node:path";
+import { dirname, join, resolve } from "node:path";
 
 const isCloudflare =
   process.env.CF_PAGES === "1" ||
@@ -108,6 +108,50 @@ const mib = bytes / (1024 * 1024);
 console.log(`[assert-worker-stubs] worker : ${mib.toFixed(2)} MiB (${bytes} octets, ${files.length} fichiers) — limite ${isWorkerMode ? "Workers" : "Pages"} : ${LIMIT_MIB} MiB`);
 
 let failed = false;
+
+// Preuve d'artefact : sans ces deux éléments, `.output` peut très bien être un
+// build Vercel (preset Nitro par défaut) — c'est arrivé jusqu'au 2026-11-12,
+// `build:cloudflare` sortait en 0 sans jamais produire de Worker.
+if (isWorkerMode) {
+  const wranglerPath = ".output/server/wrangler.json";
+  let wranglerConfig = null;
+  try {
+    wranglerConfig = JSON.parse(await readFile(wranglerPath, "utf8"));
+  } catch {
+    console.error(
+      `[assert-worker-stubs] ${wranglerPath} introuvable : ce n'est PAS un artefact Worker (preset Nitro incorrect — vérifier CF_WORKER=true, et que les drapeaux sont exportés pour TOUTE la chaîne de build, pas seulement pour Vite).`,
+    );
+    failed = true;
+  }
+  const assetsDirectory = wranglerConfig?.assets?.directory;
+  if (wranglerConfig && !assetsDirectory) {
+    console.error(
+      "[assert-worker-stubs] .output/server/wrangler.json ne déclare aucun assets : artefact Worker incomplet.",
+    );
+    failed = true;
+  } else if (assetsDirectory) {
+    // Le preset cloudflare_module écrit les assets dans `.output/public` et
+    // référence ce dossier en relatif depuis `.output/server` (`../public`).
+    // L'app étant rendue côté serveur, il n'y a PAS de `index.html` statique :
+    // la preuve utile est le bundle client haché sous `assets/`.
+    const assetsDir = resolve(dirname(wranglerPath), assetsDirectory);
+    let clientFiles = 0;
+    try {
+      clientFiles = (await readdir(join(assetsDir, "assets"))).length;
+    } catch {
+      clientFiles = 0;
+    }
+    if (clientFiles === 0) {
+      console.error(
+        `[assert-worker-stubs] bundle client introuvable (${assetsDir}/assets vide) : le dossier d'assets déclaré par wrangler.json est vide ou mal résolu.`,
+      );
+      failed = true;
+    } else {
+      console.log(`[assert-worker-stubs] assets Worker : ${clientFiles} fichier(s) client sous .output/public/assets`);
+    }
+  }
+}
+
 const markers = [
   ["[pglite-stub]", "stub PGlite"],
   ["[pg-stub]", "stub pg"],

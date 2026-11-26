@@ -14,7 +14,8 @@ permissions:
 # réparée) et la croix rouge permanente a masqué les vrais blocages de
 # déploiement. Réparation :
 #  • le job BLOQUANT est le build exact du chemin de production
-#    (`npm run build:cloudflare` : budget, garde-fous stubs, assert Supabase) ;
+#    (`npm run build:cloudflare` → `build:worker` : preset cloudflare_module,
+#    garde-fous stubs + artefact Worker, assert Supabase) ;
 #  • la suite de tests a été remise BLOQUANTE le 2026-11-08 après la
 #    réparation complète de la dette R7 (10 fichiers de tests, fiches
 #    pathologies, fichiers morts de src/, lint). Un échec de Tests,

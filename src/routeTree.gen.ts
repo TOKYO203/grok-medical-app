@@ -60,6 +60,7 @@ import { Route as ApiAdminLogoutRouteImport } from './routes/api.admin-logout'
 import { Route as ApiAdminVerifyRouteImport } from './routes/api.admin-verify'
 import { Route as ApiAiStreamRouteImport } from './routes/api.ai-stream'
 import { Route as ApiEventsRouteImport } from './routes/api.events'
+import { Route as ApiHealthRouteImport } from './routes/api.health'
 import { Route as ApiInstitutionLeadsRouteImport } from './routes/api.institution-leads'
 import { Route as CasCaseIdRouteImport } from './routes/cas.$caseId'
 import { Route as DemarcheIdRouteImport } from './routes/demarche.$id'
@@ -340,6 +341,11 @@ const ApiEventsRoute = ApiEventsRouteImport.update({
   path: '/api/events',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiHealthRoute = ApiHealthRouteImport.update({
+  id: '/api/health',
+  path: '/api/health',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiInstitutionLeadsRoute = ApiInstitutionLeadsRouteImport.update({
   id: '/api/institution-leads',
   path: '/api/institution-leads',
@@ -411,9 +417,9 @@ const ApiCheckoutLemonsqueezyRoute = ApiCheckoutLemonsqueezyRouteImport.update({
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiHealthCheckoutRoute = ApiHealthCheckoutRouteImport.update({
-  id: '/api/health/checkout',
-  path: '/api/health/checkout',
-  getParentRoute: () => rootRouteImport,
+  id: '/checkout',
+  path: '/checkout',
+  getParentRoute: () => ApiHealthRoute,
 } as any)
 const ApiLicensesActivateRoute = ApiLicensesActivateRouteImport.update({
   id: '/api/licenses/activate',
@@ -517,6 +523,7 @@ export interface FileRoutesByFullPath {
   '/api/admin-verify': typeof ApiAdminVerifyRoute
   '/api/ai-stream': typeof ApiAiStreamRoute
   '/api/events': typeof ApiEventsRoute
+  '/api/health': typeof ApiHealthRouteWithChildren
   '/api/institution-leads': typeof ApiInstitutionLeadsRoute
   '/cas/$caseId': typeof CasCaseIdRoute
   '/demarche/$id': typeof DemarcheIdRoute
@@ -592,6 +599,7 @@ export interface FileRoutesByTo {
   '/api/admin-verify': typeof ApiAdminVerifyRoute
   '/api/ai-stream': typeof ApiAiStreamRoute
   '/api/events': typeof ApiEventsRoute
+  '/api/health': typeof ApiHealthRouteWithChildren
   '/api/institution-leads': typeof ApiInstitutionLeadsRoute
   '/cas/$caseId': typeof CasCaseIdRoute
   '/demarche/$id': typeof DemarcheIdRoute
@@ -671,6 +679,7 @@ export interface FileRoutesById {
   '/api/admin-verify': typeof ApiAdminVerifyRoute
   '/api/ai-stream': typeof ApiAiStreamRoute
   '/api/events': typeof ApiEventsRoute
+  '/api/health': typeof ApiHealthRouteWithChildren
   '/api/institution-leads': typeof ApiInstitutionLeadsRoute
   '/cas/$caseId': typeof CasCaseIdRoute
   '/demarche/$id': typeof DemarcheIdRoute
@@ -750,6 +759,7 @@ export interface FileRouteTypes {
     | '/api/admin-verify'
     | '/api/ai-stream'
     | '/api/events'
+    | '/api/health'
     | '/api/institution-leads'
     | '/cas/$caseId'
     | '/demarche/$id'
@@ -825,6 +835,7 @@ export interface FileRouteTypes {
     | '/api/admin-verify'
     | '/api/ai-stream'
     | '/api/events'
+    | '/api/health'
     | '/api/institution-leads'
     | '/cas/$caseId'
     | '/demarche/$id'
@@ -903,6 +914,7 @@ export interface FileRouteTypes {
     | '/api/admin-verify'
     | '/api/ai-stream'
     | '/api/events'
+    | '/api/health'
     | '/api/institution-leads'
     | '/cas/$caseId'
     | '/demarche/$id'
@@ -981,13 +993,13 @@ export interface RootRouteChildren {
   ApiAdminVerifyRoute: typeof ApiAdminVerifyRoute
   ApiAiStreamRoute: typeof ApiAiStreamRoute
   ApiEventsRoute: typeof ApiEventsRoute
+  ApiHealthRoute: typeof ApiHealthRouteWithChildren
   ApiInstitutionLeadsRoute: typeof ApiInstitutionLeadsRoute
   LearnDeckIdRoute: typeof LearnDeckIdRoute
   PathologieSlugRoute: typeof PathologieSlugRoute
   ApiAuthSplatRoute: typeof ApiAuthSplatRoute
   ApiCheckoutAriariRoute: typeof ApiCheckoutAriariRoute
   ApiCheckoutLemonsqueezyRoute: typeof ApiCheckoutLemonsqueezyRoute
-  ApiHealthCheckoutRoute: typeof ApiHealthCheckoutRoute
   ApiLicensesActivateRoute: typeof ApiLicensesActivateRoute
   ApiLicensesSessionRoute: typeof ApiLicensesSessionRoute
   ApiLicensesTrialTokenRoute: typeof ApiLicensesTrialTokenRoute
@@ -1357,6 +1369,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiEventsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/health': {
+      id: '/api/health'
+      path: '/api/health'
+      fullPath: '/api/health'
+      preLoaderRoute: typeof ApiHealthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/institution-leads': {
       id: '/api/institution-leads'
       path: '/api/institution-leads'
@@ -1457,10 +1476,10 @@ declare module '@tanstack/react-router' {
     }
     '/api/health/checkout': {
       id: '/api/health/checkout'
-      path: '/api/health/checkout'
+      path: '/checkout'
       fullPath: '/api/health/checkout'
       preLoaderRoute: typeof ApiHealthCheckoutRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof ApiHealthRoute
     }
     '/api/licenses/activate': {
       id: '/api/licenses/activate'
@@ -1631,6 +1650,18 @@ const ParcoursRouteWithChildren = ParcoursRoute._addFileChildren(
   ParcoursRouteChildren,
 )
 
+interface ApiHealthRouteChildren {
+  ApiHealthCheckoutRoute: typeof ApiHealthCheckoutRoute
+}
+
+const ApiHealthRouteChildren: ApiHealthRouteChildren = {
+  ApiHealthCheckoutRoute: ApiHealthCheckoutRoute,
+}
+
+const ApiHealthRouteWithChildren = ApiHealthRoute._addFileChildren(
+  ApiHealthRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   DevRoute: DevRouteWithChildren,
@@ -1682,13 +1713,13 @@ const rootRouteChildren: RootRouteChildren = {
   ApiAdminVerifyRoute: ApiAdminVerifyRoute,
   ApiAiStreamRoute: ApiAiStreamRoute,
   ApiEventsRoute: ApiEventsRoute,
+  ApiHealthRoute: ApiHealthRouteWithChildren,
   ApiInstitutionLeadsRoute: ApiInstitutionLeadsRoute,
   LearnDeckIdRoute: LearnDeckIdRoute,
   PathologieSlugRoute: PathologieSlugRoute,
   ApiAuthSplatRoute: ApiAuthSplatRoute,
   ApiCheckoutAriariRoute: ApiCheckoutAriariRoute,
   ApiCheckoutLemonsqueezyRoute: ApiCheckoutLemonsqueezyRoute,
-  ApiHealthCheckoutRoute: ApiHealthCheckoutRoute,
   ApiLicensesActivateRoute: ApiLicensesActivateRoute,
   ApiLicensesSessionRoute: ApiLicensesSessionRoute,
   ApiLicensesTrialTokenRoute: ApiLicensesTrialTokenRoute,

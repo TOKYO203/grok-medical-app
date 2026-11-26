@@ -26,6 +26,82 @@ pour l'historique et pour la migration inverse éventuelle.
     `optimusmedical` et `grok-medical-app` (en pause).
   - Netlify : site `cheerful-otter-56f2b3` (voir section « Vestige Netlify »).
 
+## Redéploiement depuis `HEAD` (2026-11-12)
+
+### Pourquoi ce redéploiement est nécessaire
+
+Constaté le 2026-11-12 sur `https://optimus.carabin.workers.dev` :
+
+| Sonde | Réponse observée | Lecture |
+| --- | --- | --- |
+| `GET /api/health/checkout` | `500` + `{"error":"health_check_unavailable"}` | cette chaîne n'existe **ni dans le code ni dans l'historique Git** |
+| `POST /api/quiz/answer` | `500` + `{"status":500,"unhandled":true}` | handler de diagnostic (#490/#491) absent du dépôt |
+| `POST /api/licenses/verify` | idem | idem |
+| `POST /api/licenses/trial-token` | `500` | idem |
+| `GET /content/pathologies/paludisme.json` | `503` | `LICENSE_JWT_SECRET` absent du runtime du Worker |
+
+Le Worker en production **n'est donc pas construit depuis `main`**. Le
+redéploiement depuis `HEAD` est la première action de remédiation.
+
+### Pré-vol (obligatoire avant de déclencher)
+
+```bash
+npm ci --no-audit --no-fund
+npm run typecheck && npm test && npm run lint
+npm run build:cloudflare        # produit désormais un VRAI Worker (voir ci-dessous)
+```
+
+`build:cloudflare` délègue à `build:worker` : preset Nitro `cloudflare_module`,
+`CF_WORKER=true CF_PAGES=1` exportés pour **toute** la chaîne de build (et pas
+seulement pour Vite), puis `postbuild:content`, `postbuild:cfstubs`,
+`postbuild:cloud`. Le garde-fou exige `.output/server/wrangler.json` avec
+`assets` **et** un bundle client non vide sous `.output/public/assets` : un
+artefact Vercel ne peut plus passer pour un Worker.
+
+À noter : `npm run content:check` est **rouge** au 2026-11-12 (12 posologies non
+sourcées dans 11 fiches). Ce n'est pas un bloqueur de déploiement technique,
+c'est un bloqueur de mise en vente — décision contenu, pas infra.
+
+### Déclenchement
+
+Un push sur `main` touchant du code déclenche `.github/workflows/deploy-worker.yml`
+(`paths-ignore: **.md`, `docs/**`). Sinon : Actions → *Deploy Worker* →
+*Run workflow* (`workflow_dispatch`).
+
+La chaîne est : `npm ci` → `npm run build:worker` → injection `wrangler.json`
+(assets + `run_worker_first: /api/*`) → `wrangler deploy` → **`prod:verify`**.
+
+### Vérification après déploiement
+
+```bash
+npm run prod:verify
+# ou, pour attendre la propagation :
+npm run prod:verify -- --attempts 6 --delay 10
+```
+
+Attendu une fois le Worker à jour **et les secrets posés** :
+
+| Sonde | Attendu | Sinon |
+| --- | --- | --- |
+| `GET /api/health` | 200 + `{"status":"ok"}` | **bloquant** |
+| `GET /api/health/checkout` | 200 | **bloquant** si 5xx |
+| `POST /api/quiz/answer` | 4xx (corps invalide) | **bloquant** si 5xx / `unhandled` |
+| `POST /api/licenses/verify` | 4xx | **bloquant** si 5xx |
+| `POST /api/licenses/trial-token` | 4xx | **bloquant** si 5xx |
+| `GET /content/pathologies/paludisme.json` | 401 (garde actif) | alerte si 503 (`LICENSE_JWT_SECRET` absent) |
+| `GET /admin` anonyme | 403 | **bloquant** si 200 |
+| `GET /` | CSP + `frame-ancestors` + XFO + HSTS | **bloquant** si absent |
+
+Le script sort en code 1 sur un seul `fail`, et il tourne aussi automatiquement
+à la fin du déploiement : un déploiement cassé devient rouge immédiatement.
+
+### Retour arrière
+
+1. Cloudflare → Workers → `optimus` → *Deployments* → redéployer la version
+   précédente (ou `npx wrangler rollback --name optimus`).
+2. Rejouer `npm run prod:verify` pour confirmer le retour à l'état antérieur.
+3. Consigner l'incident dans `docs/DECISIONS.md`.
+
 ## Réglages attendus dans le dashboard Cloudflare
 
 | Réglage | Valeur |
