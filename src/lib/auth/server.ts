@@ -254,8 +254,20 @@ const grokOAuthPlugin = authConfigured
     })
   : null;
 
+let __lastAuthErrorText: string | null = null;
+/* TEMP #534 — surface la première erreur better-auth (sinon avalée). */
+export function lastAuthError(): string | null {
+  return __lastAuthErrorText;
+}
+
 function createAuth() {
   return betterAuth({
+  onAPIError: {
+    throwError: false,
+    onError: (error: unknown) => {
+      __lastAuthErrorText = error instanceof Error ? `${error.name}: ${error.message}` : String(error);
+    },
+  },
   baseURL,
   // Deployed apps inject BETTER_AUTH_SECRET. Preview: process-stable secret on
   // globalThis so HMR doesn't invalidate PGLite-backed sessions (see above).
