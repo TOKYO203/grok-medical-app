@@ -13,23 +13,28 @@ import { getAuth, lastAuthError } from "@/lib/auth/server";
  * ⚠️ En mode `VITE_AUTH_ENABLED=false`, `getAuth()` retourne le stub SSR qui
  * renvoie 404 — comportement attendu pour les instances publiques sans auth.
  */
+function debugJson(request: Request, error: unknown): Response {
+  const message = error instanceof Error ? `${error.name}: ${error.message}` : String(error);
+  const stack = error instanceof Error ? (error.stack ?? "").split("\n").slice(0, 4).join(" | ") : "";
+  return new Response(JSON.stringify({ authDebug: message, authStack: stack }), {
+    status: 500,
+    headers: { "content-type": "application/json" },
+  });
+}
+
 function handleAuth(request: Request): Promise<Response> | Response {
-  const out = getAuth().handler(request);
-  if (out instanceof Promise) {
-    return out.then(async (response) => {
-      if (new URL(request.url).searchParams.get("authdebug") === "1") {
-        const err = lastAuthError();
-        if (err) {
-          return new Response(JSON.stringify({ authDebug: err }), {
-            status: response.status,
-            headers: { "content-type": "application/json" },
-          });
-        }
-      }
-      return response;
-    });
+  try {
+    const out = getAuth().handler(request);
+    if (out instanceof Promise) {
+      return out.then(
+        (response) => response,
+        (asyncErr) => debugJson(request, asyncErr),
+      );
+    }
+    return out;
+  } catch (syncErr) {
+    return debugJson(request, syncErr);
   }
-  return out;
 }
 
 export const Route = createFileRoute("/api/auth/$")({

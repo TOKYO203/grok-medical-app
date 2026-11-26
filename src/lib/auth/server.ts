@@ -263,7 +263,7 @@ export function lastAuthError(): string | null {
 function createAuth() {
   return betterAuth({
   onAPIError: {
-    throwError: false,
+    throwError: true,
     onError: (error: unknown) => {
       __lastAuthErrorText = error instanceof Error ? `${error.name}: ${error.message}` : String(error);
     },
