@@ -9,6 +9,30 @@ function json(payload: unknown, status = 200): Response {
   });
 }
 
+function dbUrlDiagnostics(): Record<string, unknown> {
+  const raw = process.env.DATABASE_URL;
+  const out: Record<string, unknown> = { present: typeof raw === "string" && raw.length > 0 };
+  if (typeof raw === "string" && raw.length > 0) {
+    const trimmed = raw.trim();
+    out.sameWhenTrimmed = trimmed === raw;
+    out.length = raw.length;
+    out.hasNewline = raw !== raw.replace(/\r?\n/g, "");
+    out.hasQuotes = raw.startsWith(String.fromCharCode(34));
+    try {
+      const url = new URL(trimmed);
+      out.parsesAsUrl = true;
+      out.protocol = url.protocol;
+      out.hasHost = url.hostname.length > 0;
+      out.hasPath = url.pathname.replace(/^\//, "").length > 0;
+      out.stackInsideHost = url.hostname.startsWith("aws-");
+    } catch (e) {
+      out.parsesAsUrl = false;
+      out.urlError = e instanceof Error ? e.name + ": " + e.message : String(e);
+    }
+  }
+  return out;
+}
+
 export default defineEventHandler(async (event) => {
   const anyEvent = event as unknown as {
     req?: unknown;
@@ -33,12 +57,14 @@ export default defineEventHandler(async (event) => {
           "THROWN " + (e instanceof Error ? e.name + ": " + e.message : String(e));
       }
     }
+    void dbUrlDiagnostics;
     return json({
       nitro: "live",
       reqType: request ? (request.constructor?.name ?? "?") : "absent",
       hasNodeReq: Boolean(anyEvent.node?.req),
       path,
       delegated,
+      dbUrl: typeof process.env.DATABASE_URL === "string" ? dbUrlDiagnostics() : "absent",
       lastAuthError: (await import("@/lib/auth/server") as any).lastAuthError?.() ?? null,
     });
   }
