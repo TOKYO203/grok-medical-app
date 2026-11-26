@@ -57,8 +57,20 @@ export const Route = createFileRoute("/api/checkout/ariari")({
           return Response.json({ ok: false, error: "ariari_unconfigured" }, { status: 503 });
         }
 
-        // 3. Parse body
-        const body = await request.json().catch(() => null);
+        // 3. Parse body — corps borné AVANT parsing (correctif audit 2026-11-26 :
+        // comme les autres endpoints, sinon un client authentifié peut pousser
+        // un JSON arbitrairement gros dans le parser sous couvert du quota).
+        const MAX_BODY_BYTES = 4 * 1024;
+        const declared = Number(request.headers.get("content-length"));
+        if (Number.isFinite(declared) && declared > MAX_BODY_BYTES) {
+          return Response.json({ ok: false, error: "invalid_body" }, { status: 413 });
+        }
+        const rawBody = await request.text().catch(() => "");
+        if (rawBody.length > MAX_BODY_BYTES) {
+          return Response.json({ ok: false, error: "invalid_body" }, { status: 413 });
+        }
+        let body: unknown = null;
+        try { body = rawBody ? JSON.parse(rawBody) : null; } catch { body = null; }
         const parsed = checkoutSchema.safeParse(body);
         if (!parsed.success) {
           return Response.json({ ok: false, error: "invalid_body" }, { status: 400 });
