@@ -54,8 +54,11 @@ export const Route = createFileRoute("/api/ai-stream")({
             .map((i) => `${i.path.join(".")}: ${i.message}`)
             .join(" · ");
           console.error("[ai-stream] Zod reject:", summary);
+          // Correctif audit 2026-11-26 : le détail des issues Zod (chemins de
+          // schéma, contraintes internes) ne quitte plus le serveur — réponse
+          // stable, sans oracle d'information, comme pour les erreurs provider.
           return new Response(
-            JSON.stringify({ error: `Requête invalide — ${summary}`, details: parsed.error.issues }),
+            JSON.stringify({ error: "Requête invalide." }),
             { status: 400, headers: { "Content-Type": "application/json" } },
           );
         }
