@@ -1,77 +1,65 @@
-import { createHash } from "node:crypto";
-import { THEME_BOOT_SCRIPT } from "../../src/lib/theme";
+import { randomBytes } from "node:crypto";
 
 interface SecurityHeaderEvent {
   url: URL;
 }
 
 /**
- * Audit Vibe 2026-11-19 (issue #467, F1) : la CSP n'autorise plus les scripts
- * inline arbitraires ni les scripts hébergés sur grok.com. Le SEUL script
- * inline de l'application est le boot de thème (THEME_BOOT_SCRIPT, injecté dans
- * src/routes/__root.tsx) : il est permis par son hash SHA-256, calculé ici à
- * partir de la constante source — impossible à désynchroniser.
+ * Politique CSP des réponses dynamiques : allowlist stricte par NONCE.
  *
- *   - script-src 'self' <hash> : un XSS n'a aucun vecteur d'exécution inline.
- *   - L'hôte https://grok.com est RETIRÉ de script-src : l'app est un ONGLET
- *     (éventuellement embarqué dans du chrome de preview), jamais un consommateur
- *     de scripts d'un domaine tiers. Si un besoin réel réapparaît, l'épingler au
- *     chemin exact et le justifier ici.
- *   - En développement (Vite injecte ses propres scripts inline), le mode
- *     permissif 'unsafe-inline' est conservé hors production.
+ * Historique (à ne pas réintroduire) :
+ *  - Audit #467 F1 (2026-11-19) : `script-src 'self' <hash du boot de thème>`.
+ *    Un hash statique ne peut couvrir que le script de thème ; TanStack Start
+ *    émet en plus des scripts inline par réponse (données de streaming
+ *    `data-tsr-stream-part`, frontière `$tsr-stream-boundary`). Résultat :
+ *    scripts d'hydratation bloqués, application figée sur le rendu serveur
+ *    (page blanche perçue), incident 2026-11-20/21.
+ *  - Correctif 39260c8 : `'self' 'unsafe-inline' <hash>`. Or, dès qu'un hash est
+ *    présent dans `script-src`, les navigateurs IGNORENT `'unsafe-inline'`
+ *    (CSP2+, MDN « If a directive contains a hash and unsafe-inline, then the
+ *    browser ignores unsafe-inline ») : la politique restait donc hash-only,
+ *    l'incident n'était pas corrigé et le commentaire mentait.
+ *
+ * Décision 2026-11-23 : nonce aléatoire par réponse. Le middleware tamponne le
+ * HTML, pose `nonce="…"` sur chaque `<script>` inline, et le même nonce dans
+ * l'en-tête. `script-src` ne contient plus ni `'unsafe-inline'` ni hash, ni
+ * domaine tiers : un script inline non étiqueté est bloqué, un XSS injecté
+ * dans le HTML ne peut pas deviner le nonce. C'est strictement plus strict que
+ * `'unsafe-inline'`, et c'est la seule forme qui laisse l'hydratation
+ * fonctionner pour des scripts dont le contenu change à chaque requête.
+ *
+ * `public/_headers` (actifs statiques du CDN) garde `script-src 'self'` : aucun
+ * HTML inline n'est servi depuis ce dossier, et un nonce ne peut pas y être
+ * figé. L'écart est volontaire et verrouillé par les tests.
  */
-const THEME_BOOT_HASH = `sha256-${createHash("sha256").update(THEME_BOOT_SCRIPT, "utf8").digest("base64")}`;
 
-/**
- * INCIDENT 2026-11-20/21 — page blanche en production (pages.dev + workers.dev).
- * Le durcissement #467 F1 posait script-src 'self' <hash de THEME_BOOT_SCRIPT>,
- * or TanStack Start émet AUSSI des scripts inline (données d'hydratation du
- * router). Bloqués, l'application ne s'hydrate jamais et reste figée sur le
- * rendu serveur (splash « Connexion à Optimus… », écran perçu comme vide).
- * Rétablissement temporaire de 'unsafe-inline' (état antérieur au 19/11, ayant
- * toujours fonctionné). TODO : recalculer l'allowlist par hash sur le HTML
- * construit réel (thème + scripts de données TanStack), puis retirer de nouveau
- * 'unsafe-inline'. Le THEME_BOOT_HASH est conservé dans la politique — ignoré
- * par les navigateurs tant que 'unsafe-inline' est présent, mais il documente
- * la cible du futur resserrement et reste vérifié par les tests.
- */
-function scriptSrc(): string {
-  return `script-src 'self' 'unsafe-inline' ${THEME_BOOT_HASH}`;
+/** Nonce CSP : 128 bits d'entropie, base64, neuf à chaque réponse. */
+function createNonce(): string {
+  return randomBytes(16).toString("base64");
 }
 
-/**
- * Baseline CSP posée sur toutes les réponses. Miroir EXACT du bloc `/*` de
- * `public/_headers` (actifs statiques du CDN) : les deux doivent rester
- * alignées — un écart créerait deux politiques selon le type de réponse.
- *
- * INCIDENT 2026-11-20/21 : script-src porte de nouveau 'unsafe-inline' (voir scriptSrc). Pentest 2026-11-09 §3 : sans CSP ni X-Frame-Options, l'app est encadrable
- * (clickjacking sur les écrans de paiement/activation) et un XSS sur le jeton
- * de contenu (§4) n'a aucun frein. Audit #467 F1 : `script-src` passe en
- * allowlist par hash — plus de 'unsafe-inline' ni de domaine tiers en prod.
- *   - `style-src 'unsafe-inline'` : les styles injectés par le runtime restent
- *     fonctionnels (PWA, graphiques) — resserrable après inventaire.
- *   - `connect-src` : Supabase (REST + Realtime wss) et l'API LemonSqueezy.
- *   - `img-src` : images.unsplash.com (photo de fond de l'écran de connexion).
- */
-const CONTENT_SECURITY_POLICY = [
-  "default-src 'self'",
-  scriptSrc(),
-  "style-src 'self' 'unsafe-inline'",
-  // images.unsplash.com : photo de fond de l'écran de connexion (AuthScreen).
-  // CDN d'images passif, aucune exécution de code : acceptable en img-src.
-  "img-src 'self' data: blob: https://images.unsplash.com",
-  "font-src 'self' data:",
-  "connect-src 'self' https://*.supabase.co wss://*.supabase.co https://api.lemonsqueezy.com",
-  "worker-src 'self'",
-  "manifest-src 'self'",
-  "object-src 'none'",
-  "frame-ancestors 'none'",
-  "base-uri 'self'",
-  "form-action 'self'",
-].join("; ");
+function contentSecurityPolicy(nonce: string): string {
+  return [
+    "default-src 'self'",
+    `script-src 'self' 'nonce-${nonce}'`,
+    // Styles injectés par le runtime (PWA, graphiques) : resserrable après
+    // inventaire, comme documenté dans le pentest 2026-11-09 §3.
+    "style-src 'self' 'unsafe-inline'",
+    // images.unsplash.com : photo de fond de l'écran de connexion (AuthScreen).
+    // CDN d'images passif, aucune exécution de code : acceptable en img-src.
+    "img-src 'self' data: blob: https://images.unsplash.com",
+    "font-src 'self' data:",
+    "connect-src 'self' https://*.supabase.co wss://*.supabase.co https://api.lemonsqueezy.com",
+    "worker-src 'self'",
+    "manifest-src 'self'",
+    "object-src 'none'",
+    "frame-ancestors 'none'",
+    "base-uri 'self'",
+    "form-action 'self'",
+  ].join("; ");
+}
 
 const BASE_SECURITY_HEADERS: Readonly<Record<string, string>> = {
-  "content-security-policy": CONTENT_SECURITY_POLICY,
   "x-frame-options": "DENY",
   "x-content-type-options": "nosniff",
   "referrer-policy": "strict-origin-when-cross-origin",
@@ -79,8 +67,37 @@ const BASE_SECURITY_HEADERS: Readonly<Record<string, string>> = {
   "x-permitted-cross-domain-policies": "none",
 };
 
-function hardenResponse(response: Response, event: SecurityHeaderEvent): Response {
+const INLINE_SCRIPT_TAG = /<script(?![^>]*\bsrc=)(?![^>]*\bnonce=)/gi;
+
+function tagInlineScripts(html: string, nonce: string): string {
+  return html.replace(INLINE_SCRIPT_TAG, `<script nonce="${nonce}"`);
+}
+
+/** Une réponse dont le corps peut être réécrit (HTML complet, pas de 304/HEAD). */
+function isRewritableHtml(response: Response): boolean {
+  if (response.body === null) return false;
+  if (response.status === 204 || response.status === 304) return false;
+  const contentType = response.headers.get("content-type") ?? "";
+  return contentType.toLowerCase().includes("text/html");
+}
+
+async function hardenResponse(response: Response, event: SecurityHeaderEvent): Promise<Response> {
+  const nonce = createNonce();
   const headers = new Headers(response.headers);
+  let body: BodyInit | null = response.body;
+
+  if (isRewritableHtml(response)) {
+    body = tagInlineScripts(await response.text(), nonce);
+    // Le corps a été décodé et sa taille a changé : ces en-têtes ne sont plus
+    // valides (un `content-encoding` conservé corromprait la réponse).
+    headers.delete("content-length");
+    headers.delete("content-encoding");
+    headers.delete("etag");
+  }
+
+  if (!headers.has("content-security-policy")) {
+    headers.set("content-security-policy", contentSecurityPolicy(nonce));
+  }
   for (const [name, value] of Object.entries(BASE_SECURITY_HEADERS)) {
     if (!headers.has(name)) headers.set(name, value);
   }
@@ -91,7 +108,7 @@ function hardenResponse(response: Response, event: SecurityHeaderEvent): Respons
     headers.set("strict-transport-security", "max-age=31536000; includeSubDomains");
   }
 
-  return new Response(response.body, {
+  return new Response(body, {
     status: response.status,
     statusText: response.statusText,
     headers,
@@ -101,12 +118,12 @@ function hardenResponse(response: Response, event: SecurityHeaderEvent): Respons
 /**
  * Baseline response hardening for all Nitro responses.
  *
- * Applies the same security baseline as `public/_headers` (static CDN assets):
- * CSP (script-src par hash, audit #467 F1), anti-clickjacking (X-Frame-Options
- * DENY + frame-ancestors 'none'), nosniff, Referrer/Permissions-Policy, HSTS on
- * HTTPS. Framing was previously left open for platform chrome; the pentest
- * (docs/PENTEST-2026-11-09.md §3) closed it — Optimus est une PWA autonome, pas
- * un widget embarqué.
+ * Applies the same security baseline as `public/_headers` (static CDN assets),
+ * à l'exception assumée de `script-src` (nonce ici, `'self'` côté CDN) :
+ * CSP, anti-clickjacking (X-Frame-Options DENY + frame-ancestors 'none'),
+ * nosniff, Referrer/Permissions-Policy, HSTS on HTTPS. Pentest
+ * (docs/PENTEST-2026-11-09.md §3) : Optimus est une PWA autonome, pas un
+ * widget embarqué.
  */
 export default async function securityHeadersMiddleware(
   event: SecurityHeaderEvent,

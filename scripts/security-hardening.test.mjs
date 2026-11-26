@@ -12,17 +12,38 @@ const cdnHeaders = readFileSync(
   "utf8",
 );
 
+/** Source sans commentaires : les assertions négatives ne doivent pas viser la prose. */
+const headersCode = headersSource
+  .replace(/\/\*[\s\S]*?\*\//g, "")
+  .replace(/^\s*\/\/.*$/gm, "");
+
+/** Valeur de la CSP posée par le bloc /* de public/_headers (CDN). */
+const cdnCsp = (() => {
+  const line = cdnHeaders
+    .split("\n")
+    .find((candidate) => candidate.trimStart().startsWith("Content-Security-Policy:"));
+  assert.ok(line, "public/_headers doit poser une Content-Security-Policy");
+  return line.slice(line.indexOf(":") + 1).trim();
+})();
+
+/** Directive `script-src` du CDN, sans le reste de la politique. */
+const cdnScriptSrc = (() => {
+  const match = cdnCsp.match(/(?:^|;\s*)script-src ([^;]+)/);
+  assert.ok(match, "la CSP du CDN doit définir script-src");
+  return match[1].trim();
+})();
+
 /**
- * Politique CSP de référence — pentest 2026-11-09 §3 (docs/PENTEST-2026-11-09.md),
- * durcie par l'audit #467 F1 (2026-11-19) : script-src par hash, aucun domaine
- * tiers exécutable. Le middleware Nitro et le bloc /* de public/_headers doivent
- * poser la MÊME politique : un écart créerait deux comportements selon que la
- * réponse vient du CDN (statique) ou du worker (dynamique). Ce test verrouille
- * le miroir directive par directive.
+ * Politique CSP de référence — pentest 2026-11-09 §3, durcie par l'audit #467
+ * F1 (2026-11-19) puis rétablie en fonctionnement par la décision CSP du
+ * 2026-11-23 (nonce par réponse pour le HTML du worker, `'self'` pour les
+ * actifs statiques du CDN). Les directives hors `script-src` doivent rester
+ * identiques des deux côtés ; `script-src` diffère volontairement :
+ *  - worker : `script-src 'self' 'nonce-…'` (HTML SSR avec scripts inline) ;
+ *  - CDN : `script-src 'self'` (aucun HTML inline dans ce dossier).
  */
-const CSP_DIRECTIVES = [
+const SHARED_DIRECTIVES = [
   "default-src 'self'",
-  "script-src 'self' 'unsafe-inline'",
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: blob: https://images.unsplash.com",
   "font-src 'self' data:",
@@ -48,44 +69,62 @@ test("HSTS : HTTPS uniquement, 1 an, sous-domaines inclus (pentest §3)", () => 
 });
 
 test("framing et CSP : décision de déploiement explicite, désormais posée (pentest §3)", () => {
-  // Avant : le middleware s'interdisait XFO/CSP (« explicit deployment
-  // decisions »). La décision est prise et documentée : DENY + frame-ancestors.
   assert.match(headersSource, /"x-frame-options": "DENY"/);
-  assert.match(headersSource, /"content-security-policy": CONTENT_SECURITY_POLICY/);
+  assert.ok(
+    headersSource.includes('headers.set("content-security-policy", contentSecurityPolicy(nonce))'),
+    "le middleware doit poser la CSP construite pour le nonce de la réponse",
+  );
   assert.match(headersSource, /docs\/PENTEST-2026-11-09\.md §3/);
 });
 
-test("CSP : le middleware et le _headers CDN posent exactement la même politique", () => {
-  for (const directive of CSP_DIRECTIVES) {
+test("CSP : directives partagées identiques entre le middleware et le _headers CDN", () => {
+  for (const directive of SHARED_DIRECTIVES) {
     assert.ok(
       headersSource.includes(directive),
       `le middleware doit contenir « ${directive} »`,
     );
     assert.ok(
-      cdnHeaders.includes(directive),
+      cdnCsp.includes(directive),
       `public/_headers doit contenir « ${directive} »`,
     );
   }
 });
 
-test("CSP script-src : rétablissement incident 2026-11-20/21, 'unsafe-inline' temporaire, aucun domaine tiers", () => {
-  // Incident 2026-11-20/21 : page blanche prod (pages.dev + workers.dev) —
-  // l'allowlist par hash de #467 F1 bloquait les scripts d'hydratation inline
-  // de TanStack Start. 'unsafe-inline' est rétabli ; le hash du script de thème
-  // reste calculé et présent (cible du futur resserrement, cf. middleware).
-  // INTERDIT MAINTENU : aucun domaine tiers exécutable (grok.com notamment).
-  assert.match(headersSource, /scriptSrc\(\)/);
-  assert.match(headersSource, /THEME_BOOT_HASH/);
-  assert.match(headersSource, /script-src 'self' 'unsafe-inline'/);
-  assert.doesNotMatch(headersSource, /script-src[^\n]*https:\/\/grok\.com/);
-  assert.doesNotMatch(headersSource, /^\s*"script-src 'self' https:\/\//m);
-  const cdnCsp = cdnHeaders.match(/script-src ([^;\n]+)/);
-  assert.ok(cdnCsp, "la CSP du _headers doit définir script-src");
-  assert.equal(cdnCsp[1].trim(), "'self' 'unsafe-inline'");
+test("CSP script-src worker : nonce par réponse, ni 'unsafe-inline' ni hash ni domaine tiers", () => {
+  // Décision 2026-11-23 : les scripts inline de TanStack changent à chaque
+  // réponse, un hash statique est donc inapplicable ; et un hash présent fait
+  // ignorer 'unsafe-inline' par les navigateurs (incident 2026-11-20/21).
+  assert.ok(
+    headersSource.includes("script-src 'self' 'nonce-${nonce}'"),
+    "script-src doit être construit à partir du nonce de la réponse",
+  );
+  assert.match(headersSource, /randomBytes\(16\)/, "le nonce doit venir d'un CSPRNG (128 bits)");
+  assert.doesNotMatch(headersCode, /script-src[^;\n]*unsafe-inline/);
+  assert.doesNotMatch(headersCode, /script-src[^;\n]*https:\/\//);
+  assert.doesNotMatch(headersCode, /THEME_BOOT_HASH|createHash/);
 });
 
-test("CSP : le hash de THEME_BOOT_SCRIPT est calculé depuis la constante source (pas de valeur figée)", () => {
-  assert.match(headersSource, /createHash\("sha256"\)\.update\(THEME_BOOT_SCRIPT, "utf8"\)\.digest\("base64"\)/);
+test("CSP script-src worker : chaque script inline du HTML reçoit le nonce", () => {
+  assert.ok(
+    headersSource.includes("(?![^>]*\\bsrc=)"),
+    "seuls les scripts sans attribut src doivent être étiquetés",
+  );
+  assert.ok(
+    headersSource.includes('<script nonce="${nonce}"'),
+    "le rewrite doit injecter l'attribut nonce",
+  );
+  assert.match(headersSource, /await response\.text\(\)/);
+});
+
+test("CSP CDN : script-src 'self' seul, aucun script inline dans les actifs statiques", () => {
+  assert.equal(cdnScriptSrc, "'self'");
+  assert.doesNotMatch(cdnScriptSrc, /unsafe-inline|sha(256|384|512)-|\*/);
+});
+
+test("CSP : aucun domaine tiers exécutable (grok.com notamment)", () => {
+  assert.doesNotMatch(headersCode, /script-src[^;\n]*https:\/\/grok\.com/);
+  assert.doesNotMatch(cdnCsp, /script-src[^;]*https:\/\/grok\.com/);
+  assert.doesNotMatch(headersCode, /^\s*"script-src 'self' https:\/\//m);
 });
 
 test("_headers CDN : baseline anti-clickjacking + HSTS sur /*, cache SW intact", () => {
