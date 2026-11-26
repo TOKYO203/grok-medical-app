@@ -85,7 +85,7 @@ function toSql(run: Run): Sql {
   return sql;
 }
 
-async function createPostgresSql(): Promise<Sql> {
+async async function createPostgresSql(): Promise<Sql> {
   const postgres = (await import("postgres")).default;
   let connectionString = '';
   try {
@@ -96,12 +96,15 @@ async function createPostgresSql(): Promise<Sql> {
   }
 
 
+  // Forcer sslmode=require pour Hyperdrive si absent
+    connectionString += connectionString.includes('?') ? '&sslmode=require' : '?sslmode=require';
+  }
+
   const sqlClient = postgres(connectionString, {
     max: 5,
     fetch_types: false,
-    // prepare: false n'est plus nécessaire avec Hyperdrive,
-    // mais on le laisse pour compatibilité.
-    prepare: false
+    // prepare: true est la valeur par défaut, on ne le met pas pour éviter les conflits
+    // avec Hyperdrive qui gère le cache lui-même.
   });
 
   return toSql(async <T>(text: string, params: unknown[]) => {
