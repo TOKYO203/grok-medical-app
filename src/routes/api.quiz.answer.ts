@@ -39,6 +39,9 @@ const ANSWERABLE_FAMILIES = new Set<string>(["decks", "diagnostics"]);
 const RATE_LIMIT_MAX = 120;
 const RATE_LIMIT_WINDOW_MS = 60 * 1000;
 
+/** Le corps ne porte que quatre champs courts : au-delà, on refuse avant parsing. */
+const MAX_BODY_BYTES = 4 * 1024;
+
 /** Identifiants de decks/questions/étapes : lettres, chiffres, tirets. */
 const ID_PATTERN = /^[A-Za-z0-9][A-Za-z0-9_-]{0,127}$/;
 
@@ -80,7 +83,19 @@ export const Route = createFileRoute("/api/quiz/answer")({
             : unauthorizedResponse();
         }
 
-        const body = (await request.json().catch(() => null)) as {
+        // Corps borné (parité avec admin-verify / licenses/*) : un client
+        // automatisé ne peut pas pousser un JSON arbitrairement gros dans le
+        // parser, même à un taux inférieur au quota.
+        const declared = Number(request.headers.get("content-length"));
+        if (Number.isFinite(declared) && declared > MAX_BODY_BYTES) {
+          return json({ error: "bad_request" }, 413);
+        }
+        const raw = await request.text().catch(() => "");
+        if (raw.length > MAX_BODY_BYTES) return json({ error: "bad_request" }, 413);
+
+        const body = (await Promise.resolve(
+          (() => { try { return JSON.parse(raw || "null"); } catch { return null; } })()
+        )) as {
           family?: unknown;
           itemId?: unknown;
           questionId?: unknown;
