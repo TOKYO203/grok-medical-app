@@ -87,21 +87,25 @@ function toSql(run: Run): Sql {
 
 function createPostgresSql(): Promise<Sql> {
   globalRef.__pgSqlPromise__ ??= (async () => {
-    // Driver: `postgres` (porsager) — pure JS, uses cloudflare:sockets on Workers.
-    // `pg` (node-postgres) needs net.Socket, absent on Workers even with nodejs_compat,
-    // hence `query-failed` on every DB call from production.
     const postgres = (await import("postgres")).default;
-    let connectionString = databaseUrl || '';
-    if (connectionString.includes('pooler.supabase.com:6543') && !connectionString.includes('pgbouncer=true')) {
-      connectionString += connectionString.includes('?') ? '&pgbouncer=true' : '?pgbouncer=true';
+    let connectionString = '';
+    try {
+      const { env } = await import('cloudflare:workers');
+      connectionString = env.HYPERDRIVE.connectionString;
+    } catch (e) {
+      connectionString = process.env.DATABASE_URL || '';
     }
-    const pool = new Pool({
-  connectionString: env.HYPERDRIVE.connectionString,
-  max: 5,
-  ssl: { rejectUnauthorized: false }
-});
+    
+    if (!connectionString) throw new Error("No DATABASE_URL or Hyperdrive connection string found");
+
+    const sqlClient = postgres(connectionString, {
+      prepare: false,
+      fetch_types: false,
+      max: 1,
+    });
+
     return toSql(async <T>(text: string, params: unknown[]) => {
-      const rows = await client.unsafe(text, params as never[]);
+      const rows = await sqlClient.unsafe(text, params as never[]);
       return rows as unknown as T[];
     });
   })().catch((err) => {
