@@ -85,36 +85,30 @@ function toSql(run: Run): Sql {
   return sql;
 }
 
-function createPostgresSql(): Promise<Sql> {
-  globalRef.__pgSqlPromise__ ??= (async () => {
-    const postgres = (await import("postgres")).default;
-    let connectionString = '';
-    try {
-      const { env } = await import('cloudflare:workers');
-      connectionString = env.HYPERDRIVE.connectionString;
-    } catch (e) {
-      connectionString = process.env.DATABASE_URL || '';
-    }
-    
-    if (!connectionString) throw new Error("No DATABASE_URL or Hyperdrive connection string found");
+async function createPostgresSql(): Promise<Sql> {
+  const postgres = (await import("postgres")).default;
+  let connectionString = '';
+  try {
+    const { env } = await import('cloudflare:workers');
+    connectionString = env.HYPERDRIVE.connectionString;
+  } catch (e) {
+    connectionString = process.env.DATABASE_URL || '';
+  }
 
-    const sqlClient = postgres(connectionString, {
-      prepare: false,
-      fetch_types: false,
-      max: 1,
-    });
 
-    return toSql(async <T>(text: string, params: unknown[]) => {
-      const rows = await sqlClient.unsafe(text, params as never[]);
-      return rows as unknown as T[];
-    });
-  })().catch((err) => {
-    globalRef.__pgSqlPromise__ = undefined;
-    throw err;
+  const sqlClient = postgres(connectionString, {
+    max: 5,
+    fetch_types: false,
+    // prepare: false n'est plus nécessaire avec Hyperdrive,
+    // mais on le laisse pour compatibilité.
+    prepare: false
   });
-  return globalRef.__pgSqlPromise__;
-}
 
+  return toSql(async <T>(text: string, params: unknown[]) => {
+    const rows = await sqlClient.unsafe(text, params as never[]);
+    return rows as unknown as T[];
+  });
+}
 function migrationBasename(path: string): string {
   return path.split("/").pop() ?? path;
 }
@@ -196,7 +190,7 @@ async function createPgliteSql(): Promise<Sql> {
   });
 }
 
-let sqlPromise: Promise<Sql> | null = null;
+
 
 async function createSql(): Promise<Sql> {
   if (typeof window !== "undefined") {
@@ -215,12 +209,12 @@ async function createSql(): Promise<Sql> {
  * Schema comes from `migrations/*.sql`; PGLite also includes the Better Auth
  * schema from `migrations/auth/*.sql` whenever auth is enabled.
  */
-export function getSql(): Promise<Sql> {
-  sqlPromise ??= createSql().catch((err) => {
-    sqlPromise = null; // don't memoize failures — let the next call retry
+export async function getSql(): Promise<Sql> {
+  createSql().catch((err) => {
+     // don't memoize failures — let the next call retry
     throw err;
   });
-  return sqlPromise;
+  return createSql();
 }
 
 /**
