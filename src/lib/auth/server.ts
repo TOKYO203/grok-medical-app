@@ -360,8 +360,13 @@ let _auth: ReturnType<typeof createAuth> | null = null;
 export function getAuth() {
   if (_auth) return _auth;
   void ensureDbReady();
-  _auth = createAuth();
-  return _auth;
+  try {
+    _auth = createAuth();
+    return _auth;
+  } catch (e) {
+    __lastAuthErrorText = "CREATE_AUTH " + (e instanceof Error ? `${e.name}: ${e.message}` : String(e));
+    throw e;
+  }
 }
 
 export function __resetAuthForTests(): void {
