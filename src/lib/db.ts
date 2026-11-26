@@ -95,16 +95,11 @@ function createPostgresSql(): Promise<Sql> {
     if (connectionString.includes('pooler.supabase.com:6543') && !connectionString.includes('pgbouncer=true')) {
       connectionString += connectionString.includes('?') ? '&pgbouncer=true' : '?pgbouncer=true';
     }
-    const client = postgres(connectionString, {
-      ssl: { rejectUnauthorized: false },
-      max: 1,
-      prepare: false,
-      types: {
-        int8: { to: 20, from: [20], serialize: (x: unknown) => x, parse: (x: string) => Number(x) },
-        date: { to: 1082, from: [1082], serialize: (x: unknown) => x, parse: (x: string) => x },
-        interval: { to: 1186, from: [1186], serialize: (x: unknown) => x, parse: (x: string) => x },
-      },
-    });
+    const pool = new Pool({
+  connectionString: env.HYPERDRIVE.connectionString,
+  max: 5,
+  ssl: { rejectUnauthorized: false }
+});
     return toSql(async <T>(text: string, params: unknown[]) => {
       const rows = await client.unsafe(text, params as never[]);
       return rows as unknown as T[];
