@@ -85,37 +85,26 @@ function toSql(run: Run): Sql {
   return sql;
 }
 
-function createPostgresSql(): Promise<Sql> {
-  globalRef.__pgSqlPromise__ ??= (async () => {
-    // Driver: `postgres` (porsager) — pure JS, uses cloudflare:sockets on Workers.
-    // `pg` (node-postgres) needs net.Socket, absent on Workers even with nodejs_compat,
-    // hence `query-failed` on every DB call from production.
-    const postgres = (await import("postgres")).default;
-    let connectionString = databaseUrl || '';
-    if (connectionString.includes('pooler.supabase.com:6543') && !connectionString.includes('pgbouncer=true')) {
-      connectionString += connectionString.includes('?') ? '&pgbouncer=true' : '?pgbouncer=true';
-    }
-    const client = postgres(connectionString, {
-      ssl: { rejectUnauthorized: false },
-      max: 1,
-      prepare: false,
-      types: {
-        int8: { to: 20, from: [20], serialize: (x: unknown) => x, parse: (x: string) => Number(x) },
-        date: { to: 1082, from: [1082], serialize: (x: unknown) => x, parse: (x: string) => x },
-        interval: { to: 1186, from: [1186], serialize: (x: unknown) => x, parse: (x: string) => x },
-      },
-    });
-    return toSql(async <T>(text: string, params: unknown[]) => {
-      const rows = await client.unsafe(text, params as never[]);
-      return rows as unknown as T[];
-    });
-  })().catch((err) => {
-    globalRef.__pgSqlPromise__ = undefined;
-    throw err;
-  });
-  return globalRef.__pgSqlPromise__;
-}
+async async async function createPostgresSql(): Promise<Sql> {
+  const { Client } = await import('pg');
+  let connectionString = '';
+  try {
+    const { env } = await import('cloudflare:workers');
+    connectionString = env.HYPERDRIVE.connectionString;
+  } catch (e) {
+    connectionString = process.env.DATABASE_URL || '';
+  }
 
+
+  // Création d'un Client par requête (obligatoire sur Workers)
+  const client = new Client({ connectionString });
+  await client.connect();
+
+  return toSql(async <T>(text: string, params: unknown[]) => {
+    const result = await client.query(text, params);
+    return result.rows as T[];
+  });
+}
 function migrationBasename(path: string): string {
   return path.split("/").pop() ?? path;
 }
@@ -197,7 +186,7 @@ async function createPgliteSql(): Promise<Sql> {
   });
 }
 
-let sqlPromise: Promise<Sql> | null = null;
+
 
 async function createSql(): Promise<Sql> {
   if (typeof window !== "undefined") {
@@ -216,12 +205,12 @@ async function createSql(): Promise<Sql> {
  * Schema comes from `migrations/*.sql`; PGLite also includes the Better Auth
  * schema from `migrations/auth/*.sql` whenever auth is enabled.
  */
-export function getSql(): Promise<Sql> {
-  sqlPromise ??= createSql().catch((err) => {
-    sqlPromise = null; // don't memoize failures — let the next call retry
+export async function getSql(): Promise<Sql> {
+  createSql().catch((err) => {
+     // don't memoize failures — let the next call retry
     throw err;
   });
-  return sqlPromise;
+  return createSql();
 }
 
 /**
