@@ -85,8 +85,8 @@ function toSql(run: Run): Sql {
   return sql;
 }
 
-async async function createPostgresSql(): Promise<Sql> {
-  const postgres = (await import("postgres")).default;
+async async async function createPostgresSql(): Promise<Sql> {
+  const { Client } = await import('pg');
   let connectionString = '';
   try {
     const { env } = await import('cloudflare:workers');
@@ -96,20 +96,13 @@ async async function createPostgresSql(): Promise<Sql> {
   }
 
 
-  // Forcer sslmode=require pour Hyperdrive si absent
-    connectionString += connectionString.includes('?') ? '&sslmode=require' : '?sslmode=require';
-  }
-
-  const sqlClient = postgres(connectionString, {
-    max: 5,
-    fetch_types: false,
-    // prepare: true est la valeur par défaut, on ne le met pas pour éviter les conflits
-    // avec Hyperdrive qui gère le cache lui-même.
-  });
+  // Création d'un Client par requête (obligatoire sur Workers)
+  const client = new Client({ connectionString });
+  await client.connect();
 
   return toSql(async <T>(text: string, params: unknown[]) => {
-    const rows = await sqlClient.unsafe(text, params as never[]);
-    return rows as unknown as T[];
+    const result = await client.query(text, params);
+    return result.rows as T[];
   });
 }
 function migrationBasename(path: string): string {
