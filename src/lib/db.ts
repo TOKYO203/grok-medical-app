@@ -85,7 +85,7 @@ function toSql(run: Run): Sql {
   return sql;
 }
 
-async async async function createPostgresSql(): Promise<Sql> {
+async function createPostgresSql(): Promise<Sql> {
   const { Client } = await import('pg');
   let connectionString = '';
   try {
