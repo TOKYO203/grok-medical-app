@@ -6,7 +6,7 @@
   "subtitle": "Nosographie — cardiologie",
   "objective": "Devant une pression artérielle très élevée, distinguer l'urgence hypertensive avec atteinte viscérale de l'élévation tensionnelle sans complication, identifier l'organe cible menacé, et appliquer le bon rythme de réduction tensionnelle : contrôlé et rapide par voie veineuse dans un cas, progressif et oral dans l'autre.",
   "language": "fr",
-  "updatedAt": "2026-10-31",
+  "updatedAt": "2026-11-27",
   "reviewStatus": "pending-medical-review",
   "curriculum": {
     "collection": "Nosographie — spécialité médicale",
@@ -34,6 +34,7 @@
     "reviewStatus": "pending-medical-review",
     "reviewedBy": null,
     "verificationNotes": [
+      "Drapeaux rouges ajoutés le 2026-11-27 : chaque signe et chaque conduite reformulent l'ESC 2024 et l'ESH 2023 sur l'urgence hypertensive.",
       "Le référentiel national intitule l'item « Crise aiguë hypertensive : traitement d'urgence » (Médecine n°25) : la fiche privilégie donc la décision thérapeutique, avec la distinction urgence hypertensive (atteinte viscérale, voie veineuse, réduction contrôlée) contre élévation tensionnelle sans complication (traitement oral, réduction progressive) comme fil conducteur.",
       "Sources vérifiées le jour de rédaction : ESC 2024 (doi:10.1093/eurheartj/ehae178, PubMed 39210715) et ESH 2023 (doi:10.1097/HJH.0000000000003480).",
       "Situations à rythme de réduction particulier : dissection aortique (réduction rapide), AVC ischémique (pas de baisse rapide), pré-éclampsie et éclampsie (renvoi vers les items dédiés du référentiel : grossesse et HTA, éclampsie).",
@@ -563,5 +564,34 @@
       ]
     }
   ],
-  "specialty": "Cardiologie"
+  "specialty": "Cardiologie",
+    "disclaimer": "Support pédagogique. Ne remplace ni un avis médical ni les protocoles locaux.",
+    "dosagePolicy": "Molécules citées sans posologies : se référer aux protocoles locaux et au contexte du patient.",
+    "redFlags": [
+      {
+        "sign": "Pression artérielle très élevée avec céphalées intenses, troubles visuels ou confusion",
+        "action": "Hospitalisation immédiate : suspicion d'encéphalopathie hypertensive, contrôle progressif de la pression artérielle par voie veineuse"
+      },
+      {
+        "sign": "Douleur thoracique ou dorsale déchirante avec asymétrie tensionnelle",
+        "action": "Évoquer une dissection aortique : imagerie en urgence, contrôle tensionnel veineux, aucune anticoagulation avant confirmation"
+      },
+      {
+        "sign": "Dyspnée brutale avec crépitants et orthopnée",
+        "action": "Œdème aigu du poumon hypertensif : position demi-assise, oxygène, traitement antihypertenseur veineux en soins intensifs"
+      },
+      {
+        "sign": "Déficit neurologique focal, aphasie ou trouble de la conscience",
+        "action": "Accident vasculaire cérébral jusqu'à preuve par imagerie : transfert vers un centre disposant d'imagerie et de la filière neurovasculaire"
+      },
+      {
+        "sign": "Grossesse ou post-partum avec pression artérielle élevée et céphalées ou douleur épigastrique",
+        "action": "Éclampsie menaçante : avis obstétrical immédiat et sulfate de magnésium selon le protocole"
+      },
+      {
+        "sign": "Baisse de la diurèse, hématurie ou insuffisance rénale aiguë",
+        "action": "Hypertension maligne avec atteinte rénale : hospitalisation et contrôle progressif, jamais de normalisation brutale"
+      }
+    ],
+    "localAdaptations": []
 }

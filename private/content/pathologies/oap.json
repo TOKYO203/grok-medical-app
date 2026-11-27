@@ -6,7 +6,7 @@
   "subtitle": "Nosographie — cardiologie",
   "objective": "Devant une dyspnée aiguë avec orthopnée et crachats mousseux, reconnaître l'œdème aigu du poumon cardiogénique, le distinguer d'une détresse respiratoire lésionnelle, et mettre en œuvre sans délai les mesures de sauvetage : position, oxygène, diurétique et dérivés nitrés.",
   "language": "fr",
-  "updatedAt": "2026-10-30",
+  "updatedAt": "2026-11-27",
   "reviewStatus": "pending-medical-review",
   "curriculum": {
     "collection": "Nosographie — spécialité médicale",
@@ -34,6 +34,7 @@
     "reviewStatus": "pending-medical-review",
     "reviewedBy": null,
     "verificationNotes": [
+      "Drapeaux rouges ajoutés le 2026-11-27 : chaque conduite reformule l'ESC 2021 et l'AHA 2022 sur l'insuffisance cardiaque aiguë.",
       "Le référentiel national intitule l'item « Œdème aigu du poumon » (Médecine n°23) : la fiche couvre l'OAP cardiogénique au sens classique (œdème hydrostatique par élévation de la pression capillaire pulmonaire) et le distingue explicitement de la détresse respiratoire lésionnelle (SDRA), dont la prise en charge est radicalement différente.",
       "Les priorités thérapeutiques suivent ESC 2021 : assise, oxygène avec ventilation non invasive précoce si détresse, diurétiques de l'anse pour la surcharge, dérivés nitrés si tension artérielle suffisante.",
       "La radio d'œdème pulmonaire est servie depuis Wikimedia Commons (fichier Pulmonary oedema.jpg, licence CC BY-SA 3.0, crédit « Via Wikimedia Commons »).",
@@ -570,5 +571,34 @@
       ]
     }
   ],
-  "specialty": "Cardiologie"
+  "specialty": "Cardiologie",
+    "disclaimer": "Support pédagogique. Ne remplace ni un avis médical ni les protocoles locaux.",
+    "dosagePolicy": "Molécules citées sans posologies : se référer aux protocoles locaux et au contexte du patient.",
+    "redFlags": [
+      {
+        "sign": "Orthopnée et désaturation avec crépitants bilatéraux",
+        "action": "Position demi-assise, oxygénothérapie, traitement diurétique et nitrés si la pression artérielle le permet, surveillance continue"
+      },
+      {
+        "sign": "Pression artérielle basse avec marbrures et oligurie",
+        "action": "Œdème aigu du poumon avec choc cardiogénique : pas de nitrés, avis cardiologique et réanimation urgents"
+      },
+      {
+        "sign": "Stridor, tirage ou épuisement respiratoire",
+        "action": "Détresse imminente : ventilation non invasive ou intubation, transfert en réanimation"
+      },
+      {
+        "sign": "Douleur thoracique avec sus-décalage de ST",
+        "action": "Œdème aigu du poumon d'origine ischémique : filière syndrome coronarien aigu et reperfusion en urgence"
+      },
+      {
+        "sign": "Tachycardie rapide mal tolérée avec instabilité",
+        "action": "Cardioversion ou contrôle du rythme en urgence"
+      },
+      {
+        "sign": "Fièvre avec foyer pulmonaire et absence d'antécédent cardiaque",
+        "action": "Évoquer un œdème lésionnel : traiter la cause, ventilation protectrice, pas de diurétique à forte dose"
+      }
+    ],
+    "localAdaptations": []
 }

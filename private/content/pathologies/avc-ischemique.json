@@ -6,7 +6,7 @@
   "subtitle": "Nosographie — neurologie",
   "objective": "Reconnaître un accident vasculaire cérébral en urgence, faire la preuve de l'ischémie et de sa cause, décider d'une reperfusion dans la fenêtre thérapeutique et organiser la prévention secondaire.",
   "language": "fr",
-  "updatedAt": "2026-10-18",
+  "updatedAt": "2026-11-27",
   "reviewStatus": "pending-medical-review",
   "curriculum": {
     "collection": "Nosographie — spécialité médicale",
@@ -36,6 +36,7 @@
     "reviewStatus": "pending-medical-review",
     "reviewedBy": null,
     "verificationNotes": [
+      "Drapeaux rouges ajoutés le 2026-11-27 : conduites issues de l'AHA/ASA 2019, de l'ESO 2021 et de la fiche OMS 2026.",
       "Le référentiel national distingue les accidents vasculaires ischémiques cérébraux et les accidents hémorragiques. La fiche adopte l'intitulé exact de l'item ischémique ; l'hémorragie intracérébrale est traitée comme diagnostic différentiel et non comme second item.",
       "Les fenêtres thérapeutiques retenues sont celles des recommandations : thrombolyse intraveineuse jusqu'à 4 heures 30, thrombectomie mécanique jusqu'à 6 heures et jusqu'à 24 heures chez des patients sélectionnés par imagerie.",
       "Les posologies de l'altéplase et de la tenecteplase sont mentionnées comme repères ; elles doivent être vérifiées dans le protocole local et adaptées au poids.",
@@ -947,5 +948,34 @@
       ]
     }
   ],
-  "specialty": "Neurologie"
+  "specialty": "Neurologie",
+    "disclaimer": "Support pédagogique. Ne remplace ni un avis médical ni les protocoles locaux.",
+    "dosagePolicy": "Molécules citées sans posologies : se référer aux protocoles locaux et au contexte du patient.",
+    "redFlags": [
+      {
+        "sign": "Déficit focal brutal : hémiplégie, aphasie ou hémianopsie",
+        "action": "Activer la filière neurovasculaire, imagerie cérébrale immédiate, noter l'heure exacte de début"
+      },
+      {
+        "sign": "Déficit récent avec occlusion artérielle proximale",
+        "action": "Discuter thrombolyse et thrombectomie en centre de référence dans les fenêtres du protocole"
+      },
+      {
+        "sign": "Céphalées brutales, vomissements ou coma",
+        "action": "Éliminer une hémorragie par imagerie avant toute thrombolyse"
+      },
+      {
+        "sign": "Fièvre, glycémie anormale ou hypotension",
+        "action": "Corriger les facteurs aggravants sans retarder la reperfusion"
+      },
+      {
+        "sign": "Pression artérielle très élevée avant thrombolyse",
+        "action": "Respecter les seuils du protocole : ne pas descendre au-delà de la cible"
+      },
+      {
+        "sign": "Déficit transitoire ou fluctuant",
+        "action": "Explorer l'origine cardiaque et carotidienne et débuter la prévention secondaire"
+      }
+    ],
+    "localAdaptations": []
 }

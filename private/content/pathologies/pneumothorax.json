@@ -6,7 +6,7 @@
   "subtitle": "Nosographie — sémiologie",
   "objective": "Devant une douleur thoracique brutale avec dyspnée, reconnaître le pneumothorax, identifier d'emblée le pneumothorax compressif qui menace la vie, et choisir entre surveillance, exsufflation et drainage selon le type et la tolérance.",
   "language": "fr",
-  "updatedAt": "2026-10-30",
+  "updatedAt": "2026-11-27",
   "reviewStatus": "pending-medical-review",
   "curriculum": {
     "collection": "Nosographie — sémiologie",
@@ -33,6 +33,7 @@
     "reviewStatus": "pending-medical-review",
     "reviewedBy": null,
     "verificationNotes": [
+      "Drapeaux rouges ajoutés le 2026-11-27 : conduites issues de la BTS 2023 et de l'ERS 2024 sur le pneumothorax.",
       "L'intitulé du référentiel national est « Pneumothorax » sans qualification : la fiche couvre le pneumothorax spontané primaire et secondaire, le pneumothorax iatrogène et traumatique en tant que diagnostics à évoquer, et le pneumothorax compressif comme urgence immédiate.",
       "Le pneumothorax compressif est une urgence vitale qui se traite avant tout examen d'imagerie si le tableau clinique est typique : la fiche le signale explicitement, conformément aux recommandations BTS.",
       "La radio illustrative provient de Wikimedia Commons (licence CC BY-SA) : cliché pédagogique, sans valeur diagnostique individuelle."
@@ -558,5 +559,34 @@
       ]
     }
   ],
-  "specialty": "Pneumologie"
+  "specialty": "Pneumologie",
+    "disclaimer": "Support pédagogique. Ne remplace ni un avis médical ni les protocoles locaux.",
+    "dosagePolicy": "Molécules citées sans posologies : se référer aux protocoles locaux et au contexte du patient.",
+    "redFlags": [
+      {
+        "sign": "Dyspnée majeure, hypotension, déviation trachéale ou distension thoracique",
+        "action": "Pneumothorax compressif : exsufflation immédiate à l'aiguille, sans attendre l'imagerie"
+      },
+      {
+        "sign": "Instabilité après un traumatisme thoracique",
+        "action": "Drainage thoracique urgent et prise en charge du polytraumatisé"
+      },
+      {
+        "sign": "Pneumothorax spontané secondaire avec dyspnée au repos",
+        "action": "Hospitalisation et drainage selon la tolérance"
+      },
+      {
+        "sign": "Pneumothorax bilatéral ou survenant sous ventilation mécanique",
+        "action": "Urgence vitale : avis réanimation immédiat"
+      },
+      {
+        "sign": "Douleur thoracique brutale récidivante chez un sujet jeune",
+        "action": "Recherche d'une cause sous-jacente et discussion d'un traitement préventif de la récidive"
+      },
+      {
+        "sign": "Fièvre, amaigrissement ou terrain tuberculeux",
+        "action": "Évoquer une tuberculose ou une lésion cavitaire : imagerie et prélèvements"
+      }
+    ],
+    "localAdaptations": []
 }
