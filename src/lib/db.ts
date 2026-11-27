@@ -87,18 +87,11 @@ function toSql(run: Run): Sql {
 
 async function createPostgresSql(): Promise<Sql> {
   const pgModule = await import('pg');
-    let ClientCtor: any = (pgModule as any).Client || (pgModule as any).default?.Client || (pgModule as any).default;
-    if (ClientCtor && typeof ClientCtor !== 'function') {
-      ClientCtor = ClientCtor.Client || ClientCtor.default;
-    }
-    if (typeof ClientCtor !== 'function') {
-      throw new Error('DEBUG_PG_STRUCTURE: Keys=' + Object.keys(pgModule).join(',') + ' DefaultKeys=' + (pgModule.default ? Object.keys(pgModule.default).join(',') : 'none'));
-    }
-    const client = new ClientCtor({ connectionString });
-  await client.connect();
+    const Pool = (pgModule as any).Pool || (pgModule as any).default?.Pool || (pgModule as any).default;
+    const pool = new Pool({ connectionString });
 
   return toSql(async <T>(text: string, params: unknown[]) => {
-    const result = await client.query(text, params);
+    const result = await pool.query(text, params);
     return result.rows as T[];
   });
 }
