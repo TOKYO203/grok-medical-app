@@ -78,7 +78,8 @@ export default async function adminGuardMiddleware(
   const pathname = event.url?.pathname ?? "/";
   if (
     !pathname.startsWith("/admin") ||
-    pathname.startsWith("/admin-login") ||
+    pathname === "/admin-login" ||
+    pathname.startsWith("/admin-login/") ||
     pathname.startsWith("/api/")
   ) {
     return next();

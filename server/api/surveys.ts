@@ -1,5 +1,6 @@
 import {
   defineEventHandler,
+  getHeader,
   getMethod,
   getQuery,
   readBody,
@@ -7,6 +8,7 @@ import {
 } from "h3";
 import { z } from "zod";
 import { getSql } from "@/lib/db";
+import { getClientIp } from "../lib/client-ip";
 import { applyRateLimitHeaders, consumeRateLimit } from "../lib/rate-limit";
 import { apiAuthFailure, requireContentEditor } from "../lib/route-auth";
 
@@ -49,9 +51,30 @@ export default defineEventHandler(async (event) => {
   const method = getMethod(event).toUpperCase();
 
   if (method === "GET") {
+    // Audit 2026-11-27 : la liste publique n'était pas throttlée — un client
+    // anonyme pouvait marteler la base sans aucune limite. Même politique que
+    // les autres endpoints publics (fail closed si le limiteur est indispo).
     const sql = await getSql();
     const q = getQuery(event) as Record<string, string>;
     const limit = safeLimit(q.limit);
+    const listSubject = getClientIp(event) ?? `ua:${(getHeader(event, "user-agent") ?? "no-user-agent").slice(0, 160)}`;
+    try {
+      const decision = await consumeRateLimit({
+        scope: "survey-list",
+        subject: listSubject,
+        limit: 60,
+        windowSeconds: 60,
+      });
+      applyRateLimitHeaders(event, decision);
+      if (!decision.allowed) {
+        setResponseStatus(event, 429);
+        return { error: "rate_limited" };
+      }
+    } catch (error) {
+      console.error("[surveys] list rate limiter unavailable", error);
+      setResponseStatus(event, 503);
+      return { error: "survey_service_unavailable" };
+    }
     return sql.query(
       `select id, title, description, target, anonymized, consent_text, open_at, close_at
          from surveys
