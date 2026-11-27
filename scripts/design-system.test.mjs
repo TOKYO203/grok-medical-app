@@ -62,7 +62,7 @@ test("typographie : 9 niveaux, chacun avec taille + interlignage + approche", ()
   for (const level of TYPE_LEVELS) {
     for (const prefix of ["fs", "lh", "tr"]) {
       assert.ok(
-        new RegExp(`--${prefix}-${level.replace(/-/g, "\\-")}\\s*:`).test(tokensCss),
+        new RegExp(`--${prefix}-${level.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\s*:`).test(tokensCss),
         `jeton manquant : --${prefix}-${level}`,
       );
     }

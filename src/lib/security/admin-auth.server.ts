@@ -1,4 +1,4 @@
-import { createHash, createHmac, timingSafeEqual } from "node:crypto";
+import { createHash, createHmac, hkdfSync, timingSafeEqual } from "node:crypto";
 import { clientIpSubject } from "./client-ip.server.ts";
 import { rateLimit } from "./rate-limit.server.ts";
 
@@ -82,9 +82,17 @@ export const ADMIN_SESSION_TTL_SECONDS = 7 * 24 * 60 * 60;
 function adminSessionKey(): Uint8Array | null {
   const secret = (process.env.ADMIN_PASSWORD ?? "").trim();
   if (secret.length === 0) return null; // unset => pas de session serveur
-  return new Uint8Array(
-    createHash("sha256").update(`admin-session-key:${secret}`, "utf8").digest(),
+  // HKDF-SHA256 plutôt qu'un simple SHA-256 : le mot de passe admin est choisi
+  // par un humain, donc à entropie inconnue. Une KDF dédiée évite de réutiliser
+  // directement le condensé du secret comme clé HMAC.
+  const derived = hkdfSync(
+    "sha256",
+    Buffer.from(secret, "utf8"),
+    Buffer.alloc(0),
+    Buffer.from("optimus-admin-session-v1", "utf8"),
+    32,
   );
+  return new Uint8Array(derived);
 }
 
 function toBase64Url(bytes: Uint8Array): string {

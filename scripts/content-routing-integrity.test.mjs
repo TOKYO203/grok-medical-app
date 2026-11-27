@@ -35,7 +35,7 @@ test("every ContentLink target is a registered route", async () => {
     assert.ok(source, `ContentLink: la route "${destination}" n'existe pas (${file})`);
     assert.match(
       source,
-      new RegExp(`createFileRoute\\("${destination.replace(/\$/g, "\\$")}"\\)`),
+      new RegExp(`createFileRoute\\("${destination.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}"\\)`),
       `ContentLink: ${file} n'enregistre pas la route "${destination}"`,
     );
   }
