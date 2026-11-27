@@ -96,7 +96,7 @@ export const Route = createFileRoute("/api/health/checkout")({
         const supabase = readServerSupabaseConfig(env);
         const serviceKey = resolveSupabaseServiceKey(env);
         const lemon = readLemonCheckoutConfig(env);
-        const database = await probeDatabase();
+        const database = await probeDatabase(); if (database.reason === "query-failed") return json({ error_debug: (database as any).error || "Erreur inconnue" }, 500); if (database.reason === "query-failed") return json({ error_debug: (database as any).error || "Erreur inconnue" }, 500);
 
         // Audit 2026-11-17 : le detail de l'echec RPC (message de driver, debug
         // interne) reste dans les LOGS serveur - il n'est plus renvoye au client.
