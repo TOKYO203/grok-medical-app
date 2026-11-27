@@ -6,7 +6,7 @@
   "subtitle": "Nosographie — cardiologie",
   "objective": "Devant une douleur thoracique aiguë, reconnaître un syndrome coronarien aigu, faire l'ECG et la troponine dans les délais, décider d'une reperfusion en urgence et organiser la prévention secondaire.",
   "language": "fr",
-  "updatedAt": "2026-10-30",
+  "updatedAt": "2026-11-27",
   "reviewStatus": "pending-medical-review",
   "curriculum": {
     "collection": "Nosographie — spécialité médicale",
@@ -35,7 +35,9 @@
     "verificationNotes": [
       "Le titre affiché est l'intitulé exact du référentiel national (« Infarctus du myocarde ») ; la fiche couvre l'ensemble des syndromes coronariens aigus car l'item les regroupe, le sus-décalage de ST y est traité comme l'urgence de reperfusion.",
       "La fenêtre de reperfusion suit les recommandations ESC 2023 : angioplastie primaire dans les 120 minutes après le diagnostic de STEMI, sinon fibrinolyse dans les 30 minutes si l'angioplastie n'est pas accessible dans le délai, transfert secondaire vers un centre d'angioplastie.",
-      "L'ECG illustratif provient de Wikimedia Commons (licence CC BY) : il montre un sus-décalage de ST typique, à visée pédagogique et non diagnostique."
+      "L'ECG illustratif provient de Wikimedia Commons (licence CC BY) : il montre un sus-décalage de ST typique, à visée pédagogique et non diagnostique.",
+      "Drapeaux rouges ajoutés le 2026-11-27 : chaque signe et chaque conduite immédiate reformulent les recommandations ESC 2023 (délai ECG, fenêtres de reperfusion, prise en charge de l'arrêt cardiaque et du choc).",
+      "Aucune adaptation locale n'est renseignée au 2026-11-27 : le protocole national malgache de prise en charge du SCA n'a pas été retrouvé en ligne ; en l'absence de source vérifiable, le champ reste vide plutôt que d'être reconstitué."
     ],
     "qcChecklist": [
       "Chaque affirmation clinique est rattachée à une source citée en pied de fiche.",
@@ -577,5 +579,34 @@
       ]
     }
   ],
+  "disclaimer": "Support pédagogique. Ne remplace ni un avis médical ni les protocoles locaux.",
+  "dosagePolicy": "Molécules citées sans posologies : se référer aux protocoles locaux et au contexte du patient.",
+  "redFlags": [
+    {
+      "sign": "Douleur thoracique oppressante persistante plus de vingt minutes, résistante à la trinitrine",
+      "action": "ECG dans les dix minutes et appel immédiat de la filière coronarienne ; ne pas attendre le résultat de la troponine"
+    },
+    {
+      "sign": "Sus-décalage de ST dans deux dérivations contiguës",
+      "action": "Reperfusion immédiate : angioplastie primaire dans les 120 minutes, sinon fibrinolyse dans les 30 minutes"
+    },
+    {
+      "sign": "Dyspnée brutale avec crépitants, hypotension ou marbrures",
+      "action": "Pas de transfert non médicalisé ; surveillance en unité de soins intensifs cardiologiques"
+    },
+    {
+      "sign": "Tachycardie ventriculaire soutenue ou fibrillation ventriculaire",
+      "action": "Défibrillation immédiate et manœuvres de réanimation"
+    },
+    {
+      "sign": "Bloc de branche gauche nouveau avec douleur thoracique aiguë",
+      "action": "Traiter comme un STEMI jusqu'à avis cardiologique ; ne jamais différer la reperfusion"
+    },
+    {
+      "sign": "Absence de douleur chez la femme, le diabétique ou la personne âgée",
+      "action": "Évoquer un SCA devant une dyspnée, un malaise ou une épigastralgie inexpliquée"
+    }
+  ],
+  "localAdaptations": [],
   "specialty": "Cardiologie"
 }

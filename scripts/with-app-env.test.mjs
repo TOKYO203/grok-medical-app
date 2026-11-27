@@ -11,6 +11,7 @@ import {
   parseAppEnv,
   projectRoot,
   readAppEnv,
+  resolveCommand,
 } from "./with-app-env.mjs";
 
 const execFileAsync = promisify(execFile);
@@ -159,4 +160,15 @@ test("the CLI still runs when invoked through a symlinked path", async () => {
     PRINT_FLAG,
   ]);
   assert.equal(stdout, PROJECT_AUTH_FLAG);
+});
+
+test("resolveCommand prefers .cmd over the POSIX shim on win32", () => {
+  const root = makeWorkspace();
+  const binDir = join(root, "node_modules", ".bin");
+  mkdirSync(binDir, { recursive: true });
+  writeFileSync(join(binDir, "vite"), "#!/bin/sh\n");
+  writeFileSync(join(binDir, "vite.cmd"), "@echo off\r\n");
+
+  assert.equal(resolveCommand("vite", { platform: "win32", root }), join(binDir, "vite.cmd"));
+  assert.equal(resolveCommand("vite", { platform: "linux", root }), join(binDir, "vite"));
 });

@@ -22,7 +22,7 @@
 import { spawn } from "node:child_process";
 import { readFileSync, realpathSync, existsSync } from "node:fs";
 import { constants as osConstants } from "node:os";
-import { basename, dirname, join } from "node:path";
+import { basename, dirname, isAbsolute, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
 export const APP_ENV_REL_PATH = ".grok/app-env.json";
@@ -104,9 +104,16 @@ export function isMainModule(moduleUrl) {
   }
 }
 
-function resolveCommand(cmd) {
-  if (cmd.startsWith("/") || cmd.startsWith(".")) return cmd;
-  const local = join(projectRoot(), "node_modules", ".bin", cmd);
+export function resolveCommand(cmd, { platform = process.platform, root = projectRoot() } = {}) {
+  if (isAbsolute(cmd) || cmd.startsWith(".")) return cmd;
+  const binDir = join(root, "node_modules", ".bin");
+  if (platform === "win32") {
+    for (const ext of [".cmd", ".exe", ".bat"]) {
+      const candidate = join(binDir, `${cmd}${ext}`);
+      if (existsSync(candidate)) return candidate;
+    }
+  }
+  const local = join(binDir, cmd);
   return existsSync(local) ? local : cmd;
 }
 
@@ -151,7 +158,13 @@ async function main(argv) {
       console.error("[with-app-env] catalog sync failed:", err?.message || err);
     }
   }
-  const child = spawn(resolved, args, { stdio: "inherit", env });
+  const isWinBatch = process.platform === "win32" && /\.(cmd|bat)$/i.test(resolved);
+  const child = isWinBatch
+    ? spawn(process.env.ComSpec || "cmd.exe", ["/d", "/c", resolved, ...args], {
+        stdio: "inherit",
+        env,
+      })
+    : spawn(resolved, args, { stdio: "inherit", env });
   // The dev server is long-running and is stopped by signalling this wrapper.
   for (const signal of ["SIGINT", "SIGTERM", "SIGHUP"]) {
     process.on(signal, () => child.kill(signal));

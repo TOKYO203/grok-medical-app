@@ -1,3 +1,5 @@
+import { fileURLToPath } from 'node:url';
+
 // Plugin Vite : remplace better-auth par un stub en SSR UNIQUEMENT (prod CF).
 // Économie ~1.8 MiB sur le worker. Client intact (auth UI fonctionne).
 export default function authStubSsr() {
@@ -5,7 +7,7 @@ export default function authStubSsr() {
   if (process.env.VITE_AUTH_ENABLED !== 'false') {
     return { name: 'auth-stub-ssr-disabled', enforce: 'pre' };
   }
-  const stub = new URL('../src/lib/auth/stub-ssr.ts', import.meta.url).pathname;
+  const stub = fileURLToPath(new URL('../src/lib/auth/stub-ssr.ts', import.meta.url));
   const mods = [
     'better-auth', 'better-auth/react', 'better-auth/plugins', 'better-auth/tanstack-start',
     'better-auth/api', 'better-auth/cookies', 'better-auth/oauth2',
