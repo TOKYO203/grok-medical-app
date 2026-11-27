@@ -993,3 +993,9 @@ une affectation de `VITE_AUTH_ENABLED` sur `process.env` dans le lanceur.
 | Date | ID | Décision | Motif | Auteur |
 |------|----|----------|-------|--------|
 | 2026-11-27 | UI-3 | `src/routes/index.tsx` : suppression du bloc « Prochaine étape / Deck conseillé » (calculs `featured`, `featuredProgress`, `resumed`, `priority`, `yearDeck` retirés) et des deux doublons du rail bas (Réviser, Cas cliniques, déjà présents ailleurs). L'accueil garde un seul point de décision : la carte « Session du jour ». | Deux invites fortes se concurrençaient juste sous la carte de session, et le rail bas répétait le contenu du milieu de page. Hauteur desktop de l'accueil : 2 902 px → 2 697 px, la session restant seule au-dessus de la ligne de flottaison sur mobile. | Vibe |
+
+## 2026-11-27 — CI : nettoyage tolérant dans le test de synchronisation catalogue
+
+| Date | ID | Décision | Motif | Auteur |
+|------|----|----------|-------|--------|
+| 2026-11-27 | CI-1 | `scripts/public-catalog-sync.test.mjs` : `rmTemp()` utilise `rmSync` avec `maxRetries: 8` et `retryDelay: 50`, et n'échoue plus si le ménage rencontre `ENOTEMPTY` (avertissement seulement). | Le job « Suite de tests (bloquante) » est tombé rouge sur `ENOTEMPTY: rmdir private/content/demarches` alors que le code était sain : la suppression d'arbre est en course avec un autre fichier de test exécuté en parallèle. Une relance du même commit est passée au vert, ce qui confirme l'instabilité plutôt qu'une régression. | Vibe |
