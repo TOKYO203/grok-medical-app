@@ -88,7 +88,7 @@ function toSql(run: Run): Sql {
 async function createPostgresSql(): Promise<Sql> {
   const pgModule = await import('pg');
     const Pool = (pgModule as any).Pool || (pgModule as any).default?.Pool || (pgModule as any).default;
-    const pool = new Pool({ connectionString });
+    const pool = new Pool({ connectionString, ssl: { rejectUnauthorized: false } });
 
   return toSql(async <T>(text: string, params: unknown[]) => {
     const result = await pool.query(text, params);
