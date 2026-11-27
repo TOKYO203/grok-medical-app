@@ -86,7 +86,7 @@ function toSql(run: Run): Sql {
 }
 
 async function createPostgresSql(): Promise<Sql> {
-  const { Client } = await import('pg');
+  const pg = await import('pg'); const Client = pg.Client || (pg.default && pg.default.Client);
   let connectionString = '';
   try {
     const { env } = await import('cloudflare:workers');
