@@ -100,7 +100,7 @@ function ContactPage() {
         </div>
 
         {/* ─── Écoles & établissements (B20) ─── */}
-        <div className="mt-3 rounded-[var(--radius-md)] border border-[#A67C1E]/50 bg-[#A67C1E]/10 p-4">
+        <div className="mt-3 rounded-[var(--radius-md)] border border-primary/50 bg-primary/10 p-4">
           <p className="text-sm font-medium text-fg">École, faculté ou association ?</p>
           <p className="mt-1 text-xs leading-relaxed text-muted">
             Licences multi-sièges, tarif dégressif et accompagnement dédié. Écrivez-nous
@@ -108,7 +108,7 @@ function ContactPage() {
           </p>
           <a
             href={`mailto:${EMAIL}?subject=${encodeURIComponent("[Optimus] " + SCHOOL_SUBJECT)}&body=${encodeURIComponent(SCHOOL_BODY)}`}
-            className="mt-3 inline-flex items-center gap-2 rounded-[var(--radius-md)] border border-[#A67C1E] px-4 py-2.5 text-sm font-medium text-[#A67C1E] transition-colors hover:bg-[#A67C1E] hover:text-[#F4F1FA]"
+            className="mt-3 inline-flex items-center gap-2 rounded-[var(--radius-md)] border border-primary px-4 py-2.5 text-sm font-medium text-primary transition-colors hover:bg-primary hover:text-primary-fg"
           >
             <Mail className="size-4" aria-hidden />
             Demander un devis par email

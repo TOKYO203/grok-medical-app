@@ -108,7 +108,7 @@ function InstitutionnelPage() {
           </p>
           <a
             href="#demonstration"
-            className="mt-4 inline-flex items-center gap-2 rounded-[var(--radius-md)] border border-[#A67C1E] px-4 py-2.5 text-sm font-medium text-[#A67C1E] transition-colors hover:bg-[#A67C1E] hover:text-[#F4F1FA]"
+            className="mt-4 inline-flex items-center gap-2 rounded-[var(--radius-md)] border border-primary px-4 py-2.5 text-sm font-medium text-primary transition-colors hover:bg-primary hover:text-primary-fg"
           >
             Demander une démonstration
           </a>
@@ -165,8 +165,8 @@ function InstitutionnelPage() {
               key={offer.name}
               className="flex items-start gap-3 rounded-[var(--radius-lg)] bg-card p-4 shadow-[var(--shadow-border)]"
             >
-              <span className="flex size-9 shrink-0 items-center justify-center rounded-full bg-[#A67C1E]/15">
-                <offer.icon className="size-4 text-[#A67C1E]" aria-hidden />
+              <span className="flex size-9 shrink-0 items-center justify-center rounded-full bg-primary/15">
+                <offer.icon className="size-4 text-primary" aria-hidden />
               </span>
               <div className="min-w-0 flex-1">
                 <h2 className="text-sm font-medium">{offer.name}</h2>
@@ -201,7 +201,7 @@ function InstitutionnelPage() {
         <LeadForm />
 
         {/* 8 — CTA final */}
-        <section className="mt-4 rounded-[var(--radius-lg)] border border-[#A67C1E]/50 bg-[#A67C1E]/10 p-5">
+        <section className="mt-4 rounded-[var(--radius-lg)] border border-primary/50 bg-primary/10 p-5">
           <h2 className="text-sm font-medium text-fg">Parlons de votre promotion.</h2>
           <p className="mt-1 text-xs leading-relaxed text-muted">
             Démonstration (visio ou présentiel à Antananarivo), puis pilote d&apos;une promotion
@@ -278,9 +278,9 @@ function LeadForm() {
       </p>
 
       {status === "sent" ? (
-        <div className="mt-4 rounded-[var(--radius-md)] border border-[#A67C1E]/50 bg-[#A67C1E]/10 p-4">
+        <div className="mt-4 rounded-[var(--radius-md)] border border-primary/50 bg-primary/10 p-4">
           <p className="flex items-center gap-2 text-sm font-medium text-fg">
-            <CheckCircle2 className="size-4 text-[#A67C1E]" aria-hidden />
+            <CheckCircle2 className="size-4 text-primary" aria-hidden />
             Demande enregistrée
           </p>
           <p className="mt-2 text-xs leading-relaxed text-muted">
@@ -381,7 +381,7 @@ function LeadForm() {
           <button
             type="submit"
             disabled={!requiredFilled || status === "sending"}
-            className="flex items-center justify-center gap-2 rounded-[var(--radius-md)] border border-[#A67C1E] bg-[#A67C1E] px-4 py-3 text-sm font-medium text-[#F4F1FA] transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-40"
+            className="flex items-center justify-center gap-2 rounded-[var(--radius-md)] border border-primary bg-primary px-4 py-3 text-sm font-medium text-primary-fg transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-40"
           >
             {status === "sending" ? (
               <Loader2 className="size-4 animate-spin" aria-hidden />
