@@ -20,7 +20,28 @@ const submissionSchema = z
       .array(
         z.object({
           questionId: z.string().uuid(),
-          value: z.unknown(),
+          // Audit 2026-11-27 : `value` était `z.unknown()` — n'importe quel
+          // graphe JSON (objets profonds, chaînes géantes, plafonnées seulement
+          // par le quota global de 64 Ko) était persisté tel quel. Union typée
+          // alignée sur les types de questions (mcq, checkbox, likert, numeric,
+          // text) : scalaire, tableau plat de scalaires, ou null. Réponses
+          // longues bornées à 5 000 caractères.
+          value: z
+            .union([
+              z.string().max(5_000),
+              z.number().finite(),
+              z.boolean(),
+              z
+                .array(
+                  z.union([
+                    z.string().max(500),
+                    z.number().finite(),
+                    z.boolean(),
+                  ]),
+                )
+                .max(100),
+            ])
+            .nullable(),
         }),
       )
       .min(1)
