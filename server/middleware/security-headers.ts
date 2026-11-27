@@ -36,7 +36,10 @@ const THEME_BOOT_HASH = `sha256-${createHash("sha256").update(THEME_BOOT_SCRIPT,
  * la cible du futur resserrement et reste vérifié par les tests.
  */
 function scriptSrc(): string {
-  return `script-src 'self' 'unsafe-inline' ${THEME_BOOT_HASH}`;
+  // Le hash DOIT être entre guillemets : sans eux, `sha256-…` n'est pas une
+  // source CSP valide et le navigateur le rejette (erreur console à chaque
+  // chargement). Il reste ignoré tant que 'unsafe-inline' est présent.
+  return `script-src 'self' 'unsafe-inline' '${THEME_BOOT_HASH}'`;
 }
 
 /**

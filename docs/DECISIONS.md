@@ -969,3 +969,21 @@ une affectation de `VITE_AUTH_ENABLED` sur `process.env` dans le lanceur.
 | 2026-11-27 | C-STD-34 | `avc-ischemique.json` : ajout de `disclaimer`, `dosagePolicy`, de 6 `redFlags` (signe et conduite immédiate) reformulant AHA/ASA 2019 et ESO 2021 sur l'accident ischémique, d'une note de vérification datée et de `localAdaptations` vide. | Gate 2 et gate 9 du standard : la fiche n'avait aucun drapeau rouge alors que l'item est une urgence ; aucune posologie chiffrée n'est introduite, et aucune adaptation nationale n'est inventée faute de protocole sourcé. | Vibe |
 | 2026-11-27 | C-STD-35 | `avc-hemorragique.json` : ajout de `disclaimer`, `dosagePolicy`, de 6 `redFlags` (signe et conduite immédiate) reformulant Greenberg 2022 et INTERACT3 sur l'hémorragie intracérébrale, d'une note de vérification datée et de `localAdaptations` vide. | Gate 2 et gate 9 du standard : la fiche n'avait aucun drapeau rouge alors que l'item est une urgence ; aucune posologie chiffrée n'est introduite, et aucune adaptation nationale n'est inventée faute de protocole sourcé. | Vibe |
 | 2026-11-27 | C-STD-36 | `epilepsies.json` : ajout de `disclaimer`, `dosagePolicy`, de 6 `redFlags` (signe et conduite immédiate) reformulant ILAE 2017 et NICE NG217 sur l'épilepsie, d'une note de vérification datée et de `localAdaptations` vide. | Gate 2 et gate 9 du standard : la fiche n'avait aucun drapeau rouge alors que l'item est une urgence ; aucune posologie chiffrée n'est introduite, et aucune adaptation nationale n'est inventée faute de protocole sourcé. | Vibe |
+
+## 2026-11-27 — Thème : base neutre chaude, accent bronze par défaut
+
+| Date | ID | Décision | Motif | Auteur |
+|------|----|----------|-------|--------|
+| 2026-11-27 | UI-1 | src/styles.css : les jetons de base passent du violet (#F4F1FA, #EAE4F6, #5B21B6, #221A3D) à un neutre chaud (parchemin #F7F5F1, sable #EEE9E1, encre #1D1B18) avec un accent bronze #A9743C et une primaire #6E4A24 ; en sombre, base neutre #121417/#191C20 avec primaire cuivre #C98A4B. Les dégradés d’ambiance violets sont remplacés par des halos bronze. | Le schéma de base ne correspondait ni à la palette Oxford documentée (parchemin/olive/or) ni au rendu validé par le propriétaire, qui ne retenait que la palette cuivre ; les quatre palettes d’accent restent disponibles, mais la base ne tire plus vers le violet. | Vibe |
+
+## 2026-11-27 — Accueil : dégraissage de l’accès rapide (9 → 3 entrées)
+
+| Date | ID | Décision | Motif | Auteur |
+|------|----|----------|-------|--------|
+| 2026-11-27 | UI-2 | src/routes/index.tsx : la section « Accès rapide » passe de 10 à 3 entrées (Réviser, Examen blanc, Signes & Syndromes), renommée « S\u2019entraîner » ; ÉCG, examen clinique, imagerie, histologie, auscultation, calculateurs et valeurs de référence quittent l’accueil et restent dans la navigation. | L’accueil proposait dix raccourcis de poids égal sous une carte de session qui, elle, est la vraie action du jour : l’étudiant ne savait pas par où commencer. Les surfaces retirées restent joignables en un clic via la sidebar et le tiroir mobile. | Vibe |
+
+## 2026-11-27 — CSP : hash du boot de thème correctement quoté
+
+| Date | ID | Décision | Motif | Auteur |
+|------|----|----------|-------|--------|
+| 2026-11-27 | SEC-CSP-1 | server/middleware/security-headers.ts : scriptSrc() émet désormais le hash du script de thème entre guillemets (\u0027sha256-…\u0027) au lieu de sha256-… nu. | Une source CSP de type hash n\u2019est valide qu\u2019entre guillemets ; sans eux, le navigateur la rejette et journalise « invalid source » à chaque chargement. Le hash reste ignoré tant que \u0027unsafe-inline\u0027 est présent, mais la politique n\u2019est plus signalée comme invalide. | Vibe |

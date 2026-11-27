@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import { useEffect, useMemo } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Calculator, ChevronRight, ClipboardCheck, Flame, Lock, Sparkles, Upload, Zap, Activity, Brain, Stethoscope, ScanLine, FlaskConical, Microscope, PersonStanding } from "lucide-react";
+import { ChevronRight, ClipboardCheck, Flame, Lock, Sparkles, Upload, Zap, Brain } from "lucide-react";
 import { Onboarding } from "@/components/onboarding";
 import { DeckIcon } from "@/components/deck-icon";
 import PwaInstallCard from "@/components/pwa-install-card";
@@ -338,8 +338,8 @@ function Dashboard() {
 
       {/* Accès rapide */}
       <section className="mt-8">
-        <SectionTitle kicker={t("dash.quickAccess")} title={t("dash.tools")} />
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+        <SectionTitle kicker={t("dash.quickAccess")} title={t("nav.group.train")} />
+        <div className="grid gap-3 sm:grid-cols-3">
           <QuickAction
             to="/revue"
             icon={<DeckIcon name="book" />}
@@ -351,48 +351,6 @@ function Dashboard() {
             icon={<ClipboardCheck className="size-5" />}
             label={t("nav.mockExam")}
             detail={t("dash.testYourself")}
-          />
-          <QuickAction
-            to="/calculateurs"
-            icon={<Calculator className="size-5" />}
-            label={t("nav.calculators")}
-            detail={t("dash.clinicalTools")}
-          />
-          <QuickAction
-            to="/valeurs-reference"
-            icon={<FlaskConical className="size-5" />}
-            label={t("nav.valeursReference")}
-            detail={t("dash.clinicalTools")}
-          />
-          <QuickAction
-            to="/ecg"
-            icon={<Activity className="size-5" />}
-            label="ECG"
-            detail={t("dash.interpretation")}
-          />
-          <QuickAction
-            to="/examen-clinique"
-            icon={<PersonStanding className="size-5" />}
-            label={t("nav.clinicalExam")}
-            detail={t("dash.clinicalExamDetail")}
-          />
-          <QuickAction
-            to="/imagerie"
-            icon={<ScanLine className="size-5" />}
-            label={t("nav.imagerie")}
-            detail={t("dash.interpretation")}
-          />
-          <QuickAction
-            to="/histologie"
-            icon={<Microscope className="size-5" />}
-            label={t("nav.histologie")}
-            detail={t("dash.interpretation")}
-          />
-          <QuickAction
-            to="/auscultation"
-            icon={<Stethoscope className="size-5" />}
-            label={t("nav.auscultation")}
-            detail={t("dash.cardioPulmo")}
           />
           <QuickAction
             to="/signes"

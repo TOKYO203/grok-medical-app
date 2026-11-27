@@ -269,8 +269,8 @@ test("dark accent palettes re-tint cards, surfaces, heroes and covers", () => {
 });
 
 test("light accent palettes: hero follows the palette accent", () => {
-  // Phase 4 (suite) — sans cette surcharge, le hero restait olive Oxford
-  // (#5B21B6 → #1F2716) pour TOUTES les palettes en thème clair.
+  // Phase 4 (suite) — sans cette surcharge, le hero gardait la couleur de la
+  // palette de base pour TOUTES les palettes en thème clair.
   const shared = blockFor(
     stylesSource,
     'html[data-accent]:not([data-accent="defaut"])',
@@ -285,7 +285,7 @@ test("light accent palettes: hero follows the palette accent", () => {
   );
   const base = blockFor(stylesSource, ":root");
   assert.ok(
-    base.includes("--hero-from: #5B21B6"),
-    "la palette defaut doit conserver son hero violet royal (#5B21B6)",
+    base.includes("--hero-from: #6E4A24"),
+    "la palette defaut doit conserver son hero bronze (identité chaude de la marque)",
   );
 });
