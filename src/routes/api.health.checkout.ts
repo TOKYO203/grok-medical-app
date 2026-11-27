@@ -69,7 +69,7 @@ async function probeDatabase(): Promise<{ reachable: boolean | null; reason?: st
     return { reachable: true };
   } catch (err) {
     console.error("[db-probe] Échec de la connexion Postgres :", err);
-    return { reachable: false, reason: "query-failed" };
+    return { reachable: false, reason: "query-failed", error: err instanceof Error ? err.message : String(err) };
   } finally {
     if (timer) clearTimeout(timer);
   }
