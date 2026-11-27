@@ -94,16 +94,13 @@ async function createPostgresSql(): Promise<Sql> {
     connectionString = process.env.DATABASE_URL || '';
   }
 
-  const pgModule = await import('pg');
-  const Pool = (pgModule as any).Pool || (pgModule as any).default?.Pool || (pgModule as any).default;
-  const pool = new Pool({ 
-    connectionString,
-    ssl: { rejectUnauthorized: false } 
-  });
+  const postgres = (await import('postgres')).default;
+  // prepare: false est requis pour Hyperdrive (mode transaction pooling)
+  const sqlClient = postgres(connectionString, { prepare: false });
 
   return toSql(async <T>(text: string, params: unknown[]) => {
-    const result = await pool.query(text, params);
-    return result.rows as T[];
+    const result = await sqlClient.unsafe(text, params as any[]);
+    return result as unknown as T[];
   });
 }
 function migrationBasename(path: string): string {
