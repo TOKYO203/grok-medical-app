@@ -86,9 +86,20 @@ function toSql(run: Run): Sql {
 }
 
 async function createPostgresSql(): Promise<Sql> {
+  let connectionString = '';
+  try {
+    const { env } = await import('cloudflare:workers');
+    connectionString = env.HYPERDRIVE.connectionString;
+  } catch (e) {
+    connectionString = process.env.DATABASE_URL || '';
+  }
+
   const pgModule = await import('pg');
-    const Pool = (pgModule as any).Pool || (pgModule as any).default?.Pool || (pgModule as any).default;
-    const pool = new Pool({ connectionString, ssl: { rejectUnauthorized: false } });
+  const Pool = (pgModule as any).Pool || (pgModule as any).default?.Pool || (pgModule as any).default;
+  const pool = new Pool({ 
+    connectionString,
+    ssl: { rejectUnauthorized: false } 
+  });
 
   return toSql(async <T>(text: string, params: unknown[]) => {
     const result = await pool.query(text, params);
