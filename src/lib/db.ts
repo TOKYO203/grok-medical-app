@@ -86,18 +86,15 @@ function toSql(run: Run): Sql {
 }
 
 async function createPostgresSql(): Promise<Sql> {
-  const pgModule = await import("pg"); const Client = (pgModule as any).Client || (pgModule as any).default?.Client || (pgModule as any).default; if (!Client) { throw new Error("DEBUG_PG: Keys: " + Object.keys(pgModule).join(",") + " | Default: " + (pgModule.default ? Object.keys(pgModule.default).join(",") : "none")); }
-  let connectionString = '';
-  try {
-    const { env } = await import('cloudflare:workers');
-    connectionString = env.HYPERDRIVE.connectionString;
-  } catch (e) {
-    connectionString = process.env.DATABASE_URL || '';
-  }
-
-
-  // Création d'un Client par requête (obligatoire sur Workers)
-  const client = new Client({ connectionString });
+  const pgModule = await import('pg');
+    let ClientCtor: any = (pgModule as any).Client || (pgModule as any).default?.Client || (pgModule as any).default;
+    if (ClientCtor && typeof ClientCtor !== 'function') {
+      ClientCtor = ClientCtor.Client || ClientCtor.default;
+    }
+    if (typeof ClientCtor !== 'function') {
+      throw new Error('DEBUG_PG_STRUCTURE: Keys=' + Object.keys(pgModule).join(',') + ' DefaultKeys=' + (pgModule.default ? Object.keys(pgModule.default).join(',') : 'none'));
+    }
+    const client = new ClientCtor({ connectionString });
   await client.connect();
 
   return toSql(async <T>(text: string, params: unknown[]) => {
