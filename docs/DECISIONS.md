@@ -1075,3 +1075,9 @@ une affectation de `VITE_AUTH_ENABLED` sur `process.env` dans le lanceur.
 | Date | ID | Décision | Motif | Auteur |
 |------|----|----------|-------|--------|
 | 2026-11-28 | OPS-2 | Suppression effective de **239** branches dont la PR est fusionnée (par lots de 50) puis de **59** branches fusionnées par ascendance Git, soit **298** branches ; `docs/BRANCH-CLEANUP-REPORT.md` porte la section « Execution ». Les 28 branches de PR ouvertes et les 24 cas à vérifier sont conservés. | Le rapport `OPS-1` séparait le travail déjà dans `main` du travail non fusionné. Les deux lots restants ne contenaient, par construction, aucun commit absent de `main` : leur suppression ne peut pas perdre de code. Vérification après chaque lot : `git branch -r --no-merged origin/main` décroît du nombre attendu (291 → 52, puis 112 → 53 au total), sans rejet de push. | Vibe |
+
+## 2026-11-28 — Dépendances : retrait du code mort, montées sûres
+
+| Date | ID | Décision | Motif | Auteur |
+|------|----|----------|-------|--------|
+| 2026-11-28 | DEPS-1 | `@tanstack/react-table`, `react-day-picker` et `@hookform/resolvers` sont retirés de `package.json` (aucun import dans `src/`, `scripts/` ni les tests) ; `eslint-plugin-react-hooks` passe de 5.2.0 à 7.1.1 ; `actions/upload-artifact` passe de `v4` à `v7` dans `e2e.yml`, alignant les deux workflows. | Les trois PR Dependabot correspondantes (#156, #157, #158) proposaient des montées majeures de paquets que le code n'utilise pas : merger aurait ajouté du risque pour zéro bénéfice. La suppression est le bon correctif. Pour `eslint-plugin-react-hooks`, v7 a été testé localement (lint complet : 0 erreur) avant adoption. `upload-artifact@v7.0.2` existe bien (publiée le 2026-10-07) et `staging-db.yml` l'utilisait déjà. | Vibe |
