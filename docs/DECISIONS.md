@@ -1081,3 +1081,9 @@ une affectation de `VITE_AUTH_ENABLED` sur `process.env` dans le lanceur.
 | Date | ID | Décision | Motif | Auteur |
 |------|----|----------|-------|--------|
 | 2026-11-28 | DEPS-1 | `@tanstack/react-table`, `react-day-picker` et `@hookform/resolvers` sont retirés de `package.json` (aucun import dans `src/`, `scripts/` ni les tests) ; `eslint-plugin-react-hooks` passe de 5.2.0 à 7.1.1 ; `actions/upload-artifact` passe de `v4` à `v7` dans `e2e.yml`, alignant les deux workflows. | Les trois PR Dependabot correspondantes (#156, #157, #158) proposaient des montées majeures de paquets que le code n'utilise pas : merger aurait ajouté du risque pour zéro bénéfice. La suppression est le bon correctif. Pour `eslint-plugin-react-hooks`, v7 a été testé localement (lint complet : 0 erreur) avant adoption. `upload-artifact@v7.0.2` existe bien (publiée le 2026-10-07) et `staging-db.yml` l'utilisait déjà. | Vibe |
+
+## 2026-11-28 — Montée `@tanstack/react-start` 1.169.7 et migration `validator`
+
+| Date | ID | Décision | Motif | Auteur |
+|------|----|----------|-------|--------|
+| 2026-11-28 | DEPS-2 | `@tanstack/react-start` passe de 1.168.54 à 1.169.7 et les trois `inputValidator(...)` de `src/lib/activation-keys-admin.ts` deviennent `validator(...)`. | La 1.169 a renommé la méthode du `ServerFnBuilder` sans changer de version majeure : le typage cassait sur trois Server Functions, donc la CI et le build de production. La migration est mécanique (trois remplacements) et vérifiée par `tsc` (0 erreur), `eslint` (0 erreur) et les quatre suites admin. Geler le paquet aurait reporté la dette sans la réduire. | Vibe |

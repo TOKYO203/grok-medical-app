@@ -70,7 +70,7 @@ function toAdminLicense(row: Row): AdminLicense {
 }
 
 export const listActivationKeysForAdmin = createServerFn({ method: "POST" })
-  .inputValidator((data: unknown) =>
+  .validator((data: unknown) =>
     z.object({
       adminKey: z.string().min(1),
       filter: z.enum(["all", "pending", "active", "expired", "revoked"]).default("all"),
@@ -89,7 +89,7 @@ export const listActivationKeysForAdmin = createServerFn({ method: "POST" })
   });
 
 export const issueLicense = createServerFn({ method: "POST" })
-  .inputValidator((data: unknown) =>
+  .validator((data: unknown) =>
     z.object({
       adminKey: z.string().min(1),
       optimusId: z.string().regex(/^OM-[A-F0-9]{8}$/),
@@ -112,7 +112,7 @@ export const issueLicense = createServerFn({ method: "POST" })
   });
 
 export const revokeLicense = createServerFn({ method: "POST" })
-  .inputValidator((data: unknown) =>
+  .validator((data: unknown) =>
     z.object({
       adminKey: z.string().min(1),
       id: z.string().uuid(),
