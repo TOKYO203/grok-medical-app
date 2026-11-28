@@ -21,6 +21,10 @@ interface SecurityHeaderEvent {
  *     permissif 'unsafe-inline' est conservé hors production.
  */
 const THEME_BOOT_HASH = `sha256-${createHash("sha256").update(THEME_BOOT_SCRIPT, "utf8").digest("base64")}`;
+// Le hash reste calculé pour la documentation et les tests, mais n'est PLUS
+// émis dans la politique : sa seule présence valide désactiverait
+// `'unsafe-inline'` et casserait l'hydratation (incident 2026-11-27).
+void THEME_BOOT_HASH;
 
 /**
  * INCIDENT 2026-11-20/21 — page blanche en production (pages.dev + workers.dev).
@@ -36,10 +40,16 @@ const THEME_BOOT_HASH = `sha256-${createHash("sha256").update(THEME_BOOT_SCRIPT,
  * la cible du futur resserrement et reste vérifié par les tests.
  */
 function scriptSrc(): string {
-  // Le hash DOIT être entre guillemets : sans eux, `sha256-…` n'est pas une
-  // source CSP valide et le navigateur le rejette (erreur console à chaque
-  // chargement). Il reste ignoré tant que 'unsafe-inline' est présent.
-  return `script-src 'self' 'unsafe-inline' '${THEME_BOOT_HASH}'`;
+  // INCIDENT 2026-11-27 : la version précédente émettait le hash du script de
+  // thème entre guillemets. Erreur de ma part : dès qu'une source de type hash
+  // est VALIDE dans `script-src`, le navigateur IGNORE `'unsafe-inline'` — les
+  // scripts d'hydratation inline de TanStack Start ont donc été bloqués et le
+  // site est tombé en page blanche. Non quoté, le hash était simplement rejeté
+  // (bruit console) et `'unsafe-inline'` s'appliquait.
+  //
+  // Conclusion : aucun hash ni nonce ici tant que l'hydratation n'est pas elle
+  // aussi noncée. Voir docs/CSP-INLINE.md et la ligne SEC-CSP-3.
+  return `script-src 'self' 'unsafe-inline'`;
 }
 
 /**

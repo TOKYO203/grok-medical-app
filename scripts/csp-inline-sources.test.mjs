@@ -33,10 +33,15 @@ test("aucun autre fichier n'injecte de HTML exécutable", () => {
   assert.deepEqual(offenders, [], `HTML injecté hors du boot de thème : ${offenders.join(", ")}`);
 });
 
-test("le hash du boot de thème est quoté dans script-src", () => {
+test("script-src ne porte ni hash ni nonce (sinon 'unsafe-inline' est ignoré)", () => {
   const src = readFileSync("server/middleware/security-headers.ts", "utf8");
-  assert.match(src, /script-src 'self' 'unsafe-inline' '\$\{THEME_BOOT_HASH\}'/);
-  assert.doesNotMatch(src, /script-src 'self' 'unsafe-inline' \$\{THEME_BOOT_HASH\}/);
+  const fn = src.slice(src.indexOf("function scriptSrc"), src.indexOf("function scriptSrc") + 700);
+  assert.match(fn, /script-src 'self' 'unsafe-inline'/, "la directive de base doit rester");
+  // Incident 2026-11-27 : un hash VALIDE dans script-src désactive 'unsafe-inline'
+  // et bloque les scripts d'hydratation de TanStack -> page blanche en production.
+  assert.doesNotMatch(fn, /sha256-/, "aucun hash ne doit être émis dans script-src");
+  assert.doesNotMatch(fn, /nonce-/, "aucun nonce partiel ne doit être émis");
+  assert.doesNotMatch(src, /script-src 'self' 'unsafe-inline' '\$\{THEME_BOOT_HASH\}'/);
 });
 
 test("la politique du middleware et celle du CDN restent identiques sur script-src", () => {
