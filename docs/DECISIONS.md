@@ -947,3 +947,4 @@ une affectation de `VITE_AUTH_ENABLED` sur `process.env` dans le lanceur.
 | Date | ID | Décision | Motif | Auteur |
 |------|----|----------|-------|--------|
 | 2026-11-27 | C-STD-19 | `delirium-tremens.json` : « Thiamine : 200 à 500 mg par jour pendant quelques jours » devient « Thiamine : à forte dose parentérale pendant quelques jours ». | Gate 3 : la dose de thiamine dépend du protocole local ; la règle clinique (thiamine avant tout glucose, dose forte, plusieurs jours) est conservée. | Vibe |
+| 2026-11-27 | C-STD-20 | `lepra.json` : retrait de « rifampicine 600 mg » et « clofazimine 300 mg » dans les trois énoncés (forme PB, deux flashcards) ; les prises mensuelles supervisées, l'association clofazimine-dapsone et les durées de 6 et 12 mois sont conservées. | Gate 3 : la multithérapie antilépreuse est un protocole national (PNL) ; le schéma et la durée portent l'information, le milligrammage relève du protocole. | Vibe |
