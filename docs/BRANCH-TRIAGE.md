@@ -72,3 +72,25 @@ Ajoute `.env.production` — un fichier d'environnement versionne, donc un secre
 ### Reste
 
 Les **22 PR ouvertes** ne sont pas traitees ici : elles se jugent par la revue de leur PR, pas par leur branche.
+
+## Execution (2026-11-28)
+
+Suppression par preuve : une branche n'est supprimee que si **aucun fichier ajoute** n'est absent de `main` (`git diff --name-status` + `git cat-file -e` fichier par fichier).
+
+| Lot | Branches | Preuve |
+| --- | --- | --- |
+| 1 | 10 (8 lots de contenu + semiologie-lot6 + `audit-fixes`) | 0 fichier unique ; `audit-fixes` ajoutait `.env.production` |
+| 2 | 8 (variantes `-v2`/`-v3`, sondes `probe/*`, `wip/*`, `debug/*`) | 0 fichier unique |
+| 3 | 1 (`feat/lot-hemato-10`) | 5 fiches legacy, toutes deja presentes en `private/` |
+
+**19 branches supprimees**, aucune perte de fichier unique — sauf les doublons legacy volontairement ecartes.
+
+## Ce qui reste hors PR (6 branches)
+
+| Branche | Contenu unique | Recommandation |
+| --- | --- | --- |
+| `feat/nosographie-chirurgie-viscerale-lot2` et `-v2` | 4 fiches **absentes de `main`** : `cancer-estomac`, `cancers-colon-rectum`… | **recuperer** les fiches, puis supprimer les deux branches |
+| `feat/histologie` | 8 SVG `placeholder-*` | recuperer si de nouvelles lames sont prevues, sinon supprimer |
+| `freebuff/e5c62a96042eb9282a4e8bd5` | 162 fichiers (cas cliniques, docs) | **a inspecter** : provenance inconnue, volume important |
+| `chore/cleanup` | 1 doc (`docs/CLEANUP-REPORT.md`) | sans interet probable |
+| `docs/auth-audit` | 1 doc (`docs/AUTH-AUDIT.md`) | a recuperer si l'audit n'est pas dans `main` |
