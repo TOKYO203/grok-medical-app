@@ -80,23 +80,23 @@
 :root {
   color-scheme: light;
 
-  --app-bg: #F4F1FA;
+  --app-bg: #F7F5F1;
   --app-bg-elevated: #FFFFFF;
   --app-surface: #FFFFFF;
-  --app-surface-2: #EAE4F6;
-  --app-fg: #221A3D;
-  --app-muted: #585072;
+  --app-surface-2: #EEE9E1;
+  --app-fg: #1D1B18;
+  --app-muted: #5B554D;
   /* #5A5270 : contraste 6.54:1 sur --app-bg et 7.30:1 sur --app-card (blanc) — et
      ≥ 4,82:1 sur les fonds teints de CHAQUE palette d'accent (immersion). #66607B
      n'offrait que ~3,9-4,1:1 sur les fonds chauds (rose, marron, vert, violet,
      marine) : AA cassé hors du parchemin de base. */
-  --app-subtle: #5A5270;
-  --app-border: #A67C1E;
-  --app-border-strong: color-mix(in oklab, #A67C1E 80%, transparent);
-  --app-primary: #5B21B6;
+  --app-subtle: #5B554D;
+  --app-border: #DCD5C9;
+  --app-border-strong: color-mix(in oklab, #8A6A45 55%, transparent);
+  --app-primary: #6E4A24;
   --app-primary-fg: #FFFFFF;
-  --app-primary-soft: color-mix(in oklab, var(--app-primary) 12%, transparent);
-  --app-accent: #A67C1E;
+  --app-primary-soft: color-mix(in oklab, var(--app-primary) 10%, transparent);
+  --app-accent: #A9743C;
   /* Signature dorée — or dédié (identique à l'accent en clair, éclairci en sombre).
      #7E5B12 : or de TEXTE assombri pour WCAG AA — 4,75:1 sur --app-bg (parchemin)
      et 6,19:1 sur --app-card (blanc) ; l'ancien #A67C1E ne donnait que 2,91:1.
@@ -104,10 +104,10 @@
   --app-gold: #7E5B12;
   --app-gold-soft: #E8C97A;
   --app-paper: #FFFFFF;
-  --app-paper-fg: #221A3D;
+  --app-paper-fg: #1D1B18;
   /* #7E5B12 : indicateur de focus ≥ 3:1 (WCAG 1.4.11, non-texte) — l'ancien
      #A67C1E ne donnait que 2,91:1 sur le parchemin. */
-  --app-ring: #7E5B12;
+  --app-ring: #6E4A24;
   --app-success: #4F6B2D;
   /* #7E5B12 : avertissements AA — mêmes ratios que --app-gold ; l'ancien #A67C1E
      échouait sur le parchemin (2,91:1). */
@@ -116,23 +116,23 @@
   /* #1B4B77 : bleu « examens » (criticité de la mindmap) — contraste ≥ 4.5:1 sur blanc. */
   --app-info: #1B4B77;
   --app-card: #FFFFFF;
-  --app-secondary: #EAE4F6;
+  --app-secondary: #EEE9E1;
 
-  --app-shadow-border: inset 0 0 0 1px color-mix(in oklab, var(--app-accent) 38%, transparent);
-  --app-shadow-soft: 0 18px 40px -28px rgb(52 33 110 / 0.20);
-  --app-shadow-md: 0 26px 60px -34px rgb(60 40 130 / 0.24), inset 0 1px 0 rgb(255 255 255 / 0.6);
+  --app-shadow-border: inset 0 0 0 1px rgb(29 27 24 / 0.08);
+  --app-shadow-soft: 0 18px 40px -28px rgb(60 45 25 / 0.18);
+  --app-shadow-md: 0 26px 60px -34px rgb(60 45 25 / 0.22), inset 0 1px 0 rgb(255 255 255 / 0.6);
 
   --app-body-bg:
-    radial-gradient(64rem 32rem at 88% -12%, rgb(91 33 182 / 0.12), transparent 60%),
-    radial-gradient(44rem 28rem at -12% 42%, rgb(184 137 43 / 0.06), transparent 65%),
-    #F8F6FD;
+    radial-gradient(64rem 32rem at 88% -12%, rgb(169 116 60 / 0.10), transparent 60%),
+    radial-gradient(44rem 28rem at -12% 42%, rgb(122 75 31 / 0.05), transparent 65%),
+    #F9F7F3;
 
-  --hero-from: #5B21B6;
-  --hero-to: #2E1065;
-  --hero-glow: rgb(255 255 255 / 0.22);
+  --hero-from: #6E4A24;
+  --hero-to: #3A2712;
+  --hero-glow: rgb(255 255 255 / 0.18);
 
-  --app-skeleton-a: #EAE4F6;
-  --app-skeleton-b: #F1EDFA;
+  --app-skeleton-a: #EEE9E1;
+  --app-skeleton-b: #F4F0EA;
 
   /* Seule « Clinique » (`.cover-clinique`) garde un dégradé CSS : les trois
      autres visuels de profil sont des images (public/profile-covers/*). */
@@ -145,49 +145,49 @@ html[data-theme="dark"] {
   color-scheme: dark;
 
   /* Palette Oxford adaptée au sombre : olive profond, or, parchemin. */
-  --app-bg: #130F23;
-  --app-bg-elevated: #1c2218;
-  --app-surface: #201A3A;
-  --app-surface-2: #261F47;
-  --app-fg: #EDE8FA;
-  --app-muted: #A79ECB;
-  --app-subtle: #8F86B5;
+  --app-bg: #121417;
+  --app-bg-elevated: #191C20;
+  --app-surface: #191C20;
+  --app-surface-2: #21252B;
+  --app-fg: #ECE9E4;
+  --app-muted: #A9A39A;
+  --app-subtle: #9A948B;
   --app-border: color-mix(in oklab, var(--app-fg) 12%, transparent);
   --app-border-strong: color-mix(in oklab, var(--app-fg) 22%, transparent);
-  --app-primary: #A78BFA;
-  --app-primary-fg: #130F23;
-  --app-primary-soft: color-mix(in oklab, var(--app-primary) 18%, transparent);
-  --app-accent: #d4a648;
+  --app-primary: #C98A4B;
+  --app-primary-fg: #14161A;
+  --app-primary-soft: color-mix(in oklab, var(--app-primary) 16%, transparent);
+  --app-accent: #B87333;
   /* Or clair : AA+ sur olive foncé (≈ 11:1). */
-  --app-gold: #e8c97a;
+  --app-gold: #E2BE79;
   --app-gold-soft: #f0d898;
-  --app-paper: #EDE8FA;
-  --app-paper-fg: #1f1a14;
-  --app-ring: #8B5CF6;
+  --app-paper: #ECE9E4;
+  --app-paper-fg: #14161A;
+  --app-ring: #C98A4B;
   /* Succès en olive-vert (cohérent avec l'identité Oxford). */
   --app-success: #7BC88F;
   --app-warn: #d4a648;
   --app-danger: #F08A8A;
   --app-info: #8AB8F0;
-  --app-card: #1B1533;
-  --app-secondary: #221B41;
+  --app-card: #1B1F24;
+  --app-secondary: #21252B;
 
   --app-shadow-border: inset 0 0 0 1px color-mix(in oklab, var(--app-fg) 12%, transparent);
   --app-shadow-soft: 0 18px 40px -24px rgb(0 0 0 / 0.55);
   --app-shadow-md:
     0 24px 64px -32px rgb(0 0 0 / 0.75), inset 0 1px 0 rgb(255 255 255 / 0.06);
 
-  /* Fond global : gradient olive/or subtil (identité Oxford en sombre). */
+  /* Fond global : halos bronze subtils sur un neutre profond. */
   --app-body-bg:
-    radial-gradient(70rem 34rem at 85% -8%, rgb(232 201 122 / 0.08), transparent 60%),
-    radial-gradient(42rem 28rem at -12% 45%, rgb(168 188 140 / 0.06), transparent 65%),
-    #130F23;
-  --hero-from: #7C5CD6;
-  --hero-to: #3B2A78;
-  --hero-glow: rgb(232 201 122 / 0.18);
+    radial-gradient(70rem 34rem at 85% -8%, rgb(184 115 51 / 0.10), transparent 60%),
+    radial-gradient(42rem 28rem at -12% 45%, rgb(201 138 75 / 0.06), transparent 65%),
+    #121417;
+  --hero-from: #6E4A24;
+  --hero-to: #241608;
+  --hero-glow: rgb(201 138 75 / 0.22);
 
-  --app-skeleton-a: #221B41;
-  --app-skeleton-b: #261F47;
+  --app-skeleton-a: #21252B;
+  --app-skeleton-b: #262B32;
 
   --cover-1-from: #1e2619;
   --cover-1-to: #101408;
