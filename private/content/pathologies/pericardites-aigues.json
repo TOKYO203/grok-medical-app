@@ -6,7 +6,7 @@
   "subtitle": "Nosographie — cardiologie",
   "objective": "Devant une douleur thoracique positionnelle avec frottement ou sus-décalage diffus, reconnaître la péricardite aiguë, la distinguer de l'infarctus, identifier d'emblée la tamponnade, et traiter par anti-inflammatoires et colchicine en prévenant les récidives.",
   "language": "fr",
-  "updatedAt": "2026-10-30",
+  "updatedAt": "2026-11-27",
   "reviewStatus": "pending-medical-review",
   "curriculum": {
     "collection": "Nosographie — spécialité médicale",
@@ -34,6 +34,7 @@
     "reviewStatus": "pending-medical-review",
     "reviewedBy": null,
     "verificationNotes": [
+      "Drapeaux rouges ajoutés le 2026-11-27 : conduites issues de l'ESC 2025 et de l'ESC 2015 sur la péricardite.",
       "Le référentiel national intitule l'item « Péricardites aiguës » (Médecine n°24) : la fiche couvre la péricardite aiguë (sèche et exsudative) et la tamponnade ; la péricardite constrictive, complication chronique, est signalée en transition sans être développée.",
       "La source primaire est la recommandation ESC 2025 sur la myocardite et la péricardite (doi:10.1093/eurheartj/ehaf192, vérifiée le jour de rédaction sur PubMed), complétée par la recommandation ESC 2015 sur les maladies du péricarde (doi:10.1093/eurheartj/ehv250), mise à jour par la précédente.",
       "Terrain local : à Madagascar, la péricardite tuberculeuse et le rhumatisme articulaire aigu sont des causes fréquentes à connaître ; elles sont explicitement intégrées à la section étiologique.",
@@ -578,5 +579,34 @@
       ]
     }
   ],
-  "specialty": "Cardiologie"
+  "specialty": "Cardiologie",
+    "disclaimer": "Support pédagogique. Ne remplace ni un avis médical ni les protocoles locaux.",
+    "dosagePolicy": "Molécules citées sans posologies : se référer aux protocoles locaux et au contexte du patient.",
+    "redFlags": [
+      {
+        "sign": "Hypotension, turgescence jugulaire et pouls paradoxal",
+        "action": "Tamponnade : drainage péricardique en urgence, ne rien retarder"
+      },
+      {
+        "sign": "Dyspnée majeure et état de choc après une douleur thoracique",
+        "action": "Épanchement compressif : avis cardiologique immédiat et transfert"
+      },
+      {
+        "sign": "Fièvre élevée, altération de l'état général ou immunodépression",
+        "action": "Évoquer une péricardite purulente ou tuberculeuse : ponction péricardique diagnostique"
+      },
+      {
+        "sign": "Douleur thoracique avec sus-décalage de ST diffus",
+        "action": "Reconnaître la péricardite : ne pas thrombolyser à tort un tracé diffus"
+      },
+      {
+        "sign": "Traitement anticoagulant en cours avec épanchement",
+        "action": "Évaluer le risque hémorragique et discuter la réversion"
+      },
+      {
+        "sign": "Fièvre et souffle nouveau avec péricardite",
+        "action": "Rechercher une endocardite associée : échocardiographie et hémocultures"
+      }
+    ],
+    "localAdaptations": []
 }
