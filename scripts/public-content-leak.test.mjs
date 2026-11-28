@@ -96,6 +96,22 @@ test("le client charge le contenu Premium derrière le garde, avec repli jeton d
   }
 });
 
+test("importer le module de sync ne réécrit pas le dépôt", () => {
+  // Incident 2026-11-27 : le garde d'exécution directe comparait le module à
+  // `<cwd>/scripts/sync-catalog-data.mjs`, donc il était vrai à CHAQUE import
+  // lancé depuis la racine — la suite de tests réécrivait les catalogues du
+  // dépôt en parallèle, d'où des échecs intermittents.
+  const src = readSource("scripts/sync-catalog-data.mjs");
+  assert.ok(
+    src.includes("resolve(process.argv[1]) === fileURLToPath(import.meta.url)"),
+    "le garde doit comparer process.argv[1] au module",
+  );
+  assert.ok(
+    !src.includes('join(process.cwd(), "scripts", "sync-catalog-data.mjs")'),
+    "comparer à cwd rend le garde vrai à chaque import",
+  );
+});
+
 test("un dossier de build ne contient plus les fiches de démarches (§15)", () => {
   const candidates = [join(CHECKOUT, "dist"), join(CHECKOUT, ".output", "public"), join(CHECKOUT, ".output")];
   const found = candidates.filter((dir) => existsSync(join(dir, "content", "demarches")));

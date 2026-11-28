@@ -31,7 +31,7 @@
  * demarches}/` sont générés (gitignore) — la source reste `src/content/data`.
  */
 import { cpSync, existsSync, mkdirSync, readFileSync, readdirSync, renameSync, rmSync, writeFileSync } from "node:fs";
-import { dirname, join } from "node:path";
+import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 /** Le workspace root (ce fichier vit dans `<root>/scripts/`). */
@@ -189,7 +189,12 @@ export function syncCatalogData({ root = projectRoot(), log = () => {} } = {}) {
   return synced;
 }
 
-if (process.argv[1] && fileURLToPath(import.meta.url) === join(process.cwd(), "scripts", "sync-catalog-data.mjs")) {
+// Exécution directe UNIQUEMENT : le test doit pouvoir importer ce module sans
+// réécrire les catalogues du dépôt. L'ancienne condition comparait le chemin du
+// module à `<cwd>/scripts/sync-catalog-data.mjs` — vraie à chaque import lancé
+// depuis la racine, d'où des écritures concurrentes pendant la suite de tests
+// (échecs intermittents de public-content-leak / ENOTEMPTY, 2026-11-27).
+if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   const synced = syncCatalogData({ log: console.log });
   if (synced.length === 0) console.log("[catalog-sync] catalogues déjà à jour");
 }

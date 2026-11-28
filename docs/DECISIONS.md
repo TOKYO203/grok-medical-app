@@ -1051,3 +1051,9 @@ une affectation de `VITE_AUTH_ENABLED` sur `process.env` dans le lanceur.
 | Date | ID | Décision | Motif | Auteur |
 |------|----|----------|-------|--------|
 | 2026-11-28 | SEC-ENV-1 | `deploy-worker.yml` pousse `LICENSE_JWT_SECRET` comme **secret** du Worker (`wrangler secret put`) avant le déploiement, quand le secret GitHub Actions du même nom existe ; sinon le job émet un `::warning::` explicite. `docs/production-runbook.md` liste les trois secrets dont l'absence casse la production. | Diagnostic du 2026-11-28 : la base est redevenue joignable, mais `/api/licenses/trial-token` répondait toujours `503 license_verification_unavailable` et les catalogues `/content/*` restaient fermés aux anonymes. Le workflow n'injectait que `BETTER_AUTH_*` et `GROK_AUTH_*` : `LICENSE_JWT_SECRET` n'avait aucun chemin d'approvisionnement, et aucun échec de build ne le signalait. | Vibe |
+
+## 2026-11-28 — CI : le garde d'exécution directe écrivait le dépôt à chaque import
+
+| Date | ID | Décision | Motif | Auteur |
+|------|----|----------|-------|--------|
+| 2026-11-28 | CI-2 | `scripts/sync-catalog-data.mjs` : le garde d'exécution directe compare désormais `resolve(process.argv[1])` au chemin du module, au lieu de comparer ce chemin à `<cwd>/scripts/sync-catalog-data.mjs`. Test anti-régression ajouté dans `public-content-leak.test.mjs`. | L'ancienne condition était **vraie à chaque import** lancé depuis la racine du dépôt : importer le module — ce que font trois fichiers de test — déclenchait une synchronisation complète des catalogues et des actifs privés en pleine suite parallèle. C'est la cause racine des échecs intermittents `public-content-leak` et `ENOTEMPTY` observés les 27 et 28 novembre, et non une simple lenteur de runner. | Vibe |
