@@ -6,7 +6,7 @@
   "subtitle": "Nosographie — neurologie",
   "objective": "Devant une perte de connaissance avec mouvements anormaux, distinguer la crise épileptique de ses imitateurs, confirmer et classifier l'épilepsie par EEG et imagerie, initier un traitement antiépileptique adapté et reconnaître l'état de mal qui menace la vie.",
   "language": "fr",
-  "updatedAt": "2026-10-30",
+  "updatedAt": "2026-11-27",
   "reviewStatus": "pending-medical-review",
   "curriculum": {
     "collection": "Nosographie — spécialité médicale",
@@ -33,6 +33,7 @@
     "reviewStatus": "pending-medical-review",
     "reviewedBy": null,
     "verificationNotes": [
+      "Drapeaux rouges ajoutés le 2026-11-27 : conduites issues de la classification ILAE 2017, de NICE NG217 et de la fiche OMS 2026.",
       "Le référentiel national utilise le pluriel (« Épilepsies ») : la fiche couvre l'ensemble des épilepsies de l'adulte selon la classification ILAE 2017, la crise isolée et l'état de mal étant traités comme situations distinctes.",
       "La distinction crise épileptique / épilepsie suit la définition ILAE : au moins deux crises non provoquées à plus de 24 heures d'intervalle, ou une crise avec haut risque de récidive.",
       "L'EEG illustratif provient de Wikimedia Commons (domaine public) : tracé pédagogique d'anomalies paroxystiques, sans valeur diagnostique individuelle."
@@ -578,5 +579,34 @@
       ]
     }
   ],
-  "specialty": "Neurologie"
+  "specialty": "Neurologie",
+    "disclaimer": "Support pédagogique. Ne remplace ni un avis médical ni les protocoles locaux.",
+    "dosagePolicy": "Molécules citées sans posologies : se référer aux protocoles locaux et au contexte du patient.",
+    "redFlags": [
+      {
+        "sign": "Crise de plus de cinq minutes ou crises répétées sans reprise de conscience",
+        "action": "État de mal épileptique : benzodiazépine en urgence et appel de la réanimation"
+      },
+      {
+        "sign": "Crise chez une femme enceinte ou en post-partum",
+        "action": "Éclampsie jusqu'à preuve du contraire : magnésium et avis obstétrical"
+      },
+      {
+        "sign": "Convulsion fébrile du nourrisson avec signes méningés",
+        "action": "Rechercher une méningite : ponction lombaire et antibiothérapie selon le protocole"
+      },
+      {
+        "sign": "Déficit post-critique prolongé ou céphalées inhabituelles",
+        "action": "Imagerie cérébrale pour éliminer une cause structurelle"
+      },
+      {
+        "sign": "Traumatisme crânien, hypoxie ou hypotension au décours",
+        "action": "Protéger les voies aériennes, oxygéner, corriger la glycémie"
+      },
+      {
+        "sign": "Première crise chez l'adulte",
+        "action": "Bilan étiologique : imagerie, électroencéphalogramme, glycémie, recherche de toxiques"
+      }
+    ],
+    "localAdaptations": []
 }
