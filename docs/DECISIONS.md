@@ -1033,3 +1033,9 @@ une affectation de `VITE_AUTH_ENABLED` sur `process.env` dans le lanceur.
 | Date | ID | Décision | Motif | Auteur |
 |------|----|----------|-------|--------|
 | 2026-11-27 | SEC-CSP-3 | `scriptSrc()` n'émet plus le hash du script de thème : `script-src 'self' 'unsafe-inline'`. Le hash reste calculé dans le fichier à titre documentaire, mais n'apparaît plus dans la politique servie. Un test garde-fou interdit désormais tout `sha256-` ou `nonce-` dans la directive. | **Régression causée par SEC-CSP-1.** En quotant le hash, il est devenu une source CSP *valide* ; or la spécification impose que `'unsafe-inline'` soit **ignoré dès qu'un hash ou un nonce valide est présent**. Les scripts d'hydratation inline de TanStack Start ont donc été bloqués : page blanche en production, corps de page vide et erreurs `Executing inline script violates…`. Non quoté, le hash était simplement rejeté comme source invalide et `'unsafe-inline'` s'appliquait : d'où le silence apparent avant ce correctif. Leçon : ne jamais toucher `script-src` sans charger la production construite dans un navigateur. | Vibe |
+
+## 2026-11-27 — Couleur de barre navigateur et couleurs figées résiduelles
+
+| Date | ID | Décision | Motif | Auteur |
+|------|----|----------|-------|--------|
+| 2026-11-27 | UI-5 | `meta theme-color` passe à `#F7F5F1` (repli clair) et `#121417` (repli sombre) dans `__root.tsx` et `theme.ts` ; `manifest.webmanifest` prend `background_color: #F7F5F1` et `theme_color: #6E4A24`. Les 28 classes codées en dur `#A67C1E`/`#F4F1FA` de quatre pages institutionnelles (`validation-clinique`, `institutionnel`, `contact`, `conseil-editorial`) sont remplacées par les jetons `primary`/`primary-fg`. | Le `theme-color` servait encore l'ancien violet `#F4F1FA` (et `#130F23` en sombre) : la barre du navigateur contredisait le thème après la bascule vers le neutre chaud. Les boutons or de ces quatre pages étaient les derniers à ignorer la palette. | Vibe |
