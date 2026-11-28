@@ -452,31 +452,6 @@ never:   build an app for a greeting/number/question; invent imagine_* calls;
 4. Prix multi-devises + Essai 7j — ✅ Session 1
 5. Sélecteur de langue (débloque international) — ✅ Session 3
 
-
----
-
-## 🎯 ROADMAP 14 JOURS — Objectif lancement bêta
-
-> Contrainte : 2 semaines, 30-40h dispo.
-> Cible J14 : app vendable, 171+ items, statut EI en cours, 2 médecins validateurs.
-
-### Cibles J14
-
-| Métrique | Aujourd'hui | J14 |
-|----------|-------------|-----|
-| Items couverts | 51 (21%) | 171 (71%) |
-| Chapitres orientation | 2 (5%) | 42 (98%) |
-| Statut EI | Non | En cours |
-| CMIL | Non | Déclaré |
-| Médecins validateurs | 0 | 1-2 |
-| Accessibilité | 4/10 | 6/10 |
-| Monitoring | Non | Oui |
-| Étudiants bêta | 0 | 20 |
-| Note projet | 6.2/10 | 7.8/10 |
-
-
----
-
 ## 🎯 ROADMAP 14 JOURS — Objectif lancement bêta
 
 > Contrainte : 2 semaines, 30-40h dispo.
