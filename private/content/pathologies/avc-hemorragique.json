@@ -6,7 +6,7 @@
   "subtitle": "Nosographie — neurologie",
   "objective": "Devant l'installation brutale d'un déficit neurologique focal, souvent avec céphalées, vomissements, troubles de conscience et hypertension artérielle, reconnaître l'hémorragie intracérébrale, la confirmer par un scanner cérébral immédiat — hyperdensité parenchymateuse —, mettre en œuvre la prise en charge aiguë : baisse intensive de la pression artérielle, antagonisation rapide des anticoagulants, chirurgie dans les indications sélectionnées, et conduire la prévention des récidives — le contrôle tensionnel avant tout.",
   "language": "fr",
-  "updatedAt": "2026-10-31",
+  "updatedAt": "2026-11-27",
   "reviewStatus": "pending-medical-review",
   "curriculum": {
     "collection": "Nosographie — spécialité médicale",
@@ -34,6 +34,7 @@
     "reviewStatus": "pending-medical-review",
     "reviewedBy": null,
     "verificationNotes": [
+      "Drapeaux rouges ajoutés le 2026-11-27 : conduites issues de Greenberg 2022 et de l'essai INTERACT3 (2023).",
       "Le référentiel national intitule l'item « Accidents vasculaires hémorragiques » (Médecine n°113) : la fiche couvre l'hémorragie intracérébrale spontanée ; l'hémorragie méningée non traumatique fait l'objet d'un item séparé (n°114).",
       "Sources vérifiées le 2026-10-31 : Greenberg SM, et al., « 2022 Guideline for the Management of Patients With Spontaneous Intracerebral Hemorrhage », Stroke 2022 ; 53 (7) : e282-e359, doi 10.1161/STR.0000000000000407 (confirmé sur ahajournals.org) ; Anderson CS, et al., pour les investigateurs INTERACT3, « The third Intensive Care Bundle with Blood Pressure Reduction in Acute Cerebral Haemorrhage Trial (INTERACT3) », Lancet 2023 ; 402 : 27-35, doi 10.1016/S0140-6736(23)00806-1 (confirmé sur thelancet.com et PubMed Central, PMC10401723).",
       "Image vérifiée le 2026-10-31 sur la page Commons du fichier « Intracerebral hemorrhage.jpg » : licence Creative Commons Attribution 2.0 Generic, crédit « Via Wikimedia Commons ».",
@@ -545,5 +546,34 @@
       ]
     }
   ],
-  "specialty": "Neurologie"
+  "specialty": "Neurologie",
+    "disclaimer": "Support pédagogique. Ne remplace ni un avis médical ni les protocoles locaux.",
+    "dosagePolicy": "Molécules citées sans posologies : se référer aux protocoles locaux et au contexte du patient.",
+    "redFlags": [
+      {
+        "sign": "Céphalées brutales, vomissements, coma ou déficit brutal",
+        "action": "Imagerie cérébrale immédiate et avis neurochirurgical"
+      },
+      {
+        "sign": "Patient sous anticoagulant",
+        "action": "Réversion immédiate selon la molécule, avec avis hématologique"
+      },
+      {
+        "sign": "Pression artérielle très élevée à l'admission",
+        "action": "Contrôle tensionnel précoce et progressif en soins intensifs"
+      },
+      {
+        "sign": "Aggravation de la conscience ou anisocorie",
+        "action": "Suspicion d'engagement : traitement hypertonique selon le protocole et avis neurochirurgical immédiat"
+      },
+      {
+        "sign": "Hémorragie intraventriculaire ou hydrocéphalie",
+        "action": "Discuter une dérivation ventriculaire externe"
+      },
+      {
+        "sign": "Sujet jeune, hémorragie lobaire ou atypique",
+        "action": "Angiographie à la recherche d'une malformation vasculaire"
+      }
+    ],
+    "localAdaptations": []
 }
