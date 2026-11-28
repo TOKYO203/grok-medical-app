@@ -933,3 +933,9 @@ une affectation de `VITE_AUTH_ENABLED` sur `process.env` dans le lanceur.
 | Date | ID | Décision | Motif | Auteur |
 |------|----|----------|-------|--------|
 | 2026-11-27 | DOCS-1 | Suppression du second bloc « ROADMAP 14 JOURS » d'AGENTS.md : 25 lignes identiques au premier (titre, blockquote, tableau « Cibles J14 »), le bloc conservé portant le plan complet Semaine 1 et Semaine 2. | AGENTS.md est réinjecté à chaque message du modèle ; le doublon coûtait environ 600 tokens par tour et par session sans information supplémentaire. Le seul contenu distinct, le plan détaillé, est conservé. | Vibe |
+
+## 2026-11-27 — Dé-chiffrage des posologies non sourcées (lot 1/4 : aai, cysticercose, vaquez)
+
+| Date | ID | Décision | Motif | Auteur |
+|------|----|----------|-------|--------|
+| 2026-11-27 | C-STD-16 | `aai.json` : les trois mentions « corticoïdes 1 mg/kg » (section, callout mnémonique, mindmap) deviennent « corticoïdes », et la mnémonique « Corticoïdes 1 mg/kg/jour » devient « Corticoïdes à dose dégressive ». | Gate 3 du standard : aucune posologie chiffrée sans source ; la conduite (corticoïdes en première intention, décroissance) est conservée sans chiffre. | Vibe |
