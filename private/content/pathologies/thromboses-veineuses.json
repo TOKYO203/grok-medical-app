@@ -6,7 +6,7 @@
   "subtitle": "Nosographie — cardiologie",
   "objective": "Devant un gros mollet douloureux unilatéral, reconnaître la thrombose veineuse profonde, la confirmer par écho-Doppler veineux, instaurer l'anticoagulation sans délai, dépister l'embolie pulmonaire et organiser la durée du traitement.",
   "language": "fr",
-  "updatedAt": "2026-10-31",
+  "updatedAt": "2026-11-27",
   "reviewStatus": "pending-medical-review",
   "curriculum": {
     "collection": "Nosographie — spécialité médicale",
@@ -34,6 +34,7 @@
     "reviewStatus": "pending-medical-review",
     "reviewedBy": null,
     "verificationNotes": [
+      "Drapeaux rouges ajoutés le 2026-11-27 : conduites issues de l'ESC 2019 sur l'embolie pulmonaire et de CHEST 2021.",
       "Le référentiel national intitule l'item « Thromboses veineuses profondes des membres inférieurs » (Médecine n°55) : la fiche couvre la TVP des membres inférieurs, son diagnostic, son traitement et sa complication principale, l'embolie pulmonaire, renvoyée vers la fiche dédiée pour sa prise en charge détaillée.",
       "Sources vérifiées lors de ce run : ESC 2019 PE (Konstantinides SV, et al. Eur Heart J 2020;41(4):543-603, doi:10.1093/eurheartj/ehz405 — page éditeur ouverte et PDF académique consultés) et CHEST 2021 2nd update (Stevens SM, et al. Chest 2021;160(6):e519-e576, doi:10.1016/j.chest.2021.07.055 — confirmé via le journal CHEST et Ovid).",
       "Le signe de Homans est cité comme signe classique de valeur clinique faible isolément, conformément à la littérature ; la probabilité clinique (score de Wells) et l'écho-Doppler font le diagnostic.",
@@ -555,5 +556,34 @@
       ]
     }
   ],
-  "specialty": "Cardiologie"
+  "specialty": "Cardiologie",
+    "disclaimer": "Support pédagogique. Ne remplace ni un avis médical ni les protocoles locaux.",
+    "dosagePolicy": "Molécules citées sans posologies : se référer aux protocoles locaux et au contexte du patient.",
+    "redFlags": [
+      {
+        "sign": "Dyspnée brutale, douleur thoracique ou syncope",
+        "action": "Évoquer une embolie pulmonaire : probabilité clinique, D-dimères ou imagerie, anticoagulation immédiate si probabilité forte"
+      },
+      {
+        "sign": "Hypotension ou état de choc",
+        "action": "Embolie pulmonaire à haut risque : réanimation, thrombolyse ou embolectomie"
+      },
+      {
+        "sign": "Thrombose proximale, poplitée ou plus haute",
+        "action": "Anticoagulation urgente selon le protocole et surveillance des complications"
+      },
+      {
+        "sign": "Membre cyanosé, tendu avec douleur intense",
+        "action": "Phlegmatia caerulea : urgence chirurgicale, risque de gangrène"
+      },
+      {
+        "sign": "Œdème bilatéral ou thrombose inhabituelle",
+        "action": "Recherche d'un cancer sous-jacent ou d'une thrombophilie"
+      },
+      {
+        "sign": "Grossesse ou post-partum",
+        "action": "Anticoagulation adaptée avec coordination obstétricale, jamais d'arrêt sans avis"
+      }
+    ],
+    "localAdaptations": []
 }
