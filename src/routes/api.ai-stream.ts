@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { rateLimitRequest, retryAfterSeconds } from "@/lib/security/rate-limit.server";
+import { consumeGlobalBudget, rateLimitRequest, retryAfterSeconds } from "@/lib/security/rate-limit.server";
 import { AIStreamBodySchema } from "@/lib/ai/schemas";
 import { readAIRequestBody, AIRequestBodyError } from "@/lib/ai/request-body.server";
 import {
@@ -15,6 +15,28 @@ export const Route = createFileRoute("/api/ai-stream")({
   server: {
     handlers: {
       POST: async ({ request }) => {
+        // Plafond GLOBAL avant tout appel facturé : le quota par IP ne protège
+        // pas d'une attaque distribuée, alors que ce proxy dépense la clé du
+        // propriétaire. Défaut 2 000 requêtes/jour, ajustable par variable
+        // d'environnement sans redéploiement de code.
+        const dailyCap = Number(process.env.AI_DAILY_REQUEST_BUDGET ?? 2000);
+        if (Number.isFinite(dailyCap) && dailyCap > 0) {
+          const budget = await consumeGlobalBudget("ai-stream", dailyCap);
+          if (!budget.ok) {
+            console.warn("[ai-stream] budget journalier épuisé");
+            return new Response(
+              JSON.stringify({ error: "Service momentanément saturé. Réessayez demain." }),
+              {
+                status: 503,
+                headers: {
+                  "Content-Type": "application/json",
+                  "Retry-After": String(retryAfterSeconds(budget)),
+                },
+              },
+            );
+          }
+        }
+
         // The subject is the TRUSTED client IP only. Reading `x-forwarded-for`
         // directly let a caller mint a fresh budget per request by rotating one
         // header, which left this unauthenticated, provider-billed proxy unmetered.

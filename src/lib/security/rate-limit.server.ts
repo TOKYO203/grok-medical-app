@@ -120,3 +120,25 @@ export function rateLimit(key: string, max = MAX_REQ, windowMs = WINDOW_MS): Rat
 export function retryAfterSeconds(result: RateLimitResult): number {
   return Math.max(1, Math.ceil((result.resetAt - Date.now()) / 1000));
 }
+
+const DAY_MS = 24 * 60 * 60 * 1000;
+
+/**
+ * Budget GLOBAL, tous sujets confondus, sur une fenêtre longue.
+ *
+ * Le limiteur par IP protège d'un client ; il ne protège pas d'un poste de coût
+ * (proxy IA facturé au propriétaire) attaqué depuis mille IP. La clé est datée
+ * par fenêtre : le compteur repart de zéro sans purge, et Upstash reste la
+ * source de vérité quand il est configuré (sinon repli mémoire par isolate).
+ */
+export async function consumeGlobalBudget(
+  scope: string,
+  max: number,
+  windowMs: number = DAY_MS,
+): Promise<RateLimitResult> {
+  const windowIndex = Math.floor(Date.now() / windowMs);
+  const key = `optimus:budget:${scope}:${windowIndex}`;
+  const upstash = await rateLimitUpstash(key, max, windowMs);
+  if (upstash) return upstash;
+  return rateLimitMemory(key, max, windowMs);
+}
