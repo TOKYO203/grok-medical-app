@@ -999,3 +999,9 @@ une affectation de `VITE_AUTH_ENABLED` sur `process.env` dans le lanceur.
 | Date | ID | Décision | Motif | Auteur |
 |------|----|----------|-------|--------|
 | 2026-11-27 | CI-1 | `scripts/public-catalog-sync.test.mjs` : `rmTemp()` utilise `rmSync` avec `maxRetries: 8` et `retryDelay: 50`, et n'échoue plus si le ménage rencontre `ENOTEMPTY` (avertissement seulement). | Le job « Suite de tests (bloquante) » est tombé rouge sur `ENOTEMPTY: rmdir private/content/demarches` alors que le code était sain : la suppression d'arbre est en course avec un autre fichier de test exécuté en parallèle. Une relance du même commit est passée au vert, ce qui confirme l'instabilité plutôt qu'une régression. | Vibe |
+
+## 2026-11-27 — Accueil : statistiques sur une seule rangée
+
+| Date | ID | Décision | Motif | Auteur |
+|------|----|----------|-------|--------|
+| 2026-11-27 | UI-4 | `src/routes/index.tsx` : les trois `StatChip` (série, aujourd'hui, niveau) passent d'une pile d'une colonne sous 560 px à une grille `grid-cols-3` sur tous les écrans, avec icône et typographie réduites en mobile (`size-6`, `text-xs`). | Sur un téléphone de 390 px, les trois pastilles occupaient trois lignes pleine largeur et repoussaient les decks de ~110 px sous la ligne de flottaison. Vérifié : aucune débordement horizontal. | Vibe |

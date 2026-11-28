@@ -209,7 +209,7 @@ function Dashboard() {
       {/* Reprendre où vous étiez (Session 10 — UX navigation) */}
       <ResumeWhereCard />
 
-      <div className="mt-3 grid grid-cols-1 gap-2 min-[560px]:grid-cols-3">
+      <div className="mt-3 grid grid-cols-3 gap-2">
         <StatChip
           icon={<Flame className="size-4 text-primary" />}
           label={t("dash.streak")}
@@ -485,15 +485,15 @@ function QuickAction({
 
 function StatChip({ icon, label, value }: { icon: ReactNode; label: string; value: string }) {
   return (
-    <div className="flex min-w-0 items-center gap-2 rounded-[var(--radius-lg)] bg-card px-2.5 py-3 shadow-[var(--shadow-border)] sm:px-3">
-      <span className="flex size-7 shrink-0 items-center justify-center rounded-full bg-primary-soft">
+    <div className="flex min-w-0 items-center gap-1.5 rounded-[var(--radius-lg)] bg-card px-2 py-2 shadow-[var(--shadow-border)] sm:gap-2 sm:px-3 sm:py-3">
+      <span className="flex size-6 shrink-0 items-center justify-center rounded-full bg-primary-soft sm:size-7">
         {icon}
       </span>
       <div className="min-w-0">
-        <p className="optimus-kicker truncate text-[11px] font-medium uppercase tracking-wider">
+        <p className="optimus-kicker truncate text-[10px] font-medium uppercase tracking-wider sm:text-[11px]">
           {label}
         </p>
-        <p className="optimus-kpi truncate font-mono text-sm tabular-nums">{value}</p>
+        <p className="optimus-kpi truncate font-mono text-xs tabular-nums sm:text-sm">{value}</p>
       </div>
     </div>
   );
