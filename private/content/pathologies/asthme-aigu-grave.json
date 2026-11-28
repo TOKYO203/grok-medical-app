@@ -6,7 +6,7 @@
   "subtitle": "Nosographie — pneumologie",
   "objective": "Devant une crise d'asthme, reconnaître les signes de gravité qui font passer de la crise simple à l'asthme aigu grave, évaluer la sévérité clinique et par le débit expiratoire de pointe, et conduire le traitement d'urgence — bronchodilatateurs nébulisés, corticoïdes systémiques, et les escalades thérapeutiques jusqu'à la réanimation.",
   "language": "fr",
-  "updatedAt": "2026-10-31",
+  "updatedAt": "2026-11-27",
   "reviewStatus": "pending-medical-review",
   "curriculum": {
     "collection": "Nosographie — spécialité médicale",
@@ -34,6 +34,7 @@
     "reviewStatus": "pending-medical-review",
     "reviewedBy": null,
     "verificationNotes": [
+      "Drapeaux rouges ajoutés le 2026-11-27 : conduites issues de GINA 2025 et de la recommandation BTS/SIGN 2019.",
       "Le référentiel national intitule l'item « Asthme aigu grave » (Médecine n°60) : la fiche couvre la crise d'asthme sévère de l'adulte et de l'enfant, ses signes de gravité, sa prise en charge d'urgence et ses escalades, et renvoie l'asthme stable vers la fiche dédiée (Médecine n°59).",
       "Sources vérifiées : GINA 2025 update (Global Initiative for Asthma, rapport accessible en accès libre, URL vérifiée le 2026-10-31) et BTS/SIGN British guideline on the management of asthma (URL vérifiée le 2026-10-31).",
       "Les signes de gravité cités — silence auscultatoire, cyanose, épuisement, troubles de conscience, DEP très abaissé, tachycardie, pause respiratoire — sont les marqueurs classiques repris par GINA et BTS/SIGN.",
@@ -541,5 +542,34 @@
       ]
     }
   ],
-  "specialty": "Pneumologie"
+  "specialty": "Pneumologie",
+    "disclaimer": "Support pédagogique. Ne remplace ni un avis médical ni les protocoles locaux.",
+    "dosagePolicy": "Molécules citées sans posologies : se référer aux protocoles locaux et au contexte du patient.",
+    "redFlags": [
+      {
+        "sign": "Crise avec impossibilité de parler, orthopnée ou agitation",
+        "action": "Asthme aigu grave : oxygène, bronchodilatateurs inhalés répétés, corticothérapie systémique, surveillance en soins intensifs"
+      },
+      {
+        "sign": "Silence auscultatoire, bradypnée ou cyanose",
+        "action": "Arrêt respiratoire imminent : appeler la réanimation, préparer l'intubation"
+      },
+      {
+        "sign": "Somnolence, confusion ou épuisement",
+        "action": "Ne jamais sédater ; transfert en réanimation"
+      },
+      {
+        "sign": "Débit expiratoire de pointe effondré ou non mesurable",
+        "action": "Avis réanimation immédiat"
+      },
+      {
+        "sign": "Absence d'amélioration après bronchodilatateurs répétés",
+        "action": "Adrénaline et magnésium selon le protocole, avis réanimation"
+      },
+      {
+        "sign": "Douleur thoracique brutale ou asymétrie auscultatoire pendant la crise",
+        "action": "Évoquer un pneumothorax : arrêt des manœuvres à pression positive et drainage"
+      }
+    ],
+    "localAdaptations": []
 }
