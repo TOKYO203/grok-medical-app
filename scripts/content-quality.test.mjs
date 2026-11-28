@@ -9,6 +9,20 @@ const cases = JSON.parse(
   await readFile(new URL("../src/content/data/cases.json", import.meta.url), "utf8"),
 );
 
+/**
+ * Vrai si l'URL appartient à `host` ou à l'un de ses sous-domaines.
+ * On compare le hostname parsé, jamais une sous-chaîne : `https://evil.test/x?a=pubmed.ncbi.nlm.nih.gov`
+ * contient la chaîne sans être PubMed (CodeQL js/incomplete-url-substring-sanitization).
+ */
+function hostIs(url, host) {
+  try {
+    const { hostname } = new URL(url);
+    return hostname === host || hostname.endsWith(`.${host}`);
+  } catch {
+    return false;
+  }
+}
+
 test("every built-in question has an explanation and at least one source", () => {
   for (const deck of decks) {
     for (const question of deck.questions) {
@@ -84,7 +98,7 @@ test("reviewed emergency content avoids automatic burn over-resuscitation", () =
   assert.match(burn?.prompt ?? "", /≥ 20 %/);
   assert.match(burn?.explanation ?? "", /ajuster heure par heure/);
   assert.match(burn?.explanation ?? "", /Parkland utilise 4 mL/);
-  assert.ok(burn?.sources.some((source) => source.url?.includes("pubmed.ncbi.nlm.nih.gov")));
+  assert.ok(burn?.sources.some((source) => hostIs(source.url ?? "", "pubmed.ncbi.nlm.nih.gov")));
 });
 
 test("reviewed first-aid content teaches safe bleeding and choking actions", () => {
@@ -100,7 +114,7 @@ test("reviewed first-aid content teaches safe bleeding and choking actions", () 
   assert.match(choking?.explanation ?? "", /objet clairement visible/);
   assert.ok(
     [bleeding, choking].every((question) =>
-      question?.sources.some((source) => source.url?.includes("resus.org.uk")),
+      question?.sources.some((source) => hostIs(source.url ?? "", "resus.org.uk")),
     ),
   );
 });
@@ -138,7 +152,7 @@ test("reviewed third heart sound content distinguishes orientation from diagnosi
   assert.match(thirdHeartSound?.choices[thirdHeartSound.correct] ?? "", /surcharge volumique/);
   assert.match(thirdHeartSound?.explanation ?? "", /sans suffire seul au diagnostic/);
   assert.match(thirdHeartSound?.explanation ?? "", /B4/);
-  assert.ok(thirdHeartSound?.sources.some((source) => source.url?.includes("ahajournals.org")));
+  assert.ok(thirdHeartSound?.sources.some((source) => hostIs(source.url ?? "", "ahajournals.org")));
   assert.ok(ascites?.choices.includes("Une ascite"));
   assert.ok(!ascites?.choices.includes("Un ascite"));
 });

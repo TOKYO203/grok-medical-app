@@ -112,7 +112,7 @@ test("src/ never contains a hardcoded admin password or key literal", async () =
         .replace(/^\s*\/\/.*$/gm, "");
       for (const pattern of HARDCODED_SECRET) {
         const match = source.match(pattern);
-        if (match) offenders.push(`${rel.replace("../", "")} → ${match[0].slice(0, 60)}`);
+        if (match) offenders.push(`${rel.replace(/^(\.\.\/)+/, "")} → ${match[0].slice(0, 60)}`);
       }
     }
   };
