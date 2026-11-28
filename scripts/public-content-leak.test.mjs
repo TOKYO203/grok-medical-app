@@ -14,11 +14,12 @@
  */
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { existsSync, mkdirSync, mkdtempSync, readFileSync, readdirSync, rmSync, writeFileSync } from "node:fs";
+import { mkdirSync, mkdtempSync, readFileSync, readdirSync, rmSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { syncCatalogData } from "./sync-catalog-data.mjs";
+import { DIST_CANDIDATES, stripDemarchesFromDist } from "./strip-demarches-from-dist.mjs";
 
 const CHECKOUT = join(fileURLToPath(import.meta.url), "..", "..");
 const CATALOGS = ["decks.json", "cases.json", "diagnostics.json"];
@@ -112,13 +113,28 @@ test("importer le module de sync ne réécrit pas le dépôt", () => {
   );
 });
 
-test("un dossier de build ne contient plus les fiches de démarches (§15)", () => {
-  const candidates = [join(CHECKOUT, "dist"), join(CHECKOUT, ".output", "public"), join(CHECKOUT, ".output")];
-  const found = candidates.filter((dir) => existsSync(join(dir, "content", "demarches")));
-  if (found.length === 0) return; // pas de build local : rien à vérifier (skip).
-  for (const dir of found) {
-    const names = readdirSync(join(dir, "content", "demarches"));
-    const stray = names.filter((name) => name.endsWith(".json") && name !== "_index.json");
-    assert.deepEqual(stray, [], `${dir} : fiches de démarches présentes dans l'artefact de build`);
+test("le nettoyage du build retire les fiches de démarches et garde le manifeste", () => {
+  // Hermétique : on fabrique un faux artefact dans un dossier temporaire. Le
+  // test ne dépend plus de la présence d'un `dist/` ou `.output/` local, donc
+  // il ne se « saute » plus silencieusement sur une machine propre (ligne CI-3).
+  const root = mkdtempSync(join(tmpdir(), "strip-dist-"));
+  try {
+    const dir = join(root, "dist", "content", "demarches");
+    mkdirSync(dir, { recursive: true });
+    writeFileSync(join(dir, "_index.json"), "{}");
+    writeFileSync(join(dir, "fiche-a.json"), "{}");
+    writeFileSync(join(dir, "fiche-b.json"), "{}");
+
+    assert.equal(stripDemarchesFromDist({ root }), 2, "les deux fiches doivent être retirées");
+    assert.deepEqual(readdirSync(dir), ["_index.json"], "seul le manifeste public reste");
+
+    // Idempotence : rejouer le nettoyage ne doit rien casser ni rien compter.
+    assert.equal(stripDemarchesFromDist({ root }), 0);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
   }
+});
+
+test("le nettoyage couvre les trois sorties de build (Vite, Nitro, Nitro public)", () => {
+  assert.deepEqual(DIST_CANDIDATES, ["dist", ".output/public", ".output"]);
 });
