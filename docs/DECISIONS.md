@@ -1039,3 +1039,9 @@ une affectation de `VITE_AUTH_ENABLED` sur `process.env` dans le lanceur.
 | Date | ID | Décision | Motif | Auteur |
 |------|----|----------|-------|--------|
 | 2026-11-27 | UI-5 | `meta theme-color` passe à `#F7F5F1` (repli clair) et `#121417` (repli sombre) dans `__root.tsx` et `theme.ts` ; `manifest.webmanifest` prend `background_color: #F7F5F1` et `theme_color: #6E4A24`. Les 28 classes codées en dur `#A67C1E`/`#F4F1FA` de quatre pages institutionnelles (`validation-clinique`, `institutionnel`, `contact`, `conseil-editorial`) sont remplacées par les jetons `primary`/`primary-fg`. | Le `theme-color` servait encore l'ancien violet `#F4F1FA` (et `#130F23` en sombre) : la barre du navigateur contredisait le thème après la bascule vers le neutre chaud. Les boutons or de ces quatre pages étaient les derniers à ignorer la palette. | Vibe |
+
+## 2026-11-28 — Endpoint de santé : type aligné et fuite de diagnostic fermée
+
+| Date | ID | Décision | Motif | Auteur |
+|------|----|----------|-------|--------|
+| 2026-11-28 | SEC-HEALTH-1 | `api.health.checkout.ts` : le type de retour de `probeDatabase()` déclare `error?: string` (le cast `(database as any)` disparaît), et le handler **ne renvoie plus** le message brut du driver dans un `error_debug` 500. Le détail part uniquement dans `console.error`. Test de non-régression ajouté. | Le correctif de connexion Postgres des PR #557–#559 renvoyait le message du driver — hôte, port, utilisateur, parfois la chaîne de connexion — sur un endpoint **public et non authentifié**, et cassait `tsc` (propriété inconnue), donc le build de production. Doctrine de la route rappelée : des booléens et un motif, jamais d'infrastructure. | Vibe |

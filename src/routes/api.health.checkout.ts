@@ -51,8 +51,17 @@ function json(body: unknown, status = 200, extra: Record<string, string> = {}) {
   });
 }
 
-/** `select 1` borné : la seule façon honnête de dire « la base répond ». */
-async function probeDatabase(): Promise<{ reachable: boolean | null; reason?: string }> {
+/**
+ * `select 1` borné : la seule façon honnête de dire « la base répond ».
+ * `error` porte le message brut quand la sonde échoue — utile pour distinguer un
+ * refus d'authentification d'un timeout côté diagnostic, jamais exposé au client
+ * public (voir le handler).
+ */
+async function probeDatabase(): Promise<{
+  reachable: boolean | null;
+  reason?: string;
+  error?: string;
+}> {
   // Avec PGLite (aucune `DATABASE_URL`), la base est un WASM local : sur un
   // worker Cloudflare elle ne peut pas démarrer. On ne tente donc PAS la requête
   // (elle ferait échouer le handler) — la source dit déjà tout.
@@ -96,7 +105,13 @@ export const Route = createFileRoute("/api/health/checkout")({
         const supabase = readServerSupabaseConfig(env);
         const serviceKey = resolveSupabaseServiceKey(env);
         const lemon = readLemonCheckoutConfig(env);
-        const database = await probeDatabase(); if (database.reason === "query-failed") return json({ error_debug: (database as any).error || "Erreur inconnue" }, 500);  
+        const database = await probeDatabase();
+        if (database.reason === "query-failed") {
+          // Diagnostic SERVEUR uniquement. Le message du driver peut contenir
+          // l'hôte, le port, l'utilisateur voire la chaîne de connexion : il ne
+          // doit jamais sortir d'ici (doctrine de la route : des booléens).
+          console.error("[health/checkout] sonde base en échec :", database.error ?? "erreur inconnue");
+        }
 
         // Audit 2026-11-17 : le detail de l'echec RPC (message de driver, debug
         // interne) reste dans les LOGS serveur - il n'est plus renvoye au client.
