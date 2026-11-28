@@ -566,3 +566,18 @@ git push origin --delete security/audit-2026-11-10
 git push origin --delete test/disable-better-auth
 ```
 
+
+## Execution (2026-11-28)
+
+| Lot | Critere | Supprimees | Verification |
+| --- | --- | --- | --- |
+| 1 | PR fusionnee (tableau ci-dessus), par lots de 50 | **239** | non fusionnees : 291 -> 52 |
+| 2 | Fusionnees par **ascendance Git** (hors tetes de PR ouvertes) | **59** | branches distantes : 112 -> 53 |
+| **Total** | | **298** | aucune erreur de push |
+
+Intactes apres execution :
+
+- les **28** branches de PR ouvertes (dont 6 Dependabot) ;
+- les **24** branches a verifier (travail non fusionne ou PR fermee sans merge).
+
+Verification apres chaque lot : `git branch -r --no-merged origin/main` a decru du nombre attendu, et aucun push n'a ete rejete.

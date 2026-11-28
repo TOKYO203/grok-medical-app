@@ -1069,3 +1069,9 @@ une affectation de `VITE_AUTH_ENABLED` sur `process.env` dans le lanceur.
 | Date | ID | Décision | Motif | Auteur |
 |------|----|----------|-------|--------|
 | 2026-11-28 | OPS-1 | `docs/BRANCH-CLEANUP-REPORT.md` : croisement des 291 branches non fusionnées dans `main` avec les 524 PR (tous états), classées en 239 supprimables (PR fusionnée), 24 à vérifier (PR fermée sans merge, ou aucune PR) et 28 à conserver (PR ouverte). La commande de suppression est fournie mais **non exécutée**. | Le dépôt accumule une branche par session depuis des mois. Une suppression en masse sans état de PR détruirait du travail non fusionné ; l'inverse (tout garder) rend le dépôt illisible. Le rapport sépare les deux cas sur un critère vérifiable — `merged_at` de la PR — et laisse la décision humaine sur les 24 cas ambigus. Une branche réutilisée par plusieurs PR est classée d'après la PR la plus récente. | Vibe |
+
+## 2026-11-28 — Execution du nettoyage : 298 branches supprimees
+
+| Date | ID | Décision | Motif | Auteur |
+|------|----|----------|-------|--------|
+| 2026-11-28 | OPS-2 | Suppression effective de **239** branches dont la PR est fusionnée (par lots de 50) puis de **59** branches fusionnées par ascendance Git, soit **298** branches ; `docs/BRANCH-CLEANUP-REPORT.md` porte la section « Execution ». Les 28 branches de PR ouvertes et les 24 cas à vérifier sont conservés. | Le rapport `OPS-1` séparait le travail déjà dans `main` du travail non fusionné. Les deux lots restants ne contenaient, par construction, aucun commit absent de `main` : leur suppression ne peut pas perdre de code. Vérification après chaque lot : `git branch -r --no-merged origin/main` décroît du nombre attendu (291 → 52, puis 112 → 53 au total), sans rejet de push. | Vibe |
