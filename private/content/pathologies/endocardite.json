@@ -6,7 +6,7 @@
   "subtitle": "Nosographie — cardiologie",
   "objective": "Devant une fièvre prolongée inexpliquée, surtout sur valvulopathie ou prothèse, savoir évoquer une endocardite infectieuse, poser le diagnostic par les hémocultures et l'échocardiographie selon les critères de Duke modifiés, et organiser sans retard l'antibiothérapie IV prolongée et l'indication chirurgicale.",
   "language": "fr",
-  "updatedAt": "2026-10-30",
+  "updatedAt": "2026-11-27",
   "reviewStatus": "pending-medical-review",
   "curriculum": {
     "collection": "Nosographie — spécialité médicale",
@@ -33,6 +33,7 @@
     "reviewStatus": "pending-medical-review",
     "reviewedBy": null,
     "verificationNotes": [
+      "Drapeaux rouges ajoutés le 2026-11-27 : conduites issues de l'ESC 2023 sur l'endocardite infectieuse et de l'AHA 2015.",
       "Le référentiel national intitule l'item « Endocardite bactérienne » (Médecine n°22) : la fiche couvre l'endocardite infectieuse sur valve native et sur prothèse, bactérienne dans l'écrasante majorité des cas ; les endocardites à hémocultures négatives sont abordées comme piège diagnostique.",
       "Les critères diagnostiques sont les critères de Duke modifiés (ESC 2023) : 2 critères majeurs, ou 1 majeur plus 3 mineurs, ou 5 mineurs.",
       "Les indications chirurgicales suivent ESC 2023 : insuffisance cardiaque, infection non contrôlée, prévention embolique (végétation de grande taille malgré l'antibiothérapie).",
@@ -556,5 +557,34 @@
       ]
     }
   ],
-  "specialty": "Cardiologie"
+  "specialty": "Cardiologie",
+    "disclaimer": "Support pédagogique. Ne remplace ni un avis médical ni les protocoles locaux.",
+    "dosagePolicy": "Molécules citées sans posologies : se référer aux protocoles locaux et au contexte du patient.",
+    "redFlags": [
+      {
+        "sign": "Fièvre prolongée avec souffle cardiaque nouveau",
+        "action": "Hémocultures avant toute antibiothérapie, échocardiographie, avis cardiologique"
+      },
+      {
+        "sign": "Insuffisance cardiaque aiguë ou état de choc",
+        "action": "Chirurgie valvulaire urgente à discuter en centre de référence"
+      },
+      {
+        "sign": "Déficit neurologique ou embolie systémique",
+        "action": "Imagerie cérébrale, antibiothérapie immédiate, discussion chirurgicale"
+      },
+      {
+        "sign": "Fièvre chez un porteur de valve prothétique ou de matériel intracardiaque",
+        "action": "Endocardite sur matériel : avis centre de référence, imagerie nucléaire si échographie négative"
+      },
+      {
+        "sign": "Bloc auriculo-ventriculaire ou suspicion d'abcès péri-annulaire",
+        "action": "Chirurgie urgente et surveillance rythmique"
+      },
+      {
+        "sign": "Injection intraveineuse de drogues avec fièvre et foyer pulmonaire",
+        "action": "Endocardite du cœur droit : recherche d'embolies septiques, prise en charge addictologique conjointe"
+      }
+    ],
+    "localAdaptations": []
 }
