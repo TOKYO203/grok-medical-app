@@ -1087,3 +1087,9 @@ une affectation de `VITE_AUTH_ENABLED` sur `process.env` dans le lanceur.
 | Date | ID | Décision | Motif | Auteur |
 |------|----|----------|-------|--------|
 | 2026-11-28 | DEPS-2 | `@tanstack/react-start` passe de 1.168.54 à 1.169.7 et les trois `inputValidator(...)` de `src/lib/activation-keys-admin.ts` deviennent `validator(...)`. | La 1.169 a renommé la méthode du `ServerFnBuilder` sans changer de version majeure : le typage cassait sur trois Server Functions, donc la CI et le build de production. La migration est mécanique (trois remplacements) et vérifiée par `tsc` (0 erreur), `eslint` (0 erreur) et les quatre suites admin. Geler le paquet aurait reporté la dette sans la réduire. | Vibe |
+
+## 2026-11-28 — Dependabot traite, tri des branches a contenu
+
+| Date | ID | Décision | Motif | Auteur |
+|------|----|----------|-------|--------|
+| 2026-11-28 | OPS-3 | Les 6 PR Dependabot sont traitées : 5 fermées comme sans objet (3 dépendances inutilisées retirées, `eslint-plugin-react-hooks` 7.1.1, `upload-artifact` v7), le lot groupé régénéré (#571) mergé. Le tri des branches restantes est consigné dans `docs/BRANCH-TRIAGE.md` : 8 branches de contenu **supprimables sans perte** (aucune fiche absente de `main`, versions antérieures), `feat/fiches-semiologie-lot6` supprimable (doublons en chemin legacy), `feat/histologie` conserve 8 SVG uniques, `audit-fixes` **ne doit pas être fusionnée** (ajoute `.env.production`). | Les montées majeures de paquets non importés n'avaient aucune valeur ; les fusionner était un risque pur. Le tri des branches a été tranché par la preuve, pas par l'ancienneté : liste des fichiers ajoutés comparée à `main`, fiche témoin comparée en date, et correspondance des chemins legacy vers `private/`. | Vibe |
