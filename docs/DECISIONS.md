@@ -1039,3 +1039,9 @@ une affectation de `VITE_AUTH_ENABLED` sur `process.env` dans le lanceur.
 | Date | ID | Décision | Motif | Auteur |
 |------|----|----------|-------|--------|
 | 2026-11-27 | UI-5 | `meta theme-color` passe à `#F7F5F1` (repli clair) et `#121417` (repli sombre) dans `__root.tsx` et `theme.ts` ; `manifest.webmanifest` prend `background_color: #F7F5F1` et `theme_color: #6E4A24`. Les 28 classes codées en dur `#A67C1E`/`#F4F1FA` de quatre pages institutionnelles (`validation-clinique`, `institutionnel`, `contact`, `conseil-editorial`) sont remplacées par les jetons `primary`/`primary-fg`. | Le `theme-color` servait encore l'ancien violet `#F4F1FA` (et `#130F23` en sombre) : la barre du navigateur contredisait le thème après la bascule vers le neutre chaud. Les boutons or de ces quatre pages étaient les derniers à ignorer la palette. | Vibe |
+
+## 2026-11-28 — Déploiement : pousser le secret de signature du contenu
+
+| Date | ID | Décision | Motif | Auteur |
+|------|----|----------|-------|--------|
+| 2026-11-28 | SEC-ENV-1 | `deploy-worker.yml` pousse `LICENSE_JWT_SECRET` comme **secret** du Worker (via `wrangler secret put`) avant le déploiement, quand le secret GitHub Actions du même nom existe ; sinon le job émet un `::warning::` explicite. `docs/production-runbook.md` liste les trois secrets dont l'absence casse la production. | Diagnostic du 2026-11-28 : la base est redevenue joignable, mais `/api/licenses/trial-token` répondait toujours `503 license_verification_unavailable` et les catalogues `/content/*` restaient fermés aux anonymes. Le workflow n'injectait que `BETTER_AUTH_*` et `GROK_AUTH_*` : `LICENSE_JWT_SECRET` n'avait aucun chemin d'approvisionnement, aucun échec de build ne le signalait. | Vibe |
