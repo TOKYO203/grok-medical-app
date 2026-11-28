@@ -981,3 +981,9 @@ une affectation de `VITE_AUTH_ENABLED` sur `process.env` dans le lanceur.
 | Date | ID | Décision | Motif | Auteur |
 |------|----|----------|-------|--------|
 | 2026-11-27 | UI-2 | src/routes/index.tsx : la section « Accès rapide » passe de 10 à 3 entrées (Réviser, Examen blanc, Signes & Syndromes), renommée « S\u2019entraîner » ; ÉCG, examen clinique, imagerie, histologie, auscultation, calculateurs et valeurs de référence quittent l’accueil et restent dans la navigation. | L’accueil proposait dix raccourcis de poids égal sous une carte de session qui, elle, est la vraie action du jour : l’étudiant ne savait pas par où commencer. Les surfaces retirées restent joignables en un clic via la sidebar et le tiroir mobile. | Vibe |
+
+## 2026-11-27 — CSP : hash du boot de thème correctement quoté
+
+| Date | ID | Décision | Motif | Auteur |
+|------|----|----------|-------|--------|
+| 2026-11-27 | SEC-CSP-1 | server/middleware/security-headers.ts : scriptSrc() émet désormais le hash du script de thème entre guillemets (\u0027sha256-…\u0027) au lieu de sha256-… nu. | Une source CSP de type hash n\u2019est valide qu\u2019entre guillemets ; sans eux, le navigateur la rejette et journalise « invalid source » à chaque chargement. Le hash reste ignoré tant que \u0027unsafe-inline\u0027 est présent, mais la politique n\u2019est plus signalée comme invalide. | Vibe |
