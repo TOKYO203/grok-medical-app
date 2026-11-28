@@ -1063,3 +1063,9 @@ une affectation de `VITE_AUTH_ENABLED` sur `process.env` dans le lanceur.
 | Date | ID | Décision | Motif | Auteur |
 |------|----|----------|-------|--------|
 | 2026-11-28 | CI-3 | `scripts/strip-demarches-from-dist.mjs` expose `stripDemarchesFromDist({ root })` et `DIST_CANDIDATES`, avec le même garde d'exécution directe que `sync-catalog-data.mjs`. Le dernier cas de `public-content-leak.test.mjs` fabrique un faux artefact temporaire et vérifie que les fiches sont retirées, que `_index.json` reste et que le nettoyage est idempotent — au lieu de parcourir `dist/` et `.output/` du dépôt et de **sauter silencieusement** quand aucun build local n'existe. | Le test passait sur une machine propre sans rien vérifier : un `skip` déguisé en succès. Il dépendait en plus d'un artefact laissé par une exécution précédente, donc son résultat variait selon l'ordre des tâches. `DIST_CANDIDATES` est désormais asserté explicitement (trois sorties : Vite, Nitro, Nitro public). | Vibe |
+
+## 2026-11-28 — Inventaire des branches distantes (aucune suppression)
+
+| Date | ID | Décision | Motif | Auteur |
+|------|----|----------|-------|--------|
+| 2026-11-28 | OPS-1 | `docs/BRANCH-CLEANUP-REPORT.md` : croisement des 291 branches non fusionnées dans `main` avec les 524 PR (tous états), classées en 239 supprimables (PR fusionnée), 24 à vérifier (PR fermée sans merge, ou aucune PR) et 28 à conserver (PR ouverte). La commande de suppression est fournie mais **non exécutée**. | Le dépôt accumule une branche par session depuis des mois. Une suppression en masse sans état de PR détruirait du travail non fusionné ; l'inverse (tout garder) rend le dépôt illisible. Le rapport sépare les deux cas sur un critère vérifiable — `merged_at` de la PR — et laisse la décision humaine sur les 24 cas ambigus. Une branche réutilisée par plusieurs PR est classée d'après la PR la plus récente. | Vibe |
