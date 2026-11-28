@@ -66,6 +66,12 @@ test("l'endpoint de santé du déploiement n'expose AUCUNE valeur", () => {
   // Jamais mis en cache : un CDN figerait un « ready: true » périmé.
   assert.match(route, /cache-control": "no-store"/);
   assert.match(route, /x-robots-tag/);
+
+  // Incident 2026-11-28 : un correctif de connexion base renvoyait le message
+  // brut du driver (`error_debug`) sur cet endpoint PUBLIC — hôte, port,
+  // utilisateur, parfois la chaîne de connexion. Le détail reste dans les logs.
+  assert.ok(!route.includes("error_debug"), "un diagnostic brut de base est renvoyé au client");
+  assert.ok(!route.includes("(database as any)"), "un cast masque un champ non typé dans la réponse");
 });
 
 test("l'endpoint de santé distingue PGLite d'une base Postgres injoignable", () => {
