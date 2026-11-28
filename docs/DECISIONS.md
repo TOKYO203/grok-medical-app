@@ -987,3 +987,9 @@ une affectation de `VITE_AUTH_ENABLED` sur `process.env` dans le lanceur.
 | Date | ID | Décision | Motif | Auteur |
 |------|----|----------|-------|--------|
 | 2026-11-27 | SEC-CSP-1 | server/middleware/security-headers.ts : scriptSrc() émet désormais le hash du script de thème entre guillemets (\u0027sha256-…\u0027) au lieu de sha256-… nu. | Une source CSP de type hash n\u2019est valide qu\u2019entre guillemets ; sans eux, le navigateur la rejette et journalise « invalid source » à chaque chargement. Le hash reste ignoré tant que \u0027unsafe-inline\u0027 est présent, mais la politique n\u2019est plus signalée comme invalide. | Vibe |
+
+## 2026-11-27 — Accueil : un seul point de décision
+
+| Date | ID | Décision | Motif | Auteur |
+|------|----|----------|-------|--------|
+| 2026-11-27 | UI-3 | `src/routes/index.tsx` : suppression du bloc « Prochaine étape / Deck conseillé » (calculs `featured`, `featuredProgress`, `resumed`, `priority`, `yearDeck` retirés) et des deux doublons du rail bas (Réviser, Cas cliniques, déjà présents ailleurs). L'accueil garde un seul point de décision : la carte « Session du jour ». | Deux invites fortes se concurrençaient juste sous la carte de session, et le rail bas répétait le contenu du milieu de page. Hauteur desktop de l'accueil : 2 902 px → 2 697 px, la session restant seule au-dessus de la ligne de flottaison sur mobile. | Vibe |

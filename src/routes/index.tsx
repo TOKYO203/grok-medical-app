@@ -13,13 +13,13 @@ import { Page, SectionTitle, Shell } from "@/components/shell";
 import { ResumeWhereCard } from "@/components/resume-where-card";
 import { buttonVariants } from "@/components/ui/button-variants";
 import { Progress } from "@/components/ui/progress";
-import { BUILTIN_DECKS, CLINICAL_CASES } from "@/content/catalog";
+import { BUILTIN_DECKS } from "@/content/catalog";
 import { COMPETENCIES, COMPETENCY_LABEL, STUDY_LEVEL_LABEL } from "@/core/types";
 import { competencyMastery, deckProgressPct, globalMastery, masteryBand } from "@/core/mastery";
 import { pickTodayQuestions } from "@/core/quiz-engine";
 import { isDue } from "@/core/spaced-repetition";
 import { levelInfo } from "@/core/scoring";
-import { buildContentIndex, caseAccessible } from "@/lib/library/content-index";
+import { buildContentIndex } from "@/lib/library/content-index";
 import { useI18n } from "@/i18n";
 import { seedBuiltinDecks } from "@/state/builtin-decks";
 import { currentLeague, hasAccess, useAllDecks, useOptimus } from "@/state/store";
@@ -90,24 +90,6 @@ function Dashboard() {
   })).sort((a, b) => a.score - b.score);
   const weak = comps[0];
   const strong = [...comps].reverse()[0];
-  const priority = unlocked.filter((d) =>
-    profile.prioritySubjects.some(
-      (s) => d.subject.toLowerCase().includes(s.toLowerCase()) || d.title.includes(s),
-    ),
-  );
-  const resumed = unlocked
-    .map((deck) => ({
-      deck,
-      lastReview: Math.max(
-        0,
-        ...Object.values(progress[deck.id]?.seen ?? {}).map((item) => item.lastReview ?? 0),
-      ),
-    }))
-    .sort((a, b) => b.lastReview - a.lastReview)
-    .find((item) => item.lastReview > 0)?.deck;
-  const freeCasesCount = CLINICAL_CASES.filter((clinical) =>
-    caseAccessible(clinical, entitlements),
-  ).length;
   const dailyGoal = 10;
   const dailyPct = Math.min(100, Math.round((daily.answered / dailyGoal) * 100));
   const remaining = Math.max(0, dailyGoal - daily.answered);
@@ -144,13 +126,6 @@ function Dashboard() {
   }, [index, progressById, profile.prioritySubjects, profile.studyYear]);
 
   const caseRail = useMemo(() => index.filter((i) => i.kind === "case").slice(0, 3), [index]);
-
-  const yearDeck =
-    profile.studyYear > 0
-      ? unlocked.find((deck) => deck.studyYear === profile.studyYear)
-      : undefined;
-  const featured = resumed ?? priority[0] ?? yearDeck ?? unlocked[0];
-  const featuredProgress = featured ? deckProgressPct(featured, progress[featured.id]) : 0;
 
   return (
     <Page>
@@ -251,55 +226,6 @@ function Dashboard() {
           value={`${lvl.level}`}
         />
       </div>
-
-      {featured ? (
-        <section className="mt-7">
-          <SectionTitle
-            kicker={t("dash.nextStep")}
-            title={resumed ? t("dash.resumeDeck") : t("dash.suggestedDeck")}
-            action={
-              <Link to="/bibliotheque" className="text-sm text-muted hover:text-accent">
-                {t("dash.viewAll")}
-              </Link>
-            }
-          />
-          <Link
-            to="/parcours/$deckId"
-            params={{ deckId: featured.id }}
-            className="optimus-card optimus-interactive-card group block p-4"
-          >
-            <span className="flex items-center gap-4">
-              <span className="flex size-12 shrink-0 items-center justify-center rounded-[var(--radius-md)] bg-primary-soft text-primary shadow-[var(--shadow-border)]">
-                <DeckIcon name={featured.icon} />
-              </span>
-              <span className="min-w-0 flex-1">
-                <span className="flex items-center gap-2">
-                  <span className="truncate font-medium">{featured.title}</span>
-                  <span className="optimus-status-pill shrink-0 bg-primary-soft text-primary">
-                    {featuredProgress >= 100
-                      ? t("dash.done")
-                      : featuredProgress > 0
-                        ? t("dash.inProgress")
-                        : t("dash.recommended")}
-                  </span>
-                </span>
-                <span className="mt-0.5 block truncate text-sm text-muted">
-                  {featured.subtitle}
-                </span>
-              </span>
-              <ChevronRight className="size-5 shrink-0 text-muted transition-transform group-hover:translate-x-0.5" />
-            </span>
-            <span className="mt-4 flex items-center gap-3">
-              <Progress
-                className="h-1.5 flex-1"
-                value={featuredProgress}
-                barClassName="optimus-progress-fill"
-              />
-              <span className="optimus-kpi font-mono text-xs tabular-nums">{featuredProgress}%</span>
-            </span>
-          </Link>
-        </section>
-      ) : null}
 
       {/* Rails de contenu */}
       <section className="mt-8">
@@ -455,18 +381,9 @@ function Dashboard() {
       <section className="mt-8">
         <SectionTitle kicker={t("dash.more")} title={t("dash.toolsAccess")} />
         <div className="flex flex-wrap gap-2">
-          <Link to="/revue" className={buttonVariants({ variant: "secondary", size: "sm" })}>
-            <DeckIcon name="book" />
-            {t("nav.review")} {dueCount > 0 ? `(${dueCount})` : ""}
-          </Link>
           <Link to="/import" className={buttonVariants({ variant: "secondary", size: "sm" })}>
             <Upload className="size-4" />
             {t("nav.importDeck")}
-          </Link>
-          <Link to="/cas" className={buttonVariants({ variant: "secondary", size: "sm" })}>
-            <Sparkles className="size-4" />
-            {t("dash.clinicalCases")} ({CLINICAL_CASES.length} ·{" "}
-            {t("dash.freeCases", { count: freeCasesCount })})
           </Link>
           {decks.some((d) => !hasAccess(d, entitlements, profile.tier)) ? (
             <Link to="/pro" className={buttonVariants({ variant: "secondary", size: "sm" })}>
