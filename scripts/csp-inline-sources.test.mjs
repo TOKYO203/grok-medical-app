@@ -10,7 +10,7 @@ import assert from "node:assert/strict";
 
 test("un seul script inline est écrit par l'application : le boot de thème", () => {
   const root = readFileSync("src/routes/__root.tsx", "utf8");
-  const inline = [...root.matchAll(/<script\b[^>]*>/g)];
+  const inline = [...root.matchAll(/<script\b[^>]*>/gi)];
   assert.equal(inline.length, 1, `scripts inline trouvés dans __root.tsx : ${inline.length}`);
   assert.match(root, /dangerouslySetInnerHTML=\{\{ __html: THEME_BOOT_SCRIPT \}\}/);
 });
