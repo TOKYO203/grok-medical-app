@@ -1057,3 +1057,9 @@ une affectation de `VITE_AUTH_ENABLED` sur `process.env` dans le lanceur.
 | Date | ID | Décision | Motif | Auteur |
 |------|----|----------|-------|--------|
 | 2026-11-28 | CI-2 | `scripts/sync-catalog-data.mjs` : le garde d'exécution directe compare désormais `resolve(process.argv[1])` au chemin du module, au lieu de comparer ce chemin à `<cwd>/scripts/sync-catalog-data.mjs`. Test anti-régression ajouté dans `public-content-leak.test.mjs`. | L'ancienne condition était **vraie à chaque import** lancé depuis la racine du dépôt : importer le module — ce que font trois fichiers de test — déclenchait une synchronisation complète des catalogues et des actifs privés en pleine suite parallèle. C'est la cause racine des échecs intermittents `public-content-leak` et `ENOTEMPTY` observés les 27 et 28 novembre, et non une simple lenteur de runner. | Vibe |
+
+## 2026-11-28 — CI : dernier cas de fuite de contenu rendu hermétique
+
+| Date | ID | Décision | Motif | Auteur |
+|------|----|----------|-------|--------|
+| 2026-11-28 | CI-3 | `scripts/strip-demarches-from-dist.mjs` expose `stripDemarchesFromDist({ root })` et `DIST_CANDIDATES`, avec le même garde d'exécution directe que `sync-catalog-data.mjs`. Le dernier cas de `public-content-leak.test.mjs` fabrique un faux artefact temporaire et vérifie que les fiches sont retirées, que `_index.json` reste et que le nettoyage est idempotent — au lieu de parcourir `dist/` et `.output/` du dépôt et de **sauter silencieusement** quand aucun build local n'existe. | Le test passait sur une machine propre sans rien vérifier : un `skip` déguisé en succès. Il dépendait en plus d'un artefact laissé par une exécution précédente, donc son résultat variait selon l'ordre des tâches. `DIST_CANDIDATES` est désormais asserté explicitement (trois sorties : Vite, Nitro, Nitro public). | Vibe |
