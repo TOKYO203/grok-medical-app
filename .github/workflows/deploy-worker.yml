@@ -57,6 +57,23 @@ jobs:
             console.log('run_worker_first=',j.assets.run_worker_first);
           "
 
+      # Secrets de signature : poussés AVANT le déploiement, et seulement s'ils
+      # existent. Sans LICENSE_JWT_SECRET, /api/licenses/trial-token répond 503
+      # et les catalogues /content/* restent fermés aux visiteurs anonymes
+      # (diagnostic production 2026-11-28).
+      - name: Push signing secret (LICENSE_JWT_SECRET)
+        run: |
+          if [ -n "$LICENSE_JWT_SECRET" ]; then
+            printf '%s' "$LICENSE_JWT_SECRET" | npx wrangler secret put LICENSE_JWT_SECRET --config .output/server/wrangler.json
+            echo "LICENSE_JWT_SECRET poussé comme secret du Worker"
+          else
+            echo "::warning::LICENSE_JWT_SECRET absent — jeton d'essai indisponible, catalogues fermés aux anonymes"
+          fi
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          LICENSE_JWT_SECRET: ${{ secrets.LICENSE_JWT_SECRET }}
+
       - name: Deploy with Wrangler
         run: |
           ARGS="--config .output/server/wrangler.json"

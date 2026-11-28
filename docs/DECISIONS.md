@@ -1045,3 +1045,9 @@ une affectation de `VITE_AUTH_ENABLED` sur `process.env` dans le lanceur.
 | Date | ID | Décision | Motif | Auteur |
 |------|----|----------|-------|--------|
 | 2026-11-28 | SEC-HEALTH-1 | `api.health.checkout.ts` : le type de retour de `probeDatabase()` déclare `error?: string` (le cast `(database as any)` disparaît), et le handler **ne renvoie plus** le message brut du driver dans un `error_debug` 500. Le détail part uniquement dans `console.error`. Test de non-régression ajouté. | Le correctif de connexion Postgres des PR #557–#559 renvoyait le message du driver — hôte, port, utilisateur, parfois la chaîne de connexion — sur un endpoint **public et non authentifié**, et cassait `tsc` (propriété inconnue), donc le build de production. Doctrine de la route rappelée : des booléens et un motif, jamais d'infrastructure. | Vibe |
+
+## 2026-11-28 — Déploiement : pousser le secret de signature du contenu
+
+| Date | ID | Décision | Motif | Auteur |
+|------|----|----------|-------|--------|
+| 2026-11-28 | SEC-ENV-1 | `deploy-worker.yml` pousse `LICENSE_JWT_SECRET` comme **secret** du Worker (`wrangler secret put`) avant le déploiement, quand le secret GitHub Actions du même nom existe ; sinon le job émet un `::warning::` explicite. `docs/production-runbook.md` liste les trois secrets dont l'absence casse la production. | Diagnostic du 2026-11-28 : la base est redevenue joignable, mais `/api/licenses/trial-token` répondait toujours `503 license_verification_unavailable` et les catalogues `/content/*` restaient fermés aux anonymes. Le workflow n'injectait que `BETTER_AUTH_*` et `GROK_AUTH_*` : `LICENSE_JWT_SECRET` n'avait aucun chemin d'approvisionnement, et aucun échec de build ne le signalait. | Vibe |
