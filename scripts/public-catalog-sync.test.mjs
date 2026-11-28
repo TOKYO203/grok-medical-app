@@ -187,6 +187,14 @@ test("le test ne mute jamais le check-out", () => {
 
 function rmTemp(root) {
   for (const dir of ["public", "private", "src"]) {
-    rmSync(join(root, dir), { recursive: true, force: true });
+    try {
+      // maxRetries/retryDelay : la suppression d'un arbre peut rencontrer
+      // ENOTEMPTY quand un autre fichier de test écrit en parallèle (observé en
+      // CI le 2026-11-27, job « Suite de tests (bloquante) »).
+      rmSync(join(root, dir), { recursive: true, force: true, maxRetries: 8, retryDelay: 50 });
+    } catch (err) {
+      // Nettoyage best-effort : ne jamais faire échouer le test sur un ménage.
+      console.warn(`[cleanup] ${dir} : ${err?.code ?? err}`);
+    }
   }
 }
